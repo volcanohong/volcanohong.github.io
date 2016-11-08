@@ -1,0 +1,744 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="coding,java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Item 38: check parameters for validity  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective java notes">
+<meta property="og:url" content="http://volcanohong.github.com/2016/07/16/effective-java-notes/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Item 38: check parameters for validity  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and ob">
+<meta property="og:updated_time" content="2016-07-19T04:28:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective java notes">
+<meta name="twitter:description" content="Item 38: check parameters for validity  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and ob">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/07/16/effective-java-notes/"/>
+
+  <title> Effective java notes | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Effective java notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T21:00:00-07:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-38-check-parameters-for-validity"><span class="nav-number">1.</span> <span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-39-Make-defensive-copies-when-needed"><span class="nav-number">2.</span> <span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-40-Design-method-signatures-carefully"><span class="nav-number">3.</span> <span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-41-Use-overloading-judiciously"><span class="nav-number">4.</span> <span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-42-Use-varargs-judiciously"><span class="nav-number">5.</span> <span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-43-Return-empty-arrays-or-collections-not-nulls"><span class="nav-number">6.</span> <span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-44-Write-doc-comments-for-all-exposed-API-elements"><span class="nav-number">7.</span> <span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <!--* ### **Chapter 7: Methods**-->
+<ul>
+<li><h4 id="Item-38-check-parameters-for-validity"><a href="#Item-38-check-parameters-for-validity" class="headerlink" title="Item 38: check parameters for validity"></a><strong>Item 38: check parameters for validity</strong></h4><p>  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and object values must be non-null.<br>  You should enforce them with checks at beginning of the method body.</p>
+  <a id="more"></a>
+<p>  <strong>Notes:</strong></p>
+<ol>
+<li>Once an error occur, throw the exception as early as possible</li>
+<li>For public methods, use Javadoc @throws tag to document the exception. (<code>IlliegalArgumentException</code>, <code>IndexOutofBoundsException</code>, or <code>NullPointerException</code>)</li>
+<li>For un exported methods, use <code>assert</code> for validity checks, e.g., <code>assert a != null;</code>. Enable assert by command <code>-ea</code> (or <code>-enableassertions</code>) to the java interpreter.</li>
+<li>It is particular important to check the validity of parameters that are not used by a method but are stored away for later use. (It’s quite hard to debug if there is an error in this case)</li>
+<li>Design API to be as general as it is practical to make them.</li>
+</ol>
+</li>
+<li><h4 id="Item-39-Make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39: Make defensive copies when needed"></a><strong>Item 39: Make defensive copies when needed</strong></h4><p>  <strong>Notes:</strong> </p>
+<ol>
+<li>Never trust a user input data</li>
+</ol>
+</li>
+<li><h4 id="Item-40-Design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40: Design method signatures carefully"></a><strong>Item 40: Design method signatures carefully</strong></h4><p>  <strong>Notes:</strong></p>
+<ol>
+<li>Avoid too many functions in a class | interface</li>
+<li>Avoid long parameter list (larger than 4)</li>
+<li>For parameter types, use interfaces instead of classes</li>
+<li>For control parameters, prefer two-element <code>enum</code> types to <code>boolean</code></li>
+</ol>
+</li>
+<li><h4 id="Item-41-Use-overloading-judiciously"><a href="#Item-41-Use-overloading-judiciously" class="headerlink" title="Item 41: Use overloading judiciously"></a><strong>Item 41: Use overloading judiciously</strong></h4><p>  <strong>Notes:</strong></p>
+<ol>
+<li><code>overload</code>: polymorphism in compile time; <code>override</code>: polymorphism in run time</li>
+<li>Avoid using different types of a parameter to design overloading methods</li>
+<li>Never export two overloading with the same number of parameters</li>
+</ol>
+</li>
+<li><h4 id="Item-42-Use-varargs-judiciously"><a href="#Item-42-Use-varargs-judiciously" class="headerlink" title="Item 42: Use varargs judiciously"></a><strong>Item 42: Use varargs judiciously</strong></h4></li>
+<li><h4 id="Item-43-Return-empty-arrays-or-collections-not-nulls"><a href="#Item-43-Return-empty-arrays-or-collections-not-nulls" class="headerlink" title="Item 43: Return empty arrays or collections, not nulls"></a><strong>Item 43: Return empty arrays or collections, not nulls</strong></h4><p>  <strong>Notes:</strong></p>
+<ol>
+<li>It’s arguable that a null return is preferable to an empty array in case of mitigating system expense.</li>
+<li><p>The right way to return an array of a collection</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">// The right way to return an array of a collection</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Cheese&gt; cheeseInStock = ...;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Cheese[] EMPTY_CHEESE_ARRAY = <span class="keyword">new</span> Cheese[<span class="number">0</span>];</div><div class="line">  <span class="keyword">public</span> Cheese[] getCheese() &#123;</div><div class="line">      <span class="keyword">return</span> cheesesInStock.toArray(EMPTY_CHEESE_ARRAY);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>The right way to return a copy of a collection</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// The right way to return a copy of a collection</span></div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Cheese&gt; <span class="title">getCheeseList</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">if</span> (cheesesInStock.isEmpty())</div><div class="line">    <span class="keyword">return</span> Collections.emptyList(); <span class="comment">// Always returns same list</span></div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;Cheese&gt;(cheesesInStock);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><h4 id="Item-44-Write-doc-comments-for-all-exposed-API-elements"><a href="#Item-44-Write-doc-comments-for-all-exposed-API-elements" class="headerlink" title="Item 44: Write doc comments for all exposed API elements"></a><strong>Item 44: Write doc comments for all exposed API elements</strong></h4><p>  <strong>Notes:</strong></p>
+<ol>
+<li>@param, @return, @throws</li>
+<li>@throws starts with if statement</li>
+<li>@{code} and@{literal}</li>
+<li>Document enum and annotation types</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/14/linux-notes-1/" rel="next" title="Linux notes I">
+                <i class="fa fa-chevron-left"></i> Linux notes I
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/18/hippo-notes-1/" rel="prev" title="Hippo notes I">
+                Hippo notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-38-check-parameters-for-validity"><span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-39-Make-defensive-copies-when-needed"><span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-40-Design-method-signatures-carefully"><span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-41-Use-overloading-judiciously"><span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-42-Use-varargs-judiciously"><span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-43-Return-empty-arrays-or-collections-not-nulls"><span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-44-Write-doc-comments-for-all-exposed-API-elements"><span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

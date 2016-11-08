@@ -1,0 +1,716 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,blog,qrcode," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="QR Code Generator
+
+Utilize google QR code generator …Define the charset, format, and size.Use MatrixToImageWriter to write a BitMatrix to BufferedImage, file or stream.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java QR code">
+<meta property="og:url" content="http://volcanohong.github.com/2016/10/07/java-qr-code/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="QR Code Generator
+
+Utilize google QR code generator …Define the charset, format, and size.Use MatrixToImageWriter to write a BitMatrix to BufferedImage, file or stream.">
+<meta property="og:updated_time" content="2016-11-08T03:26:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java QR code">
+<meta name="twitter:description" content="QR Code Generator
+
+Utilize google QR code generator …Define the charset, format, and size.Use MatrixToImageWriter to write a BitMatrix to BufferedImage, file or stream.">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/10/07/java-qr-code/"/>
+
+  <title> Java QR code | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java QR code
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T21:27:41-07:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index">
+                    <span itemprop="name">Blog</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#QR-Code-Generator"><span class="nav-number">1.</span> <span class="nav-text">QR Code Generator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-to-Create-QR-Code"><span class="nav-number">2.</span> <span class="nav-text">Example to Create QR Code</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="QR-Code-Generator"><a href="#QR-Code-Generator" class="headerlink" title="QR Code Generator"></a><strong>QR Code Generator</strong></h4></li>
+</ul>
+<p>Utilize google QR code generator …<br>Define the <code>charset</code>, <code>format</code>, and <code>size</code>.<br>Use <code>MatrixToImageWriter</code> to write a <code>BitMatrix</code> to <code>BufferedImage</code>, file or stream. </p>
+<a id="more"></a>
+<p><em>toBufferedImage</em> method<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BufferedImage <span class="title">toBufferedImage</span><span class="params">(BitMatrix matrix)</span> </span>&#123;...&#125;</div></pre></td></tr></table></figure></p>
+<p><em>encode</em> method<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> BitMatrix <span class="title">encode</span><span class="params">(String contents, BarcodeFormat format, <span class="keyword">int</span> width, <span class="keyword">int</span> height, Map&lt;EncodeHintType, ?&gt; hints)</span> <span class="keyword">throws</span> WriterException </span>&#123;...&#125;</div></pre></td></tr></table></figure></p>
+<p><em>decode</em> method<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Result <span class="title">decode</span><span class="params">(BinaryBitmap image, Map&lt;DecodeHintType, ?&gt; hints)</span> <span class="keyword">throws</span> NotFoundException </span>&#123;...&#125;</div></pre></td></tr></table></figure></p>
+<p>Available <code>BarcodeFormat</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> BarcodeFormat &#123;</div><div class="line">    AZTEC,</div><div class="line">    CODABAR,</div><div class="line">    CODE_39,</div><div class="line">    CODE_93,</div><div class="line">    CODE_128,</div><div class="line">    DATA_MATRIX,</div><div class="line">    EAN_8,</div><div class="line">    EAN_13,</div><div class="line">    ITF,</div><div class="line">    MAXICODE,</div><div class="line">    PDF_417,</div><div class="line">    QR_CODE,</div><div class="line">    RSS_14,</div><div class="line">    RSS_EXPANDED,</div><div class="line">    UPC_A,</div><div class="line">    UPC_E,</div><div class="line">    UPC_EAN_EXTENSION;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>An example goes here …<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.google.zxing.*;</div><div class="line"><span class="keyword">import</span> com.google.zxing.client.j2se.BufferedImageLuminanceSource;</div><div class="line"><span class="keyword">import</span> com.google.zxing.client.j2se.MatrixToImageWriter;</div><div class="line"><span class="keyword">import</span> com.google.zxing.common.HybridBinarizer;</div><div class="line"><span class="keyword">import</span> com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</div><div class="line"><span class="keyword">import</span> java.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZxingUtil</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;EncodeHintType, ErrorCorrectionLevel&gt; encodeMap = <span class="keyword">new</span> HashMap&lt;EncodeHintType, ErrorCorrectionLevel&gt;();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;DecodeHintType, ErrorCorrectionLevel&gt; decodeMap = <span class="keyword">new</span> HashMap&lt;DecodeHintType, ErrorCorrectionLevel&gt;();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String charset=<span class="string">"UTF-8"</span>, format=<span class="string">"png"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> size = <span class="number">150</span>;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ZxingUtil</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * QR code encoder</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> data data to be encoded</div><div class="line">     * <span class="doctag">@throws</span> WriterException</div><div class="line">     * <span class="doctag">@throws</span> IOException</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BufferedImage <span class="title">createQRCode</span><span class="params">(String data)</span></span></div><div class="line">        <span class="keyword">throws</span> WriterException, IOException &#123;</div><div class="line">        <span class="keyword">return</span> MatrixToImageWriter.toBufferedImage(<span class="keyword">new</span> MultiFormatWriter()</div><div class="line">                .encode(<span class="keyword">new</span> String(data.getBytes(charset), charset),</div><div class="line">                    BarcodeFormat.QR_CODE, size, size, encodeMap));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * QR code decoder</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> image QR code image</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     * <span class="doctag">@throws</span> FileNotFoundException</div><div class="line">     * <span class="doctag">@throws</span> IOException</div><div class="line">     * <span class="doctag">@throws</span> NotFoundException</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">readQRCode</span><span class="params">(<span class="keyword">byte</span>[] image)</span></span></div><div class="line">        <span class="keyword">throws</span> FileNotFoundException, IOException, NotFoundException &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MultiFormatReader().decode(</div><div class="line">            <span class="keyword">new</span> BinaryBitmap(</div><div class="line">                <span class="keyword">new</span> HybridBinarizer(</div><div class="line">                    <span class="keyword">new</span> BufferedImageLuminanceSource(</div><div class="line">                        ImageIO.read(<span class="keyword">new</span> ByteArrayInputStream(image))))), decodeMap).getText();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="Example-to-Create-QR-Code"><a href="#Example-to-Create-QR-Code" class="headerlink" title="Example to Create QR Code"></a><strong>Example to Create QR Code</strong></h4></li>
+</ul>
+<p>An example of using above method to create QR code …</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * create user QR scan code</div><div class="line"> * <span class="doctag">@param</span> userScanCodeDTO</div><div class="line"> * <span class="doctag">@return</span> Optional&lt;BufferedImage&gt;</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> Optional&lt;Image&gt; <span class="title">createUserQRCode</span><span class="params">(@NotNull UserScanCodeDTO userScanCodeDTO)</span> </span>&#123;</div><div class="line">    log.debug(<span class="string">"create user QR code : &#123;&#125;"</span>, userScanCodeDTO);</div><div class="line">    <span class="keyword">return</span> Optional.of(userScanCodeDTO)</div><div class="line">        .map(usc -&gt; &#123;</div><div class="line">            BufferedImage bufferedImage = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                bufferedImage = ZxingUtil.createQRCode(usc.getScanCode());</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                log.debug(e.getMessage());</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> bufferedImage;</div><div class="line">        &#125;)</div><div class="line">        .map(bufferedImage -&gt; &#123;</div><div class="line">            ByteArrayOutputStream bs = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">            Image image = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                ImageIO.write(bufferedImage, <span class="string">"png"</span>, bs);</div><div class="line">                 image = <span class="keyword">new</span> Image()</div><div class="line">                    .name(userScanCodeDTO.getScanCode())</div><div class="line">                    .image(bs.toByteArray())</div><div class="line">                    .imageContentType(<span class="string">"image/png"</span>);</div><div class="line">                bs.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                log.debug(e.getMessage());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> image;</div><div class="line">        &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><strong>Ref:</strong></p>
+<pre><code>1. [ZXing 3.3.0 API]
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/blog/" rel="tag">#blog</a>
+          
+            <a href="/tags/qrcode/" rel="tag">#qrcode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/06/java8-notes-1/" rel="next" title="Java8 notes I">
+                <i class="fa fa-chevron-left"></i> Java8 notes I
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/01/angularjs-notes-1/" rel="prev" title="AngularJS notes I">
+                AngularJS notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#QR-Code-Generator"><span class="nav-text">QR Code Generator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-to-Create-QR-Code"><span class="nav-text">Example to Create QR Code</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

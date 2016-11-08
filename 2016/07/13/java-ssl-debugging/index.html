@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="coding,java,java web,debug," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SSL: ValidatorException
+
+Exception Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid cert">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java SSL debugging">
+<meta property="og:url" content="http://volcanohong.github.com/2016/07/13/java-ssl-debugging/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="SSL: ValidatorException
+
+Exception Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid cert">
+<meta property="og:updated_time" content="2016-07-19T04:33:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java SSL debugging">
+<meta name="twitter:description" content="SSL: ValidatorException
+
+Exception Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid cert">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/07/13/java-ssl-debugging/"/>
+
+  <title> Java SSL debugging | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java SSL debugging
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-13T16:18:35-07:00" content="2016-07-13">
+              2016-07-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-ValidatorException"><span class="nav-number">1.</span> <span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-HandshakeException"><span class="nav-number">2.</span> <span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="SSL-ValidatorException"><a href="#SSL-ValidatorException" class="headerlink" title="SSL: ValidatorException"></a><strong>SSL: ValidatorException</strong></h4></li>
+</ul>
+<p><em>Exception Message</em>: <code>sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</code></p>
+<a id="more"></a>
+<p>This is possibly because the server uses a certificate that is little known to java, which means when java try to verify the SSL, it realize it is not trustable.<br><em>Another explanation</em>: It is because incomplete trust path for the server certificate; the server’s certificate is probably not trusted by the client.</p>
+<p><strong>Solution</strong><br>Commonly, the fix is to import the server’s certificate authority (CA) into the client’s trust store (add the root CA, not server CA, to your <code>cacerts</code> file).</p>
+<p>Here are the step:</p>
+<ol>
+<li>Identify the root CA using SSL Checker.</li>
+<li>Find out the root cert. from server side.</li>
+<li>Create the <code>.pem</code> file. e.g., <code>DSTRootCAX3.pem</code></li>
+<li>Update the <code>cacerts</code> file of your java. Normally, it is located in (Mac) <code>/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/security</code> or<br>(Linux) <code>/home/omega/java/jre/lib/security</code></li>
+</ol>
+<ul>
+<li><h4 id="SSL-HandshakeException"><a href="#SSL-HandshakeException" class="headerlink" title="SSL: HandshakeException"></a><strong>SSL: HandshakeException</strong></h4></li>
+</ul>
+<p>After the CA import, it man still have error like <code>handshake_failure</code>.</p>
+<p>Read the detailed log by using <code>-Djavax.net.debug=all</code></p>
+<p><em>Exception Message</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Cipher Suites: […Long list of ciphers…]</div><div class="line">Compression Methods:  &#123; 0 &#125;</div><div class="line">Extension elliptic_curves, curve names: &#123;…&#125;</div><div class="line">Extension ec_point_formats, formats: [uncompressed]</div><div class="line">Extension server_name, server_name: [host_name: HOST]</div><div class="line">***</div><div class="line">main, WRITE: TLSv1 Handshake, length = 168</div><div class="line">main, READ: TLSv1 Alert, length = 2</div><div class="line">main, RECV TLSv1 ALERT:  fatal, handshake_failure</div><div class="line">main, called closeSocket()</div><div class="line">main, handling exception: javax.net.ssl.SSLHandshakeException: </div><div class="line">Received fatal alert: handshake_failure</div></pre></td></tr></table></figure></p>
+<p>One possible reason is the JRE Library lacks of supported algorithm. (The server side is using some high security encryption algorithms) .</p>
+<p><strong>Solution</strong><br>This problem can be solved by updating the JRE Library with adding stronger algorithms: <code>JCE Unlimited Strength</code>.</p>
+<blockquote>
+<p>In a high security environment, one way of strengthening algorithms in the JDK is through the JCE Unlimited Strength policy files. In this particular case, replacing those policy files allows it to use the stronger variants of existing algorithms and connect successfully.</p>
+</blockquote>
+<p><code>JCE Unlimited Strength</code> downloads: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="external">JDK 8</a>, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="external">JDK 7</a>, or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="external">JDK 6</a>.</p>
+<p><em>Installation</em>: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to <java_home>/lib/security </java_home></p>
+<p><strong>NOTES:</strong></p>
+<ol>
+<li><p>Some cases might be related to <code>TLS protocols</code>, e.g., JDK 8 using TLSv1.2 by default, while JDK 7 has TLSv1 by default. To make the <code>TLS protocols</code> being compliant with each other, try debugging in java with command <code>-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2</code>.</p>
+</li>
+<li><p>Someone mentioned that using <code>http:</code> instead of <code>https:</code>. It certainly works without errors, but that is not the reasonable solution.</p>
+</li>
+<li><p>Some cases may refer to <code>server name indication</code> (SNI). If the server requires SNI, trying to setup a connection without SNI will fail. All modern browsers support SNI, but not all SSL stacks in programming languages support SNI or use it by default.<br>To avoid SNI: <code>-Djsse.enableSNIExtension=false</code>,<br>To check SNI with a server,</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># without SNI</span></div><div class="line">$ openssl s_client -connect www.google.com:443</div><div class="line">CONNECTED(00000003)</div><div class="line">140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:</div><div class="line">....</div><div class="line">New, (NONE), Cipher is (NONE)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Ref. links:<br><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html" target="_blank" rel="external">Debugging SSL/TLS Connections from docs.Oracle</a><br><a href="https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https" target="_blank" rel="external">Diagnosing TLS, SSL, and HTTPS from blog.Oracle</a><br><a href="http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception" target="_blank" rel="external">Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow</a><br><a href="http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0" target="_blank" rel="external">SSL handshake alert: unrecognized_name error from stackOverflow</a></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/java-web/" rel="tag">#java web</a>
+          
+            <a href="/tags/debug/" rel="tag">#debug</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/10/hexo-notes-1/" rel="next" title="Hexo notes I">
+                <i class="fa fa-chevron-left"></i> Hexo notes I
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/14/linux-notes-1/" rel="prev" title="Linux notes I">
+                Linux notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-ValidatorException"><span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL-HandshakeException"><span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

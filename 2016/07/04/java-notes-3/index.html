@@ -1,0 +1,711 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="coding,java,java web," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Sending HTTP post request
+
+In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java coding notes III">
+<meta property="og:url" content="http://volcanohong.github.com/2016/07/04/java-notes-3/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Sending HTTP post request
+
+In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
+<meta property="og:updated_time" content="2016-07-10T05:04:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java coding notes III">
+<meta name="twitter:description" content="Sending HTTP post request
+
+In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/07/04/java-notes-3/"/>
+
+  <title> Java coding notes III | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java coding notes III
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-04T21:20:00-07:00" content="2016-07-04">
+              2016-07-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sending-HTTP-post-request"><span class="nav-number">1.</span> <span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaling-BigDecimal"><span class="nav-number">2.</span> <span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="Sending-HTTP-post-request"><a href="#Sending-HTTP-post-request" class="headerlink" title="Sending HTTP post request"></a><strong>Sending HTTP post request</strong></h4></li>
+</ul>
+<p>In case of sending HTTP post request to a <code>URL</code> with parameters such as submitting a HTML form and expecting to receive some response.<br><a id="more"></a><br><a href="https://hc.apache.org/httpcomponents-client-ga/quickstart.html" target="_blank" rel="external">More details: Apache HTTP Client</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.http.client.*;</div><div class="line"> </div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpException;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpStatus;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.methods.PostMethod;</span></div><div class="line"></div><div class="line">CloseableHttpClient httpClient = HttpClients.createDefault();</div><div class="line">HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"https://someUrl"</span>);</div><div class="line">List&lt;NameValuePair&gt; paraList = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para1"</span>, para1));</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para2"</span>, para2));</div><div class="line"></div><div class="line">httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(paraList, <span class="string">"UTF-8"</span>));</div><div class="line">CloseableHttpResponse httpResponse = httpClient.execute(httpPost);</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    System.out.println(httpResponse.getStatusLine());</div><div class="line">    HttpEntity httpEntity = httpResponse.getEntity();</div><div class="line">    <span class="keyword">if</span> (httpEntity!= <span class="keyword">null</span>) &#123;</div><div class="line">        InputStream instream = httpEntity.getContent();</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (HttpException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...	</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    httpResponse.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Another method or an old way …</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    URL url = <span class="keyword">new</span> URL(<span class="string">"https://someUrl"</span>);</div><div class="line">    <span class="comment">//open connection</span></div><div class="line">    HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">    <span class="comment">//set connection output | input to true</span></div><div class="line">    connection.setDoOutput(<span class="keyword">true</span>);</div><div class="line">    connection.setDoInput(<span class="keyword">true</span>);</div><div class="line">    <span class="comment">//instead of a GET, using method="POST"</span></div><div class="line">    connection.setRequestMethod(<span class="string">"POST"</span>);</div><div class="line">    <span class="comment">//an OutputStreamWriter for output stream by getOutputStream which writes to the connection.</span></div><div class="line">    OutputStreamWriter writer = <span class="keyword">new</span> OutputStreamWriter(connection.getOutputStream());</div><div class="line">    <span class="comment">//write data</span></div><div class="line">    String para = URLEncoder.encode(apiKey, <span class="string">"UTF-8"</span>);</div><div class="line">    writer.write(<span class="string">"para="</span> + para);</div><div class="line">    writer.flush();</div><div class="line">    <span class="comment">//read from connection.getInputStream</span></div><div class="line">    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream())); </div><div class="line">    String readLine; </div><div class="line">    <span class="keyword">while</span> ((readLine = reader.readLine()) != <span class="keyword">null</span>) &#123; </div><div class="line">        <span class="comment">//process readLine... </span></div><div class="line">    &#125; </div><div class="line">    writer.close();</div><div class="line">    reader.close(); </div><div class="line">    <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</div><div class="line">        <span class="comment">//connection is good</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//HTTP error code.</span></div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="Scaling-BigDecimal"><a href="#Scaling-BigDecimal" class="headerlink" title="Scaling BigDecimal"></a><strong>Scaling BigDecimal</strong></h4></li>
+</ul>
+<p>Some methods for scaling a BigDecimal number.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.math.*</div><div class="line"></div><div class="line">BigDecimal amount = <span class="keyword">new</span> BigDecimal(<span class="number">98.7654</span>);</div><div class="line"></div><div class="line"><span class="comment">//option A: output 9876</span></div><div class="line">BigDecimal amount1 = amount.scaleByPowerOfTen(<span class="number">2</span>).setScale(<span class="number">0</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount1));</div><div class="line"></div><div class="line"><span class="comment">//option B: output 9876.54</span></div><div class="line">BigDecimal amount2 = amount.movePointRight(<span class="number">2</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount2));</div><div class="line"></div><div class="line"><span class="comment">//option C: output 9876.5400</span></div><div class="line">BigDecimal amount3 = amount.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">100</span>)).setScale(<span class="number">4</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount3));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.3       </span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).round(<span class="keyword">new</span> MathContext(<span class="number">3</span>, RoundingMode.HALF_UP))));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.35</span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP)));</div></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/java-web/" rel="tag">#java web</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/28/java-notes-2/" rel="next" title="Java coding notes II">
+                <i class="fa fa-chevron-left"></i> Java coding notes II
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/08/junit-test-notes-1/" rel="prev" title="JUnit test notes I">
+                JUnit test notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sending-HTTP-post-request"><span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaling-BigDecimal"><span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

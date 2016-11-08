@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,coding,hippo,freemarker,cms," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Introduction
+
+Hippo is a java based Content Management System (CMS) that allows you to create, control, and deliver engaging content to your visitors in every channel. Hippo CMS is an open-source, du">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hippo notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2016/07/18/hippo-notes-1/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Introduction
+
+Hippo is a java based Content Management System (CMS) that allows you to create, control, and deliver engaging content to your visitors in every channel. Hippo CMS is an open-source, du">
+<meta property="og:updated_time" content="2016-07-23T01:57:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hippo notes I">
+<meta name="twitter:description" content="Introduction
+
+Hippo is a java based Content Management System (CMS) that allows you to create, control, and deliver engaging content to your visitors in every channel. Hippo CMS is an open-source, du">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/07/18/hippo-notes-1/"/>
+
+  <title> Hippo notes I | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hippo notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-18T21:00:00-07:00" content="2016-07-18">
+              2016-07-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hippo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hippo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setup-Hippo-Project"><span class="nav-number">3.</span> <span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hello-page"><span class="nav-number">3.1.</span> <span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-in-Hippo-A-Hello-Page"><span class="nav-number">4.</span> <span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolve-Links-to-Static-Resources"><span class="nav-number">5.</span> <span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Head-Contributions"><span class="nav-number">6.</span> <span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Pages"><span class="nav-number">7.</span> <span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configure-Banners"><span class="nav-number">8.</span> <span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confiure-Search"><span class="nav-number">9.</span> <span class="nav-text">Confiure Search</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
+</ul>
+<p>Hippo is a java based Content Management System (CMS) that allows you to create, control, and deliver engaging content to your visitors in every channel. Hippo CMS is an open-source, dual licensed platform.</p>
+<p>Ref: <a href="https://www.onehippo.com" target="_blank" rel="external">onehippo</a></p>
+<p>There are three components to Hippo CMS (<a href="https://en.wikipedia.org/wiki/Hippo_CMS" target="_blank" rel="external">wiki</a>):</p>
+<ol>
+<li>Delivery tier<br> The Hippo Site Toolkit is the presentation framework, using either <code>JSP</code> or <code>FreeMarker</code> to generate pages. Alternatively a <code>EST API</code> can be defined to serve structured content.</li>
+<li>Interface<br> The user interface through which the content management and administrative functionalities can be used.</li>
+<li>Content repository<br> All content, metadata and configuration is stored in a modified version of <code>Apache Jackrabbit</code>.</li>
+</ol>
+<a id="more"></a>
+<p>With Hippo’s open-source technology which integrates with a wide range of tools and data sources, you can analyse the behaviour of your visitors and optimise the performance of your content in any context, whether it’s web, mobile, social, apps, displays, billboards, or Internet-of-Things devices. It’s also easy to experiment and build new digital properties rapidly with Hippo’s open architecture and easy-to-use interface, bringing businesses the agility and freedom needed for creating the best next personalized digital customer experience.</p>
+<ul>
+<li><h4 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a><strong>Getting Started</strong></h4></li>
+</ul>
+<p>Learn Hippo: <a href="https://www.onehippo.org/trails/demo-tutorials-and-download.html" target="_blank" rel="external">Demo, Tutorials &amp; downloads</a>.</p>
+<p><em>Step 1</em>: Create the ‘myhippoproject’ from the Hippo maven archetype using the command below.<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate \</div><div class="line">-DarchetypeGroupId=org.onehippo.cms7 \</div><div class="line">-DarchetypeArtifactId=hippo-project-archetype \</div><div class="line">-DarchetypeVersion=4.0.0 \</div><div class="line">-DarchetypeRepository=http://maven.onehippo.com/maven2</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Do not use special characters such as dot or dash in the artifactId. Also avoid using ‘cms’ or ‘hippo’ as artifactId because these are known to cause naming conflicts.</p>
+<blockquote>
+<p>Type <code>n</code> at the prompt if you want to customize your project name or other parameters.</p>
+</blockquote>
+</blockquote>
+<p><em>Step 2</em>: Go to your project root folder ‘myhippoproject’and build your new project.<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> myhippoproject</div><div class="line">mvn clean verify</div></pre></td></tr></table></figure></p>
+<p>If you are doing this for the first time, it might take some time as Maven will download all project dependencies from a remote repository server.</p>
+<p><em>Step 3</em>: Launch Hippo CMS by running the following command in <code>myhippoproject</code><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn -P cargo.run -Drepo.path=storage</div></pre></td></tr></table></figure></p>
+<p>This creates WAR files and immediately runs the project using <code>Cargo</code>.</p>
+<p>Hippo CMS is now running and you are ready to start implementing your Hippo-based website. </p>
+<p>Hippo CMS UI at <code>http://localhost:8080/cms</code><br>    Use admin/admin or editor/editor or author/author as username/password combination. </p>
+<p>Hippo CMS Console at <code>http://localhost:8080/cms/console</code></p>
+<p>Setup Application at <code>http://localhost:8080/essentials</code><br>    The setup application provides a Feature Library from which features can be added to your project.<br>    The first time you use the application it will show a setup screen. Read carefully and if needed, change the default parameters before clicking on Get Started.</p>
+<p>Website at <code>http://localhost:8080/site</code><br>    The website will initially be empty. Once you have added some features from the library to the site it will render them using a default <a href="http://getbootstrap.com/" target="_blank" rel="external">bootstrap</a> theme.</p>
+<ul>
+<li><h4 id="Setup-Hippo-Project"><a href="#Setup-Hippo-Project" class="headerlink" title="Setup Hippo Project"></a><strong>Setup Hippo Project</strong></h4></li>
+</ul>
+<ol>
+<li>Choose templating language<br> Either <code>JSP</code> or <code>FreeMarker</code></li>
+<li>The project needs to rebuild after adding plugins</li>
+<li>Note that the pending changes will be deleted automatically by the setup application.</li>
+<li>You don’t need to rebuild for every single feature you add to the project, it is sufficient to rebuild after you added a batch of features.</li>
+</ol>
+<ul>
+<li><h5 id="Hello-page"><a href="#Hello-page" class="headerlink" title="Hello page"></a><strong>Hello page</strong></h5><ol>
+<li><p>Compile and run the project by using the following Maven commands:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mvn verify</div><div class="line">mvn –P cargo.run</div></pre></td></tr></table></figure>
+</li>
+<li><p>Put the <code>home.jsp</code> file in <code>site/src/main/webapp/WEB-INF/jsp/</code>. </p>
+</li>
+<li>Open hippo console, in the <code>hst:hst/hst:configurations/myhippoproject/hst:templates</code>,  add a node and name it <code>homepage</code>. Add property <code>hst:renderpath</code> with value <code>jsp/home.jsp</code>.</li>
+<li>Select the <code>hst:pages</code> node and add a child node called <code>home</code> of type <code>hst:component</code>. Add a property <code>hst:template</code> to the home node with the value <code>homepage</code> (referring to the homepage just created). </li>
+<li><p>Select the <code>hst:sitemap</code> node and add a child node called <code>root</code> of type <code>hst:sitemapitem</code>. Add a property called <code>hst:componentconfigurationid</code> and set the value to <code>hst:pages/home</code> (referring to the page configuration just created).</p>
+<blockquote>
+<p>In Hippo, each page configuration consists of a hierarchy of components. Each component has their own template. </p>
+</blockquote>
+</li>
+<li><p>Click on the <code>Write changes to repository</code> button in the top right corner.</p>
+</li>
+<li>Open the site ( <a href="http://localhost:8080/site/" target="_blank" rel="external">http://localhost:8080/site/</a>) to see the wonderfully simple page created.</li>
+<li><em>Not convenient</em>: every time making a change to the <code>.jsp</code> file, the project needs to rebuild.</li>
+</ol>
+</li>
+<li><h4 id="MVC-in-Hippo-A-Hello-Page"><a href="#MVC-in-Hippo-A-Hello-Page" class="headerlink" title="MVC in Hippo: A Hello Page"></a><strong>MVC in Hippo: A Hello Page</strong></h4></li>
+</ul>
+<ol>
+<li><p>View<br>In <code>http://localhost:8080/cms/</code> -&gt; <code>content</code><br>  a. Create a document type<br>  b. Create a document</p>
+</li>
+<li><p>Model<br> In <code>http://localhost:8080/essentials/</code>, <code>Tools</code> tab,  click on <code>Use Beanwriter</code>. It will generate the beans for you. Then in <code>site/src/main/java/org/example/beans/Simpledocument.java</code>,</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@HippoEssentialsGenerated</span>(internalName = <span class="string">"myhippoproject:simpledocument"</span>)</div><div class="line"><span class="meta">@Node</span>(jcrType = <span class="string">"myhippoproject:simpledocument"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Simpledocument</span> <span class="keyword">extends</span> <span class="title">BaseDocument</span> </span>&#123;</div><div class="line">   <span class="meta">@HippoEssentialsGenerated</span>(internalName = <span class="string">"myhippoproject:title"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getProperty(<span class="string">"myhippoproject:title"</span>);</div><div class="line">   &#125;</div><div class="line"> </div><div class="line">   <span class="meta">@HippoEssentialsGenerated</span>(internalName = <span class="string">"myhippoproject:content"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> HippoHtml <span class="title">getContent</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getHippoHtml(<span class="string">"myhippoproject:content"</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Controller<br> Create a new Java class in the site module, in the package <code>org.example.components</code>, named <code>SimpleComponent</code> with</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.example.components;</div><div class="line"> </div><div class="line"><span class="keyword">import</span> org.example.beans.Simpledocument;</div><div class="line"><span class="keyword">import</span> org.hippoecm.hst.component.support.bean.BaseHstComponent;</div><div class="line"><span class="keyword">import</span> org.hippoecm.hst.core.component.HstComponentException;</div><div class="line"><span class="keyword">import</span> org.hippoecm.hst.core.component.HstRequest;</div><div class="line"><span class="keyword">import</span> org.hippoecm.hst.core.component.HstResponse;</div><div class="line"><span class="keyword">import</span> org.hippoecm.hst.core.request.HstRequestContext;</div><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleComponent</span> <span class="keyword">extends</span> <span class="title">BaseHstComponent</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger log = LoggerFactory.getLogger(SimpleComponent.class);</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doBeforeRender</span><span class="params">(<span class="keyword">final</span> HstRequest request, <span class="keyword">final</span> HstResponse response)</span> <span class="keyword">throws</span> HstComponentException </span>&#123;</div><div class="line">        <span class="keyword">super</span>.doBeforeRender(request, response);</div><div class="line">        <span class="keyword">final</span> HstRequestContext ctx = request.getRequestContext();</div><div class="line"> </div><div class="line">        <span class="comment">// Retrieve the document based on the URL</span></div><div class="line">        Simpledocument document = (Simpledocument) ctx.getContentBean();</div><div class="line"> </div><div class="line">        <span class="keyword">if</span> (document != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">// Put the document on the request</span></div><div class="line">            request.setAttribute(<span class="string">"document"</span>, document);</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Dynamic view<br>In <code>home.ftl</code> file,</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#assign</span> <span class="attr">hst</span>=<span class="string">JspTaglibs[</span>"<span class="attr">http:</span>//<span class="attr">www.hippoecm.org</span>/<span class="attr">jsp</span>/<span class="attr">hst</span>/<span class="attr">core</span>"] &gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">#if</span> <span class="attr">document</span>??&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>$&#123;document.title?html&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">@hst.html</span> <span class="attr">hippohtml</span>=<span class="string">document.content</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#else</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Goodbye? cruel world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>Rebuild project</li>
+<li>Configure the MVC Component</li>
+</ol>
+<p>In <code>cms/console</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/hst:hst/hst:configurations/myhippoproject/hst:components</div><div class="line">    + simplecomponent [hst:component]</div><div class="line">        - hst:componentclassname = org.example.components.SimpleComponent</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/hst:hst/hst:configurations/myhippoproject/hst:pages/home</div><div class="line">    - hst:referencecomponent = hst:components/simplecomponent</div><div class="line">    - hst:template = homepage</div></pre></td></tr></table></figure>
+<ol>
+<li>Map the URL to the Content<br>The template engine currently executes the logic for not having a document present. This makes sense, because you have configure your view and your controller, but not yet where to retrieve your model (and thus, your document).</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/hst:hst/hst:configurations/myhippoproject/hst:sitemap/root</div><div class="line">    - hst:componentconfigurationid = hst:pages/home</div><div class="line">    - hst:relativecontentpath = hello-world</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="Resolve-Links-to-Static-Resources"><a href="#Resolve-Links-to-Static-Resources" class="headerlink" title="Resolve Links to Static Resources"></a><strong>Resolve Links to Static Resources</strong></h4></li>
+</ul>
+<p>The exact URLs of those static resources depend on the context in which the application is deployed. They must be resolved dynamically using &lt;@hst.webfile&gt;.</p>
+<p>E.g., replace:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"screen"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/yui-css.css"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>to</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"screen"</span> <span class="attr">type</span>=<span class="string">"text/css"</span></span></div><div class="line">      <span class="attr">href</span>=<span class="string">"&lt;@hst.webfile path="</span>/<span class="attr">css</span>/<span class="attr">yui-css.css</span>"/&gt;" /&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note that the path attribute of the &lt;@hst.webfile&gt; tag starts with a slash, where the original href attribute of the &lt; link&gt; element didn’t.</p>
+</blockquote>
+<ul>
+<li><h4 id="Include-Head-Contributions"><a href="#Include-Head-Contributions" class="headerlink" title="Include Head Contributions"></a><strong>Include Head Contributions</strong></h4></li>
+</ul>
+<p>Components further down in the hierarchy may require additional CSS and Javascript files to be loaded. In that case those components will make a head contribution. The top level component’s template must include those contributions.</p>
+<p>Inside the html <head> element, just before the closing </head> tag, insert the following line:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContributions</span> <span class="attr">categoryIncludes</span>=<span class="string">"htmlHead"</span> <span class="attr">xhtml</span>=<span class="string">true/</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Inside the html <body> element, just before the closing </body> tag, insert the following line:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContributions</span> <span class="attr">categoryIncludes</span>=<span class="string">"htmlBodyEnd"</span> <span class="attr">xhtml</span>=<span class="string">true/</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Open the file <code>bootstrap/webfiles/src/main/resources/site/freemarker/hstdefault/essentials-carousel.ftl</code>. This is the template for the out-of-the-box banner carousel.<br>In the template you can see an example of head contributions:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlBodyEnd"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;@hst.link path="</span>/<span class="attr">js</span>/<span class="attr">jquery-2.1.0.min.js</span>"/&gt;</span><span class="undefined">"&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlBodyEnd"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;@hst.link path="</span>/<span class="attr">js</span>/<span class="attr">bootstrap.min.js</span>"/&gt;</span><span class="undefined">"&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li><h4 id="Include-Pages"><a href="#Include-Pages" class="headerlink" title="Include Pages"></a><strong>Include Pages</strong></h4></li>
+</ul>
+<p>Include other <code>html</code> markup by using code</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"menu"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>Generate dynamic menus in <code>bootstrap/webfiles/src/main/resources/site/freemarker/gogreen/base-top-menu.ftl</code>. (Note that the file name and ref name is of difference.)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#include</span> "<span class="attr">..</span>/<span class="attr">include</span>/<span class="attr">imports.ftl</span>"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#if</span> <span class="attr">menu</span>??&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">#if</span> <span class="attr">menu.siteMenuItems</span>??&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"navigation"</span> <span class="attr">id</span>=<span class="string">"main-navigation"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">#list</span> <span class="attr">menu.siteMenuItems</span> <span class="attr">as</span> <span class="attr">item</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">#if</span>  <span class="attr">item.selected</span> || <span class="attr">item.expanded</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;@hst.link link=item.hstLink/&gt;"</span> <span class="attr">class</span>=<span class="string">"activelink"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"label-nav"</span>&gt;</span>$&#123;item.name?html&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">#else</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;@hst.link link=item.hstLink/&gt;"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"label-nav"</span>&gt;</span>$&#123;item.name?html&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">@hst.cmseditmenu</span> <span class="attr">menu</span>=<span class="string">menu/</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">#else</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">#if</span> <span class="attr">editMode</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>[Menu Component]<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">sub</span>&gt;</span>Click to edit Menu<span class="tag">&lt;/<span class="name">sub</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">#if</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>By following the same way, we have<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"main"</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!-- and --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"footer"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>with the corresponding files like and <code>homepage-main.ftl</code> and <code>base-footer.ftl</code>.</p>
+<p>Ref: <a href="https://www.onehippo.org/trails/developer-trail/configure-out-of-the-box-features/base-page-configuration.html" target="_blank" rel="external">Base page configuration</a></p>
+<ul>
+<li><h4 id="Configure-Banners"><a href="#Configure-Banners" class="headerlink" title="Configure Banners"></a><strong>Configure Banners</strong></h4></li>
+</ul>
+<p>In <code>homepage-main.ftl</code>, add a container.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#include</span> "<span class="attr">..</span>/<span class="attr">include</span>/<span class="attr">imports.ftl</span>"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"container"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Then, in <code>http://localhost:8080/cms/</code>, add images in <code>Content/Images</code> -&gt; folder banners.</p>
+<p>Then, create banner documents in <code>Content/Documents</code> -&gt; folder banners.</p>
+<ol>
+<li>Add related banner image and artical link</li>
+<li>Publish it</li>
+</ol>
+<p>Then, in <code>Channel/YourWebsite/</code>, click <code>Edit</code>. Drag the <code>Carousel</code> component icon into the rectangle labeled <code>container</code> in the home page’s main content area. </p>
+<p>A configuration dialog will appear. In the <code>Carousel Item 1</code> field click on the looking glass icon, browse to one of the Banner documents you added and select it. Click <code>Save</code>, then close the configuration dialog. The Banner Carousel now displays the selected banners.</p>
+<p>Click <code>Changes</code>, then <code>Publish</code>. </p>
+<ul>
+<li><h4 id="Confiure-Search"><a href="#Confiure-Search" class="headerlink" title="Confiure Search"></a><strong>Confiure Search</strong></h4></li>
+</ul>
+<p>Test search plugin: <code>http://localhost:8080/site/search?query=news</code>.</p>
+<p>In <code>base-layout.ftl</code>, replace the value of the <form> element’s action attribute with <code>&lt;@hst.link siteMapItemRefId=&quot;search&quot; /&gt;</code>. It should now look like this:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"searchbox"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&lt;@hst.link siteMapItemRefId="</span><span class="attr">search</span>" /&gt;</span>" method="get"&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"searchbox-inputtext"</span> <span class="attr">id</span>=<span class="string">"searchbox-inputtext"</span> <span class="attr">name</span>=<span class="string">"query"</span></span></div><div class="line">      <span class="attr">placeholder</span>=<span class="string">"Search"</span> /&gt; <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"searchbox-icon"</span> <span class="attr">for</span>=<span class="string">"searchbox-inputtext"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">      <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"searchbox-submit"</span> <span class="attr">value</span>=<span class="string">"Search"</span> /&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></form></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
+          
+            <a href="/tags/hippo/" rel="tag">#hippo</a>
+          
+            <a href="/tags/freemarker/" rel="tag">#freemarker</a>
+          
+            <a href="/tags/cms/" rel="tag">#cms</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/16/effective-java-notes/" rel="next" title="Effective java notes">
+                <i class="fa fa-chevron-left"></i> Effective java notes
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/29/mysql-notes-1/" rel="prev" title="MySQL notes I">
+                MySQL notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Started"><span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setup-Hippo-Project"><span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hello-page"><span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-in-Hippo-A-Hello-Page"><span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolve-Links-to-Static-Resources"><span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Head-Contributions"><span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Pages"><span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configure-Banners"><span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confiure-Search"><span class="nav-text">Confiure Search</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="shell,command,database,mysql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Install MySQL
+
+
+Here are the instructions for installing MySQL on a MacOS by using homebrew.
+
+
+First, ensure that homebrew is up to date and ready to brew
+
+12345brew updatebrew doctorbrew upgradebrew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2016/07/29/mysql-notes-1/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Install MySQL
+
+
+Here are the instructions for installing MySQL on a MacOS by using homebrew.
+
+
+First, ensure that homebrew is up to date and ready to brew
+
+12345brew updatebrew doctorbrew upgradebrew">
+<meta property="og:updated_time" content="2016-07-30T04:37:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL notes I">
+<meta name="twitter:description" content="Install MySQL
+
+
+Here are the instructions for installing MySQL on a MacOS by using homebrew.
+
+
+First, ensure that homebrew is up to date and ready to brew
+
+12345brew updatebrew doctorbrew upgradebrew">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/07/29/mysql-notes-1/"/>
+
+  <title> MySQL notes I | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySQL notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-29T21:37:31-07:00" content="2016-07-29">
+              2016-07-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-MySQL"><span class="nav-number">1.</span> <span class="nav-text">Install MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-MySQL"><span class="nav-number">2.</span> <span class="nav-text">Remove MySQL</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a><strong>Install MySQL</strong></h4></li>
+</ul>
+<ul>
+<li>Here are the instructions for installing MySQL on a MacOS by using <code>homebrew</code>.</li>
+</ul>
+<ul>
+<li>First, ensure that <code>homebrew</code> is up to date and ready to brew</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew doctor</div><div class="line">brew upgrade</div><div class="line"></div><div class="line">brew update</div></pre></td></tr></table></figure>
+<ul>
+<li>Installed mysql</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>Run the commands that brew suggested</li>
+</ul>
+<p>Try it first:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_install_db --verbose --user=`whoami` --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
+<p>IF HAVING ERROR<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_install_db: [ERROR] unknown variable <span class="string">'tmpdir=/tmp'</span></div></pre></td></tr></table></figure></p>
+<p>TRY THIS INSTEAD<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqld -initialize --verbose --user=whoami --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
+<ul>
+<li>Start MySQL server </li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
+<ul>
+<li>MySQL configuration</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_secure_installation</div></pre></td></tr></table></figure>
+<p>Add the following my.cnf file to /etc:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">## The MySQL database server configuration file.</div><div class="line">#</div><div class="line"># You can copy this to one of:</div><div class="line"># - &quot;/etc/mysql/my.cnf&quot; to set global options,</div><div class="line"># - &quot;~/.my.cnf&quot; to set user-specific options.</div><div class="line">#</div><div class="line"># One can use all long options that the program supports.</div><div class="line"># Run program with --help to get a list of available options and with</div><div class="line"># --print-defaults to see which it would actually understand and use.</div><div class="line">#</div><div class="line"># For explanations see</div><div class="line"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</div><div class="line">  </div><div class="line"># This will be passed to all mysql clients</div><div class="line"># It has been reported that passwords should be enclosed with</div><div class="line"># ticks/quotes escpecially if they contain &quot;#&quot; chars...</div><div class="line"># Remember to edit /etc/mysql/debian.cnf when changing</div><div class="line"># the socket location.</div><div class="line">[client]</div><div class="line">port        = 3306</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">  </div><div class="line"># Here is entries for some specific programs</div><div class="line"># The following values assume you have at least 32M ram</div><div class="line">  </div><div class="line"># This was formally known as [safe_mysqld]. Both versions</div><div class="line"># are currently parsed.</div><div class="line">[mysqld_safe]</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">#nice       = 0</div><div class="line">  </div><div class="line">[mysqld]</div><div class="line">#</div><div class="line"># * Basic Settings</div><div class="line">#</div><div class="line">  </div><div class="line">#</div><div class="line"># * IMPORTANT</div><div class="line">#   If you make changes to these settings and your system uses</div><div class="line">#   apparmor, you may also need to also adjust</div><div class="line">#   /etc/apparmor.d/usr.sbin.mysqld.</div><div class="line">#</div><div class="line">  </div><div class="line">#user       = mysql</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">port        = 3306</div><div class="line">#basedir    = /usr</div><div class="line">#datadir    = /var/lib/mysql</div><div class="line">#tmpdir     = /tmp</div><div class="line">skip-external-locking</div><div class="line">#</div><div class="line"># Instead of skip-networking the default is now to listen only on</div><div class="line"># localhost which is more compatible and is not less secure.</div><div class="line">bind-address        = 127.0.0.1</div><div class="line">#</div><div class="line"># * Fine Tuning</div><div class="line">#</div><div class="line">key_buffer          = 16M</div><div class="line">max_allowed_packet  = 16M</div><div class="line">thread_stack        = 192K</div><div class="line">thread_cache_size   = 8</div><div class="line"># This replaces the startup script and checks MyISAM tables if needed</div><div class="line"># the first time they are touched</div><div class="line">myisam-recover         = BACKUP</div><div class="line">#max_connections       = 100</div><div class="line">#table_cache           = 64</div><div class="line">#thread_concurrency    = 10</div><div class="line">#</div><div class="line"># * Query Cache Configuration</div><div class="line">#</div><div class="line">query_cache_limit   = 1M</div><div class="line">query_cache_size    = 16M</div><div class="line">#</div><div class="line"># * Logging and Replication</div><div class="line">#</div><div class="line"># Both location gets rotated by the cronjob.</div><div class="line"># Be aware that this log type is a performance killer.</div><div class="line"># As of 5.1 you can enable the log at runtime!</div><div class="line">#general_log_file        = /var/log/mysql/mysql.log</div><div class="line">#general_log             = 1</div><div class="line">  </div><div class="line">log_error                = /var/log/mysql/error.log</div><div class="line">  </div><div class="line"># Here you can see queries with especially long duration</div><div class="line">#log_slow_queries   = /var/log/mysql/mysql-slow.log</div><div class="line">#long_query_time = 2</div><div class="line">#log-queries-not-using-indexes</div><div class="line">#</div><div class="line"># The following can be used as easy to replay backup logs or</div><div class="line"># for replication.</div><div class="line"># note: if you are setting up a replication slave, see</div><div class="line">#       README.Debian about other settings you may need</div><div class="line">#       to change.</div><div class="line">#server-id          = 1</div><div class="line">#log_bin            = /var/log/mysql/mysql-bin.log</div><div class="line">expire_logs_days    = 10</div><div class="line">max_binlog_size     = 100M</div><div class="line">#binlog_do_db       = include_database_name</div><div class="line">#binlog_ignore_db   = include_database_name</div><div class="line">#</div><div class="line"># * InnoDB</div><div class="line">#</div><div class="line"># InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.</div><div class="line"># Read the manual for more InnoDB related options. There are many!</div><div class="line">#</div><div class="line"># * Security Features</div><div class="line">#</div><div class="line"># Read the manual, too, if you want chroot!</div><div class="line"># chroot = /var/lib/mysql/</div><div class="line">#</div><div class="line"># For generating SSL certificates I recommend the OpenSSL GUI &quot;tinyca&quot;.</div><div class="line">#</div><div class="line"># ssl-ca=/etc/mysql/cacert.pem</div><div class="line"># ssl-cert=/etc/mysql/server-cert.pem</div><div class="line"># ssl-key=/etc/mysql/server-key.pem</div><div class="line">  </div><div class="line"># Query Caching</div><div class="line">query-cache-type = 1</div><div class="line">  </div><div class="line"># Default to InnoDB</div><div class="line">default-storage-engine=innodb</div><div class="line">  </div><div class="line">[mysqldump]</div><div class="line">quick</div><div class="line">quote-names</div><div class="line">max_allowed_packet  = 16M</div><div class="line">  </div><div class="line">[mysql]</div><div class="line">#no-auto-rehash # faster start of mysql but no tab completition</div><div class="line">  </div><div class="line">[isamchk]</div><div class="line">key_buffer      = 16M</div></pre></td></tr></table></figure>
+<ul>
+<li>Go to MySQL console</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h localhost -u root -p</div></pre></td></tr></table></figure>
+<ul>
+<li>Create database</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database dbName;</div></pre></td></tr></table></figure>
+<ul>
+<li>Create user</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create user username@localhost identified by <span class="string">'password'</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>Grant privilege</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON newpal.* TO username@localhost WITH GRANT OPTION;</div></pre></td></tr></table></figure>
+<p><em>Some commands:</em></p>
+<p>Restart the MySQL server</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server restart</div></pre></td></tr></table></figure>
+<p>Stop MySQL server<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server stop</div></pre></td></tr></table></figure></p>
+<ul>
+<li>Check if a MySQL instance is runnig</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps ax | grep mysql</div></pre></td></tr></table></figure>
+<ul>
+<li>Check MySQL status</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root -p status</div></pre></td></tr></table></figure>
+<ul>
+<li>Changing the permission to MySQL folder. If you are working locally, you can try:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 755 /var/lib/mysql/</div></pre></td></tr></table></figure>
+<ul>
+<li>Export MySQL DB<br>mysqldump -u dbName1 -p dbName2 &gt; fileName.sql</li>
+</ul>
+<blockquote>
+<p>Note: The <code>.sql</code> file might be large. You may <code>gzip</code> it and then use <code>sftp</code> to get it back </p>
+</blockquote>
+<ul>
+<li>Import MySQL DB</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h ip_address -u username -p dbName &lt; fileName.sql</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="Remove-MySQL"><a href="#Remove-MySQL" class="headerlink" title="Remove MySQL"></a><strong>Remove MySQL</strong></h4></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">brew remove mysql</div><div class="line"></div><div class="line">brew cleanup --force</div><div class="line"></div><div class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">sudo rm -rf /usr/<span class="built_in">local</span>/var/mysql</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag">#shell</a>
+          
+            <a href="/tags/command/" rel="tag">#command</a>
+          
+            <a href="/tags/database/" rel="tag">#database</a>
+          
+            <a href="/tags/mysql/" rel="tag">#mysql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/18/hippo-notes-1/" rel="next" title="Hippo notes I">
+                <i class="fa fa-chevron-left"></i> Hippo notes I
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/03/spring-notes-1/" rel="prev" title="Spring notes I">
+                Spring notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-MySQL"><span class="nav-text">Install MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Remove-MySQL"><span class="nav-text">Remove MySQL</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

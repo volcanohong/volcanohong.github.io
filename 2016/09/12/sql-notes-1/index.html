@@ -1,0 +1,771 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="database,sql server,sql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Design a table with a primary key of varchar or int?
+
+
+In gereral, VARCHAR or INT has no big differency in query. What matter is the access pattern.
+
+Narrowness:On absolute terms, a wider key will al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2016/09/12/sql-notes-1/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Design a table with a primary key of varchar or int?
+
+
+In gereral, VARCHAR or INT has no big differency in query. What matter is the access pattern.
+
+Narrowness:On absolute terms, a wider key will al">
+<meta property="og:updated_time" content="2016-10-01T17:37:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL notes I">
+<meta name="twitter:description" content="Design a table with a primary key of varchar or int?
+
+
+In gereral, VARCHAR or INT has no big differency in query. What matter is the access pattern.
+
+Narrowness:On absolute terms, a wider key will al">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/09/12/sql-notes-1/"/>
+
+  <title> SQL notes I | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SQL notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-12T21:00:00-07:00" content="2016-09-12">
+              2016-09-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-a-table-with-a-primary-key-of-varchar-or-int"><span class="nav-number">1.</span> <span class="nav-text">Design a table with a primary key of varchar or int?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Description-of-primary-keys-and-clustered-keys"><span class="nav-number">2.</span> <span class="nav-text">Description of primary keys and clustered keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-scripts-to-set-non-cluster-index"><span class="nav-number">3.</span> <span class="nav-text">SQL scripts to set non-cluster index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-a-GUID"><span class="nav-number">4.</span> <span class="nav-text">What is a GUID?</span></a></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="Design-a-table-with-a-primary-key-of-varchar-or-int"><a href="#Design-a-table-with-a-primary-key-of-varchar-or-int" class="headerlink" title="Design a table with a primary key of varchar or int?"></a><strong>Design a table with a primary key of varchar or int?</strong></h4></li>
+</ul>
+<ul>
+<li>In gereral, <code>VARCHAR</code> or <code>INT</code> has no big differency in query. What matter is the access pattern.</li>
+</ul>
+<p><strong>Narrowness:</strong><br>On absolute terms, a wider key will always be worse than a narrow key. The type carries no importance, is the width of the key that matters. When compared with INT though, few types can beat INT in narrowness, so INT usually wins that argument just by the fact that it is only 4 bytes wide.</p>
+<p>More on this aspect:<br>In most cases, The Primary Key (PK) is defined as INT NOT NULL IDENTITY(1,1) field in each table.<br>On one side, with an IDENTITY field, the database handles all the details of making sure it’s really unique, and the INT datatype is just 4 bytes, and fixed, so it’s easier and more suited to be used for the primary (and clustering) key in the table.<br>On the other side, using a VARCHAR(10) or (20) just uses up too much space - 10 or 20 bytes instead of 4.</p>
+<ul>
+<li>Another fact is when choosing the PK usually one also selects the clustered key. Those two are often confused. By default, SQL server chooses PK as one of clustering indexes.</li>
+</ul>
+<a id="more"></a>
+<p><strong>Clustering Index:</strong><br>The idea of clustered indexes is to store a complete table in a B-tree structure. If a table has a clustered index, it basically means the index is the table. A clustered index has a strict row order like any other B-tree index: it sorts the rows according to the index definition.</p>
+<p><em>Pros</em><br>The upside of clustered indexes is that they can deliver subsequent rows quickly when accessed directly (not via a non-clustered index). In other words, they are fast if you use the clustering key to fetch several rows. Remember that the primary key is the clustering key per default. In that case, it means fetching several rows via primary key—with a single query.</p>
+<p><em>Cons</em><br>How bad is the cluster index in query?</p>
+<p>Rows Fetched | Time (Heap) | Time (Clustered)</p>
+<p>10.000 | 31 | 78</p>
+<p>20.000 | 47 |130</p>
+<p>50.000 | 109 |297</p>
+<p>100.000 | 203 | 624</p>
+<p>200.000 | 390 | 1232</p>
+<p>Ref: <a href="https://use-the-index-luke.com/blog/2014-01/unreasonable-defaults-primary-key-clustering-key" target="_blank" rel="external">Unreasonable Defaults: Primary Key as Clustering Key</a></p>
+<p>The clustering key value will be repeated on every single index entry on every single non-clustered index on the table, so potentially, it is wasting a lot of space (not just on disk - that’s cheap - but also in SQL Server’s main memory). Also, since it’s variable (might be 4, might be 20 chars) it’s harder to SQL server to properly maintain a good index structure.</p>
+<p><strong>Conclusion</strong>, it is always the right choice to start with INT NOT NULL IDENTITY(1,1)as the PK. However if considering VARCHAR type PK, it is better to avoid to use it as one of the clustering indexes.</p>
+<ul>
+<li><h4 id="Description-of-primary-keys-and-clustered-keys"><a href="#Description-of-primary-keys-and-clustered-keys" class="headerlink" title="Description of primary keys and clustered keys"></a><strong>Description of primary keys and clustered keys</strong></h4></li>
+</ul>
+<p><strong>Primary keys</strong> are logical business elements. The primary key is used by your application to identify an entity, and the discussion about primary keys is largely wether to use natural keys or surrogate key. The links go into much more detail, but the basic idea is that natural keys are derived from an existing entity property like ssn or phone number, while surrogate keys have no meaning whatsoever with regard to the business entity, like id or rowid and they are usually of type IDENTITY or some sort of uuid. My personal opinion is that surrogate keys are superior to natural keys, and the choice should be always identity values for local only applicaitons, guids for any sort of distributed data. A primary key never changes during the lifetime of the entity.</p>
+<p><strong>Clustered keys</strong> are the key that defines the physical storage of rows in the table. Most times they overlap with the primary key (the logical entity identifier), but that is not actually enforced nor required. When the two are different it means there is a non-clustered unique index on the table that implements the primary key. Clustered key values can actualy change during the lifetime of the row, resulting in the row being physically moved in the table to a new location. If you have to separate the primary key from the clustered key (and sometimes you do), choosing a good clustered key is significantly harder than choosing a primary key.</p>
+<ul>
+<li><h4 id="SQL-scripts-to-set-non-cluster-index"><a href="#SQL-scripts-to-set-non-cluster-index" class="headerlink" title="SQL scripts to set non-cluster index"></a><strong>SQL scripts to set non-cluster index</strong></h4></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Enforces the Primary Key constraint with a Unique Non-Clustered Index</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Foo1</div><div class="line">(</div><div class="line">Col1 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> NONCLUSTERED,</div><div class="line">Col2 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">Col3 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">)</div><div class="line"><span class="keyword">GO</span></div></pre></td></tr></table></figure>
+<p>A table without clustered index uses Heap structure to query data.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Create the Primary Key constraint on an ever-increasing</span></div><div class="line"><span class="comment">-- key column</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Foo2</div><div class="line">(</div><div class="line">Col1 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> NONCLUSTERED,</div><div class="line">Col2 UNIQUEIDENTIFIER <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">Col3 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">)</div><div class="line"><span class="keyword">GO</span></div><div class="line"></div><div class="line"><span class="comment">-- Create the Clustered Index on a random key column</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> CLUSTERED <span class="keyword">INDEX</span> ci_Col2 <span class="keyword">ON</span> Foo2(Col2)</div><div class="line"><span class="keyword">GO</span></div></pre></td></tr></table></figure>
+<p>A table has both clustered and non-clustered indexes.</p>
+<p>Following are the advantages of focusing on index-only scans instead of clustered indexes:</p>
+<ul>
+<li><p>You are not limited to one index. Any index can be as fast as a clustered index.</p>
+</li>
+<li><p>Adding INCLUDE columns to a non-clustered index doesn’t affect anything else than this particular index. There is no penalty that hurts all other indexes!</p>
+</li>
+<li><p>You don’t need to add all table columns to a non-clustered index to enable an index-only scan. Just add the columns that are relevant for the query you’d like to tune. That keeps the index small and can thus become even faster than a clustered index.</p>
+</li>
+<li><p>And the best part is: there is no mutual exclusion of index-only scans and clustered indexes. Index-only scans work irrespective of the table storage. You can extend non-clustered indexes for index-only scans even if there is a clustered index. That’s also an easy way to avoid paying the “clustered index penalty” on non-clustered indexes.</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Enforces the Primary Key constraint with a Unique Non-Clustered Index</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Foo1</div><div class="line">(</div><div class="line">Col1 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> NONCLUSTERED,</div><div class="line">Col2 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">Col3 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">)</div><div class="line"><span class="keyword">GO</span></div><div class="line"></div><div class="line"><span class="comment">-- Create the Primary Key constraint on an ever-increasing</span></div><div class="line"><span class="comment">-- key column</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Foo2</div><div class="line">(</div><div class="line">Col1 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> NONCLUSTERED,</div><div class="line">Col2 UNIQUEIDENTIFIER <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">Col3 <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">)</div><div class="line"><span class="keyword">GO</span></div><div class="line"></div><div class="line"><span class="comment">-- Create the Clustered Index on a random key column</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> CLUSTERED <span class="keyword">INDEX</span> ci_Col2 <span class="keyword">ON</span> Foo2(Col2)</div><div class="line"><span class="keyword">GO</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="What-is-a-GUID"><a href="#What-is-a-GUID" class="headerlink" title="What is a GUID?"></a><strong>What is a GUID?</strong></h4></li>
+</ul>
+<p>GUID (or UUID) is an acronym for ‘Globally Unique Identifier’ (or ‘Universally Unique Identifier’). It is a 128-bit integer number used to identify resources. The term GUID is generally used by developers working with Microsoft technologies, while UUID is used everywhere else.</p>
+<ul>
+<li>How unique is a GUID?</li>
+</ul>
+<p>128-bits is big enough and the generation algorithm is unique enough that if 1,000,000,000 GUIDs per second were generated for 1 year the probability of a duplicate would be only 50%. Or if every human on Earth generated 600,000,000 GUIDs there would only be a 50% probability of a duplicate.</p>
+<ul>
+<li>How are GUIDs used?</li>
+</ul>
+<p>GUIDs are used in enterprise software development in C#, Java, and C++ as database keys, component identifiers, or just about anywhere else a truly unique identifier is required. GUIDs are also used to identify all interfaces and objects in COM programming.</p>
+<p>SQL Server has the creation of GUID’s built in. There is no need to write a separate stored procedure for this.<br>You can use</p>
+<pre><code>- `NEWID()`
+- `NEWSEQUENTIALID()`
+</code></pre><p>The key difference between both procedures would be that the sequential GUID should be used if it is for a primary clustered key.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/database/" rel="tag">#database</a>
+          
+            <a href="/tags/sql-server/" rel="tag">#sql server</a>
+          
+            <a href="/tags/sql/" rel="tag">#sql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/machine-learning-notes/" rel="next" title="Machine learning notes">
+                <i class="fa fa-chevron-left"></i> Machine learning notes
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/01/angular2-notes-1/" rel="prev" title="Angular2 notes I">
+                Angular2 notes I <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-a-table-with-a-primary-key-of-varchar-or-int"><span class="nav-text">Design a table with a primary key of varchar or int?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Description-of-primary-keys-and-clustered-keys"><span class="nav-text">Description of primary keys and clustered keys</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL-scripts-to-set-non-cluster-index"><span class="nav-text">SQL scripts to set non-cluster index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-a-GUID"><span class="nav-text">What is a GUID?</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

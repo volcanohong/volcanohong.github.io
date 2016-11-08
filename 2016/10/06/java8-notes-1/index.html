@@ -1,0 +1,743 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="coding,java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="java.util.OptionalImagine Optional as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, Option may enclose some (non-null!) ref">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8 notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2016/10/06/java8-notes-1/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="java.util.OptionalImagine Optional as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, Option may enclose some (non-null!) ref">
+<meta property="og:updated_time" content="2016-11-06T02:51:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java8 notes I">
+<meta name="twitter:description" content="java.util.OptionalImagine Optional as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, Option may enclose some (non-null!) ref">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2016/10/06/java8-notes-1/"/>
+
+  <title> Java8 notes I | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java8 notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T20:22:12-07:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-util-Optional"><span class="nav-number">1.</span> <span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifPresent-do-something-when-Optional-is-set"><span class="nav-number">1.1.</span> <span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-Optional-values"><span class="nav-number">1.2.</span> <span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-number">1.3.</span> <span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><span class="nav-number">1.4.</span> <span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional"><span class="nav-number">1.5.</span> <span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h4 id="java-util-Optional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<t></t></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
+</ul>
+<p><code>Optional</code> instead of plain null is statically checked at compile time and much more informative as it clearly indicates that a given variable may be present or not. Of course it requires some discipline - you should never assign null to any variable any more.<br><a id="more"></a></p>
+<p>There are few ways of creating <code>Optional</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">\\Optional must contain not <span class="keyword">null</span> value and will <span class="keyword">throw</span> an exception <span class="keyword">if</span> <span class="keyword">null</span> is passed. </div><div class="line">opt = Optional.of(notNull);</div><div class="line"></div><div class="line">\\ofNullable() <span class="function">will either return empty or <span class="title">present</span> <span class="params">(set)</span> Optional.</span></div><div class="line">opt = Optional.ofNullable(mayBeNull);</div><div class="line"></div><div class="line">\\empty() always <span class="keyword">return</span> empty Optional, corresponding to <span class="keyword">null</span>. It’s a singleton because Optional&lt;T&gt; is immutable.</div><div class="line">opt = Optional.empty();</div></pre></td></tr></table></figure></p>
+<p>In this case, <code>opt</code> is never null, but may or may not contain some value (present or empty).</p>
+<ul>
+<li><h5 id="ifPresent-do-something-when-Optional-is-set"><a href="#ifPresent-do-something-when-Optional-is-set" class="headerlink" title="ifPresent() - do something when Optional is set"></a><strong>ifPresent()</strong> - <em>do something when Optional is set</em></h5></li>
+</ul>
+<p>Tedious if statement:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (x != <span class="keyword">null</span>) &#123;</div><div class="line">    print(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>can be replaced with higher-order function <code>ifPresent()</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">opt.ifPresent(x -&gt; print(x));</div><div class="line">opt.ifPresent(<span class="keyword">this</span>::print);</div></pre></td></tr></table></figure></p>
+<p>The latter syntax (method reference) can be used when <code>lambda</code> argument (String x) matches function formal parameters.</p>
+<ul>
+<li><h5 id="filter-reject-filter-out-certain-Optional-values"><a href="#filter-reject-filter-out-certain-Optional-values" class="headerlink" title="filter() - reject (filter out) certain Optional values"></a><strong>filter()</strong> - <em>reject (filter out) certain Optional values</em></h5></li>
+</ul>
+<p>Sometimes you want to perform some action not only when a reference is set but also when it meets certain condition:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (x != <span class="keyword">null</span> &amp;&amp; x.contains(<span class="string">"ab"</span>)) &#123;</div><div class="line">    print(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>This can be replaced with <code>Optional.filter()</code> that turns present (set) Optional to empty Optional if underlying value does not meet given predicate. If input Optional was empty, it is returned as-is:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">opt.</div><div class="line">   filter(x -&gt; x.contains(<span class="string">"ab"</span>)).</div><div class="line">   ifPresent(<span class="keyword">this</span>::print);</div><div class="line">```   </div><div class="line">This is equivalent to more imperative:</div><div class="line">```<span class="function">java</span></div><div class="line"><span class="title">if</span><span class="params">(opt.isPresent()</span> &amp;&amp; opt.<span class="title">get</span><span class="params">()</span>.<span class="title">contains</span><span class="params">(<span class="string">"ab"</span>)</span>) &#123;</div><div class="line">    print(opt.get());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><h5 id="map-transform-value-if-present"><a href="#map-transform-value-if-present" class="headerlink" title="map() - transform value if present"></a><strong>map()</strong> - <em>transform value if present</em></h5></li>
+</ul>
+<p>Very often you need to apply some transformation on a value, but only if it’s not null (avoiding <code>NullPointerException</code>):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (x != <span class="keyword">null</span>) &#123;</div><div class="line">    String t = x.trim();</div><div class="line">    <span class="keyword">if</span> (t.length() &gt; <span class="number">1</span>) &#123;</div><div class="line">        print(t);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>This can be done in much more declarative way using <code>map()</code>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">opt.</div><div class="line">    map(String::trim).</div><div class="line">    filter(t -&gt; t.length() &gt; <span class="number">1</span>).</div><div class="line">    ifPresent(<span class="keyword">this</span>::print);</div></pre></td></tr></table></figure></p>
+<p>This becomes tricky. <code>Optional.map()</code> applies given function on a value inside Optional - but only if Optional is present. Otherwise nothing happens and <code>empty()</code> is returned. Remember that the transformation is type-safe - look at generics here:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Optional&lt;String&gt;  opt = <span class="comment">//...</span></div><div class="line">Optional&lt;Integer&gt; len = opt.map(String::length);</div></pre></td></tr></table></figure></p>
+<p>If <code>Optional&lt;String&gt;</code> is present. <code>Optional&lt;Integer&gt;</code> len is present as well, wrapping length of a String. But if <code>opt</code> was empty, <code>map()</code> over it does nothing except changing generic type.</p>
+<ul>
+<li><h5 id="orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><a href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T" class="headerlink" title="orElse()/orElseGet() - turning empty Optional&lt;T&gt; to default T"></a><strong>orElse()/orElseGet()</strong> - <em>turning empty <code>Optional&lt;T&gt;</code> to default <code>T</code></em></h5></li>
+</ul>
+<p>At some point you may wish to unwrap <code>Optional</code> and get a hold of real value inside. But you can’t do this if <code>Optional</code> is empty. Here is a pre-Java 8 way of handling such scenario:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> len = (x != <span class="keyword">null</span>)? x.length() : -<span class="number">1</span>;</div></pre></td></tr></table></figure></p>
+<p>With <code>Optional</code> we can say:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> len = opt.map(String::length).orElse(-<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
+<p>There is also a version that accepts <code>Supplier&lt;T&gt;</code> if computing default value is slow, expensive or has side-effects:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> len = opt.</div><div class="line">    map(String::length).</div><div class="line">    orElseGet(() -&gt; slowDefault());     </div><div class="line"><span class="comment">//orElseGet(this::slowDefault)</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><h5 id="orElseThrow-lazily-throw-exceptions-on-empty-Optional"><a href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional" class="headerlink" title="orElseThrow() - lazily throw exceptions on empty Optional"></a><strong>orElseThrow()</strong> - <em>lazily throw exceptions on empty <code>Optional</code></em></h5></li>
+</ul>
+<p>Often we would like to throw an exception if value is not available:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">firstChar</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s != <span class="keyword">null</span> &amp;&amp; !s.isEmpty())</div><div class="line">        <span class="keyword">return</span> s.charAt(<span class="number">0</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>This whole method can be replaced with the following idiom:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">opt.</div><div class="line">    filter(s -&gt; !s.isEmpty()).</div><div class="line">    map(s -&gt; s.charAt(0)).</div><div class="line">    orElseThrow(IllegalArgumentException::new);</div><div class="line">```    </div><div class="line">We don’t want to create an instance of exception in advance because creating an exception has _significant cost_.</div><div class="line"></div><div class="line">* ##### **flatMap()** - _mapping over a function that returns `Optional`_</div><div class="line"></div><div class="line">Imagine you have a function that does not accept null but may produce one:</div><div class="line">```java</div><div class="line">public String findSimilar(@NotNull String s) //...</div></pre></td></tr></table></figure></p>
+<p>Using it is a bit cumbersome:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String similarOrNull = x != <span class="keyword">null</span>? findSimilar(x) : <span class="keyword">null</span>;</div></pre></td></tr></table></figure></p>
+<p>With Optional it is a bit more straighforward:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Optional&lt;String&gt; similar = opt.map(<span class="keyword">this</span>::findSimilar);</div></pre></td></tr></table></figure></p>
+<p>If the function we map() over returns null, the result of map() is an empty Optional. Otherwise it’s the result of said function wrapped with (present) Optional. So far so good but why do we return nullable value if we have Optional?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Optional&lt;String&gt; <span class="title">tryFindSimilar</span><span class="params">(String s)</span>  <span class="comment">//...</span></span></div></pre></td></tr></table></figure></p>
+<p>Our intentions are clear but using map() fails to produce correct type. Instead we must use flatMap():<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Optional&lt;Optional&lt;String&gt;&gt; bad = opt.map(<span class="keyword">this</span>::tryFindSimilar);</div><div class="line">Optional&lt;String&gt; similar =       opt.flatMap(<span class="keyword">this</span>::tryFindSimilar);</div></pre></td></tr></table></figure></p>
+<p>Do you see double <code>Optional&lt;Optional&lt;...&gt;&gt;</code>? Definitely not what we want. If you are mapping over a function that returns Optional, use flatMap instead. Here is a simplified implementation of this function:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> &lt;U&gt; <span class="function">Optional&lt;U&gt; <span class="title">flatMap</span><span class="params">(Function&lt;T, Optional&lt;U&gt;&gt; mapper)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!isPresent())</div><div class="line">        <span class="keyword">return</span> empty();</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> mapper.apply(value);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Bigger example</p>
+<p>Imagine we have a Person with an Address that has a validFrom date. All of these can be null. We would like to know whether validFrom is set and in the past:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">validAddress</span><span class="params">(NullPerson person)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (person != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (person.getAddress() != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">final</span> Instant validFrom = person.getAddress().getValidFrom();</div><div class="line">            <span class="keyword">return</span> validFrom != <span class="keyword">null</span> &amp;&amp; validFrom.isBefore(now());</div><div class="line">        &#125; <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125; <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Quite ugly and defensive. Alternatively but still ugly:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> person != <span class="keyword">null</span> &amp;&amp;</div><div class="line">       person.getAddress() != <span class="keyword">null</span> &amp;&amp;</div><div class="line">       person.getAddress().getValidFrom() != <span class="keyword">null</span> &amp;&amp;       person.getAddress().getValidFrom().isBefore(now());</div></pre></td></tr></table></figure></p>
+<p>Now imagine all of these (person, getAddress(), getValidFrom()) are Optionals of appropriate types, clearly indicating they may not be set:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Optional&lt;Address&gt; address;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> Optional&lt;Address&gt; <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> address;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Optional&lt;Instant&gt; validFrom;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> Optional&lt;Instant&gt; <span class="title">getValidFrom</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> validFrom;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Suddenly the computation is much more streamlined:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">return person.</div><div class="line">        flatMap(Person::getAddress).</div><div class="line">        flatMap(Address::getValidFrom).</div><div class="line">        filter(x -&gt; x.before(now())).</div><div class="line">        isPresent();</div><div class="line">```        </div><div class="line">Is it more readable? Hard to tell. But at least it’s impossible to produce NullPointerException when Optional is used consistently.</div><div class="line"></div><div class="line">* ##### **Converting Optional&lt;T&gt; to List&lt;T&gt;**</div><div class="line"></div><div class="line">Thinking about Optional as a collection1 having either 0 or 1 elements, this may make understanding of map() and flatMap() easier. Unfortunately Optional doesn’t have toList() method, but it’s easy to implement one:</div><div class="line">```java</div><div class="line">public static &lt;T&gt; List&lt;T&gt; toList(Optional&lt;T&gt; option) &#123;</div><div class="line">    return option.</div><div class="line">            map(Collections::singletonList).</div><div class="line">            orElse(Collections.emptyList());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Or less idiomatically:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">toList</span><span class="params">(Optional&lt;T&gt; option)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (option.isPresent())</div><div class="line">        <span class="keyword">return</span> Collections.singletonList(option.get());</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> Collections.emptyList();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>But why limit ourselves to List<t>? What about Set<t> and other collections? Java 8 already abstracts creating arbitrary collection via Collectors API, introduced for Streams. The API is hideous but comprehensible:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;R, A, T&gt; <span class="function">R <span class="title">collect</span><span class="params">(Optional&lt;T&gt; option, Collector&lt;? <span class="keyword">super</span> T, A, R&gt; collector)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> A container = collector.supplier().get();</div><div class="line">    option.ifPresent(v -&gt; collector.accumulator().accept(container, v));</div><div class="line">    <span class="keyword">return</span> collector.finisher().apply(container);</div><div class="line">&#125;</div></pre></td></tr></table></figure></t></t></p>
+<p>We can now say:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.util.stream.Collectors.*;</div><div class="line"> </div><div class="line">List&lt;String&gt; list = collect(opt, toList());</div><div class="line">Set&lt;String&gt;  set  = collect(opt, toSet());</div></pre></td></tr></table></figure></p>
+<p><strong>Ref:</strong> </p>
+<ol>
+<li><a href="http://www.nurkiewicz.com/2013/08/optional-in-java-8-cheat-sheet.html" target="_blank" rel="external">Optional in Java 8 cheat sheet</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/01/angular2-notes-1/" rel="next" title="Angular2 notes I">
+                <i class="fa fa-chevron-left"></i> Angular2 notes I
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/07/java-qr-code/" rel="prev" title="Java QR code">
+                Java QR code <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-util-Optional"><span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifPresent-do-something-when-Optional-is-set"><span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-Optional-values"><span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional"><span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
