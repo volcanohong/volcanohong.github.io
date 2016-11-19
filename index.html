@@ -102,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -269,6 +269,150 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/11/jhipster-notes/" itemprop="url">
+                  Jhipster Notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-11T21:37:31-08:00" content="2016-11-11">
+              2016-11-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Framework/" itemprop="url" rel="index">
+                    <span itemprop="name">Framework</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h3 id="Install-JHipster"><a href="#Install-JHipster" class="headerlink" title="Install JHipster"></a><strong>Install JHipster</strong></h3></li>
+</ul>
+<p>Requirement: Java 8, Maven, Git, Node.js</p>
+<p>Start with installing <code>Yeoman</code> and <code>Bower</code></p>
+<p><code>npm install -g yo</code></p>
+<blockquote>
+<p><a href="http://yeoman.io/">YEOMAN</a>, the web’s scaffording tool for webapps. Yeoman helps you to kickstart new projects, prescribing best practices and tools to help you stay productive.</p>
+</blockquote>
+<p><code>npm install -g bower</code></p>
+<blockquote>
+<p><a href="https://bower.io/">BOWER</a>, a package manager for the web. Web sites are made of lots of things — frameworks, libraries, assets, and utilities. Bower manages all these things for you. Bower keeps track of these packages in a manifest file, <code>bower.json</code>.</p>
+</blockquote>
+<p>Then, install <code>Grunt</code> and <code>jHipster</code></p>
+<p><code>npm install -g grunt-cli</code></p>
+<blockquote>
+<p><a href="http://gruntjs.com/">GRUNT</a>, the javascript task runner. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+</blockquote>
+<p><code>npm install -g generator-jhipster</code></p>
+<blockquote>
+<p><a href="https://jhipster.github.io/">JHipster</a> is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + AngularJS projects!</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/11/jhipster-notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/01/angularjs-notes-1/" itemprop="url">
                   AngularJS notes I
                 </a>
@@ -343,9 +487,9 @@
 <li><h4 id="Error-digest-already-in-progress-when-calling-scope-apply"><a href="#Error-digest-already-in-progress-when-calling-scope-apply" class="headerlink" title="Error: $digest already in progress when calling $scope.$apply()"></a><strong>Error: <code>$digest</code> already in progress when calling <code>$scope.$apply()</code></strong></h4></li>
 </ul>
 <p>Raise error when calling <code>$scope.$apply()</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Problem is fixed by calling <code>$timeout</code> instead.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="comment">//code here will run afterwards</span></div><div class="line">   vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="comment">//code here will run afterwards</span></div><div class="line">   vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;, <span class="number">1</span>);</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/01/angularjs-notes-1/#more" rel="contents">
               Read more &raquo;
@@ -724,7 +868,7 @@
 <li><h3 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2"></a><strong>Angular 2</strong></h3></li>
 </ul>
 <p>The heart of angular 2 is <code>containers</code>.</p>
-<p>import from <code>angular/core</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div></pre></td></tr></table></figure></p>
+<p>import from <code>angular/core</code><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/01/angular2-notes-1/#more" rel="contents">
               Read more &raquo;
@@ -1131,8 +1275,8 @@
 <p>Problem: In Hippo banner carousel setting, changing parameter <code>height</code> has no effect. </p>
 <p>Solution: This is because missing configuration of CSS with parameter <code>height</code> in <code>essentials-carousel.ftl</code>.</p>
 <p>The following code is a good example to show that using object from java bean to dynamically configure the CSS in script.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;#-- @ftlvariable name=&quot;cparam&quot; type=&quot;org.onehippo.cms7.essentials.components.info.EssentialsCarouselComponentInfo&quot; --&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlHead"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">#--</span> <span class="attr">Carousel</span> <span class="attr">base</span> <span class="attr">class</span> <span class="attr">--</span>&gt;</span></div><div class="line">        .swiper-wrapper &#123;</div><div class="line">            max-height: $&#123;cparam.carouselHeight&#125;px;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;#-- @ftlvariable name=&quot;cparam&quot; type=&quot;org.onehippo.cms7.essentials.components.info.EssentialsCarouselComponentInfo&quot; --&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlHead"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">#--</span> <span class="attr">Carousel</span> <span class="attr">base</span> <span class="attr">class</span> <span class="attr">--</span>&gt;</span></div><div class="line">        .swiper-wrapper &#123;</div><div class="line">            max-height: $&#123;cparam.carouselHeight&#125;px;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1395,148 +1539,17 @@
 </ul>
 <p>Built-ins are like methods that are added to the objects by <code>FreeMarker</code>. To prevent name clashes with actual methods and other sub-variables, instead of dot (.), you separate them from the parent object with question mark (?).</p>
 <p>Some examples:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$&#123;testString?upper_case&#125;</div><div class="line">$&#123;testString?html&#125;</div><div class="line">$&#123;testString?upper_case?html&#125;</div><div class="line"></div><div class="line">$&#123;testSequence?size&#125;</div><div class="line">$&#123;testSequence?join(&quot;, &quot;)&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$&#123;testString?upper_case&#125;</div><div class="line">$&#123;testString?html&#125;</div><div class="line">$&#123;testString?upper_case?html&#125;</div><div class="line"></div><div class="line">$&#123;testSequence?size&#125;</div><div class="line">$&#123;testSequence?join(&quot;, &quot;)&#125;</div></pre></td></tr></table></figure>
 <p>Assuming that testString stores the string “Tom &amp; Jerry”, and testSequnce stores the strings “foo”, “bar” and “baz”, the output will be:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">TOM &amp; JERRY</div><div class="line">Tom &amp;amp; Jerry</div><div class="line">TOM &amp;amp; JERRY</div><div class="line"></div><div class="line">3</div><div class="line">foo, bar, baz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">TOM &amp; JERRY</div><div class="line">Tom &amp;amp; Jerry</div><div class="line">TOM &amp;amp; JERRY</div><div class="line"></div><div class="line">3</div><div class="line">foo, bar, baz</div></pre></td></tr></table></figure>
 <blockquote>
 <p><code>html</code>(deprecated): This built-in is deprecated by the auto-escaping mechanism introduced in 2.3.24. </p>
 </blockquote>
 <p>Other examples:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">path?ensure_starts_with(&apos;/&apos;)</div><div class="line">path?length </div><div class="line">&lt;#--not path?length()--&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">path?ensure_starts_with(&apos;/&apos;)</div><div class="line">path?length </div><div class="line">&lt;#--not path?length()--&gt;</div></pre></td></tr></table></figure>
 <p>Ref links: <a href="http://freemarker.org/docs/ref_builtins_string.html#ref_builtin_html">builtin methods</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/10/freemarker-notes/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/hadoop-notes/" itemprop="url">
-                  Hadoop notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T17:51:37-07:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Big-data/" itemprop="url" rel="index">
-                    <span itemprop="name">Big data</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
-</ul>
-<ul>
-<li>Why big data?<br>In case of Google:<ul>
-<li>~40 billion web pages x 30 kb each = Petabyte</li>
-<li>average disk speed reads about 120 mb/sec</li>
-<li>over 3 months to read the web</li>
-<li>about 1,000 drives to store and use
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/08/hadoop-notes/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1611,7 +1624,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1619,7 +1632,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1628,7 +1641,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

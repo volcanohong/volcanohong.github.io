@@ -102,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -269,6 +269,137 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/08/hadoop-notes/" itemprop="url">
+                  Hadoop notes I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T17:51:37-07:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Big-data/" itemprop="url" rel="index">
+                    <span itemprop="name">Big data</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
+</ul>
+<ul>
+<li>Why big data?<br>In case of Google:<ul>
+<li>~40 billion web pages x 30 kb each = Petabyte</li>
+<li>average disk speed reads about 120 mb/sec</li>
+<li>over 3 months to read the web</li>
+<li>about 1,000 drives to store and use
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/08/hadoop-notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/06/javascripts-notes-1/" itemprop="url">
                   Javascript/jQuery notes I
                 </a>
@@ -342,30 +473,30 @@
           
             <a id="more"></a>
 <ul>
-<li><h4 id="HTML-DIV-overflow-and-scroll"><a href="#HTML-DIV-overflow-and-scroll" class="headerlink" title="HTML DIV overflow and scroll"></a><strong>HTML DIV overflow and scroll</strong></h4>Sometimes, the <code>overflow-y:scroll</code> is not working.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#div_scroll'</span>).css(<span class="string">'overflow-y'</span>, <span class="string">'auto'</span>)</div></pre></td></tr></table></figure>
+<li><h4 id="HTML-DIV-overflow-and-scroll"><a href="#HTML-DIV-overflow-and-scroll" class="headerlink" title="HTML DIV overflow and scroll"></a><strong>HTML DIV overflow and scroll</strong></h4>Sometimes, the <code>overflow-y:scroll</code> is not working.<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">'#div_scroll'</span>).css(<span class="string">'overflow-y'</span>, <span class="string">'auto'</span>)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Simply because the <code>height</code> property is missing.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#div_scroll'</span>).css(<span class="string">'height'</span>, <span class="string">'200px'</span>)</div></pre></td></tr></table></figure></p>
+<p>Simply because the <code>height</code> property is missing.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">'#div_scroll'</span>).css(<span class="string">'height'</span>, <span class="string">'200px'</span>)</div></pre></td></tr></table></figure></p>
 <ul>
 <li><h4 id="Datepicker"><a href="#Datepicker" class="headerlink" title="Datepicker"></a><strong>Datepicker</strong></h4></li>
 </ul>
 <p>Configure datepicker: make sure the right jQuery libs have been included.</p>
-<p>Show calendar image only with a hidden input field.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"dp"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#dp"</span>).datepicker(&#123;</div><div class="line">    buttonImage: <span class="string">'../images/calendar.png'</span>,</div><div class="line">    buttonImageOnly: <span class="literal">true</span>,</div><div class="line">    changeMonth: <span class="literal">true</span>,</div><div class="line">    changeYear: <span class="literal">true</span>,</div><div class="line">    showOn: <span class="string">'both'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>Show both date input and image fields. The datepicker is binding to the input field. Then, when clicking the image, it also trigger the popup of same datepicker.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"date"</span> &gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"date_img"</span> <span class="attr">src</span>=<span class="string">"../images/calendar.png”&gt;</span></span></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#date"</span>).datepicker(&#123;</div><div class="line">    format: <span class="string">"yyyy-mm-dd"</span>,</div><div class="line">    autoclose: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">"#date_img"</span>).on( <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#date'</span>).datepicker(<span class="string">'show'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Show calendar image only with a hidden input field.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"dp"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#dp"</span>).datepicker(&#123;</div><div class="line">    buttonImage: <span class="string">'../images/calendar.png'</span>,</div><div class="line">    buttonImageOnly: <span class="literal">true</span>,</div><div class="line">    changeMonth: <span class="literal">true</span>,</div><div class="line">    changeYear: <span class="literal">true</span>,</div><div class="line">    showOn: <span class="string">'both'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Show both date input and image fields. The datepicker is binding to the input field. Then, when clicking the image, it also trigger the popup of same datepicker.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"date"</span> &gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"date_img"</span> <span class="attr">src</span>=<span class="string">"../images/calendar.png”&gt;</span></span></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#date"</span>).datepicker(&#123;</div><div class="line">    format: <span class="string">"yyyy-mm-dd"</span>,</div><div class="line">    autoclose: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">"#date_img"</span>).on( <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#date'</span>).datepicker(<span class="string">'show'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Possible conflict with <code>bootstrap</code>: when it comes with <code>&lt;div class=&quot;input-group date&quot; data-provide=&quot;datepicker&quot;&gt;</code> in HTML, the datepicker does not popup.</p>
 <ul>
 <li><h4 id="Get-URL-Parameters"><a href="#Get-URL-Parameters" class="headerlink" title="Get URL Parameters"></a><strong>Get URL Parameters</strong></h4></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">$_GET</span>(<span class="params">q,s</span>) </span>&#123; </div><div class="line">        s = s ? s : <span class="built_in">window</span>.location.search; </div><div class="line">        <span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&amp;'</span>+q+<span class="string">'(?:=([^&amp;]*))?(?=&amp;|$)'</span>,<span class="string">'i'</span>); </div><div class="line">        <span class="keyword">return</span> (s=s.replace(<span class="regexp">/^\?/</span>,<span class="string">'&amp;'</span>).match(re)) ? (<span class="keyword">typeof</span> s[<span class="number">1</span>] == <span class="string">'undefined'</span> ? <span class="string">''</span> : <span class="built_in">decodeURIComponent</span>(s[<span class="number">1</span>])) : <span class="literal">undefined</span>; </div><div class="line">    &#125; </div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">$_GET</span>(<span class="params">q,s</span>) </span>&#123; </div><div class="line">        s = s ? s : <span class="built_in">window</span>.location.search; </div><div class="line">        <span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'&amp;'</span>+q+<span class="string">'(?:=([^&amp;]*))?(?=&amp;|$)'</span>,<span class="string">'i'</span>); </div><div class="line">        <span class="keyword">return</span> (s=s.replace(<span class="regexp">/^\?/</span>,<span class="string">'&amp;'</span>).match(re)) ? (<span class="keyword">typeof</span> s[<span class="number">1</span>] == <span class="string">'undefined'</span> ? <span class="string">''</span> : <span class="built_in">decodeURIComponent</span>(s[<span class="number">1</span>])) : <span class="literal">undefined</span>; </div><div class="line">    &#125; </div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>This is a <code>JavaScript</code> implementation of PHP’s <code>$_GET</code> functionality. It uses a regular expression to keep the code to a minimum. Here is a simple example of how to use it:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// this code would print "hello world" with http://someurl?var1=hello&amp;var2=world</span></div><div class="line"><span class="keyword">var</span> var1 = $_GET(<span class="string">'var1'</span>);</div><div class="line"><span class="keyword">var</span> var2 = $_GET(<span class="string">'var2'</span>);</div><div class="line"><span class="built_in">document</span>.write(var1 + <span class="string">" "</span> + var2);</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// get the src parameter and split it down to the search query string</span></div><div class="line"><span class="keyword">var</span> src = <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>).src;</div><div class="line">params = src.split(<span class="string">'?'</span>);</div><div class="line"><span class="keyword">var</span> var1 = $_GET(<span class="string">'var1'</span>,<span class="string">'?'</span>+params[<span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// this code would print "hello world" with http://someurl?var1=hello&amp;var2=world</span></div><div class="line"><span class="keyword">var</span> var1 = $_GET(<span class="string">'var1'</span>);</div><div class="line"><span class="keyword">var</span> var2 = $_GET(<span class="string">'var2'</span>);</div><div class="line"><span class="built_in">document</span>.write(var1 + <span class="string">" "</span> + var2);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// get the src parameter and split it down to the search query string</span></div><div class="line"><span class="keyword">var</span> src = <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>).src;</div><div class="line">params = src.split(<span class="string">'?'</span>);</div><div class="line"><span class="keyword">var</span> var1 = $_GET(<span class="string">'var1'</span>,<span class="string">'?'</span>+params[<span class="number">1</span>]);</div></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="Two-Digits-Hours-and-Minutes"><a href="#Two-Digits-Hours-and-Minutes" class="headerlink" title="Two Digits Hours and Minutes"></a><strong>Two Digits Hours and Minutes</strong></h4></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">currentFormatTime</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(),str=<span class="string">''</span>;</div><div class="line">    <span class="keyword">var</span> currHours = date.getHours();</div><div class="line">    currHours = (<span class="string">"0"</span> + currHours).slice(<span class="number">-2</span>);</div><div class="line">    str += currHours + <span class="string">':'</span>;</div><div class="line">    <span class="keyword">var</span> currMins = date.getMinutes();</div><div class="line">    currMins = (<span class="string">"0"</span> + currMins).slice(<span class="number">-2</span>);</div><div class="line">    str += currMins + <span class="string">''</span>;</div><div class="line">    <span class="keyword">return</span> str;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//set current time</span></div><div class="line">$(<span class="string">"#currentTime"</span>).html(currentFormatTime);</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="string">"#currentTime"</span>).html(currentFormatTime)&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">currentFormatTime</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(),str=<span class="string">''</span>;</div><div class="line">    <span class="keyword">var</span> currHours = date.getHours();</div><div class="line">    currHours = (<span class="string">"0"</span> + currHours).slice(<span class="number">-2</span>);</div><div class="line">    str += currHours + <span class="string">':'</span>;</div><div class="line">    <span class="keyword">var</span> currMins = date.getMinutes();</div><div class="line">    currMins = (<span class="string">"0"</span> + currMins).slice(<span class="number">-2</span>);</div><div class="line">    str += currMins + <span class="string">''</span>;</div><div class="line">    <span class="keyword">return</span> str;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//set current time</span></div><div class="line">$(<span class="string">"#currentTime"</span>).html(currentFormatTime);</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="string">"#currentTime"</span>).html(currentFormatTime)&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="Format-Date-to-MM-DD-YY"><a href="#Format-Date-to-MM-DD-YY" class="headerlink" title="Format Date to MM/DD/YY"></a><strong>Format Date to MM/DD/YY</strong></h4></li>
 </ul>
@@ -375,21 +506,21 @@
 <li>Consider to slice the year to two digits.</li>
 <li><code>getYear()</code> returns [year]-1900. E.g., 2016 - 1900 = 116. </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> pDate = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</div><div class="line">    <span class="keyword">var</span> month = pDate.getMonth() + <span class="number">1</span>;</div><div class="line">    month = month &lt; <span class="number">10</span> ? <span class="string">"0"</span> + month : month;</div><div class="line">    <span class="keyword">var</span> day = pDate.getDate();</div><div class="line">    day = day &lt; <span class="number">10</span> ? <span class="string">"0"</span> + day : day;</div><div class="line">    <span class="keyword">var</span> year = pDate.getFullYear();</div><div class="line">    year = year.toString().substr(<span class="number">2</span>,<span class="number">2</span>);</div><div class="line">    <span class="keyword">return</span>  month + <span class="string">'/'</span> + day + <span class="string">'/'</span> + year;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> pDate = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</div><div class="line">    <span class="keyword">var</span> month = pDate.getMonth() + <span class="number">1</span>;</div><div class="line">    month = month &lt; <span class="number">10</span> ? <span class="string">"0"</span> + month : month;</div><div class="line">    <span class="keyword">var</span> day = pDate.getDate();</div><div class="line">    day = day &lt; <span class="number">10</span> ? <span class="string">"0"</span> + day : day;</div><div class="line">    <span class="keyword">var</span> year = pDate.getFullYear();</div><div class="line">    year = year.toString().substr(<span class="number">2</span>,<span class="number">2</span>);</div><div class="line">    <span class="keyword">return</span>  month + <span class="string">'/'</span> + day + <span class="string">'/'</span> + year;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="Populate-HTML-Table-Dynamically"><a href="#Populate-HTML-Table-Dynamically" class="headerlink" title="Populate HTML Table Dynamically"></a><strong>Populate HTML Table Dynamically</strong></h4></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>NAME<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>STATUS<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"tableBody"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>NAME<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>STATUS<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"tableBody"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><em>NOTE</em>:</p>
 <ul>
 <li><code>$(&quot;#tableBody&quot;).empty()</code> clear the all children html elements inside <code>#tableBody</code></li>
 <li><code>$(&quot;#tableBody&quot;).remove()</code> removes all including <code>#tableBody</code> itself.</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#tableBody"</span>).empty();</div><div class="line"></div><div class="line">$.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</div><div class="line">    htmlTable(value.id, value.name, value.status);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//populate html table</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlTable</span>(<span class="params">id, name, status</span>) </span>&#123;</div><div class="line">    <span class="comment">// &lt;th&gt;ID&lt;/th&gt;</span></div><div class="line">    <span class="comment">// &lt;th&gt;NAME&lt;/th&gt;</span></div><div class="line">    <span class="comment">// &lt;th&gt;STATUS&lt;/th&gt;</span></div><div class="line">    <span class="keyword">var</span> tr = <span class="string">'&lt;tr&gt;'</span></div><div class="line">    tr += <span class="string">'&lt;th scope="row"&gt;'</span> + id + <span class="string">'&lt;/th&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;td&gt;'</span> + name + <span class="string">'&lt;/td&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;td&gt;'</span> + status + <span class="string">'&lt;/td&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;/tr&gt;'</span>;</div><div class="line">    $(<span class="string">"#tableBody"</span>).append(tr);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#tableBody"</span>).empty();</div><div class="line"></div><div class="line">$.each(data, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</div><div class="line">    htmlTable(value.id, value.name, value.status);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//populate html table</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlTable</span>(<span class="params">id, name, status</span>) </span>&#123;</div><div class="line">    <span class="comment">// &lt;th&gt;ID&lt;/th&gt;</span></div><div class="line">    <span class="comment">// &lt;th&gt;NAME&lt;/th&gt;</span></div><div class="line">    <span class="comment">// &lt;th&gt;STATUS&lt;/th&gt;</span></div><div class="line">    <span class="keyword">var</span> tr = <span class="string">'&lt;tr&gt;'</span></div><div class="line">    tr += <span class="string">'&lt;th scope="row"&gt;'</span> + id + <span class="string">'&lt;/th&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;td&gt;'</span> + name + <span class="string">'&lt;/td&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;td&gt;'</span> + status + <span class="string">'&lt;/td&gt;'</span>;</div><div class="line">    tr += <span class="string">'&lt;/tr&gt;'</span>;</div><div class="line">    $(<span class="string">"#tableBody"</span>).append(tr);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="Treat-String-like-Variable-Name"><a href="#Treat-String-like-Variable-Name" class="headerlink" title="Treat String like Variable Name"></a><strong>Treat String like Variable Name</strong></h4></li>
 </ul>
-<p>User <code>eval</code> (may have some problem…).<br>Here, the <code>#tableBody</code> shows content based on the option being selected in a dropdown list <code>#select</code>. Suppose variable <code>varName</code> has corresponding html table content.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#select'</span>).on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#tableBody'</span>).empty();</div><div class="line">    <span class="keyword">var</span> varName = $( <span class="string">"#select option:selected"</span> ).val();</div><div class="line">    <span class="built_in">eval</span>(<span class="string">"$('#tableBody').append("</span> + varName + <span class="string">")"</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>User <code>eval</code> (may have some problem…).<br>Here, the <code>#tableBody</code> shows content based on the option being selected in a dropdown list <code>#select</code>. Suppose variable <code>varName</code> has corresponding html table content.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">'#select'</span>).on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#tableBody'</span>).empty();</div><div class="line">    <span class="keyword">var</span> varName = $( <span class="string">"#select option:selected"</span> ).val();</div><div class="line">    <span class="built_in">eval</span>(<span class="string">"$('#tableBody').append("</span> + varName + <span class="string">")"</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>Another method, if <code>varName</code> has been defined as global variable. Call it by <code>window[varName]</code>.<br><code>$(&#39;#tableBody&#39;).append(window[varName]);</code> </p>
 
           
@@ -648,11 +779,11 @@
 <ul>
 <li>First, ensure that <code>homebrew</code> is up to date and ready to brew</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew doctor</div><div class="line">brew upgrade</div><div class="line"></div><div class="line">brew update</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">brew update</div><div class="line">brew doctor</div><div class="line">brew upgrade</div><div class="line"></div><div class="line">brew update</div></pre></td></tr></table></figure>
 <ul>
 <li>Installed mysql</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/29/mysql-notes-1/#more" rel="contents">
               Read more &raquo;
@@ -1040,9 +1171,9 @@
 </ul>
 <p><code>grep</code> is a useful command to search text in a file.</p>
 <p><em>Format</em>:<br><code>grep [–bcEFilnqsvx] [–e pattern] ... [–f patternfile] ... [pattern] [file ...]</code></p>
-<p><code>grep</code> with multiple strings:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/logs/xxx | grep <span class="_">-e</span> <span class="string">'error'</span> <span class="_">-e</span> <span class="string">'falure'</span></div></pre></td></tr></table></figure></p>
-<p><code>grep</code> with highlight color:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">egrep --color=auto -i <span class="string">'(error|fatal|warn|drop)'</span> /logs/xxx</div></pre></td></tr></table></figure></p>
-<p>Change <code>grep</code> display color: following will set background to red and foreground to white:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GREP_OPTIONS=<span class="string">'--color=auto'</span></div><div class="line"><span class="built_in">export</span> GREP_COLOR=<span class="string">'1;37;41'</span></div></pre></td></tr></table></figure></p>
+<p><code>grep</code> with multiple strings:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">/logs/xxx | grep <span class="_">-e</span> <span class="string">'error'</span> <span class="_">-e</span> <span class="string">'falure'</span></div></pre></td></tr></table></figure></p>
+<p><code>grep</code> with highlight color:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">egrep --color=auto -i <span class="string">'(error|fatal|warn|drop)'</span> /logs/xxx</div></pre></td></tr></table></figure></p>
+<p>Change <code>grep</code> display color: following will set background to red and foreground to white:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> GREP_OPTIONS=<span class="string">'--color=auto'</span></div><div class="line"><span class="built_in">export</span> GREP_COLOR=<span class="string">'1;37;41'</span></div></pre></td></tr></table></figure></p>
 <p>Useful links:<br><a href="http://linuxcommand.org/writing_shell_scripts.php" target="_blank" rel="external">Writing shell scripts</a><br><a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_1.13.0/com.ibm.zos.r13.bpxa500/grep.htm" target="_blank" rel="external">Search a file for a specified pattern</a></p>
 <hr>
 
@@ -1294,7 +1425,7 @@
 <li><h4 id="Hexo-commands"><a href="#Hexo-commands" class="headerlink" title="Hexo commands"></a><strong>Hexo commands</strong></h4></li>
 </ul>
 <p>Install Hexo, make sure you have <a href="https://nodejs.org/en/">node.js</a> installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/10/hexo-notes-1/#more" rel="contents">
               Read more &raquo;
@@ -1452,132 +1583,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/04/java-notes-3/" itemprop="url">
-                  Java coding notes III
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T21:20:00-07:00" content="2016-07-04">
-              2016-07-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="Sending-HTTP-post-request"><a href="#Sending-HTTP-post-request" class="headerlink" title="Sending HTTP post request"></a><strong>Sending HTTP post request</strong></h4></li>
-</ul>
-<p>In case of sending HTTP post request to a <code>URL</code> with parameters such as submitting a HTML form and expecting to receive some response.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/04/java-notes-3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1623,7 +1628,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1631,7 +1636,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1640,7 +1645,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -89,7 +89,7 @@
 <meta name="description" content="Hexo commands
 
 Install Hexo, make sure you have node.js installed
-1npm install hexo-cli -g">
+npm install hexo-cli -g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/10/hexo-notes-1/index.html">
@@ -97,14 +97,14 @@ Install Hexo, make sure you have node.js installed
 <meta property="og:description" content="Hexo commands
 
 Install Hexo, make sure you have node.js installed
-1npm install hexo-cli -g">
+npm install hexo-cli -g">
 <meta property="og:updated_time" content="2016-07-18T03:51:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo notes I">
 <meta name="twitter:description" content="Hexo commands
 
 Install Hexo, make sure you have node.js installed
-1npm install hexo-cli -g">
+npm install hexo-cli -g">
 
 
 
@@ -112,7 +112,7 @@ Install Hexo, make sure you have node.js installed
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -352,39 +352,39 @@ Install Hexo, make sure you have node.js installed
 <li><h4 id="Hexo-commands"><a href="#Hexo-commands" class="headerlink" title="Hexo commands"></a><strong>Hexo commands</strong></h4></li>
 </ul>
 <p>Install Hexo, make sure you have <a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a> installed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>Create hexo folder (your site folder)</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init &lt;folder-name&gt;</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo init &lt;folder-name&gt;</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div></pre></td></tr></table></figure>
 <p>Once initialised, the site folder structure looks like:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── <span class="built_in">source</span></div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── <span class="built_in">source</span></div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
 <p>New post: If no <code>layout</code> is provided, Hexo will use the default_layout from <code>_config.yml</code>. If the <code>title</code> contains spaces, surround it with quotation marks. The new post file appears in <code>/source/_posts</code>.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
 <p>Start server: by default <code>http://localhost:4000/</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
 <p>Clean cache file <code>db.json</code> </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure>
 <p>Watch file changes in debug mode</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
 <p>Generate static file</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
 <p>Before deployment, in <code>_config.yml</code> file</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/xxx...</div><div class="line">  branch: [master]</div><div class="line">  message: <span class="string">"Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/xxx...</div><div class="line">  branch: [master]</div><div class="line">  message: <span class="string">"Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span></div></pre></td></tr></table></figure>
 <p>Deploy the website</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
 <p>If <code>ERROR</code> shows like <code>Deployer not found: github</code>, it needs to change the deploy type to <code>git</code>.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>Commands shortcut</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">hexo g == hexo generate</div><div class="line">hexo d == hexo deploy</div><div class="line">hexo s == hexo server</div><div class="line">hexo n == hexo new</div><div class="line"><span class="comment"># e.g. commands combination</span></div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo g == hexo generate</div><div class="line">hexo d == hexo deploy</div><div class="line">hexo s == hexo server</div><div class="line">hexo n == hexo new</div><div class="line"><span class="comment"># e.g. commands combination</span></div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
 <p>Create draft and publish it</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo new draft &lt;title&gt;</div><div class="line">hexo publish draft &lt;title&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo new draft &lt;title&gt;</div><div class="line">hexo publish draft &lt;title&gt;</div></pre></td></tr></table></figure>
 <p>Drafts are not displayed by default. You can add the <code>--draft</code> option when running Hexo or enable the <code>render_drafts</code> setting in <code>_config.yml</code> to render drafts.</p>
 <p>Ref: <a href="https://hexo.io/" target="_blank" rel="external">Hexo getting started</a></p>
 <hr>
 <ul>
 <li><h4 id="Hexo-themes"><a href="#Hexo-themes" class="headerlink" title="Hexo themes"></a><strong>Hexo themes</strong></h4></li>
 </ul>
-<p><strong>1. NexT</strong><br>Install <code>NexT</code> theme<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p><strong>1. NexT</strong><br>Install <code>NexT</code> theme<br>    <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
 <p>Folow the setup instructions in <code>/theme/next/_config.yml</code></p>
 <p><strong>2. Bootstrap</strong><br>Another theme, <a href="https://www.cgmartin.com/2016/01/05/bootstrap-blog-hexo-theme/" target="_blank" rel="external">Bootstrap</a>, with good layout and available functions.</p>
 <p><strong>3. Pacman</strong><br>A bueatiful theme, <a href="https://github.com/A-limon/pacman" target="_blank" rel="external">Pacman</a>.  </p>
@@ -392,10 +392,10 @@ Install Hexo, make sure you have node.js installed
 <li><h4 id="Create-post-TOC"><a href="#Create-post-TOC" class="headerlink" title="Create post TOC"></a><strong>Create post TOC</strong></h4></li>
 </ul>
 <p>It might be a different based on the theme, but the logic behind is similar. Taking the <code>NexT</code> theme for instance, in <code>/theme/next/layout/_macro</code>, find the file <code>post.swig</code>, which configures the post content display.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;% if post.toc %&#125;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"toc"</span> <span class="attr">class</span>=<span class="string">"post-toc"</span>&gt;</span></div><div class="line">        &#123;% set toc = toc(page.content, &#123;"class": "nav", list_number: post.toc_num&#125;) %&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span>Table of Contents<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-toc-content"</span>&gt;</span>&#123;&#123; toc &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;% if post.toc %&#125;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"toc"</span> <span class="attr">class</span>=<span class="string">"post-toc"</span>&gt;</span></div><div class="line">        &#123;% set toc = toc(page.content, &#123;"class": "nav", list_number: post.toc_num&#125;) %&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span>Table of Contents<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-toc-content"</span>&gt;</span>&#123;&#123; toc &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
 <p>There are two controls there, so in the post <code>front-matter</code>, one can add <code>toc: true</code> for display TOC and <code>toc_num: true</code> for showing list numbers.</p>
 <p>For defaut display TOC, just change the <code>if</code> statement, e.g.,</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> (post.toc == <span class="literal">false</span>) %&#125;</div><div class="line"><span class="comment"># and show list number by default</span></div><div class="line">&#123;% <span class="built_in">set</span> toc = toc(page.content, &#123;<span class="string">"class"</span>: <span class="string">"nav"</span>, list_number: post.toc_num==<span class="literal">false</span>&#125;) %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> (post.toc == <span class="literal">false</span>) %&#125;</div><div class="line"><span class="comment"># and show list number by default</span></div><div class="line">&#123;% <span class="built_in">set</span> toc = toc(page.content, &#123;<span class="string">"class"</span>: <span class="string">"nav"</span>, list_number: post.toc_num==<span class="literal">false</span>&#125;) %&#125;</div></pre></td></tr></table></figure>
 <p>Then, you don’t have to set <code>front-matter</code> for each post.</p>
 <hr>
 
@@ -511,7 +511,7 @@ Install Hexo, make sure you have node.js installed
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -519,7 +519,7 @@ Install Hexo, make sure you have node.js installed
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -528,7 +528,7 @@ Install Hexo, make sure you have node.js installed
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

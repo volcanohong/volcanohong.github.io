@@ -94,7 +94,7 @@ Here are the instructions for installing MySQL on a MacOS by using homebrew.
 
 First, ensure that homebrew is up to date and ready to brew
 
-12345brew updatebrew doctorbrew upgradebrew">
+brew updatebrew doctorbrew upgradebrew upda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/29/mysql-notes-1/index.html">
@@ -107,7 +107,7 @@ Here are the instructions for installing MySQL on a MacOS by using homebrew.
 
 First, ensure that homebrew is up to date and ready to brew
 
-12345brew updatebrew doctorbrew upgradebrew">
+brew updatebrew doctorbrew upgradebrew upda">
 <meta property="og:updated_time" content="2016-07-30T04:37:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL notes I">
@@ -119,7 +119,7 @@ Here are the instructions for installing MySQL on a MacOS by using homebrew.
 
 First, ensure that homebrew is up to date and ready to brew
 
-12345brew updatebrew doctorbrew upgradebrew">
+brew updatebrew doctorbrew upgradebrew upda">
 
 
 
@@ -127,7 +127,7 @@ First, ensure that homebrew is up to date and ready to brew
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -372,60 +372,60 @@ First, ensure that homebrew is up to date and ready to brew
 <ul>
 <li>First, ensure that <code>homebrew</code> is up to date and ready to brew</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew doctor</div><div class="line">brew upgrade</div><div class="line"></div><div class="line">brew update</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">brew update</div><div class="line">brew doctor</div><div class="line">brew upgrade</div><div class="line"></div><div class="line">brew update</div></pre></td></tr></table></figure>
 <ul>
 <li>Installed mysql</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">brew install mysql</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li>Run the commands that brew suggested</li>
 </ul>
-<p>Try it first:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_install_db --verbose --user=`whoami` --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
-<p>IF HAVING ERROR<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_install_db: [ERROR] unknown variable <span class="string">'tmpdir=/tmp'</span></div></pre></td></tr></table></figure></p>
-<p>TRY THIS INSTEAD<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqld -initialize --verbose --user=whoami --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
+<p>Try it first:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql_install_db --verbose --user=`whoami` --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
+<p>IF HAVING ERROR<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql_install_db: [ERROR] unknown variable <span class="string">'tmpdir=/tmp'</span></div></pre></td></tr></table></figure></p>
+<p>TRY THIS INSTEAD<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysqld -initialize --verbose --user=whoami --basedir=<span class="string">"<span class="variable">$(brew --prefix mysql)</span>"</span> --datadir=/usr/<span class="built_in">local</span>/var/mysql --tmpdir=/tmp</div></pre></td></tr></table></figure></p>
 <ul>
 <li>Start MySQL server </li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql.server start</div></pre></td></tr></table></figure>
 <ul>
 <li>MySQL configuration</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql_secure_installation</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql_secure_installation</div></pre></td></tr></table></figure>
 <p>Add the following my.cnf file to /etc:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div></pre></td><td class="code"><pre><div class="line">## The MySQL database server configuration file.</div><div class="line">#</div><div class="line"># You can copy this to one of:</div><div class="line"># - &quot;/etc/mysql/my.cnf&quot; to set global options,</div><div class="line"># - &quot;~/.my.cnf&quot; to set user-specific options.</div><div class="line">#</div><div class="line"># One can use all long options that the program supports.</div><div class="line"># Run program with --help to get a list of available options and with</div><div class="line"># --print-defaults to see which it would actually understand and use.</div><div class="line">#</div><div class="line"># For explanations see</div><div class="line"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</div><div class="line">  </div><div class="line"># This will be passed to all mysql clients</div><div class="line"># It has been reported that passwords should be enclosed with</div><div class="line"># ticks/quotes escpecially if they contain &quot;#&quot; chars...</div><div class="line"># Remember to edit /etc/mysql/debian.cnf when changing</div><div class="line"># the socket location.</div><div class="line">[client]</div><div class="line">port        = 3306</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">  </div><div class="line"># Here is entries for some specific programs</div><div class="line"># The following values assume you have at least 32M ram</div><div class="line">  </div><div class="line"># This was formally known as [safe_mysqld]. Both versions</div><div class="line"># are currently parsed.</div><div class="line">[mysqld_safe]</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">#nice       = 0</div><div class="line">  </div><div class="line">[mysqld]</div><div class="line">#</div><div class="line"># * Basic Settings</div><div class="line">#</div><div class="line">  </div><div class="line">#</div><div class="line"># * IMPORTANT</div><div class="line">#   If you make changes to these settings and your system uses</div><div class="line">#   apparmor, you may also need to also adjust</div><div class="line">#   /etc/apparmor.d/usr.sbin.mysqld.</div><div class="line">#</div><div class="line">  </div><div class="line">#user       = mysql</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">port        = 3306</div><div class="line">#basedir    = /usr</div><div class="line">#datadir    = /var/lib/mysql</div><div class="line">#tmpdir     = /tmp</div><div class="line">skip-external-locking</div><div class="line">#</div><div class="line"># Instead of skip-networking the default is now to listen only on</div><div class="line"># localhost which is more compatible and is not less secure.</div><div class="line">bind-address        = 127.0.0.1</div><div class="line">#</div><div class="line"># * Fine Tuning</div><div class="line">#</div><div class="line">key_buffer          = 16M</div><div class="line">max_allowed_packet  = 16M</div><div class="line">thread_stack        = 192K</div><div class="line">thread_cache_size   = 8</div><div class="line"># This replaces the startup script and checks MyISAM tables if needed</div><div class="line"># the first time they are touched</div><div class="line">myisam-recover         = BACKUP</div><div class="line">#max_connections       = 100</div><div class="line">#table_cache           = 64</div><div class="line">#thread_concurrency    = 10</div><div class="line">#</div><div class="line"># * Query Cache Configuration</div><div class="line">#</div><div class="line">query_cache_limit   = 1M</div><div class="line">query_cache_size    = 16M</div><div class="line">#</div><div class="line"># * Logging and Replication</div><div class="line">#</div><div class="line"># Both location gets rotated by the cronjob.</div><div class="line"># Be aware that this log type is a performance killer.</div><div class="line"># As of 5.1 you can enable the log at runtime!</div><div class="line">#general_log_file        = /var/log/mysql/mysql.log</div><div class="line">#general_log             = 1</div><div class="line">  </div><div class="line">log_error                = /var/log/mysql/error.log</div><div class="line">  </div><div class="line"># Here you can see queries with especially long duration</div><div class="line">#log_slow_queries   = /var/log/mysql/mysql-slow.log</div><div class="line">#long_query_time = 2</div><div class="line">#log-queries-not-using-indexes</div><div class="line">#</div><div class="line"># The following can be used as easy to replay backup logs or</div><div class="line"># for replication.</div><div class="line"># note: if you are setting up a replication slave, see</div><div class="line">#       README.Debian about other settings you may need</div><div class="line">#       to change.</div><div class="line">#server-id          = 1</div><div class="line">#log_bin            = /var/log/mysql/mysql-bin.log</div><div class="line">expire_logs_days    = 10</div><div class="line">max_binlog_size     = 100M</div><div class="line">#binlog_do_db       = include_database_name</div><div class="line">#binlog_ignore_db   = include_database_name</div><div class="line">#</div><div class="line"># * InnoDB</div><div class="line">#</div><div class="line"># InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.</div><div class="line"># Read the manual for more InnoDB related options. There are many!</div><div class="line">#</div><div class="line"># * Security Features</div><div class="line">#</div><div class="line"># Read the manual, too, if you want chroot!</div><div class="line"># chroot = /var/lib/mysql/</div><div class="line">#</div><div class="line"># For generating SSL certificates I recommend the OpenSSL GUI &quot;tinyca&quot;.</div><div class="line">#</div><div class="line"># ssl-ca=/etc/mysql/cacert.pem</div><div class="line"># ssl-cert=/etc/mysql/server-cert.pem</div><div class="line"># ssl-key=/etc/mysql/server-key.pem</div><div class="line">  </div><div class="line"># Query Caching</div><div class="line">query-cache-type = 1</div><div class="line">  </div><div class="line"># Default to InnoDB</div><div class="line">default-storage-engine=innodb</div><div class="line">  </div><div class="line">[mysqldump]</div><div class="line">quick</div><div class="line">quote-names</div><div class="line">max_allowed_packet  = 16M</div><div class="line">  </div><div class="line">[mysql]</div><div class="line">#no-auto-rehash # faster start of mysql but no tab completition</div><div class="line">  </div><div class="line">[isamchk]</div><div class="line">key_buffer      = 16M</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## The MySQL database server configuration file.</div><div class="line">#</div><div class="line"># You can copy this to one of:</div><div class="line"># - &quot;/etc/mysql/my.cnf&quot; to set global options,</div><div class="line"># - &quot;~/.my.cnf&quot; to set user-specific options.</div><div class="line">#</div><div class="line"># One can use all long options that the program supports.</div><div class="line"># Run program with --help to get a list of available options and with</div><div class="line"># --print-defaults to see which it would actually understand and use.</div><div class="line">#</div><div class="line"># For explanations see</div><div class="line"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</div><div class="line">  </div><div class="line"># This will be passed to all mysql clients</div><div class="line"># It has been reported that passwords should be enclosed with</div><div class="line"># ticks/quotes escpecially if they contain &quot;#&quot; chars...</div><div class="line"># Remember to edit /etc/mysql/debian.cnf when changing</div><div class="line"># the socket location.</div><div class="line">[client]</div><div class="line">port        = 3306</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">  </div><div class="line"># Here is entries for some specific programs</div><div class="line"># The following values assume you have at least 32M ram</div><div class="line">  </div><div class="line"># This was formally known as [safe_mysqld]. Both versions</div><div class="line"># are currently parsed.</div><div class="line">[mysqld_safe]</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">#nice       = 0</div><div class="line">  </div><div class="line">[mysqld]</div><div class="line">#</div><div class="line"># * Basic Settings</div><div class="line">#</div><div class="line">  </div><div class="line">#</div><div class="line"># * IMPORTANT</div><div class="line">#   If you make changes to these settings and your system uses</div><div class="line">#   apparmor, you may also need to also adjust</div><div class="line">#   /etc/apparmor.d/usr.sbin.mysqld.</div><div class="line">#</div><div class="line">  </div><div class="line">#user       = mysql</div><div class="line">#socket     = /var/run/mysqld/mysqld.sock</div><div class="line">port        = 3306</div><div class="line">#basedir    = /usr</div><div class="line">#datadir    = /var/lib/mysql</div><div class="line">#tmpdir     = /tmp</div><div class="line">skip-external-locking</div><div class="line">#</div><div class="line"># Instead of skip-networking the default is now to listen only on</div><div class="line"># localhost which is more compatible and is not less secure.</div><div class="line">bind-address        = 127.0.0.1</div><div class="line">#</div><div class="line"># * Fine Tuning</div><div class="line">#</div><div class="line">key_buffer          = 16M</div><div class="line">max_allowed_packet  = 16M</div><div class="line">thread_stack        = 192K</div><div class="line">thread_cache_size   = 8</div><div class="line"># This replaces the startup script and checks MyISAM tables if needed</div><div class="line"># the first time they are touched</div><div class="line">myisam-recover         = BACKUP</div><div class="line">#max_connections       = 100</div><div class="line">#table_cache           = 64</div><div class="line">#thread_concurrency    = 10</div><div class="line">#</div><div class="line"># * Query Cache Configuration</div><div class="line">#</div><div class="line">query_cache_limit   = 1M</div><div class="line">query_cache_size    = 16M</div><div class="line">#</div><div class="line"># * Logging and Replication</div><div class="line">#</div><div class="line"># Both location gets rotated by the cronjob.</div><div class="line"># Be aware that this log type is a performance killer.</div><div class="line"># As of 5.1 you can enable the log at runtime!</div><div class="line">#general_log_file        = /var/log/mysql/mysql.log</div><div class="line">#general_log             = 1</div><div class="line">  </div><div class="line">log_error                = /var/log/mysql/error.log</div><div class="line">  </div><div class="line"># Here you can see queries with especially long duration</div><div class="line">#log_slow_queries   = /var/log/mysql/mysql-slow.log</div><div class="line">#long_query_time = 2</div><div class="line">#log-queries-not-using-indexes</div><div class="line">#</div><div class="line"># The following can be used as easy to replay backup logs or</div><div class="line"># for replication.</div><div class="line"># note: if you are setting up a replication slave, see</div><div class="line">#       README.Debian about other settings you may need</div><div class="line">#       to change.</div><div class="line">#server-id          = 1</div><div class="line">#log_bin            = /var/log/mysql/mysql-bin.log</div><div class="line">expire_logs_days    = 10</div><div class="line">max_binlog_size     = 100M</div><div class="line">#binlog_do_db       = include_database_name</div><div class="line">#binlog_ignore_db   = include_database_name</div><div class="line">#</div><div class="line"># * InnoDB</div><div class="line">#</div><div class="line"># InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.</div><div class="line"># Read the manual for more InnoDB related options. There are many!</div><div class="line">#</div><div class="line"># * Security Features</div><div class="line">#</div><div class="line"># Read the manual, too, if you want chroot!</div><div class="line"># chroot = /var/lib/mysql/</div><div class="line">#</div><div class="line"># For generating SSL certificates I recommend the OpenSSL GUI &quot;tinyca&quot;.</div><div class="line">#</div><div class="line"># ssl-ca=/etc/mysql/cacert.pem</div><div class="line"># ssl-cert=/etc/mysql/server-cert.pem</div><div class="line"># ssl-key=/etc/mysql/server-key.pem</div><div class="line">  </div><div class="line"># Query Caching</div><div class="line">query-cache-type = 1</div><div class="line">  </div><div class="line"># Default to InnoDB</div><div class="line">default-storage-engine=innodb</div><div class="line">  </div><div class="line">[mysqldump]</div><div class="line">quick</div><div class="line">quote-names</div><div class="line">max_allowed_packet  = 16M</div><div class="line">  </div><div class="line">[mysql]</div><div class="line">#no-auto-rehash # faster start of mysql but no tab completition</div><div class="line">  </div><div class="line">[isamchk]</div><div class="line">key_buffer      = 16M</div></pre></td></tr></table></figure>
 <ul>
 <li>Go to MySQL console</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h localhost -u root -p</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql -h localhost -u root -p</div></pre></td></tr></table></figure>
 <ul>
 <li>Create database</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create database dbName;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">create database dbName;</div></pre></td></tr></table></figure>
 <ul>
 <li>Create user</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create user username@localhost identified by <span class="string">'password'</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">create user username@localhost identified by <span class="string">'password'</span>;</div></pre></td></tr></table></figure>
 <ul>
 <li>Grant privilege</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON newpal.* TO username@localhost WITH GRANT OPTION;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON newpal.* TO username@localhost WITH GRANT OPTION;</div></pre></td></tr></table></figure>
 <p><em>Some commands:</em></p>
 <p>Restart the MySQL server</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server restart</div></pre></td></tr></table></figure>
-<p>Stop MySQL server<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql.server stop</div></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql.server restart</div></pre></td></tr></table></figure>
+<p>Stop MySQL server<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql.server stop</div></pre></td></tr></table></figure></p>
 <ul>
 <li>Check if a MySQL instance is runnig</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps ax | grep mysql</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">ps ax | grep mysql</div></pre></td></tr></table></figure>
 <ul>
 <li>Check MySQL status</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root -p status</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysqladmin -u root -p status</div></pre></td></tr></table></figure>
 <ul>
 <li>Changing the permission to MySQL folder. If you are working locally, you can try:</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod -R 755 /var/lib/mysql/</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">sudo chmod -R 755 /var/lib/mysql/</div></pre></td></tr></table></figure>
 <ul>
 <li>Export MySQL DB<br>mysqldump -u dbName1 -p dbName2 &gt; fileName.sql</li>
 </ul>
@@ -435,11 +435,11 @@ First, ensure that homebrew is up to date and ready to brew
 <ul>
 <li>Import MySQL DB</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h ip_address -u username -p dbName &lt; fileName.sql</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mysql -h ip_address -u username -p dbName &lt; fileName.sql</div></pre></td></tr></table></figure>
 <ul>
 <li><h4 id="Remove-MySQL"><a href="#Remove-MySQL" class="headerlink" title="Remove MySQL"></a><strong>Remove MySQL</strong></h4></li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">brew remove mysql</div><div class="line"></div><div class="line">brew cleanup --force</div><div class="line"></div><div class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">sudo rm -rf /usr/<span class="built_in">local</span>/var/mysql</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">brew remove mysql</div><div class="line"></div><div class="line">brew cleanup --force</div><div class="line"></div><div class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">sudo rm -rf /usr/<span class="built_in">local</span>/var/mysql</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -554,7 +554,7 @@ First, ensure that homebrew is up to date and ready to brew
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -562,7 +562,7 @@ First, ensure that homebrew is up to date and ready to brew
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -571,7 +571,7 @@ First, ensure that homebrew is up to date and ready to brew
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

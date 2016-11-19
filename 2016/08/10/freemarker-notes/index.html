@@ -109,7 +109,7 @@ Built-ins are like methods that are added to the objects by FreeMarker. To preve
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -350,14 +350,14 @@ Built-ins are like methods that are added to the objects by FreeMarker. To preve
 </ul>
 <p>Built-ins are like methods that are added to the objects by <code>FreeMarker</code>. To prevent name clashes with actual methods and other sub-variables, instead of dot (.), you separate them from the parent object with question mark (?).</p>
 <p>Some examples:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$&#123;testString?upper_case&#125;</div><div class="line">$&#123;testString?html&#125;</div><div class="line">$&#123;testString?upper_case?html&#125;</div><div class="line"></div><div class="line">$&#123;testSequence?size&#125;</div><div class="line">$&#123;testSequence?join(&quot;, &quot;)&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$&#123;testString?upper_case&#125;</div><div class="line">$&#123;testString?html&#125;</div><div class="line">$&#123;testString?upper_case?html&#125;</div><div class="line"></div><div class="line">$&#123;testSequence?size&#125;</div><div class="line">$&#123;testSequence?join(&quot;, &quot;)&#125;</div></pre></td></tr></table></figure>
 <p>Assuming that testString stores the string “Tom &amp; Jerry”, and testSequnce stores the strings “foo”, “bar” and “baz”, the output will be:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">TOM &amp; JERRY</div><div class="line">Tom &amp;amp; Jerry</div><div class="line">TOM &amp;amp; JERRY</div><div class="line"></div><div class="line">3</div><div class="line">foo, bar, baz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">TOM &amp; JERRY</div><div class="line">Tom &amp;amp; Jerry</div><div class="line">TOM &amp;amp; JERRY</div><div class="line"></div><div class="line">3</div><div class="line">foo, bar, baz</div></pre></td></tr></table></figure>
 <blockquote>
 <p><code>html</code>(deprecated): This built-in is deprecated by the auto-escaping mechanism introduced in 2.3.24. </p>
 </blockquote>
 <p>Other examples:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">path?ensure_starts_with(&apos;/&apos;)</div><div class="line">path?length </div><div class="line">&lt;#--not path?length()--&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">path?ensure_starts_with(&apos;/&apos;)</div><div class="line">path?length </div><div class="line">&lt;#--not path?length()--&gt;</div></pre></td></tr></table></figure>
 <p>Ref links: <a href="http://freemarker.org/docs/ref_builtins_string.html#ref_builtin_html" target="_blank" rel="external">builtin methods</a></p>
 <a id="more"></a>
 
@@ -473,7 +473,7 @@ Built-ins are like methods that are added to the objects by FreeMarker. To preve
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -481,7 +481,7 @@ Built-ins are like methods that are added to the objects by FreeMarker. To preve
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -490,7 +490,7 @@ Built-ins are like methods that are added to the objects by FreeMarker. To preve
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
