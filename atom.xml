@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2016-12-18T19:57:47.000Z</updated>
+  <updated>2016-12-18T20:28:27.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -16,11 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Jhipster MicroService</title>
+    <link href="http://volcanohong.github.com/2016/12/18/jhipster-microservice/"/>
+    <id>http://volcanohong.github.com/2016/12/18/jhipster-microservice/</id>
+    <published>2016-12-18T20:16:51.000Z</published>
+    <updated>2016-12-18T20:28:27.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Introduction-of-JHipster-MS&quot;&gt;&lt;a href=&quot;#Introduction-of-JHipster-MS&quot; class=&quot;headerlink&quot; title=&quot;Introduction of JHipster MS&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction of JHipster MS&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;/content/pdf/JHipsterMicroservice-181216.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Introduction-of-JHipster-MS&quot;&gt;&lt;a href=&quot;#Introduction-of-JHipster-MS&quot; class=&quot;headerlink&quot; title=&quot;Introduction of JHipster MS&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction of JHipster MS&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;/content/pdf/JHipsterMicroservice-181216.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+    
+    </summary>
+    
+      <category term="Framework" scheme="http://volcanohong.github.com/categories/Framework/"/>
+    
+    
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
+    
+      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="framework" scheme="http://volcanohong.github.com/tags/framework/"/>
+    
+      <category term="jhipster" scheme="http://volcanohong.github.com/tags/jhipster/"/>
+    
+      <category term="microservice" scheme="http://volcanohong.github.com/tags/microservice/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Jhipster Project</title>
     <link href="http://volcanohong.github.com/2016/11/18/jhipster-project/"/>
     <id>http://volcanohong.github.com/2016/11/18/jhipster-project/</id>
     <published>2016-11-19T05:37:31.000Z</published>
-    <updated>2016-12-18T19:57:47.000Z</updated>
+    <updated>2016-12-18T20:15:20.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;h3 id=&quot;Security-Configuration&quot;&gt;&lt;a href=&quot;#Security-Configuration&quot; class=&quot;headerlink&quot; title=&quot;Security Configuration&quot;&gt;&lt;/a&gt;&lt;strong&gt;Security Configuration&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
@@ -134,7 +182,7 @@
     
     </summary>
     
-      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
+      <category term="Framework" scheme="http://volcanohong.github.com/categories/Framework/"/>
     
     
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
@@ -1906,86 +1954,6 @@
       <category term="java web" scheme="http://volcanohong.github.com/tags/java-web/"/>
     
       <category term="debug" scheme="http://volcanohong.github.com/tags/debug/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo notes I</title>
-    <link href="http://volcanohong.github.com/2016/07/10/hexo-notes-1/"/>
-    <id>http://volcanohong.github.com/2016/07/10/hexo-notes-1/</id>
-    <published>2016-07-10T14:27:41.000Z</published>
-    <updated>2016-07-18T03:51:38.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Hexo-commands&quot;&gt;&lt;a href=&quot;#Hexo-commands&quot; class=&quot;headerlink&quot; title=&quot;Hexo commands&quot;&gt;&lt;/a&gt;&lt;strong&gt;Hexo commands&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Install Hexo, make sure you have &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node.js&lt;/a&gt; installed&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Create hexo folder (your site folder)&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo init &amp;lt;folder-name&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; blog&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Once initialised, the site folder structure looks like:&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── _config.yml&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── package.json&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── scaffolds&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;├── &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   ├── _drafts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;|   └── _posts&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;└── themes&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;New post: If no &lt;code&gt;layout&lt;/code&gt; is provided, Hexo will use the default_layout from &lt;code&gt;_config.yml&lt;/code&gt;. If the &lt;code&gt;title&lt;/code&gt; contains spaces, surround it with quotation marks. The new post file appears in &lt;code&gt;/source/_posts&lt;/code&gt;.&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo new [layout] &amp;lt;title&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Start server: by default &lt;code&gt;http://localhost:4000/&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Clean cache file &lt;code&gt;db.json&lt;/code&gt; &lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo clean&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Watch file changes in debug mode&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo s --debug&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Generate static file&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo generate&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Before deployment, in &lt;code&gt;_config.yml&lt;/code&gt; file&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;deploy:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;: git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  repo: https://github.com/xxx...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  branch: [master]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  message: &lt;span class=&quot;string&quot;&gt;&quot;Site updated: &amp;#123;&amp;#123; now(&#39;YYYY-MM-DD HH:mm:ss&#39;) &amp;#125;&amp;#125;&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Deploy the website&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;If &lt;code&gt;ERROR&lt;/code&gt; shows like &lt;code&gt;Deployer not found: github&lt;/code&gt;, it needs to change the deploy type to &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-deployer-git --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Commands shortcut&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo g == hexo generate&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo d == hexo deploy&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo s == hexo server&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo n == hexo new&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# e.g. commands combination&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo d -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Create draft and publish it&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo new draft &amp;lt;title&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo publish draft &amp;lt;title&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Drafts are not displayed by default. You can add the &lt;code&gt;--draft&lt;/code&gt; option when running Hexo or enable the &lt;code&gt;render_drafts&lt;/code&gt; setting in &lt;code&gt;_config.yml&lt;/code&gt; to render drafts.&lt;/p&gt;
-&lt;p&gt;Ref: &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo getting started&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Hexo-themes&quot;&gt;&lt;a href=&quot;#Hexo-themes&quot; class=&quot;headerlink&quot; title=&quot;Hexo themes&quot;&gt;&lt;/a&gt;&lt;strong&gt;Hexo themes&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;1. NexT&lt;/strong&gt;&lt;br&gt;Install &lt;code&gt;NexT&lt;/code&gt; theme&lt;br&gt;    &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/iissnan/hexo-theme-next themes/next&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Folow the setup instructions in &lt;code&gt;/theme/next/_config.yml&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. Bootstrap&lt;/strong&gt;&lt;br&gt;Another theme, &lt;a href=&quot;https://www.cgmartin.com/2016/01/05/bootstrap-blog-hexo-theme/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bootstrap&lt;/a&gt;, with good layout and available functions.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. Pacman&lt;/strong&gt;&lt;br&gt;A bueatiful theme, &lt;a href=&quot;https://github.com/A-limon/pacman&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pacman&lt;/a&gt;.  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Create-post-TOC&quot;&gt;&lt;a href=&quot;#Create-post-TOC&quot; class=&quot;headerlink&quot; title=&quot;Create post TOC&quot;&gt;&lt;/a&gt;&lt;strong&gt;Create post TOC&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It might be a different based on the theme, but the logic behind is similar. Taking the &lt;code&gt;NexT&lt;/code&gt; theme for instance, in &lt;code&gt;/theme/next/layout/_macro&lt;/code&gt;, find the file &lt;code&gt;post.swig&lt;/code&gt;, which configures the post content display.&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% if post.toc %&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;toc&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;post-toc&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;% set toc = toc(page.content, &amp;#123;&quot;class&quot;: &quot;nav&quot;, list_number: post.toc_num&amp;#125;) %&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;strong&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Table of Contents&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;strong&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;post-toc-content&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;#123;&amp;#123; toc &amp;#125;&amp;#125;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% endif %&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;There are two controls there, so in the post &lt;code&gt;front-matter&lt;/code&gt;, one can add &lt;code&gt;toc: true&lt;/code&gt; for display TOC and &lt;code&gt;toc_num: true&lt;/code&gt; for showing list numbers.&lt;/p&gt;
-&lt;p&gt;For defaut display TOC, just change the &lt;code&gt;if&lt;/code&gt; statement, e.g.,&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (post.toc == &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;) %&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# and show list number by default&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt; toc = toc(page.content, &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;class&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;nav&quot;&lt;/span&gt;, list_number: post.toc_num==&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&amp;#125;) %&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Then, you don’t have to set &lt;code&gt;front-matter&lt;/code&gt; for each post.&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Hexo-commands&quot;&gt;&lt;a href=&quot;#Hexo-commands&quot; class=&quot;headerlink&quot; title=&quot;Hexo commands&quot;&gt;&lt;/a&gt;&lt;strong&gt;Hexo commands&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Install Hexo, make sure you have &lt;a href=&quot;https://nodejs.org/en/&quot;&gt;node.js&lt;/a&gt; installed&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-cli -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://volcanohong.github.com/categories/Blog/"/>
-    
-    
-      <category term="blog" scheme="http://volcanohong.github.com/tags/blog/"/>
-    
-      <category term="hexo" scheme="http://volcanohong.github.com/tags/hexo/"/>
-    
-      <category term="theme" scheme="http://volcanohong.github.com/tags/theme/"/>
     
   </entry>
   
