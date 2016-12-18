@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,unit test,junit,jmockit," />
+  <meta name="keywords" content="java,google,fcm,notification," />
 
 
 
@@ -86,22 +86,31 @@
 
 
 
-<meta name="description" content="Test method with parameter: @Mocked object
+<meta name="description" content="Integration of Google FCM Notification
 
-Learn how to recording expectations…, which needs further justification.">
+
+Introduction a. Key Capability b. FCM Message Type c. Implementation Path
+Create FCM Project
+Server Side Implementation a. Server Coding b. Server API Test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JUnit test notes I">
-<meta property="og:url" content="http://volcanohong.github.com/2016/07/08/junit-test-notes-1/index.html">
+<meta property="og:title" content="Firebase Cloud Messaging Notification">
+<meta property="og:url" content="http://volcanohong.github.com/2016/12/10/fcm-notification/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Test method with parameter: @Mocked object
+<meta property="og:description" content="Integration of Google FCM Notification
 
-Learn how to recording expectations…, which needs further justification.">
-<meta property="og:updated_time" content="2016-07-13T15:46:58.000Z">
+
+Introduction a. Key Capability b. FCM Message Type c. Implementation Path
+Create FCM Project
+Server Side Implementation a. Server Coding b. Server API Test">
+<meta property="og:updated_time" content="2016-12-18T20:51:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JUnit test notes I">
-<meta name="twitter:description" content="Test method with parameter: @Mocked object
+<meta name="twitter:title" content="Firebase Cloud Messaging Notification">
+<meta name="twitter:description" content="Integration of Google FCM Notification
 
-Learn how to recording expectations…, which needs further justification.">
+
+Introduction a. Key Capability b. FCM Message Type c. Implementation Path
+Create FCM Project
+Server Side Implementation a. Server Coding b. Server API Test">
 
 
 
@@ -122,9 +131,9 @@ Learn how to recording expectations…, which needs further justification.">
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/2016/07/08/junit-test-notes-1/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/2016/12/10/fcm-notification/"/>
 
-  <title> JUnit test notes I | Volcanohong's Learning Notes </title>
+  <title> Firebase Cloud Messaging Notification | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -273,7 +282,7 @@ Learn how to recording expectations…, which needs further justification.">
             
             
               
-                JUnit test notes I
+                Firebase Cloud Messaging Notification
               
             
           </h1>
@@ -285,8 +294,8 @@ Learn how to recording expectations…, which needs further justification.">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T22:00:00-07:00" content="2016-07-08">
-              2016-07-08
+            <time itemprop="dateCreated" datetime="2016-12-10T12:16:51-08:00" content="2016-12-10">
+              2016-12-10
             </time>
           </span>
 
@@ -299,8 +308,8 @@ Learn how to recording expectations…, which needs further justification.">
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Unit-Test/" itemprop="url" rel="index">
-                    <span itemprop="name">Unit Test</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -337,7 +346,7 @@ Learn how to recording expectations…, which needs further justification.">
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-method-with-parameter-Mocked-object"><span class="nav-number">1.</span> <span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug-“method-should-have-no-parameters”"><span class="nav-number">2.</span> <span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-of-Google-FCM-Notification"><span class="nav-number">1.</span> <span class="nav-text">Integration of Google FCM Notification</span></a></li></ol></div>
         </div>
       
       
@@ -346,30 +355,22 @@ Learn how to recording expectations…, which needs further justification.">
 
       
         <ul>
-<li><h4 id="Test-method-with-parameter-Mocked-object"><a href="#Test-method-with-parameter-Mocked-object" class="headerlink" title="Test method with parameter: @Mocked object"></a><strong>Test method with parameter: @Mocked object</strong></h4></li>
+<li><h3 id="Integration-of-Google-FCM-Notification"><a href="#Integration-of-Google-FCM-Notification" class="headerlink" title="Integration of Google FCM Notification"></a><strong>Integration of Google FCM Notification</strong></h3></li>
 </ul>
-<p>Learn how to recording expectations…, which needs further justification.  </p>
-<a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test_targetMethod</span><span class="params">(@Mocked <span class="keyword">final</span> SomeObj someObj)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">new</span> Expectations() &#123;&#123;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> A = <span class="number">5</span>;</div><div class="line">        someObj.getStringList((Integer) any);</div><div class="line">        result = <span class="keyword">new</span> mockit.Delegate() &#123;</div><div class="line">            <span class="function">ArrayList&lt;String&gt; <span class="title">getStirngList</span><span class="params">(<span class="keyword">int</span> para)</span> </span>&#123;   </div><div class="line">                List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; ++i)&#123;</div><div class="line">                    strList.add(String.valueOf(A * i));</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> strList;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;&#125;;</div><div class="line">    </div><div class="line">    List&lt;String&gt; result = someClass.targetMethod();</div><div class="line">    assertNotNull(result);</div><div class="line">    assertEquals(<span class="number">3</span>, result.size());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>REMARK 1</strong>:<br>a) Define <code>@Morked</code> object as a member in class level<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Mocked</span> </div><div class="line"><span class="keyword">private</span> Object httpServiceImpl; <span class="comment">//as a class member</span></div></pre></td></tr></table></figure></p>
-<p>Then, if we have <code>result</code> in the <code>httpServiceImpl</code>, it turns out that <code>result</code> is NULL.</p>
-<p>b) Define as a parameter in method<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testProcessDeposit_success</span><span class="params">(@Mocked <span class="keyword">final</span> HttpServiceImpl httpServiceImpl)</span></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Then, <code>results</code> in <code>httpServiceImpl</code> has real value.</p>
-<p><strong>REMARK 2</strong>:<br>a) In case of <code>NonStrictExpectations</code>. When calling the method, the order does not matter.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> NonStrictExpectations()&#123;&#123;</div><div class="line">    execute1();</div><div class="line">    execute2();</div><div class="line">&#125;&#125;;</div></pre></td></tr></table></figure></p>
-<p>b) In case of <code>Expectations</code>, the test must follow the order of steps exactly.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Expectations() &#123;&#123;</div><div class="line">     <span class="comment">//Step 1;</span></div><div class="line">     executeFirst();</div><div class="line"></div><div class="line">     <span class="comment">//Step 2;</span></div><div class="line">     executeSecond();</div><div class="line">&#125;&#125;;</div></pre></td></tr></table></figure></p>
-<p>The test will fail if the <code>executeSecond()</code> is called before <code>executeFirst()</code>.    </p>
-<ul>
-<li><h4 id="Debug-“method-should-have-no-parameters”"><a href="#Debug-“method-should-have-no-parameters”" class="headerlink" title="Debug: “method should have no parameters”"></a><strong>Debug: “method should have no parameters”</strong></h4></li>
-</ul>
-<p>Using Junit 4.8, Jmockit 1.8, Jmock 1.1 for unit test and facing the error: <code>java.lang.Exception: Method testMethod should have no parameters</code> when having test method as:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(@Mocked <span class="keyword">final</span> Object obj)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Commonly, <code>@Test</code> method is not allowed to have parameters. But it’s not the case with Jmockit: “<a href="http://jmockit.org/gettingStarted.html#record" target="_blank" rel="external">Jmockit getting started: recording expectations</a>“. </p>
-<p>Finally, the problem is solved by reordering the library in module config file for ItelliJ. In <code>.iml</code> file, the order of the the JMockit jar must appear before JUnit. For example,</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmockit:1.8"</span> level=<span class="string">"project"</span> /&gt;</div><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmock:1.1.0"</span> level=<span class="string">"project"</span> /&gt;</div><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: junit:4.8.1"</span> level=<span class="string">"project"</span> /&gt;</div></pre></td></tr></table></figure>
-<hr>
-<!--
-<a href="/index.html”&gt;Main Page</a>–&gt;
--->
+<ol>
+<li><strong>Introduction</strong><br> a. <strong>Key Capability</strong><br> b. <strong>FCM Message Type</strong><br> c. <strong>Implementation Path</strong></li>
+<li><strong>Create FCM Project</strong></li>
+<li><strong>Server Side Implementation</strong><br> a. <strong>Server Coding</strong><br> b. <strong>Server API Test</strong></li>
+</ol>
+
+
+	<div class="row">
+    <embed src="/content/pdf/FirebaseCloudMessagingNotification-181216.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
       
     </div>
 
@@ -393,11 +394,11 @@ Learn how to recording expectations…, which needs further justification.">
           
             <a href="/tags/java/" rel="tag">#java</a>
           
-            <a href="/tags/unit-test/" rel="tag">#unit test</a>
+            <a href="/tags/google/" rel="tag">#google</a>
           
-            <a href="/tags/junit/" rel="tag">#junit</a>
+            <a href="/tags/fcm/" rel="tag">#fcm</a>
           
-            <a href="/tags/jmockit/" rel="tag">#jmockit</a>
+            <a href="/tags/notification/" rel="tag">#notification</a>
           
         </div>
       
@@ -406,16 +407,16 @@ Learn how to recording expectations…, which needs further justification.">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/04/java-notes-3/" rel="next" title="Java coding notes III">
-                <i class="fa fa-chevron-left"></i> Java coding notes III
+              <a href="/2016/11/18/jhipster-project/" rel="next" title="Jhipster Project">
+                <i class="fa fa-chevron-left"></i> Jhipster Project
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/10/hexo-notes-1/" rel="prev" title="Hexo notes I">
-                Hexo notes I <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/18/jhipster-microservice/" rel="prev" title="Jhipster MicroService">
+                Jhipster MicroService <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +572,7 @@ Learn how to recording expectations…, which needs further justification.">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-method-with-parameter-Mocked-object"><span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debug-“method-should-have-no-parameters”"><span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integration-of-Google-FCM-Notification"><span class="nav-text">Integration of Google FCM Notification</span></a></li></ol></div>
             
           </div>
         </section>

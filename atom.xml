@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2016-12-18T20:28:27.000Z</updated>
+  <updated>2016-12-18T20:43:06.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -20,11 +20,17 @@
     <link href="http://volcanohong.github.com/2016/12/18/jhipster-microservice/"/>
     <id>http://volcanohong.github.com/2016/12/18/jhipster-microservice/</id>
     <published>2016-12-18T20:16:51.000Z</published>
-    <updated>2016-12-18T20:28:27.000Z</updated>
+    <updated>2016-12-18T20:43:06.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;h3 id=&quot;Introduction-of-JHipster-MS&quot;&gt;&lt;a href=&quot;#Introduction-of-JHipster-MS&quot; class=&quot;headerlink&quot; title=&quot;Introduction of JHipster MS&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction of JHipster MS&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;JHipster Registry&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create Microservice&lt;/strong&gt;&lt;br&gt; a. &lt;strong&gt;Microservice: Job App&lt;/strong&gt;&lt;br&gt; b. &lt;strong&gt;Microservice: Gateway App&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt;&lt;br&gt; a. &lt;strong&gt;JWT (JSON Web Token)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Access Control&lt;/strong&gt;&lt;br&gt; a. &lt;strong&gt;Microservice - Job App API&lt;/strong&gt;&lt;br&gt; b. &lt;strong&gt;Microservice - Gateway App API&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 
 	&lt;div class=&quot;row&quot;&gt;
@@ -32,19 +38,12 @@
 	&lt;/div&gt;
 
 
-
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;</content>
+</content>
     
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;&lt;h3 id=&quot;Introduction-of-JHipster-MS&quot;&gt;&lt;a href=&quot;#Introduction-of-JHipster-MS&quot; class=&quot;headerlink&quot; title=&quot;Introduction of JHipster MS&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction of JHipster MS&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-	&lt;div class=&quot;row&quot;&gt;
-    &lt;embed src=&quot;/content/pdf/JHipsterMicroservice-181216.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
-	&lt;/div&gt;
+&lt;li&gt;&lt;h3 id=&quot;Introduction-of-JHipster-MS&quot;&gt;&lt;a href=&quot;#Introduction-of-JHipster-MS&quot; class=&quot;headerlink&quot; title=&quot;Introduction of JHipster MS&quot;&gt;
     
     </summary>
     
@@ -60,6 +59,51 @@
       <category term="jhipster" scheme="http://volcanohong.github.com/tags/jhipster/"/>
     
       <category term="microservice" scheme="http://volcanohong.github.com/tags/microservice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Firebase Cloud Messaging Notification</title>
+    <link href="http://volcanohong.github.com/2016/12/10/fcm-notification/"/>
+    <id>http://volcanohong.github.com/2016/12/10/fcm-notification/</id>
+    <published>2016-12-10T20:16:51.000Z</published>
+    <updated>2016-12-18T20:51:00.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Integration-of-Google-FCM-Notification&quot;&gt;&lt;a href=&quot;#Integration-of-Google-FCM-Notification&quot; class=&quot;headerlink&quot; title=&quot;Integration of Google FCM Notification&quot;&gt;&lt;/a&gt;&lt;strong&gt;Integration of Google FCM Notification&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;br&gt; a. &lt;strong&gt;Key Capability&lt;/strong&gt;&lt;br&gt; b. &lt;strong&gt;FCM Message Type&lt;/strong&gt;&lt;br&gt; c. &lt;strong&gt;Implementation Path&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create FCM Project&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server Side Implementation&lt;/strong&gt;&lt;br&gt; a. &lt;strong&gt;Server Coding&lt;/strong&gt;&lt;br&gt; b. &lt;strong&gt;Server API Test&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;/content/pdf/FirebaseCloudMessagingNotification-181216.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf&quot;&gt;
+	&lt;/div&gt;
+
+
+
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Integration-of-Google-FCM-Notification&quot;&gt;&lt;a href=&quot;#Integration-of-Google-FCM-Notification&quot; class=&quot;headerlink&quot; title=&quot;Integra
+    
+    </summary>
+    
+      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="google" scheme="http://volcanohong.github.com/tags/google/"/>
+    
+      <category term="fcm" scheme="http://volcanohong.github.com/tags/fcm/"/>
+    
+      <category term="notification" scheme="http://volcanohong.github.com/tags/notification/"/>
     
   </entry>
   
@@ -1884,76 +1928,6 @@
       <category term="shell" scheme="http://volcanohong.github.com/tags/shell/"/>
     
       <category term="command" scheme="http://volcanohong.github.com/tags/command/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java SSL debugging</title>
-    <link href="http://volcanohong.github.com/2016/07/13/java-ssl-debugging/"/>
-    <id>http://volcanohong.github.com/2016/07/13/java-ssl-debugging/</id>
-    <published>2016-07-13T23:18:35.000Z</published>
-    <updated>2016-07-19T04:33:15.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;SSL-ValidatorException&quot;&gt;&lt;a href=&quot;#SSL-ValidatorException&quot; class=&quot;headerlink&quot; title=&quot;SSL: ValidatorException&quot;&gt;&lt;/a&gt;&lt;strong&gt;SSL: ValidatorException&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Exception Message&lt;/em&gt;: &lt;code&gt;sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target&lt;/code&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;This is possibly because the server uses a certificate that is little known to java, which means when java try to verify the SSL, it realize it is not trustable.&lt;br&gt;&lt;em&gt;Another explanation&lt;/em&gt;: It is because incomplete trust path for the server certificate; the server’s certificate is probably not trusted by the client.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;br&gt;Commonly, the fix is to import the server’s certificate authority (CA) into the client’s trust store (add the root CA, not server CA, to your &lt;code&gt;cacerts&lt;/code&gt; file).&lt;/p&gt;
-&lt;p&gt;Here are the step:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Identify the root CA using SSL Checker.&lt;/li&gt;
-&lt;li&gt;Find out the root cert. from server side.&lt;/li&gt;
-&lt;li&gt;Create the &lt;code&gt;.pem&lt;/code&gt; file. e.g., &lt;code&gt;DSTRootCAX3.pem&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Update the &lt;code&gt;cacerts&lt;/code&gt; file of your java. Normally, it is located in (Mac) &lt;code&gt;/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/security&lt;/code&gt; or&lt;br&gt;(Linux) &lt;code&gt;/home/omega/java/jre/lib/security&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;SSL-HandshakeException&quot;&gt;&lt;a href=&quot;#SSL-HandshakeException&quot; class=&quot;headerlink&quot; title=&quot;SSL: HandshakeException&quot;&gt;&lt;/a&gt;&lt;strong&gt;SSL: HandshakeException&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After the CA import, it man still have error like &lt;code&gt;handshake_failure&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Read the detailed log by using &lt;code&gt;-Djavax.net.debug=all&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Exception Message&lt;/em&gt;:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Cipher Suites: […Long list of ciphers…]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Compression Methods:  &amp;#123; 0 &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Extension elliptic_curves, curve names: &amp;#123;…&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Extension ec_point_formats, formats: [uncompressed]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Extension server_name, server_name: [host_name: HOST]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;***&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;main, WRITE: TLSv1 Handshake, length = 168&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;main, READ: TLSv1 Alert, length = 2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;main, RECV TLSv1 ALERT:  fatal, handshake_failure&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;main, called closeSocket()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;main, handling exception: javax.net.ssl.SSLHandshakeException: &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Received fatal alert: handshake_failure&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;One possible reason is the JRE Library lacks of supported algorithm. (The server side is using some high security encryption algorithms) .&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;br&gt;This problem can be solved by updating the JRE Library with adding stronger algorithms: &lt;code&gt;JCE Unlimited Strength&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In a high security environment, one way of strengthening algorithms in the JDK is through the JCE Unlimited Strength policy files. In this particular case, replacing those policy files allows it to use the stronger variants of existing algorithms and connect successfully.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;JCE Unlimited Strength&lt;/code&gt; downloads: &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JDK 8&lt;/a&gt;, &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JDK 7&lt;/a&gt;, or &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JDK 6&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Installation&lt;/em&gt;: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to &lt;java_home&gt;/lib/security &lt;/java_home&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTES:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Some cases might be related to &lt;code&gt;TLS protocols&lt;/code&gt;, e.g., JDK 8 using TLSv1.2 by default, while JDK 7 has TLSv1 by default. To make the &lt;code&gt;TLS protocols&lt;/code&gt; being compliant with each other, try debugging in java with command &lt;code&gt;-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Someone mentioned that using &lt;code&gt;http:&lt;/code&gt; instead of &lt;code&gt;https:&lt;/code&gt;. It certainly works without errors, but that is not the reasonable solution.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Some cases may refer to &lt;code&gt;server name indication&lt;/code&gt; (SNI). If the server requires SNI, trying to setup a connection without SNI will fail. All modern browsers support SNI, but not all SSL stacks in programming languages support SNI or use it by default.&lt;br&gt;To avoid SNI: &lt;code&gt;-Djsse.enableSNIExtension=false&lt;/code&gt;,&lt;br&gt;To check SNI with a server,&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# without SNI&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ openssl s_client -connect www.google.com:443&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;CONNECTED(00000003)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;....&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;New, (NONE), Cipher is (NONE)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Ref. links:&lt;br&gt;&lt;a href=&quot;http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Debugging SSL/TLS Connections from docs.Oracle&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Diagnosing TLS, SSL, and HTTPS from blog.Oracle&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SSL handshake alert: unrecognized_name error from stackOverflow&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;SSL-ValidatorException&quot;&gt;&lt;a href=&quot;#SSL-ValidatorException&quot; class=&quot;headerlink&quot; title=&quot;SSL: ValidatorException&quot;&gt;&lt;/a&gt;&lt;strong&gt;SSL: ValidatorException&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;Exception Message&lt;/em&gt;: &lt;code&gt;sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
-    
-    
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
-      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
-    
-      <category term="java web" scheme="http://volcanohong.github.com/tags/java-web/"/>
-    
-      <category term="debug" scheme="http://volcanohong.github.com/tags/debug/"/>
     
   </entry>
   
