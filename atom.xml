@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2016-12-18T20:43:06.000Z</updated>
+  <updated>2017-01-01T20:10:59.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Angular Datatable Notes</title>
+    <link href="http://volcanohong.github.com/2017/01/01/angular-datatable/"/>
+    <id>http://volcanohong.github.com/2017/01/01/angular-datatable/</id>
+    <published>2017-01-01T18:50:00.000Z</published>
+    <updated>2017-01-01T20:10:59.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Angular-Datatables&quot;&gt;&lt;a href=&quot;#Angular-Datatables&quot; class=&quot;headerlink&quot; title=&quot;Angular Datatables&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular Datatables&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recently, I am developing Apps by using angular datatables.&lt;/p&gt;
+&lt;p&gt;The followings are some issues or note that I have to record.&lt;/p&gt;
+&lt;h4 id=&quot;Datatable-Options&quot;&gt;&lt;a href=&quot;#Datatable-Options&quot; class=&quot;headerlink&quot; title=&quot;Datatable Options&quot;&gt;&lt;/a&gt;&lt;strong&gt;Datatable Options&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;Selected datatable options…&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;vm.dtOptions = DTOptionsBuilder.newOptions()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withDOM(&lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;&quot;html5buttons&quot;B&amp;gt;lTfgitp&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;deferRender&#39;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// deferred rendering for additional speed of initialisation&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;deferLoading&#39;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// delay the loading of server-side data until second draw&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;processing&#39;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// add processing indicator&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// change the options in the page length select list.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;lengthMenu&#39;&lt;/span&gt;, [[&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;], [&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;ALL&#39;&lt;/span&gt;]])&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;aoColumnDefs&#39;&lt;/span&gt;, [&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;bVisible&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;aTargets&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;]&amp;#125;]) &lt;span class=&quot;comment&quot;&gt;//could affect search function&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// .withOption(&#39;scrollX&#39;, &#39;600px&#39;) // add horizontal scroll&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// .withOption(&#39;scrollY&#39;, &#39;500px&#39;) // add vertical scroll &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// .withOption(&#39;scrollCollapse&#39;, true) // table collapse on less data&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// .withOption(&#39;paging&#39;, false) // disable pagination&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// .withOption(&#39;searchCols&#39;, [null, null, null, &amp;#123; &quot;search&quot;: &#39;&#39;&amp;#125;]) // define an initial search for individual columns.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withOption(&lt;span class=&quot;string&quot;&gt;&#39;aoColumnDefs&#39;&lt;/span&gt;, [&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;bVisible&quot;&lt;/span&gt;: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;aTargets&quot;&lt;/span&gt;: [&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;]&amp;#125;]) &lt;span class=&quot;comment&quot;&gt;//enable or disable the display of this column&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More options and instruction can refer &lt;a href=&quot;https://datatables.net/reference/option/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datatable options&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;Reloading-Datatable&quot;&gt;&lt;a href=&quot;#Reloading-Datatable&quot; class=&quot;headerlink&quot; title=&quot;Reloading Datatable&quot;&gt;&lt;/a&gt;&lt;strong&gt;Reloading Datatable&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;Calling &lt;code&gt;dtInstance..rerender()&lt;/code&gt;…&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;datatable&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;ng&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;dt-options&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;ps.dtOptions&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;dt-instance&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;ps.dtInstance&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;table&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$scope.reloadData = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//call api and get some data&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            $scope.$apply(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//  vm.dtInstance.rerender();&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                $scope.dtInstance._renderer.rerender();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Create-a-New-Filter&quot;&gt;&lt;a href=&quot;#Create-a-New-Filter&quot; class=&quot;headerlink&quot; title=&quot;Create a New Filter&quot;&gt;&lt;/a&gt;&lt;strong&gt;Create a New Filter&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;Create a new filter for datatable by calling function &lt;code&gt;$.fn.dataTableExt.afnFiltering.push(function (oSettings, aData, iDataIndex) {}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then, redraw the table, &lt;code&gt;dtInstance.dataTable.fnDraw()&lt;/code&gt;, to apply the filter.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;vm.reloadDataByFilter = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $.fn.dataTableExt.afnFiltering.push(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;oSettings, aData, iDataIndex&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;           &lt;span class=&quot;comment&quot;&gt;// `aData` returns current data array in the table   &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;           &amp;#123; &lt;span class=&quot;comment&quot;&gt;// some logic here...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; val = aData.slice(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; res = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            angular.forEach(val, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;v, k&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                v = &lt;span class=&quot;built_in&quot;&gt;Number&lt;/span&gt;(v.replace(&lt;span class=&quot;regexp&quot;&gt;/[^0-9\.]+/g&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;//remove currency symbol&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                res = vm.checkValue(v, aData[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;], aData[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;]) || res;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (res) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;           &amp;#125;	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        vm.dtInstance.dataTable.fnDraw();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;Missing-Buttons-on-Data-Change&quot;&gt;&lt;a href=&quot;#Missing-Buttons-on-Data-Change&quot; class=&quot;headerlink&quot; title=&quot;Missing Buttons on Data Change&quot;&gt;&lt;/a&gt;&lt;strong&gt;Missing Buttons on Data Change&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;%--angular-datatables - v0&lt;span class=&quot;number&quot;&gt;.5&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.2&lt;/span&gt;--%&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;../dataTables/datatables.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;../dataTables/angular-datatables.min.js&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;../dataTables/angular-datatables.buttons.min.js&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//datatable controller &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$scope.dtOptions = DTOptionsBuilder.newOptions()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        .withDOM(&lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;&quot;html5buttons&quot;B&amp;gt;lTfgitp&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        .withButtons([&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;extend: &lt;span class=&quot;string&quot;&gt;&#39;copy&#39;&lt;/span&gt;&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;extend: &lt;span class=&quot;string&quot;&gt;&#39;csv&#39;&lt;/span&gt;&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                extend: &lt;span class=&quot;string&quot;&gt;&#39;print&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                customize: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;win&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    $(win.document.body).addClass(&lt;span class=&quot;string&quot;&gt;&#39;white-bg&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    $(win.document.body).css(&lt;span class=&quot;string&quot;&gt;&#39;font-size&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;10px&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    $(win.document.body).find(&lt;span class=&quot;string&quot;&gt;&#39;table&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                        .addClass(&lt;span class=&quot;string&quot;&gt;&#39;compact&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                        .css(&lt;span class=&quot;string&quot;&gt;&#39;font-size&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;inherit&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ]);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;When the data is changed, the buttons such as ‘Copy’, ‘Print’ and ‘CSV’ from datatable-buttons plugin disappear.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; It seems the datatable dose not redraw the options like button plugin after data change. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;&lt;br&gt;We can manually add button-options by using angular-datatable &lt;a href=&quot;https://datatables.net/reference/option/drawCallback&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;drawCallback function&lt;/a&gt;, where the function is called every time DataTables performs a draw.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; buttonsOpt = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            text: &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;i class=&quot;fa fa-copy&quot;&amp;gt;&amp;lt;/i&amp;gt;&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            extend: &lt;span class=&quot;string&quot;&gt;&#39;copy&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            text: &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;i class=&quot;fa fa-file-text-o&quot;&amp;gt;&amp;lt;/i&amp;gt;&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            extend: &lt;span class=&quot;string&quot;&gt;&#39;csv&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vm.dtOptions = DTOptionsBuilder.newOptions()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withDOM(&lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;&quot;html5buttons&quot;B&amp;gt;lTfgitp&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .withButtons(buttonsOpt.slice());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vm.dtOptions.drawCallback = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; api = $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).DataTable();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; $.fn.dataTable.Buttons(api, &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            buttons: buttonsOpt.slice()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).parent().find(&lt;span class=&quot;string&quot;&gt;&#39;.dt-buttons&#39;&lt;/span&gt;).replaceWith(api.buttons().container());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://datatables.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datatables&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Angular-Datatables&quot;&gt;&lt;a href=&quot;#Angular-Datatables&quot; class=&quot;headerlink&quot; title=&quot;Angular Datatables&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular Datatab
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://volcanohong.github.com/categories/Javascript/"/>
+    
+    
+      <category term="datatable" scheme="http://volcanohong.github.com/tags/datatable/"/>
+    
+      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
+    
+  </entry>
   
   <entry>
     <title>Jhipster MicroService</title>
@@ -50,9 +103,9 @@
       <category term="Framework" scheme="http://volcanohong.github.com/categories/Framework/"/>
     
     
-      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
     
       <category term="framework" scheme="http://volcanohong.github.com/tags/framework/"/>
     
@@ -447,13 +500,13 @@
       <category term="Javascript" scheme="http://volcanohong.github.com/categories/Javascript/"/>
     
     
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
+    
       <category term="javascript" scheme="http://volcanohong.github.com/tags/javascript/"/>
     
       <category term="html" scheme="http://volcanohong.github.com/tags/html/"/>
     
       <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
-      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
     
   </entry>
   
@@ -462,7 +515,7 @@
     <link href="http://volcanohong.github.com/2016/10/07/java-qr-code/"/>
     <id>http://volcanohong.github.com/2016/10/07/java-qr-code/</id>
     <published>2016-10-08T04:27:41.000Z</published>
-    <updated>2016-11-08T03:30:29.000Z</updated>
+    <updated>2017-01-01T18:49:36.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;h4 id=&quot;QR-Code-Generator&quot;&gt;&lt;a href=&quot;#QR-Code-Generator&quot; class=&quot;headerlink&quot; title=&quot;QR Code Generator&quot;&gt;&lt;/a&gt;&lt;strong&gt;QR Code Generator&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
@@ -495,12 +548,12 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://volcanohong.github.com/categories/Blog/"/>
+      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
     
-      <category term="blog" scheme="http://volcanohong.github.com/tags/blog/"/>
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
       <category term="qrcode" scheme="http://volcanohong.github.com/tags/qrcode/"/>
     
@@ -580,9 +633,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
   </entry>
   
@@ -1886,48 +1939,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Linux notes I</title>
-    <link href="http://volcanohong.github.com/2016/07/14/linux-notes-1/"/>
-    <id>http://volcanohong.github.com/2016/07/14/linux-notes-1/</id>
-    <published>2016-07-14T22:00:00.000Z</published>
-    <updated>2016-07-15T05:01:12.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Commands&quot;&gt;&lt;a href=&quot;#Commands&quot; class=&quot;headerlink&quot; title=&quot;Commands&quot;&gt;&lt;/a&gt;&lt;strong&gt;Commands&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h5 id=&quot;grep&quot;&gt;&lt;a href=&quot;#grep&quot; class=&quot;headerlink&quot; title=&quot;grep&quot;&gt;&lt;/a&gt;&lt;strong&gt;grep&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;grep&lt;/code&gt; is a useful command to search text in a file.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Format&lt;/em&gt;:&lt;br&gt;&lt;code&gt;grep [–bcEFilnqsvx] [–e pattern] ... [–f patternfile] ... [pattern] [file ...]&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;grep&lt;/code&gt; with multiple strings:&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;/logs/xxx | grep &lt;span class=&quot;_&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;error&#39;&lt;/span&gt; &lt;span class=&quot;_&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;falure&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;grep&lt;/code&gt; with highlight color:&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;egrep --color=auto -i &lt;span class=&quot;string&quot;&gt;&#39;(error|fatal|warn|drop)&#39;&lt;/span&gt; /logs/xxx&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Change &lt;code&gt;grep&lt;/code&gt; display color: following will set background to red and foreground to white:&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; GREP_OPTIONS=&lt;span class=&quot;string&quot;&gt;&#39;--color=auto&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; GREP_COLOR=&lt;span class=&quot;string&quot;&gt;&#39;1;37;41&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Useful links:&lt;br&gt;&lt;a href=&quot;http://linuxcommand.org/writing_shell_scripts.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing shell scripts&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/SSLTBW_1.13.0/com.ibm.zos.r13.bpxa500/grep.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Search a file for a specified pattern&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Commands&quot;&gt;&lt;a href=&quot;#Commands&quot; class=&quot;headerlink&quot; title=&quot;Commands&quot;&gt;&lt;/a&gt;&lt;strong&gt;Commands&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h5 id=&quot;grep&quot;
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://volcanohong.github.com/categories/Blog/"/>
-    
-    
-      <category term="linux" scheme="http://volcanohong.github.com/tags/linux/"/>
-    
-      <category term="shell" scheme="http://volcanohong.github.com/tags/shell/"/>
-    
-      <category term="command" scheme="http://volcanohong.github.com/tags/command/"/>
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
   </entry>
   

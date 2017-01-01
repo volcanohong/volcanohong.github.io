@@ -269,6 +269,152 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/01/angular-datatable/" itemprop="url">
+                  Angular Datatable Notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T10:50:00-08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          
+            <ul>
+<li><h3 id="Angular-Datatables"><a href="#Angular-Datatables" class="headerlink" title="Angular Datatables"></a><strong>Angular Datatables</strong></h3></li>
+</ul>
+<p>Recently, I am developing Apps by using angular datatables.</p>
+<p>The followings are some issues or note that I have to record.</p>
+<h4 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h4><p>Selected datatable options…</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></div><div class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></div><div class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></div><div class="line">    <span class="comment">// change the options in the page length select list.</span></div><div class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></div><div class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></div><div class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></div><div class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></div><div class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></div><div class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></div></pre></td></tr></table></figure>
+<p>More options and instruction can refer <a href="https://datatables.net/reference/option/" target="_blank" rel="external">datatable options</a>.</p>
+<h4 id="Reloading-Datatable"><a href="#Reloading-Datatable" class="headerlink" title="Reloading Datatable"></a><strong>Reloading Datatable</strong></h4><p>Calling <code>dtInstance..rerender()</code>…</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">datatable</span>=<span class="string">"ng"</span> <span class="attr">dt-options</span>=<span class="string">"ps.dtOptions"</span> <span class="attr">dt-instance</span>=<span class="string">"ps.dtInstance"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.reloadData = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//call api and get some data</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">//  vm.dtInstance.rerender();</span></div><div class="line">                $scope.dtInstance._renderer.rerender();</div><div class="line">            &#125;);</div><div class="line">        &#125;, <span class="number">1</span>);</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<h4 id="Create-a-New-Filter"><a href="#Create-a-New-Filter" class="headerlink" title="Create a New Filter"></a><strong>Create a New Filter</strong></h4><p>Create a new filter for datatable by calling function <code>$.fn.dataTableExt.afnFiltering.push(function (oSettings, aData, iDataIndex) {}</code>.</p>
+<p>Then, redraw the table, <code>dtInstance.dataTable.fnDraw()</code>, to apply the filter.</p>
+<p>For example:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.reloadDataByFilter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $.fn.dataTableExt.afnFiltering.push(<span class="function"><span class="keyword">function</span> (<span class="params">oSettings, aData, iDataIndex</span>) </span>&#123;</div><div class="line">           <span class="comment">// `aData` returns current data array in the table   </span></div><div class="line">           &#123; <span class="comment">// some logic here...</span></div><div class="line">            <span class="keyword">var</span> val = aData.slice(<span class="number">5</span>);</div><div class="line">            <span class="keyword">var</span> res = <span class="literal">false</span>;</div><div class="line">            angular.forEach(val, <span class="function"><span class="keyword">function</span> (<span class="params">v, k</span>) </span>&#123;</div><div class="line">                v = <span class="built_in">Number</span>(v.replace(<span class="regexp">/[^0-9\.]+/g</span>, <span class="string">""</span>)); <span class="comment">//remove currency symbol</span></div><div class="line">                res = vm.checkValue(v, aData[<span class="number">4</span>], aData[<span class="number">3</span>]) || res;</div><div class="line">                <span class="keyword">if</span> (res) <span class="keyword">return</span> res;</div><div class="line">            &#125;);</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">           &#125;	</div><div class="line">        &#125;);</div><div class="line">        vm.dtInstance.dataTable.fnDraw();</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="Missing-Buttons-on-Data-Change"><a href="#Missing-Buttons-on-Data-Change" class="headerlink" title="Missing Buttons on Data Change"></a><strong>Missing Buttons on Data Change</strong></h4></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;%--angular-datatables - v0<span class="number">.5</span><span class="number">.2</span>--%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dataTables/datatables.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.buttons.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//datatable controller </span></div><div class="line">$scope.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">        .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">        .withButtons([</div><div class="line">            &#123;extend: <span class="string">'copy'</span>&#125;,</div><div class="line">            &#123;extend: <span class="string">'csv'</span>&#125;,</div><div class="line">            &#123;</div><div class="line">                extend: <span class="string">'print'</span>,</div><div class="line">                customize: <span class="function"><span class="keyword">function</span> (<span class="params">win</span>) </span>&#123;</div><div class="line">                    $(win.document.body).addClass(<span class="string">'white-bg'</span>);</div><div class="line">                    $(win.document.body).css(<span class="string">'font-size'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line">                    $(win.document.body).find(<span class="string">'table'</span>)</div><div class="line">                        .addClass(<span class="string">'compact'</span>)</div><div class="line">                        .css(<span class="string">'font-size'</span>, <span class="string">'inherit'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        ]);</div></pre></td></tr></table></figure>
+<p>When the data is changed, the buttons such as ‘Copy’, ‘Print’ and ‘CSV’ from datatable-buttons plugin disappear.</p>
+<p><strong>Cause:</strong> It seems the datatable dose not redraw the options like button plugin after data change. </p>
+<p><strong>Solution:</strong><br>We can manually add button-options by using angular-datatable <a href="https://datatables.net/reference/option/drawCallback" target="_blank" rel="external">drawCallback function</a>, where the function is called every time DataTables performs a draw.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> buttonsOpt = [</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-copy"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'copy'</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-file-text-o"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'csv'</span></div><div class="line">        &#125;</div><div class="line">    ];</div><div class="line"></div><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withButtons(buttonsOpt.slice());</div><div class="line"></div><div class="line">vm.dtOptions.drawCallback = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> api = $(<span class="keyword">this</span>).DataTable();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> $.fn.dataTable.Buttons(api, &#123;</div><div class="line">            buttons: buttonsOpt.slice()</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        $(<span class="keyword">this</span>).parent().find(<span class="string">'.dt-buttons'</span>).replaceWith(api.buttons().container());</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p><strong>Ref:</strong></p>
+<ol>
+<li><a href="https://datatables.net/" target="_blank" rel="external">datatables</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/18/jhipster-microservice/" itemprop="url">
                   Jhipster MicroService
                 </a>
@@ -971,8 +1117,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1434,149 +1580,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/01/machine-learning-notes/" itemprop="url">
-                  Machine learning notes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-01T21:00:00-07:00" content="2016-09-01">
-              2016-09-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Big-data/" itemprop="url" rel="index">
-                    <span itemprop="name">Big data</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="What-is-machine-learning"><a href="#What-is-machine-learning" class="headerlink" title="What is machine learning?"></a><strong>What is machine learning?</strong></h4></li>
-</ul>
-<ul>
-<li>Core Task<ul>
-<li>Finds patterns in data</li>
-<li>Use those patterns to predict future</li>
-</ul>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_offering.png" alt="Example Machine Learning Offerings"></p>
-<ul>
-<li>What is learning?<ul>
-<li>Identifying patterns</li>
-<li>Recognizing those patterns when you see them again</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Machine can find a pattern in existing data, then create and use a model that recognize those patterns in new data</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/01/machine-learning-notes/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1622,7 +1625,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1639,7 +1642,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1716,8 +1719,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -1,0 +1,729 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="V8SCJOk0NApXidF98340qd2UhEFXkPirIffH1RO0LoY" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="datatable,java,angular," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Volcanohong's Learning Notes" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Angular Datatables
+
+Recently, I am developing Apps by using angular datatables.
+The followings are some issues or note that I have to record.
+Datatable OptionsSelected datatable options…
+vm.dtOptions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular Datatable Notes">
+<meta property="og:url" content="http://volcanohong.github.com/2017/01/01/angular-datatable/index.html">
+<meta property="og:site_name" content="Volcanohong's Learning Notes">
+<meta property="og:description" content="Angular Datatables
+
+Recently, I am developing Apps by using angular datatables.
+The followings are some issues or note that I have to record.
+Datatable OptionsSelected datatable options…
+vm.dtOptions">
+<meta property="og:updated_time" content="2017-01-01T20:10:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular Datatable Notes">
+<meta name="twitter:description" content="Angular Datatables
+
+Recently, I am developing Apps by using angular datatables.
+The followings are some issues or note that I have to record.
+Datatable OptionsSelected datatable options…
+vm.dtOptions">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://volcanohong.github.com/2017/01/01/angular-datatable/"/>
+
+  <title> Angular Datatable Notes | Volcanohong's Learning Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61912567-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Volcanohong's Learning Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Enjoy everything in everyday</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Angular Datatable Notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T10:50:00-08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-Datatables"><span class="nav-number">1.</span> <span class="nav-text">Angular Datatables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Datatable-Options"><span class="nav-number">1.1.</span> <span class="nav-text">Datatable Options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reloading-Datatable"><span class="nav-number">1.2.</span> <span class="nav-text">Reloading Datatable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-New-Filter"><span class="nav-number">1.3.</span> <span class="nav-text">Create a New Filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-Buttons-on-Data-Change"><span class="nav-number">1.4.</span> <span class="nav-text">Missing Buttons on Data Change</span></a></li></ol></li></ol></div>
+        </div>
+      
+      
+      
+      
+
+      
+        <ul>
+<li><h3 id="Angular-Datatables"><a href="#Angular-Datatables" class="headerlink" title="Angular Datatables"></a><strong>Angular Datatables</strong></h3></li>
+</ul>
+<p>Recently, I am developing Apps by using angular datatables.</p>
+<p>The followings are some issues or note that I have to record.</p>
+<h4 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h4><p>Selected datatable options…</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></div><div class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></div><div class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></div><div class="line">    <span class="comment">// change the options in the page length select list.</span></div><div class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></div><div class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></div><div class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></div><div class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></div><div class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></div><div class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></div></pre></td></tr></table></figure>
+<p>More options and instruction can refer <a href="https://datatables.net/reference/option/" target="_blank" rel="external">datatable options</a>.</p>
+<h4 id="Reloading-Datatable"><a href="#Reloading-Datatable" class="headerlink" title="Reloading Datatable"></a><strong>Reloading Datatable</strong></h4><p>Calling <code>dtInstance..rerender()</code>…</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">datatable</span>=<span class="string">"ng"</span> <span class="attr">dt-options</span>=<span class="string">"ps.dtOptions"</span> <span class="attr">dt-instance</span>=<span class="string">"ps.dtInstance"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.reloadData = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//call api and get some data</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">//  vm.dtInstance.rerender();</span></div><div class="line">                $scope.dtInstance._renderer.rerender();</div><div class="line">            &#125;);</div><div class="line">        &#125;, <span class="number">1</span>);</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<h4 id="Create-a-New-Filter"><a href="#Create-a-New-Filter" class="headerlink" title="Create a New Filter"></a><strong>Create a New Filter</strong></h4><p>Create a new filter for datatable by calling function <code>$.fn.dataTableExt.afnFiltering.push(function (oSettings, aData, iDataIndex) {}</code>.</p>
+<p>Then, redraw the table, <code>dtInstance.dataTable.fnDraw()</code>, to apply the filter.</p>
+<p>For example:<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.reloadDataByFilter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $.fn.dataTableExt.afnFiltering.push(<span class="function"><span class="keyword">function</span> (<span class="params">oSettings, aData, iDataIndex</span>) </span>&#123;</div><div class="line">           <span class="comment">// `aData` returns current data array in the table   </span></div><div class="line">           &#123; <span class="comment">// some logic here...</span></div><div class="line">            <span class="keyword">var</span> val = aData.slice(<span class="number">5</span>);</div><div class="line">            <span class="keyword">var</span> res = <span class="literal">false</span>;</div><div class="line">            angular.forEach(val, <span class="function"><span class="keyword">function</span> (<span class="params">v, k</span>) </span>&#123;</div><div class="line">                v = <span class="built_in">Number</span>(v.replace(<span class="regexp">/[^0-9\.]+/g</span>, <span class="string">""</span>)); <span class="comment">//remove currency symbol</span></div><div class="line">                res = vm.checkValue(v, aData[<span class="number">4</span>], aData[<span class="number">3</span>]) || res;</div><div class="line">                <span class="keyword">if</span> (res) <span class="keyword">return</span> res;</div><div class="line">            &#125;);</div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">           &#125;	</div><div class="line">        &#125;);</div><div class="line">        vm.dtInstance.dataTable.fnDraw();</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><h4 id="Missing-Buttons-on-Data-Change"><a href="#Missing-Buttons-on-Data-Change" class="headerlink" title="Missing Buttons on Data Change"></a><strong>Missing Buttons on Data Change</strong></h4></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;%--angular-datatables - v0<span class="number">.5</span><span class="number">.2</span>--%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dataTables/datatables.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.buttons.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//datatable controller </span></div><div class="line">$scope.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">        .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">        .withButtons([</div><div class="line">            &#123;extend: <span class="string">'copy'</span>&#125;,</div><div class="line">            &#123;extend: <span class="string">'csv'</span>&#125;,</div><div class="line">            &#123;</div><div class="line">                extend: <span class="string">'print'</span>,</div><div class="line">                customize: <span class="function"><span class="keyword">function</span> (<span class="params">win</span>) </span>&#123;</div><div class="line">                    $(win.document.body).addClass(<span class="string">'white-bg'</span>);</div><div class="line">                    $(win.document.body).css(<span class="string">'font-size'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line">                    $(win.document.body).find(<span class="string">'table'</span>)</div><div class="line">                        .addClass(<span class="string">'compact'</span>)</div><div class="line">                        .css(<span class="string">'font-size'</span>, <span class="string">'inherit'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        ]);</div></pre></td></tr></table></figure>
+<p>When the data is changed, the buttons such as ‘Copy’, ‘Print’ and ‘CSV’ from datatable-buttons plugin disappear.</p>
+<p><strong>Cause:</strong> It seems the datatable dose not redraw the options like button plugin after data change. </p>
+<p><strong>Solution:</strong><br>We can manually add button-options by using angular-datatable <a href="https://datatables.net/reference/option/drawCallback" target="_blank" rel="external">drawCallback function</a>, where the function is called every time DataTables performs a draw.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> buttonsOpt = [</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-copy"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'copy'</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-file-text-o"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'csv'</span></div><div class="line">        &#125;</div><div class="line">    ];</div><div class="line"></div><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withButtons(buttonsOpt.slice());</div><div class="line"></div><div class="line">vm.dtOptions.drawCallback = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> api = $(<span class="keyword">this</span>).DataTable();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> $.fn.dataTable.Buttons(api, &#123;</div><div class="line">            buttons: buttonsOpt.slice()</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        $(<span class="keyword">this</span>).parent().find(<span class="string">'.dt-buttons'</span>).replaceWith(api.buttons().container());</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p><strong>Ref:</strong></p>
+<ol>
+<li><a href="https://datatables.net/" target="_blank" rel="external">datatables</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/datatable/" rel="tag">#datatable</a>
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/angular/" rel="tag">#angular</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/18/jhipster-microservice/" rel="next" title="Jhipster MicroService">
+                <i class="fa fa-chevron-left"></i> Jhipster MicroService
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Volcanohong" />
+          <p class="site-author-name" itemprop="name">Volcanohong</p>
+          <p class="site-description motion-element" itemprop="description">Good things are coming, just KEEP GOING...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/volcanohong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://en.wikipedia.org/" title="Wiki" target="_blank">Wiki</a>
+                </li>
+              
+            </ul>
+          </div>
+           
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-Datatables"><span class="nav-text">Angular Datatables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Datatable-Options"><span class="nav-text">Datatable Options</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reloading-Datatable"><span class="nav-text">Reloading Datatable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-New-Filter"><span class="nav-text">Create a New Filter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-Buttons-on-Data-Change"><span class="nav-text">Missing Buttons on Data Change</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volcanohong</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
