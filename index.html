@@ -269,8 +269,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/04/angular2-notes-2/" itemprop="url">
-                  Angular2 Notes II
+                <a class="post-title-link" href="/2017/01/29/angular2-notes-4/" itemprop="url">
+                  Angular2 Notes IV
                 </a>
               
             
@@ -283,8 +283,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T19:25:27-08:00" content="2017-01-04">
-              2017-01-04
+            <time itemprop="dateCreated" datetime="2017-01-29T01:37:48-08:00" content="2017-01-29">
+              2017-01-29
             </time>
           </span>
 
@@ -297,8 +297,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
                   </a>
                 </span>
 
@@ -340,8 +340,273 @@
       
         
           <ul>
-<li><h3 id="Angular-2-Modules"><a href="#Angular-2-Modules" class="headerlink" title="Angular 2 Modules"></a><strong>Angular 2 Modules</strong></h3></li>
-<li><h4 id="API-Service"><a href="#API-Service" class="headerlink" title="API Service"></a><strong>API Service</strong></h4></li>
+<li><h2 id="Angular-2-Note-Practice"><a href="#Angular-2-Note-Practice" class="headerlink" title="Angular 2 Note - Practice"></a><strong>Angular 2 Note - Practice</strong></h2></li>
+<li><h3 id="Shadow-DOM"><a href="#Shadow-DOM" class="headerlink" title="Shadow DOM"></a><strong>Shadow DOM</strong></h3><p>In fact, Angular doesn’t use native Shadow DOM by default, it uses an emulation. Most browsers simply don’t support Shadow DOM yet, but we should still be able to use the framework. Even better, we can easily tell Angular to use the native Shadow DOM if we want, <a href="https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html">View Encapsulation in Angular</a>. </p>
+</li>
+</ul>
+<p><em>View Encapsulation Types</em><br>Angular comes with view encapsulation built in, which enables us to use Shadow DOM or even emulate it. There are three view encapsulation types:</p>
+<ul>
+<li>ViewEncapsulation.None - No Shadow DOM at all. Therefore, also no style encapsulation.</li>
+<li>ViewEncapsulation.Emulated - No Shadow DOM but style encapsulation emulation.</li>
+<li>ViewEncapsulation.Native - Native Shadow DOM with all it’s goodness.</li>
+</ul>
+<p>To make that Angular doesn’t use Shadow DOM at all. In case adding some attributes to the style so that the style is not rendered well in the browser.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, OnInit, ViewEncapsulation&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">    selector: <span class="string">'app-period'</span>,</div><div class="line">    templateUrl: <span class="string">'./period.component.html'</span>,</div><div class="line">    encapsulation: ViewEncapsulation.None,</div><div class="line">    styleUrls: [<span class="string">'./period.component.scss'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/29/angular2-notes-4/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/28/angular2-notes-3/" itemprop="url">
+                  Angular2 Notes III
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-28T16:14:33-08:00" content="2017-01-28">
+              2017-01-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="Angular-2-Notes-Modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
+<li><h3 id="State-Management"><a href="#State-Management" class="headerlink" title="State Management"></a><strong>State Management</strong></h3></li>
+</ul>
+<ul>
+<li><p><em>The Problem With Concurrency</em></p>
+<p>  Building components which communicate with each other is a typical task involving state. We frequently have to keep up to date with different Angular components interacting with the same state: when more than one component accesses and modifies that state we call it <code>shared mutable state</code>.</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/28/angular2-notes-3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/04/angular2-notes-2/" itemprop="url">
+                  Angular2 Notes II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-04T19:25:27-08:00" content="2017-01-04">
+              2017-01-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="Angular-2-Notes-Modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
+<li><h3 id="API-Service"><a href="#API-Service" class="headerlink" title="API Service"></a><strong>API Service</strong></h3></li>
 </ul>
 <ul>
 <li>First, configure the application to use server communication facilities.</li>
@@ -1309,259 +1574,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/06/java8-notes-1/" itemprop="url">
-                  Java8 notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-06T20:22:12-07:00" content="2016-10-06">
-              2016-10-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="java-util-Optional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<T></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
-</ul>
-<p><code>Optional</code> instead of plain null is statically checked at compile time and much more informative as it clearly indicates that a given variable may be present or not. Of course it requires some discipline - you should never assign null to any variable any more.<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/06/java8-notes-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/01/angular2-notes-1/" itemprop="url">
-                  Angular2 Notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-01T10:39:45-07:00" content="2016-10-01">
-              2016-10-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h3 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2"></a><strong>Angular 2</strong></h3></li>
-</ul>
-<p>The heart of angular 2 is <code>containers</code>.</p>
-<p>import from <code>angular/core</code><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/01/angular2-notes-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1607,7 +1619,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1615,7 +1627,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
