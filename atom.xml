@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2017-01-29T20:51:43.000Z</updated>
+  <updated>2017-01-29T23:39:13.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://volcanohong.github.com/2017/01/29/angular2-notes-4/"/>
     <id>http://volcanohong.github.com/2017/01/29/angular2-notes-4/</id>
     <published>2017-01-29T09:37:48.000Z</published>
-    <updated>2017-01-29T20:51:43.000Z</updated>
+    <updated>2017-01-29T23:39:13.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;h2 id=&quot;Angular-2-Note-Practice&quot;&gt;&lt;a href=&quot;#Angular-2-Note-Practice&quot; class=&quot;headerlink&quot; title=&quot;Angular 2 Note - Practice&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular 2 Note - Practice&lt;/strong&gt;&lt;/h2&gt;&lt;/li&gt;
@@ -54,6 +54,10 @@
 &lt;li&gt;&lt;h3 id=&quot;Resource-Relative-Path&quot;&gt;&lt;a href=&quot;#Resource-Relative-Path&quot; class=&quot;headerlink&quot; title=&quot;Resource Relative Path&quot;&gt;&lt;/a&gt;&lt;strong&gt;Resource Relative Path&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;logo = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;../../assets/img/03.png&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Dynamic-Base-Href&quot;&gt;&lt;a href=&quot;#Dynamic-Base-Href&quot; class=&quot;headerlink&quot; title=&quot;Dynamic Base Href&quot;&gt;&lt;/a&gt;&lt;strong&gt;Dynamic Base Href&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;base href=&lt;span class=&quot;string&quot;&gt;&quot;./&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;h3 id=&quot;Cross-Origin-Problem&quot;&gt;&lt;a href=&quot;#Cross-Origin-Problem&quot; class=&quot;headerlink&quot; title=&quot;Cross Origin Problem&quot;&gt;&lt;/a&gt;&lt;strong&gt;Cross Origin Problem&lt;/strong&gt;&lt;/h3&gt;Add an @CrossOrigin annotation to @RestController or @RequestMapping annotated handler method in order to enable CORS on it. By default @CrossOrigin allows all origins and the HTTP methods specified in the @RequestMapping annotation, &lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cors.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CROS Support&lt;/a&gt;. E.g.,&lt;/li&gt;
 &lt;/ul&gt;
@@ -158,7 +162,7 @@
     <link href="http://volcanohong.github.com/2017/01/04/angular2-notes-2/"/>
     <id>http://volcanohong.github.com/2017/01/04/angular2-notes-2/</id>
     <published>2017-01-05T03:25:27.000Z</published>
-    <updated>2017-01-29T20:21:40.000Z</updated>
+    <updated>2017-01-29T22:37:41.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;h2 id=&quot;Angular-2-Notes-Modules&quot;&gt;&lt;a href=&quot;#Angular-2-Notes-Modules&quot; class=&quot;headerlink&quot; title=&quot;Angular 2 Notes - Modules&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular 2 Notes - Modules&lt;/strong&gt;&lt;/h2&gt;&lt;/li&gt;
@@ -210,6 +214,25 @@
 &lt;blockquote&gt;
 &lt;p&gt;The promise-based &lt;code&gt;then&lt;/code&gt; returns another promise. You can keep chaining more &lt;code&gt;then&lt;/code&gt; and &lt;code&gt;catch&lt;/code&gt; calls, getting a new promise each time.&lt;br&gt;The &lt;code&gt;subscribe&lt;/code&gt; method returns a &lt;code&gt;Subscription&lt;/code&gt;. A &lt;code&gt;Subscription&lt;/code&gt; is not another &lt;code&gt;Observable&lt;/code&gt;. It’s the end of the line for observables. You can’t call map on it or call subscribe again. The &lt;code&gt;Subscription&lt;/code&gt; object has a different purpose, signified by its primary method, &lt;code&gt;unsubscribe&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;Observalbe-Based&quot;&gt;&lt;a href=&quot;#Observalbe-Based&quot; class=&quot;headerlink&quot; title=&quot;Observalbe Based*&quot;&gt;&lt;/a&gt;&lt;strong&gt;Observalbe Based*&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Concept&lt;/strong&gt;&lt;br&gt;&lt;code&gt;Observable&lt;/code&gt; in short addresses asynchronous processing and events. Comparing to &lt;code&gt;promise&lt;/code&gt;, it can be described as &lt;code&gt;observable&lt;/code&gt; = &lt;code&gt;promise&lt;/code&gt; + events.&lt;/p&gt;
+&lt;p&gt;What is great with &lt;code&gt;observables&lt;/code&gt; is that they are &lt;em&gt;lazy&lt;/em&gt;. &lt;code&gt;Observables&lt;/code&gt; can be canceled and you can apply some operators in them (like &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;, …). This allows to handle asynchronous things in a very flexible way.&lt;/p&gt;
+&lt;p&gt;A great sample describing the strong power of &lt;code&gt;observables&lt;/code&gt; is the way to connect a filter input to a corresponding filtered list. When the user enters characters, the list is refreshed. &lt;code&gt;Observables&lt;/code&gt; handle corresponding AJAX requests and cancel previous in progress requests if another one is triggered by new value in the input. E.g.,&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.textValue.valueChanges &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .debounceTime(&lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .switchMap(data =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.httpService.getListValues(data)) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .subscribe(data =&amp;gt; &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;new list values&#39;&lt;/span&gt;, data));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;In action&lt;/strong&gt; &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Manage the observable by your own. In this case, call the &lt;code&gt;subscribe&lt;/code&gt; method on the observable and assign the result into an attribute of the component. Then use this attribute in the view to iterate over the collection:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;@Component(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  template: &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;h1&amp;gt;My Friends&amp;lt;/h1&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;li *ngFor=&quot;#frnd of result&quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&amp;#123;frnd.name&amp;#125;&amp;#125; is &amp;#123;&amp;#123;frnd.age&amp;#125;&amp;#125; years old.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;/li&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;/ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  `,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  directive:[CORE_DIRECTIVES]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FriendsList&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;implement&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;OnInit&lt;/span&gt;, &lt;span class=&quot;title&quot;&gt;OnDestroy&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  result:&lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;&amp;gt;; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;(http: Http) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  ngOnInit() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.friendsObservable = http.get(&lt;span class=&quot;string&quot;&gt;&#39;friends.json&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  .map(response =&amp;gt; response.json())&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  .subscribe(result =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.result = result);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   ngOnDestroy() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.friendsObservable.dispose();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Returns from both get and map methods are the observable not the result (in the same way than with promises).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Manage the observable by the Angular template. You can also use the a pipe to implicitly manage the observable. In this case, there is no need to explicitly call the subscribe method.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;@Component(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  template: &lt;span class=&quot;string&quot;&gt;`&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;h1&amp;gt;My Friends&amp;lt;/h1&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;li *ngFor=&quot;#frnd of (result | async)&quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&amp;#123;frnd.name&amp;#125;&amp;#125; is &amp;#123;&amp;#123;frnd.age&amp;#125;&amp;#125; years old.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;/li&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;/ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  `,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  directive:[CORE_DIRECTIVES]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FriendsList&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;implement&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;OnInit&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  result:&lt;span class=&quot;built_in&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;&amp;gt;; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;(http: Http) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  ngOnInit() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.result = http.get(&lt;span class=&quot;string&quot;&gt;&#39;friends.json&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  .map(response =&amp;gt; response.json());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Note that observables are lazy. So the corresponding HTTP request will be only called once when a listener attached on it is using the subscribe method.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;map&lt;/code&gt; method is used to extract the JSON content from the response and use it in the observable processing.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;h3 id=&quot;State-Management&quot;&gt;&lt;a href=&quot;#State-Management&quot; class=&quot;headerlink&quot; title=&quot;State Management&quot;&gt;&lt;/a&gt;&lt;strong&gt;State Management&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
 &lt;li&gt;&lt;h4 id=&quot;Make-a-Store&quot;&gt;&lt;a href=&quot;#Make-a-Store&quot; class=&quot;headerlink&quot; title=&quot;Make a Store&quot;&gt;&lt;/a&gt;&lt;strong&gt;Make a Store&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
@@ -753,13 +776,13 @@
       <category term="Javascript" scheme="http://volcanohong.github.com/categories/Javascript/"/>
     
     
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
+    
       <category term="javascript" scheme="http://volcanohong.github.com/tags/javascript/"/>
     
       <category term="html" scheme="http://volcanohong.github.com/tags/html/"/>
     
       <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
-      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
     
   </entry>
   
@@ -804,9 +827,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
       <category term="qrcode" scheme="http://volcanohong.github.com/tags/qrcode/"/>
     
@@ -886,9 +909,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
   </entry>
   
