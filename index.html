@@ -269,6 +269,134 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/09/angular2-notes-5/" itemprop="url">
+                  Angular2 Notes V
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-02-09T14:03:55-08:00" content="2017-02-09">
+              2017-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="Angular-2-Note"><a href="#Angular-2-Note" class="headerlink" title="Angular 2 Note"></a><strong>Angular 2 Note</strong></h2></li>
+<li><h3 id="Interval-and-Clock-Ticker"><a href="#Interval-and-Clock-Ticker" class="headerlink" title="Interval and Clock Ticker"></a><strong>Interval and Clock Ticker</strong></h3></li>
+</ul>
+<p>Use <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9">IntervalObservable</a> in <code>rxjs</code> to implement interval in angular 2. <code>Create(period)</code> is a static method, which creates an Observable that emits sequential numbers every specified interval of time.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; IntervalObservable &#125; from <span class="string">'rxjs/observable/IntervalObservable'</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">    selector: <span class="string">'demo'</span>,</div><div class="line">    templateUrl: <span class="string">'&lt;div&gt;&#123;&#123;time | date:'</span>HH:mm:ss<span class="string">'&#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">implements</span> <span class="title">OnInit</span></span>&#123;</div><div class="line">    time:number = Date.now();</div><div class="line">    ngOnInit() &#123;</div><div class="line">        IntervalObservable.create(<span class="number">1000</span>).subscribe(() =&gt; <span class="keyword">this</span>.time = Date.now());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/09/angular2-notes-5/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/29/angular2-notes-4/" itemprop="url">
                   Angular2 Notes IV
                 </a>
@@ -1448,137 +1576,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/07/java-qr-code/" itemprop="url">
-                  Java QR code
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T21:27:41-07:00" content="2016-10-07">
-              2016-10-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="QR-Code-Generator"><a href="#QR-Code-Generator" class="headerlink" title="QR Code Generator"></a><strong>QR Code Generator</strong></h4></li>
-</ul>
-<p>Utilize google QR code generator …<br>Define the <code>charset</code>, <code>format</code>, and <code>size</code>.<br>Use <code>MatrixToImageWriter</code> to write a <code>BitMatrix</code> to <code>BufferedImage</code>, file or stream. </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/07/java-qr-code/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1619,7 +1621,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

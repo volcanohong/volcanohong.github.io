@@ -269,6 +269,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/03/spring-notes-1/" itemprop="url">
+                  Spring notes I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T21:50:04-07:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
+</ul>
+<p><strong>Inversion of Control (IoC)</strong>: The core of the Spring framework is based on the principle of IoC. IoC is a technique that externalizes the creation and management of component dependencies. </p>
+<p>A alternative descriptive name is <strong>Dependency Injection (DI)</strong>. Such behavior takes place at runtime, in which an instance of class A is provided to class B by some external process if B depends on A to perform some processing.  </p>
+<p><strong>Aspect Oriented Programing (AOP)</strong>: AOP provids another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Aspects enable the modularization of concerns such as transaction management, log management, and input field validation that cut across multiple types and objects. </p>
+<p>The best document: <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/">Spring Framework Documents</a></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/03/spring-notes-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/29/mysql-notes-1/" itemprop="url">
                   MySQL notes I
                 </a>
@@ -1414,192 +1543,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/java-notes-1/" itemprop="url">
-                  Java coding notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T21:00:00-07:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          
-            <a id="more"></a>
-<ul>
-<li><h4 id="Create-a-singleton-by-enum"><a href="#Create-a-singleton-by-enum" class="headerlink" title="Create a singleton by enum"></a><strong>Create a singleton by enum</strong></h4></li>
-</ul>
-<p>A <code>Singleto</code>n means a class can have one instance only (instantiated exactly once).</p>
-<ol>
-<li>The declaration will make it clear that the class is a singleton.</li>
-<li><p>It gives us the flexibility to change whether the class should be singleton without changing its API. </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Moose</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Moose INSTANCE = <span class="keyword">new</span> Moose();</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Moose</span><span class="params">()</span> </span>&#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Moose <span class="title">getInstance</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> INSTANCE;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Making an enum type with one element</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Enum singleton</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Moose &#123;</div><div class="line">    INSTANCE;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Move</span><span class="params">()</span></span>&#123; ... &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>This approach is functionally equivalent to the public field approach.</p>
-<ul>
-<li><h4 id="Builder-pattern-for-creating-an-object"><a href="#Builder-pattern-for-creating-an-object" class="headerlink" title="Builder pattern for creating an object"></a><strong>Builder pattern for creating an object</strong></h4></li>
-</ul>
-<p>In the case that a constructor has many parameters and it’s hard to remember the names.</p>
-<p>Problem in JavaBeans pattern:</p>
-<ol>
-<li>A JavaBean may be in an inconsistent state partway through its construction.</li>
-<li>It precludes the possibility of making a class immutable.</li>
-</ol>
-<p>Builder is a static member of the class.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaffActionLog</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> StaffMember staffMember;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> DateTime date;</div><div class="line">	<span class="keyword">private</span> String actionField;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">StaffActionLog</span><span class="params">(Builder builder)</span></span>&#123;</div><div class="line">	    <span class="keyword">this</span>.staffMember = builder.staffMember;</div><div class="line">	    <span class="keyword">this</span>.actionField = builder.actionField;</div><div class="line">	    <span class="keyword">this</span>.date = builder.date;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//StaffActionLog builder</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span></span>&#123;</div><div class="line">	    <span class="comment">//mandatary fields</span></div><div class="line">	    <span class="keyword">private</span> <span class="keyword">final</span> StaffMember staffMember;</div><div class="line">	    <span class="comment">//reserved field</span></div><div class="line">	    <span class="keyword">private</span> <span class="keyword">final</span> DateTime date = <span class="keyword">new</span> LocalDate().toDateTimeAtCurrentTime();</div><div class="line">	    <span class="comment">//optional fields</span></div><div class="line">	    <span class="keyword">private</span> String actionField;</div><div class="line">	    <span class="comment">//constructor for mandatory field</span></div><div class="line">	    <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(StaffMember staffMember)</span> </span>&#123;</div><div class="line">	        <span class="keyword">this</span>.staffMember = staffMember;</div><div class="line">	    &#125;</div><div class="line">	    <span class="comment">//setter method for option field</span></div><div class="line">	    <span class="function"><span class="keyword">public</span> Builder <span class="title">actionField</span><span class="params">(String actionField)</span></span>&#123;</div><div class="line">	        <span class="keyword">this</span>.actionField = actionField;</div><div class="line">	        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">	    &#125;</div><div class="line">	    <span class="comment">//build() method, return the object</span></div><div class="line">	    <span class="function"><span class="keyword">public</span> StaffActionLog <span class="title">build</span><span class="params">()</span></span>&#123;</div><div class="line">	        <span class="keyword">return</span> <span class="keyword">new</span> StaffActionLog(<span class="keyword">this</span>);</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Call the builder function<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">StaffActionLog staffActionLog = <span class="keyword">new</span> StaffActionLog.Builder(staffMember).actionField(actionField).build();</div></pre></td></tr></table></figure></p>
-<ul>
-<li><h4 id="Static-factory-method"><a href="#Static-factory-method" class="headerlink" title="Static factory method"></a><strong>Static factory method</strong></h4></li>
-</ul>
-<p>Use static factory method instead of common constructor…</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//static factory method for creating staff action log</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StaffActionLog <span class="title">staticCreateStaffActionLog</span><span class="params">(StaffMember staffMember, String actionField, String oldValue, String newValue)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> StaffActionLog.Builder(staffMember).actionField(actionField).oldValue(oldValue).newValue(newValue).build();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Why we use <code>static factory method</code> compared to the <code>constructor</code>? </p>
-<ol>
-<li><p>A readable name for the method to create an instance</p>
-<pre><code>+ Refer the static methods in class `java.util.concurrent.Executors` in JDK, such as `newFixedThreadPool`, `newSingleThreadExecutor`, `newCachedThreadPool`, and `newScheduledThreadPool` etc.
-</code></pre></li>
-<li><p>Not required to create a new instance each time</p>
-<pre><code>+ It&apos;s possibly that the static method returns a instance existing in the cache rather than a new instance, which can improve the performance. E.g., static method for `Integer` in JDK, 
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</div><div class="line">      <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</div><div class="line">          <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</div><div class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-
-+ The above code will return the `Integer` instances in the cache with high probability integers.
-</code></pre></li>
-<li><p>Can return an object of any type</p>
-<pre><code>+ Return the instance of an inherited object, e.g., the application of `java.util.EnumSet` in JDK, 
-+ In the following code, the `noneOf()` function will return an instance based on the parameters.
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumSet</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Enum</span>&lt;<span class="title">E</span>&gt;&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</div><div class="line">    EnumSet(Class&lt;E&gt;elementType, Enum[] universe) &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;E extends Enum&lt;E&gt;&gt; <span class="function">EnumSet&lt;E&gt; <span class="title">noneOf</span><span class="params">(Class&lt;E&gt; elementType)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (universe.length &lt;= <span class="number">64</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RegularEnumSet&lt;&gt;(elementType, universe);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JumboEnumSet&lt;&gt;(elementType, universe);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>Siplified the creation of a new object </p>
-<pre><code>+ Use this
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K, V&gt; <span class="function">HashMap&lt;K, V&gt; <span class="title">newInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HashMap&lt;K, V&gt;();</div><div class="line">&#125;</div><div class="line">Map&lt;String, List&lt;String&gt;&gt; m = HashMap.newInstance();</div></pre></td></tr></table></figure>
-
-Rather than
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Map&lt;String, List&lt;String&gt;&gt; m = <span class="keyword">new</span> HashMap&lt;String, List&lt;String&gt;&gt;();</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ol>
-<p>Disadvantages:</p>
-<ol>
-<li>With only static factory method, classes without public or protected constructors cannot be subclassed.</li>
-<li>The static factory methods are not readily distinguishable from other static methods.</li>
-</ol>
-<hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1640,7 +1588,7 @@ Rather than
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

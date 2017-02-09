@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2017-01-29T23:39:13.000Z</updated>
+  <updated>2017-02-09T23:00:55.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -14,6 +14,113 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Angular2 Notes V</title>
+    <link href="http://volcanohong.github.com/2017/02/09/angular2-notes-5/"/>
+    <id>http://volcanohong.github.com/2017/02/09/angular2-notes-5/</id>
+    <published>2017-02-09T22:03:55.000Z</published>
+    <updated>2017-02-09T23:00:55.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;Angular-2-Note&quot;&gt;&lt;a href=&quot;#Angular-2-Note&quot; class=&quot;headerlink&quot; title=&quot;Angular 2 Note&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular 2 Note&lt;/strong&gt;&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&quot;Interval-and-Clock-Ticker&quot;&gt;&lt;a href=&quot;#Interval-and-Clock-Ticker&quot; class=&quot;headerlink&quot; title=&quot;Interval and Clock Ticker&quot;&gt;&lt;/a&gt;&lt;strong&gt;Interval and Clock Ticker&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use &lt;a href=&quot;http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IntervalObservable&lt;/a&gt; in &lt;code&gt;rxjs&lt;/code&gt; to implement interval in angular 2. &lt;code&gt;Create(period)&lt;/code&gt; is a static method, which creates an Observable that emits sequential numbers every specified interval of time.&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; IntervalObservable &amp;#125; from &lt;span class=&quot;string&quot;&gt;&#39;rxjs/observable/IntervalObservable&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Component&lt;/span&gt;(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    selector: &lt;span class=&quot;string&quot;&gt;&#39;demo&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    templateUrl: &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;div&amp;gt;&amp;#123;&amp;#123;time | date:&#39;&lt;/span&gt;HH:mm:ss&lt;span class=&quot;string&quot;&gt;&#39;&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Demo&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;OnInit&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    time:number = Date.now();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ngOnInit() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        IntervalObservable.create(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;).subscribe(() =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.time = Date.now());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;ngOnChanges-Not-Detect-Changes-in-Object&quot;&gt;&lt;a href=&quot;#ngOnChanges-Not-Detect-Changes-in-Object&quot; class=&quot;headerlink&quot; title=&quot;ngOnChanges Not Detect Changes in Object&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;code&gt;ngOnChanges&lt;/code&gt; Not Detect Changes in Object&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;During change detection, when Angular checks components’ input properties for change, it uses (essentially) === for dirty checking. For arrays, this means the array references (only) are dirty checked. Since the &lt;code&gt;rawLapsData&lt;/code&gt; array reference isn’t changing, &lt;code&gt;ngOnChanges()&lt;/code&gt; will not be fired.&lt;/p&gt;
+&lt;p&gt;Two possible solutions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Implement &lt;code&gt;ngDoCheck()&lt;/code&gt; and perform your own change detection logic to determine if the array contents have changed.&lt;/li&gt;
+&lt;li&gt;Assign a new array to &lt;code&gt;rawLapsData&lt;/code&gt; whenever you make any changes to the array contents. Then &lt;code&gt;ngOnChanges()&lt;/code&gt; will be called because the array (reference) will appear as a change.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Number-Pipe-Parameters&quot;&gt;&lt;a href=&quot;#Number-Pipe-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Number Pipe Parameters&quot;&gt;&lt;/a&gt;&lt;strong&gt;Number Pipe Parameters&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example,&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&amp;#123; tmpNumber | number : &#39;1.2-2&#39; &amp;#125;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The parameter has this syntax:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;So the example of ‘1.2-2’ means:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A minimum of 1 digit will be shown before decimal point.&lt;/li&gt;
+&lt;li&gt;Show at least 2 digits after decimal point.&lt;/li&gt;
+&lt;li&gt;No more than 2 digits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Matrix-URL&quot;&gt;&lt;a href=&quot;#Matrix-URL&quot; class=&quot;headerlink&quot; title=&quot;Matrix URL&quot;&gt;&lt;/a&gt;&lt;strong&gt;Matrix URL&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Matrix parameters are tied to a path segment, while query parameters are tied to the URL. They have different semantics.&lt;/p&gt;
+&lt;p&gt;Maybe it’s hard to tell because you always see it at the end of the URL, but this is also matrix paramters&lt;br&gt;&lt;code&gt;localhost:3000/heroes;id=15;foo=foo/bar/baz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The parameters are tied to heroes. When you access the route.url, you will see this&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.route.url.subscribe((url: UrlSegment[]) =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  let heroes = url[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  let heroesMatrix = heroes.parameters();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// heroes should contain id=5, foo=foo&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  let bar = url[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;].path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  let baz = url[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;].path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Is the matrix url notation the “default” to creating urls with parameters or is better to use the “old” notation with ?&lt;/p&gt;
+&lt;p&gt;No, both could be used, and how to use (create) them is completely different&lt;/p&gt;
+&lt;p&gt;matrix parameters are tied to each path, by passing an object after the path in the array&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;router.navigate([&amp;#39;/foo&amp;#39;, { id:1 }, &amp;#39;bar&amp;#39;, {baz: 2 } ])&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Here you will get &lt;code&gt;/foo;id=1/bar;baz=2&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Query parameters are created by passing the NavigationExtras as the second argument to navigate&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;router.navigate([&amp;#39;/foo&amp;#39;], { queryParams: { bar: 1, baz: 2 }});&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Here you get &lt;code&gt;/foo?bar=1&amp;amp;baz=2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;See also:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/401981/2587435&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;When to use query parameters versus matrix parameters?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/q/2048121/2587435&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;URL matrix parameters vs. request parameters&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;canActivate-Return-Observable&quot;&gt;&lt;a href=&quot;#canActivate-Return-Observable&quot; class=&quot;headerlink&quot; title=&quot;canActivate Return Observable&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;code&gt;canActivate&lt;/code&gt; Return Observable&lt;boolean&gt;&lt;/boolean&gt;&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;CanActive&lt;/code&gt; is an interface, that indicates a class can be implement to be a guard deciding if a route can be activated.&lt;/li&gt;
+&lt;li&gt;Implement &lt;code&gt;canActivate()&lt;/code&gt; method. It can return with 3 types.&lt;br&gt;&lt;code&gt;canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable&amp;lt;boolean&amp;gt;|Promise&amp;lt;boolean&amp;gt;|boolean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;We can get previous path through RouterStateSnapshot.&lt;/li&gt;
+&lt;li&gt;Passing parameters via router.navigate(), and the passed params are matrix URL pattern rather than query params.&lt;br&gt;Have to pass the matrix URL parameters to the redirected error page, so that the error page knows what is the link that user wants to access causing an error. &lt;/li&gt;
+&lt;li&gt;Hope to replace &lt;code&gt;window.location.href&lt;/code&gt;in the future, it is not written in angular way.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable&amp;lt;&lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt;&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.path = state.url;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.roleResourceService.checkStaffRoleResource(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.path)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            .map(isActivate =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!isActivate) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onCanActivate(isActivate);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; isActivate;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    onCanActivate(canActivate:&lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!canActivate) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.router.navigate([&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;error-role&#39;&lt;/span&gt;, &amp;#123;path: &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.path&amp;#125;]);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.roleResourceService.clearCache();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;Detect-Route-Changes&quot;&gt;&lt;a href=&quot;#Detect-Route-Changes&quot; class=&quot;headerlink&quot; title=&quot;Detect Route Changes&quot;&gt;&lt;/a&gt;&lt;strong&gt;Detect Route Changes&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized &amp;#125; from &lt;span class=&quot;string&quot;&gt;&#39;@angular/router&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;constructor(router:Router) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  router.events.forEach((event) =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(event &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; NavigationStart) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// NavigationEnd&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// NavigationCancel&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// NavigationError&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// RoutesRecognized&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;You can also filter by the given event:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;rxjs/add/operator/filter&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;constructor(router:Router) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  router.events&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .filter(event =&amp;gt; event &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; NavigationStart)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    .subscribe((event:NavigationStart) =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// You only receive NavigationStart events&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/angular/angular/issues/11268#issuecomment-244601977&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Using pairwise operator&lt;/a&gt; to get the previous and current event also is an nice idea. &lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;import &#39;rxjs/add/operator/pairwise&#39;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;import &amp;#123;Router&amp;#125; from &#39;@angular/router;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export class AppComponent &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    constructor(private router: Router) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        this.router.events.pairwise().subscribe((e) =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            console.log(e);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Ref&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Rxjs &lt;a href=&quot;http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IntervalObservable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/q/401981/2587435&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;When to use query parameters versus matrix parameters?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/q/2048121/2587435&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;URL matrix parameters vs. request parameters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/angular/angular/issues/11268#issuecomment-244601977&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Using pairwise operator&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;Angular-2-Note&quot;&gt;&lt;a href=&quot;#Angular-2-Note&quot; class=&quot;headerlink&quot; title=&quot;Angular 2 Note&quot;&gt;&lt;/a&gt;&lt;strong&gt;Angular 2 Note&lt;/strong&gt;&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h3 id=&quot;Interval-and-Clock-Ticker&quot;&gt;&lt;a href=&quot;#Interval-and-Clock-Ticker&quot; class=&quot;headerlink&quot; title=&quot;Interval and Clock Ticker&quot;&gt;&lt;/a&gt;&lt;strong&gt;Interval and Clock Ticker&lt;/strong&gt;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use &lt;a href=&quot;http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9&quot;&gt;IntervalObservable&lt;/a&gt; in &lt;code&gt;rxjs&lt;/code&gt; to implement interval in angular 2. &lt;code&gt;Create(period)&lt;/code&gt; is a static method, which creates an Observable that emits sequential numbers every specified interval of time.&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123; IntervalObservable &amp;#125; from &lt;span class=&quot;string&quot;&gt;&#39;rxjs/observable/IntervalObservable&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Component&lt;/span&gt;(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    selector: &lt;span class=&quot;string&quot;&gt;&#39;demo&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    templateUrl: &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;div&amp;gt;&amp;#123;&amp;#123;time | date:&#39;&lt;/span&gt;HH:mm:ss&lt;span class=&quot;string&quot;&gt;&#39;&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;export &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Demo&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;OnInit&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    time:number = Date.now();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ngOnInit() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        IntervalObservable.create(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;).subscribe(() =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.time = Date.now());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://volcanohong.github.com/categories/Angular/"/>
+    
+    
+      <category term="angular2" scheme="http://volcanohong.github.com/tags/angular2/"/>
+    
+      <category term="javascript" scheme="http://volcanohong.github.com/tags/javascript/"/>
+    
+      <category term="html" scheme="http://volcanohong.github.com/tags/html/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
+    
+  </entry>
   
   <entry>
     <title>Angular2 Notes IV</title>
@@ -1596,259 +1703,6 @@
       <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
       <category term="jQuery" scheme="http://volcanohong.github.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring notes I</title>
-    <link href="http://volcanohong.github.com/2016/08/03/spring-notes-1/"/>
-    <id>http://volcanohong.github.com/2016/08/03/spring-notes-1/</id>
-    <published>2016-08-04T04:50:04.000Z</published>
-    <updated>2016-08-04T04:50:04.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Inversion of Control (IoC)&lt;/strong&gt;: The core of the Spring framework is based on the principle of IoC. IoC is a technique that externalizes the creation and management of component dependencies. &lt;/p&gt;
-&lt;p&gt;A alternative descriptive name is &lt;strong&gt;Dependency Injection (DI)&lt;/strong&gt;. Such behavior takes place at runtime, in which an instance of class A is provided to class B by some external process if B depends on A to perform some processing.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Aspect Oriented Programing (AOP)&lt;/strong&gt;: AOP provids another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Aspects enable the modularization of concerns such as transaction management, log management, and input field validation that cut across multiple types and objects. &lt;/p&gt;
-&lt;p&gt;The best document: &lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Spring Framework Documents&lt;/a&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Spring-Basics&quot;&gt;&lt;a href=&quot;#Spring-Basics&quot; class=&quot;headerlink&quot; title=&quot;Spring Basics&quot;&gt;&lt;/a&gt;&lt;strong&gt;Spring Basics&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h5 id=&quot;applicationContext-xml&quot;&gt;&lt;a href=&quot;#applicationContext-xml&quot; class=&quot;headerlink&quot; title=&quot;applicationContext.xml&quot;&gt;&lt;/a&gt;&lt;strong&gt;&lt;code&gt;applicationContext.xml&lt;/code&gt;&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;It’s a IOC container like &lt;code&gt;BeanFactory&lt;/code&gt; with more extensions&lt;/li&gt;
-&lt;li&gt;Doesn’t have to be named &lt;code&gt;applicationContext.xml&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;A simple view of Spring is that it is Hashmap of objects&lt;ul&gt;
-&lt;li&gt;Objects are name/value pairs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;It can be used as a simple Registry&lt;/li&gt;
-&lt;li&gt;There are namespaces that aid in configuration and validation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ApplicationContext appContext = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ClassPathXmlApplicationContext(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[]&amp;#123;“applicationContext.xml”&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Object obj = appContext.getBean(&lt;span class=&quot;string&quot;&gt;&quot;Object&quot;&lt;/span&gt;, Object.class)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Import multiple configuration files&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;beans&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;resource&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;”spring-dao.xml”/&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;resource&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;”spring-service.xml”/&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;resource&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;”spring-action.xml”/&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ...  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ... &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;beans&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Beans&quot;&gt;&lt;a href=&quot;#Beans&quot; class=&quot;headerlink&quot; title=&quot;Beans&quot;&gt;&lt;/a&gt;&lt;strong&gt;Beans&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Essentially classes&lt;/li&gt;
-&lt;li&gt;Defining beans replaces using the keyword “new”&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Define the class by using the interface&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Id&lt;/strong&gt; or &lt;strong&gt;Name&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Can be used interchaneably&lt;/li&gt;
-&lt;li&gt;Id has to be a valid XML identifier&lt;/li&gt;
-&lt;li&gt;Name can contain special characters&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Constructor Args&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;Used to refernce properties of the constructor&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Properties&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;Getters and Setters of the &lt;code&gt;POJO&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;Ref. to other beans that we have defined&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Values&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Basic primitive values that are setting on &lt;code&gt;POJO&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Default No-Args Constructor&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Setter Injection v.s. Constructor Injection&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Setter-Injection&quot;&gt;&lt;a href=&quot;#Setter-Injection&quot; class=&quot;headerlink&quot; title=&quot;Setter Injection&quot;&gt;&lt;/a&gt;&lt;strong&gt;Setter Injection&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The class should provide corresponding setters and getters. Setter injection is more common.&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;prop1&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;prop2&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ... &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Constructor-Injection&quot;&gt;&lt;a href=&quot;#Constructor-Injection&quot; class=&quot;headerlink&quot; title=&quot;Constructor Injection&quot;&gt;&lt;/a&gt;&lt;strong&gt;Constructor Injection&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The class should provide appropriate class constructor. Constructor injection guarantees the contract.&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt;para1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt;para2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;index&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       ... &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Index&lt;/code&gt; field indicates the arguments’ indexes.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Autowiring&quot;&gt;&lt;a href=&quot;#Autowiring&quot; class=&quot;headerlink&quot; title=&quot;Autowiring&quot;&gt;&lt;/a&gt;&lt;strong&gt;Autowiring&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Spring can automatically wire beans together&lt;/li&gt;
-&lt;li&gt;byType&lt;ul&gt;
-&lt;li&gt;Allows a property to be autowired if exactly one bean of the property type exists in the container. A fatal exception is thrown if more than one exists.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;byName&lt;ul&gt;
-&lt;li&gt;By property name. Spring looks for a bean with the same name as the property that needs to be autowired&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Constructor&lt;ul&gt;
-&lt;li&gt;Similar to byType, but applies to constructor arguments. &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For example,&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--need appropriate constructor--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;autowire&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;constructor&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--need default constructor and setter--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;autowire&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;byType&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--looking for the type of setter&#39;s parameter--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--need default constructor and setter--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;autowire&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;byName&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--looking for setter&#39;s name--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Set-Injection&quot;&gt;&lt;a href=&quot;#Set-Injection&quot; class=&quot;headerlink&quot; title=&quot;Set Injection&quot;&gt;&lt;/a&gt;&lt;strong&gt;Set Injection&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;&amp;lt;!--set or list--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;set&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;value1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;value2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;value&lt;/span&gt;&amp;gt;&lt;/span&gt;              &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;set&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;&amp;lt;!--map--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;map&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;k1&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;k2&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;              &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;map&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;...&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;&amp;lt;!--properties--&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;props&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;prop&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;k1&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;prop&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;key&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;k2&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;              &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;props&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Spring-Annotation&quot;&gt;&lt;a href=&quot;#Spring-Annotation&quot; class=&quot;headerlink&quot; title=&quot;Spring Annotation&quot;&gt;&lt;/a&gt;&lt;strong&gt;Spring Annotation&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Part of the context namespace&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;xmlns:context=&quot;http://www.springframework.org/schema/context&quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;xsi:schemaLocation=&quot;http://www.springframework.org/schema/context&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;http://www.springframework.org/schema/context/spring-context-2.5.xsd&quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;Two elements have to be configured &lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;context:annotation-config&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;context:component-scan&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;base-package&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;com.projectname&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;Stereotype-Annotation&quot;&gt;&lt;a href=&quot;#Stereotype-Annotation&quot; class=&quot;headerlink&quot; title=&quot;Stereotype Annotation&quot;&gt;&lt;/a&gt;&lt;strong&gt;Stereotype Annotation&lt;/strong&gt;&lt;/h5&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;@Component&lt;ul&gt;
-&lt;li&gt;Regular components / beans, any &lt;code&gt;POJO&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;@Service&lt;ul&gt;
-&lt;li&gt;Service tier where business logic is contained&lt;/li&gt;
-&lt;li&gt;e.g. &lt;code&gt;@Service(&amp;quot;customerService&amp;quot;)&lt;/code&gt;    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;@Controller&lt;ul&gt;
-&lt;li&gt;Control layer / actions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;@Repository&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Data access tier / database interaction layer&lt;/li&gt;
-&lt;li&gt;e.g. &lt;code&gt;@Repository(&amp;quot;userDao&amp;quot;)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Autowired&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;member variables &lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Autowired&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; CustomerRepository customerRepository;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;uses reflection to set it&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Constructor&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Setter&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;call the actual setter&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Java-Configuration&quot;&gt;&lt;a href=&quot;#Java-Configuration&quot; class=&quot;headerlink&quot; title=&quot;Java Configuration&quot;&gt;&lt;/a&gt;&lt;strong&gt;Java Configuration&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;No XML&lt;/li&gt;
-&lt;li&gt;@Configuration is a class level annotation&lt;/li&gt;
-&lt;li&gt;@Bean is a method level annotation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Configuration&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AppConfig&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Bean&lt;/span&gt;(name = &lt;span class=&quot;string&quot;&gt;&quot;customerService&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; CustomerService &lt;span class=&quot;title&quot;&gt;getCustomerService&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; CustomerServiceImpl();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ApplicationContext appContext = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AnnotationConfigApplicationContext(AppConfig.class);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Autowired&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@ComponentScan({&amp;quot;com.xxx&amp;quot;})&lt;/code&gt;, class level annotation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Singleton Scope&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@Scope(&amp;quot;singleton&amp;quot;)&lt;/code&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Prototype Scope &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@Scope(&amp;quot;prototype&amp;quot;)&lt;/code&gt;    &lt;/li&gt;
-&lt;li&gt;A new instance per request&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Web Scopes&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Refer to Spring MVC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Request&lt;ul&gt;
-&lt;li&gt;Return a single bean per HTTP Request&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Session&lt;ul&gt;
-&lt;li&gt;Return a single bean per HTTP Session  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;GlobalSession     &lt;ul&gt;
-&lt;li&gt;Return a single bean per per Application&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Spring-Boot&quot;&gt;&lt;a href=&quot;#Spring-Boot&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot&quot;&gt;&lt;/a&gt;&lt;strong&gt;Spring Boot&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Spring boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”. Most Spring Boot applications need very little Spring configuration.&lt;/p&gt;
-&lt;p&gt;Features:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Create stand-alone Spring applications&lt;/li&gt;
-&lt;li&gt;Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)&lt;/li&gt;
-&lt;li&gt;Provide opinionated ‘starter’ POMs to simplify your Maven configuration&lt;/li&gt;
-&lt;li&gt;Automatically configure Spring whenever possible&lt;/li&gt;
-&lt;li&gt;Provide production-ready features such as metrics and health checks&lt;/li&gt;
-&lt;li&gt;Absolutely no code generation and no requirement for XML configuration&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Configuration of spring boot in &lt;code&gt;pom.xml&lt;/code&gt; &lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Spring Boot : parent dependency --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;parent&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;spring-boot-starter-parent&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;1.3.6.RELEASE&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;parent&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;spring-boot-starter-web&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependencies&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Create a controller&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Controller&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@EnableAutoConfiguration&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DoSthController&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@RequestMapping&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;/&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;divide&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a / b;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//// create a main funtion to run here&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//public static void main(String[] args) throws Exception &amp;#123;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//    SpringApplication.run(DoSthController.class, args);&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//&amp;#125;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Or create an seperate spring application&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@SpringBootApplication&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DoSthApplication&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        SpringApplication.run(DoSthApplication.class, args);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Create a unit test&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DoSthControllerTest&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Test&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;testDivide_success&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        assertEquals(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DoSthController().divide(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Test&lt;/span&gt;(expected = Exception.class)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;testDivide_fail&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;throws&lt;/span&gt; Exception &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        DoSthController doSth = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DoSthController();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        doSth.divide(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Start &lt;code&gt;Tomcat&lt;/code&gt;, then right-click and run &lt;code&gt;DoSthApplication&lt;/code&gt;, or just run the test class and the test methods.&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Inversion of Control (IoC)&lt;/strong&gt;: The core of the Spring framework is based on the principle of IoC. IoC is a technique that externalizes the creation and management of component dependencies. &lt;/p&gt;
-&lt;p&gt;A alternative descriptive name is &lt;strong&gt;Dependency Injection (DI)&lt;/strong&gt;. Such behavior takes place at runtime, in which an instance of class A is provided to class B by some external process if B depends on A to perform some processing.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Aspect Oriented Programing (AOP)&lt;/strong&gt;: AOP provids another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Aspects enable the modularization of concerns such as transaction management, log management, and input field validation that cut across multiple types and objects. &lt;/p&gt;
-&lt;p&gt;The best document: &lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/&quot;&gt;Spring Framework Documents&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring" scheme="http://volcanohong.github.com/categories/Spring/"/>
-    
-    
-      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
-    
-      <category term="unit test" scheme="http://volcanohong.github.com/tags/unit-test/"/>
-    
-      <category term="spring" scheme="http://volcanohong.github.com/tags/spring/"/>
-    
-      <category term="mvc" scheme="http://volcanohong.github.com/tags/mvc/"/>
     
   </entry>
   
