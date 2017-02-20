@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,coding,java web," />
+  <meta name="keywords" content="java,coding,cookie," />
 
 
 
@@ -86,22 +86,37 @@
 
 
 
-<meta name="description" content="Sending HTTP post request
+<meta name="description" content="Java Cookie
+HTTP Only and Secure Flag
 
-In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
+Set httpOnly and secure flags on session cookie.
+
+JSESSIONID
+
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java coding notes III">
-<meta property="og:url" content="http://volcanohong.github.com/2016/07/04/java-notes-3/index.html">
+<meta property="og:title" content="Java Cookie">
+<meta property="og:url" content="http://volcanohong.github.com/2017/02/20/java-cookie/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Sending HTTP post request
+<meta property="og:description" content="Java Cookie
+HTTP Only and Secure Flag
 
-In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
-<meta property="og:updated_time" content="2016-07-10T05:04:02.000Z">
+Set httpOnly and secure flags on session cookie.
+
+JSESSIONID
+
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
+<meta property="og:updated_time" content="2017-02-20T22:54:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java coding notes III">
-<meta name="twitter:description" content="Sending HTTP post request
+<meta name="twitter:title" content="Java Cookie">
+<meta name="twitter:description" content="Java Cookie
+HTTP Only and Secure Flag
 
-In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
+Set httpOnly and secure flags on session cookie.
+
+JSESSIONID
+
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
 
 
 
@@ -122,9 +137,9 @@ In case of sending HTTP post request to a URL with parameters such as submitting
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/2016/07/04/java-notes-3/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/2017/02/20/java-cookie/"/>
 
-  <title> Java coding notes III | Volcanohong's Learning Notes </title>
+  <title> Java Cookie | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -273,7 +288,7 @@ In case of sending HTTP post request to a URL with parameters such as submitting
             
             
               
-                Java coding notes III
+                Java Cookie
               
             
           </h1>
@@ -285,8 +300,8 @@ In case of sending HTTP post request to a URL with parameters such as submitting
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-04T21:20:00-07:00" content="2016-07-04">
-              2016-07-04
+            <time itemprop="dateCreated" datetime="2017-02-20T14:09:45-08:00" content="2017-02-20">
+              2017-02-20
             </time>
           </span>
 
@@ -337,7 +352,7 @@ In case of sending HTTP post request to a URL with parameters such as submitting
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sending-HTTP-post-request"><span class="nav-number">1.</span> <span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaling-BigDecimal"><span class="nav-number">2.</span> <span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Cookie"><span class="nav-number">1.</span> <span class="nav-text">Java Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Only-and-Secure-Flag"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSESSIONID"><span class="nav-number">1.1.1.</span> <span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Self-defined-Cookie"><span class="nav-number">1.1.2.</span> <span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-JSESSIONID"><span class="nav-number">1.2.</span> <span class="nav-text">Understanding JSESSIONID</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -346,18 +361,36 @@ In case of sending HTTP post request to a URL with parameters such as submitting
 
       
         <ul>
-<li><h4 id="Sending-HTTP-post-request"><a href="#Sending-HTTP-post-request" class="headerlink" title="Sending HTTP post request"></a><strong>Sending HTTP post request</strong></h4></li>
+<li><h2 id="Java-Cookie"><a href="#Java-Cookie" class="headerlink" title="Java Cookie"></a><strong>Java Cookie</strong></h2></li>
+<li><h3 id="HTTP-Only-and-Secure-Flag"><a href="#HTTP-Only-and-Secure-Flag" class="headerlink" title="HTTP Only and Secure Flag"></a><strong>HTTP Only and Secure Flag</strong></h3></li>
 </ul>
-<p>In case of sending HTTP post request to a <code>URL</code> with parameters such as submitting a HTML form and expecting to receive some response.<br><a id="more"></a><br><a href="https://hc.apache.org/httpcomponents-client-ga/quickstart.html" target="_blank" rel="external">More details: Apache HTTP Client</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.http.client.*;</div><div class="line"> </div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpException;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpStatus;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.methods.PostMethod;</span></div><div class="line"></div><div class="line">CloseableHttpClient httpClient = HttpClients.createDefault();</div><div class="line">HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"https://someUrl"</span>);</div><div class="line">List&lt;NameValuePair&gt; paraList = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para1"</span>, para1));</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para2"</span>, para2));</div><div class="line"></div><div class="line">httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(paraList, <span class="string">"UTF-8"</span>));</div><div class="line">CloseableHttpResponse httpResponse = httpClient.execute(httpPost);</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    System.out.println(httpResponse.getStatusLine());</div><div class="line">    HttpEntity httpEntity = httpResponse.getEntity();</div><div class="line">    <span class="keyword">if</span> (httpEntity!= <span class="keyword">null</span>) &#123;</div><div class="line">        InputStream instream = httpEntity.getContent();</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (HttpException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...	</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    httpResponse.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Another method or an old way …</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    URL url = <span class="keyword">new</span> URL(<span class="string">"https://someUrl"</span>);</div><div class="line">    <span class="comment">//open connection</span></div><div class="line">    HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">    <span class="comment">//set connection output | input to true</span></div><div class="line">    connection.setDoOutput(<span class="keyword">true</span>);</div><div class="line">    connection.setDoInput(<span class="keyword">true</span>);</div><div class="line">    <span class="comment">//instead of a GET, using method="POST"</span></div><div class="line">    connection.setRequestMethod(<span class="string">"POST"</span>);</div><div class="line">    <span class="comment">//an OutputStreamWriter for output stream by getOutputStream which writes to the connection.</span></div><div class="line">    OutputStreamWriter writer = <span class="keyword">new</span> OutputStreamWriter(connection.getOutputStream());</div><div class="line">    <span class="comment">//write data</span></div><div class="line">    String para = URLEncoder.encode(apiKey, <span class="string">"UTF-8"</span>);</div><div class="line">    writer.write(<span class="string">"para="</span> + para);</div><div class="line">    writer.flush();</div><div class="line">    <span class="comment">//read from connection.getInputStream</span></div><div class="line">    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream())); </div><div class="line">    String readLine; </div><div class="line">    <span class="keyword">while</span> ((readLine = reader.readLine()) != <span class="keyword">null</span>) &#123; </div><div class="line">        <span class="comment">//process readLine... </span></div><div class="line">    &#125; </div><div class="line">    writer.close();</div><div class="line">    reader.close(); </div><div class="line">    <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</div><div class="line">        <span class="comment">//connection is good</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//HTTP error code.</span></div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Set httpOnly and secure flags on session cookie.</p>
 <ul>
-<li><h4 id="Scaling-BigDecimal"><a href="#Scaling-BigDecimal" class="headerlink" title="Scaling BigDecimal"></a><strong>Scaling BigDecimal</strong></h4></li>
+<li><h4 id="JSESSIONID"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a><strong>JSESSIONID</strong></h4></li>
 </ul>
-<p>Some methods for scaling a BigDecimal number.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.math.*</div><div class="line"></div><div class="line">BigDecimal amount = <span class="keyword">new</span> BigDecimal(<span class="number">98.7654</span>);</div><div class="line"></div><div class="line"><span class="comment">//option A: output 9876</span></div><div class="line">BigDecimal amount1 = amount.scaleByPowerOfTen(<span class="number">2</span>).setScale(<span class="number">0</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount1));</div><div class="line"></div><div class="line"><span class="comment">//option B: output 9876.54</span></div><div class="line">BigDecimal amount2 = amount.movePointRight(<span class="number">2</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount2));</div><div class="line"></div><div class="line"><span class="comment">//option C: output 9876.5400</span></div><div class="line">BigDecimal amount3 = amount.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">100</span>)).setScale(<span class="number">4</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount3));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.3       </span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).round(<span class="keyword">new</span> MathContext(<span class="number">3</span>, RoundingMode.HALF_UP))));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.35</span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP)));</div></pre></td></tr></table></figure>
-<hr>
+<p>For JSESSIONID, we can upgrade web servlet to version 3.0,<br>update <code>web.xml</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">"3.0"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span></div><div class="line"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line"><span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>Then, in <code>web.xml</code>, add <code>&lt;cookie-config&gt;</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cookie-config</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">http-only</span>&gt;</span>true<span class="tag">&lt;/<span class="name">http-only</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">secure</span>&gt;</span>true<span class="tag">&lt;/<span class="name">secure</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">cookie-config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<ul>
+<li><h4 id="Self-defined-Cookie"><a href="#Self-defined-Cookie" class="headerlink" title="Self-defined Cookie"></a><strong>Self-defined Cookie</strong></h4></li>
+</ul>
+<p>Somehow, the above method does not work on a self-defined cookie in my case.</p>
+<p>Here we introducing an alternative solution.</p>
+<p>Implement a <code>security filter</code> and made a mapping to the pages who need filter.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Security Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>common.SecurityFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Security Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jsf<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Implement a wrapper that extends <code>HttpServletResponseWrapper</code><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecureCookieSetter</span> <span class="keyword">extends</span> <span class="title">HttpServletResponseWrapper</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SecureCookieSetter</span><span class="params">(HttpServletResponse response)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeader</span><span class="params">(String name, String value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((name.equals(<span class="string">"Set-Cookie"</span>)) &amp;&amp; (!value.matches(<span class="string">"(^|.*;)\\s*Secure"</span>))) &#123;</div><div class="line">            value = value + <span class="string">";Secure"</span>;</div><div class="line">        &#125;</div><div class="line"><span class="comment">//        if ((name.equals("Set-Cookie")) &amp;&amp; (!value.matches("(^|.*;)\\s*HttpOnly"))) &#123;</span></div><div class="line"><span class="comment">//            value = value + ";HttpOnly";</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line">        <span class="keyword">super</span>.setHeader(name, value);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Implement <code>security filter</code><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletRequest httpReq = (HttpServletRequest) request;</div><div class="line">        HttpServletResponse httpResp = (HttpServletResponse) response;</div><div class="line">        <span class="comment">// wrap the response</span></div><div class="line">        response = <span class="keyword">new</span> SecureCookieSetter(httpResp);</div><div class="line"></div><div class="line">        <span class="comment">// touch the session if the SessionKey dose not change</span></div><div class="line">        httpReq.getSession();</div><div class="line"></div><div class="line">        <span class="comment">// overwriting the cookie with Secure attribute set</span></div><div class="line">        httpResp.setHeader(<span class="string">"Set-Cookie"</span>, <span class="string">"SessionKey="</span> + sessionKey + <span class="string">";Path=/"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><h3 id="Understanding-JSESSIONID"><a href="#Understanding-JSESSIONID" class="headerlink" title="Understanding JSESSIONID"></a><strong>Understanding JSESSIONID</strong></h3></li>
+</ul>
+<p>JSESSIONID is a ID generated by Servlet container like Tomcat or Jetty and used for session management in J2EE web application for http protocol.<br>The ID is sent to the client either within a cookie (default) or as part of the URL (called URLrewriting, used only if cookies are disabled on the browser).</p>
+<p>How JSESSIONID works?</p>
+<p>When the first request (that demands a creation of session) arrives on a J2EE server, the server creates HTTPSession object and sends the sessionID to the browser. The browser then send the same sessionId for every subsequent requests.<br>Thus the stateless protocol becomes a stateful one.</p>
+<p>There are 2 ways a request(from browser) notifies a container/server to start a new session.<br>Requesting a jsp page. (as we saw above)<br>The container creates certain implicit objects for a JSP and one among those is the HTTPSession object. HTTPSession object holds the sessionId which is written to the response header. You can alter the default behaviour by adding this directive<br><code>&lt;%@ page session=&quot;false&quot;%&gt;</code><br>Requesting a servlet that has code to initiate the creation by calling,<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">request.getSession() - returns a HTTPSession object <span class="keyword">if</span> it already exists <span class="keyword">else</span> creates a <span class="keyword">new</span> one</div><div class="line">request.getSession(<span class="keyword">true</span>) - same as above</div><div class="line">request.getSession(<span class="keyword">false</span>) - returns a pre-existing session <span class="keyword">if</span> it exits <span class="keyword">else</span> doesn<span class="string">'t create one.</span></div></pre></td></tr></table></figure></p>
+<p><strong>Ref</strong>:</p>
+<ol>
+<li><a href="http://stackoverflow.com/questions/16398327/set-httponly-and-secure-flags-on-session-cookie-in-google-app-engine" target="_blank" rel="external">Response wrapper</a></li>
+<li><a href="http://www.cs-repository.info/2014/07/understanding-jsessionid.html" target="_blank" rel="external">Understand jsessionid</a></li>
+</ol>
 
       
     </div>
@@ -384,7 +417,7 @@ In case of sending HTTP post request to a URL with parameters such as submitting
           
             <a href="/tags/coding/" rel="tag">#coding</a>
           
-            <a href="/tags/java-web/" rel="tag">#java web</a>
+            <a href="/tags/cookie/" rel="tag">#cookie</a>
           
         </div>
       
@@ -393,17 +426,13 @@ In case of sending HTTP post request to a URL with parameters such as submitting
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/28/java-notes-2/" rel="next" title="Java coding notes II">
-                <i class="fa fa-chevron-left"></i> Java coding notes II
+              <a href="/2017/02/09/angular2-notes-5/" rel="next" title="Angular2 Notes V">
+                <i class="fa fa-chevron-left"></i> Angular2 Notes V
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/08/junit-test-notes-1/" rel="prev" title="JUnit test notes I">
-                JUnit test notes I <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,7 +587,7 @@ In case of sending HTTP post request to a URL with parameters such as submitting
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sending-HTTP-post-request"><span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaling-BigDecimal"><span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Cookie"><span class="nav-text">Java Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Only-and-Secure-Flag"><span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSESSIONID"><span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Self-defined-Cookie"><span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-JSESSIONID"><span class="nav-text">Understanding JSESSIONID</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

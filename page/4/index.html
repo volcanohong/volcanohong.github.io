@@ -269,6 +269,142 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/28/java-notes-2/" itemprop="url">
+                  Java coding notes II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T21:20:00-07:00" content="2016-06-28">
+              2016-06-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h4 id="Print-all-properties-of-an-Object-with-name-value"><a href="#Print-all-properties-of-an-Object-with-name-value" class="headerlink" title="Print all properties of an Object with name/value"></a><strong>Print all properties of an Object with name/value</strong></h4></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printObjectFields</span><span class="params">(Object object)</span> </span>&#123;</div><div class="line">        Field[] fields = object.getClass().getDeclaredFields();</div><div class="line">        StringBuilder msg = <span class="keyword">new</span> StringBuilder();</div><div class="line">        String newLine = System.getProperty(<span class="string">"line.separator"</span>);</div><div class="line"></div><div class="line">        msg.append( object.getClass().getName() );</div><div class="line">        msg.append(newLine);</div><div class="line">        Method method = <span class="keyword">null</span>;</div><div class="line">        String methodName = <span class="string">""</span>;</div><div class="line">        String methodValue = <span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span> ( Field field : fields ) &#123;</div><div class="line">            msg.append(<span class="string">"  "</span>);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                methodName = field.getName();</div><div class="line">                msg.append( methodName );</div><div class="line">                msg.append(<span class="string">": "</span>);</div><div class="line">                <span class="comment">//requires access to private field:</span></div><div class="line">                <span class="comment">//field.setAccessible(true);</span></div><div class="line">                </div><div class="line">                <span class="comment">//run the `get` method to obtain the value</span></div><div class="line">                methodName = <span class="string">"get"</span> + Character.toUpperCase(methodName.charAt(<span class="number">0</span>)) + methodName.substring(<span class="number">1</span>);</div><div class="line">                method = object.getClass().getMethod(methodName);</div><div class="line">                methodValue = String.valueOf(method.invoke(object));</div><div class="line">                msg.append(methodValue);</div><div class="line">            &#125; <span class="keyword">catch</span> (SecurityException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> ( IllegalAccessException e ) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</div><div class="line">            &#125;</div><div class="line">            msg.append(newLine);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//print msg</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="Compare-two-objects"><a href="#Compare-two-objects" class="headerlink" title="Compare two objects"></a><strong>Compare two objects</strong></h4></li>
+</ul>
+<p>Compare every filed of two objects by using <code>CompareToBuilder</code>…</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">compareBrand</span><span class="params">(Brand oldBrand, Brand newBrand)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CompareToBuilder().append(oldBrand.getBrandId(), newBrand.getBrandId())</div><div class="line">            .append(oldBrand.getBrandName(), newBrand.getBrandName())</div><div class="line">            .toComparison();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="URL-encoding-of-query-string-parameter"><a href="#URL-encoding-of-query-string-parameter" class="headerlink" title="URL encoding of query string parameter"></a><strong>URL encoding of query string parameter</strong></h4></li>
+</ul>
+<p>Either using <code>java.net.URLEncoder</code>:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String str = <span class="string">"a=b+c"</span>;</div><div class="line">str = URLEncoder.encode(str, <span class="string">"UTF-8"</span>);</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/java-notes-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/26/java-notes-1/" itemprop="url">
                   Java coding notes I
                 </a>
@@ -474,7 +610,7 @@ Rather than
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -491,7 +627,7 @@ Rather than
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
