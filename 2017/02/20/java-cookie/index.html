@@ -86,37 +86,34 @@
 
 
 
-<meta name="description" content="Java Cookie
-HTTP Only and Secure Flag
+<meta name="description" content="HTTP Only and Secure Flag
 
 Set httpOnly and secure flags on session cookie.
 
 JSESSIONID
 
-For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.0&quot; xmlns=&quot;ht">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Cookie">
 <meta property="og:url" content="http://volcanohong.github.com/2017/02/20/java-cookie/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Java Cookie
-HTTP Only and Secure Flag
+<meta property="og:description" content="HTTP Only and Secure Flag
 
 Set httpOnly and secure flags on session cookie.
 
 JSESSIONID
 
-For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
-<meta property="og:updated_time" content="2017-02-20T22:54:54.000Z">
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.0&quot; xmlns=&quot;ht">
+<meta property="og:updated_time" content="2017-03-12T04:31:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Cookie">
-<meta name="twitter:description" content="Java Cookie
-HTTP Only and Secure Flag
+<meta name="twitter:description" content="HTTP Only and Secure Flag
 
 Set httpOnly and secure flags on session cookie.
 
 JSESSIONID
 
-For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.">
+For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;lt;web-app version=&quot;3.0&quot; xmlns=&quot;ht">
 
 
 
@@ -252,9 +249,32 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -352,7 +372,7 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Cookie"><span class="nav-number">1.</span> <span class="nav-text">Java Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Only-and-Secure-Flag"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSESSIONID"><span class="nav-number">1.1.1.</span> <span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Self-defined-Cookie"><span class="nav-number">1.1.2.</span> <span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-JSESSIONID"><span class="nav-number">1.2.</span> <span class="nav-text">Understanding JSESSIONID</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-only-and-secure-flag"><span class="nav-number">1.</span> <span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsessionid"><span class="nav-number">1.1.</span> <span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-defined-cookie"><span class="nav-number">1.2.</span> <span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-jsessionid"><span class="nav-number">2.</span> <span class="nav-text">Understanding JSESSIONID</span></a></li></ol></div>
         </div>
       
       
@@ -361,18 +381,17 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
 
       
         <ul>
-<li><h2 id="Java-Cookie"><a href="#Java-Cookie" class="headerlink" title="Java Cookie"></a><strong>Java Cookie</strong></h2></li>
-<li><h3 id="HTTP-Only-and-Secure-Flag"><a href="#HTTP-Only-and-Secure-Flag" class="headerlink" title="HTTP Only and Secure Flag"></a><strong>HTTP Only and Secure Flag</strong></h3></li>
+<li><h2 id="http-only-and-secure-flag"><a href="#HTTP-Only-and-Secure-Flag" class="headerlink" title="HTTP Only and Secure Flag"></a><strong>HTTP Only and Secure Flag</strong></h2></li>
 </ul>
 <p>Set httpOnly and secure flags on session cookie.</p>
 <ul>
-<li><h4 id="JSESSIONID"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a><strong>JSESSIONID</strong></h4></li>
+<li><h3 id="jsessionid"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a><strong>JSESSIONID</strong></h3></li>
 </ul>
 <p>For JSESSIONID, we can upgrade web servlet to version 3.0,<br>update <code>web.xml</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">"3.0"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></span></div><div class="line"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line"><span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>Then, in <code>web.xml</code>, add <code>&lt;cookie-config&gt;</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cookie-config</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">http-only</span>&gt;</span>true<span class="tag">&lt;/<span class="name">http-only</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">secure</span>&gt;</span>true<span class="tag">&lt;/<span class="name">secure</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">cookie-config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <ul>
-<li><h4 id="Self-defined-Cookie"><a href="#Self-defined-Cookie" class="headerlink" title="Self-defined Cookie"></a><strong>Self-defined Cookie</strong></h4></li>
+<li><h3 id="self-defined-cookie"><a href="#Self-defined-Cookie" class="headerlink" title="Self-defined Cookie"></a><strong>Self-defined Cookie</strong></h3></li>
 </ul>
 <p>Somehow, the above method does not work on a self-defined cookie in my case.</p>
 <p>Here we introducing an alternative solution.</p>
@@ -380,7 +399,7 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
 <p>Implement a wrapper that extends <code>HttpServletResponseWrapper</code><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecureCookieSetter</span> <span class="keyword">extends</span> <span class="title">HttpServletResponseWrapper</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SecureCookieSetter</span><span class="params">(HttpServletResponse response)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeader</span><span class="params">(String name, String value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((name.equals(<span class="string">"Set-Cookie"</span>)) &amp;&amp; (!value.matches(<span class="string">"(^|.*;)\\s*Secure"</span>))) &#123;</div><div class="line">            value = value + <span class="string">";Secure"</span>;</div><div class="line">        &#125;</div><div class="line"><span class="comment">//        if ((name.equals("Set-Cookie")) &amp;&amp; (!value.matches("(^|.*;)\\s*HttpOnly"))) &#123;</span></div><div class="line"><span class="comment">//            value = value + ";HttpOnly";</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line">        <span class="keyword">super</span>.setHeader(name, value);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Implement <code>security filter</code><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletRequest httpReq = (HttpServletRequest) request;</div><div class="line">        HttpServletResponse httpResp = (HttpServletResponse) response;</div><div class="line">        <span class="comment">// wrap the response</span></div><div class="line">        response = <span class="keyword">new</span> SecureCookieSetter(httpResp);</div><div class="line"></div><div class="line">        <span class="comment">// touch the session if the SessionKey dose not change</span></div><div class="line">        httpReq.getSession();</div><div class="line"></div><div class="line">        <span class="comment">// overwriting the cookie with Secure attribute set</span></div><div class="line">        httpResp.setHeader(<span class="string">"Set-Cookie"</span>, <span class="string">"SessionKey="</span> + sessionKey + <span class="string">";Path=/"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><h3 id="Understanding-JSESSIONID"><a href="#Understanding-JSESSIONID" class="headerlink" title="Understanding JSESSIONID"></a><strong>Understanding JSESSIONID</strong></h3></li>
+<li><h2 id="understanding-jsessionid"><a href="#Understanding-JSESSIONID" class="headerlink" title="Understanding JSESSIONID"></a><strong>Understanding JSESSIONID</strong></h2></li>
 </ul>
 <p>JSESSIONID is a ID generated by Servlet container like Tomcat or Jetty and used for session management in J2EE web application for http protocol.<br>The ID is sent to the client either within a cookie (default) or as part of the URL (called URLrewriting, used only if cookies are disabled on the browser).</p>
 <p>How JSESSIONID works?</p>
@@ -587,7 +606,7 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Cookie"><span class="nav-text">Java Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Only-and-Secure-Flag"><span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSESSIONID"><span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Self-defined-Cookie"><span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-JSESSIONID"><span class="nav-text">Understanding JSESSIONID</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-only-and-secure-flag"><span class="nav-text">HTTP Only and Secure Flag</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsessionid"><span class="nav-text">JSESSIONID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#self-defined-cookie"><span class="nav-text">Self-defined Cookie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-jsessionid"><span class="nav-text">Understanding JSESSIONID</span></a></li></ol></div>
             
           </div>
         </section>
@@ -726,6 +745,135 @@ For JSESSIONID, we can upgrade web servlet to version 3.0,update web.xml as&amp;
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

@@ -249,9 +249,32 @@ The Angular Http client communicates with the server using a familiar HTTP reque
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -349,7 +372,7 @@ The Angular Http client communicates with the server using a familiar HTTP reque
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-2-Notes-Modules"><span class="nav-number">1.</span> <span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API-Service"><span class="nav-number">1.1.</span> <span class="nav-text">API Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-General-Service"><span class="nav-number">1.1.1.</span> <span class="nav-text">Make a General Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implement-a-service"><span class="nav-number">1.1.2.</span> <span class="nav-text">Implement a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apply-a-service"><span class="nav-number">1.1.3.</span> <span class="nav-text">Apply a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-Based"><span class="nav-number">1.1.4.</span> <span class="nav-text">Promise Based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Observalbe-Based"><span class="nav-number">1.1.5.</span> <span class="nav-text">Observalbe Based*</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-Management"><span class="nav-number">1.2.</span> <span class="nav-text">State Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-Store"><span class="nav-number">1.2.1.</span> <span class="nav-text">Make a Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-Store-Helper"><span class="nav-number">1.2.2.</span> <span class="nav-text">Make a Store-Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implement-a-Store"><span class="nav-number">1.2.3.</span> <span class="nav-text">Implement a Store</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-notes-modules"><span class="nav-number">1.</span> <span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#api-service"><span class="nav-number">1.1.</span> <span class="nav-text">API Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-general-service"><span class="nav-number">1.1.1.</span> <span class="nav-text">Make a General Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-a-service"><span class="nav-number">1.1.2.</span> <span class="nav-text">Implement a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-a-service"><span class="nav-number">1.1.3.</span> <span class="nav-text">Apply a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-based"><span class="nav-number">1.1.4.</span> <span class="nav-text">Promise Based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#observalbe-based"><span class="nav-number">1.1.5.</span> <span class="nav-text">Observalbe Based*</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state-management"><span class="nav-number">1.2.</span> <span class="nav-text">State Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-store"><span class="nav-number">1.2.1.</span> <span class="nav-text">Make a Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-store-helper"><span class="nav-number">1.2.2.</span> <span class="nav-text">Make a Store-Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-a-store"><span class="nav-number">1.2.3.</span> <span class="nav-text">Implement a Store</span></a></li></ol></li></ol></li></ol></div>
         </div>
       
       
@@ -358,8 +381,8 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 
       
         <ul>
-<li><h2 id="Angular-2-Notes-Modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
-<li><h3 id="API-Service"><a href="#API-Service" class="headerlink" title="API Service"></a><strong>API Service</strong></h3></li>
+<li><h2 id="angular-2-notes-modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
+<li><h3 id="api-service"><a href="#API-Service" class="headerlink" title="API Service"></a><strong>API Service</strong></h3></li>
 </ul>
 <ul>
 <li>First, configure the application to use server communication facilities.</li>
@@ -371,7 +394,7 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 <p><em>When importing from the @angular/http module, SystemJS knows how to load services from the Angular HTTP library because the systemjs.config.js file maps to that module name.</em></p>
 <p><em>JsonpModule isn’t necessary for plain HTTP.</em></p>
 <ul>
-<li><h4 id="Make-a-General-Service"><a href="#Make-a-General-Service" class="headerlink" title="Make a General Service"></a><strong>Make a General Service</strong></h4>E.g., <code>api.ts</code></li>
+<li><h4 id="make-a-general-service"><a href="#Make-a-General-Service" class="headerlink" title="Make a General Service"></a><strong>Make a General Service</strong></h4>E.g., <code>api.ts</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Headers, Http, Response &#125; <span class="keyword">from</span> <span class="string">'@angular/http'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Observable &#125; <span class="keyword">from</span> <span class="string">'rxjs/Observable'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/observable/throw'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiService</span> </span>&#123;</div><div class="line">  headers: Headers = <span class="keyword">new</span> Headers(&#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</div><div class="line">    Accept: <span class="string">'application/json'</span></div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  api_url: string = <span class="string">'http://localhost:3500'</span>;</div><div class="line"></div><div class="line">  <span class="comment">//Http client service is injected the constructor.</span></div><div class="line">  <span class="keyword">constructor</span>(private http: Http) &#123;&#125;</div><div class="line"></div><div class="line">  <span class="comment">//the response object doesn't hold the data in a form the app can use directly. </span></div><div class="line">  <span class="comment">//we must parse the response data into a JSON object.</span></div><div class="line">  private getJson(response: Response) &#123;</div><div class="line">    <span class="keyword">return</span> response.json();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//always handle errors</span></div><div class="line">  private checkForError(response: Response): Response &#123;</div><div class="line">    <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</div><div class="line">      <span class="keyword">return</span> response;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</div><div class="line">      error[<span class="string">'response'</span>] = response;</div><div class="line">      <span class="built_in">console</span>.error(error);</div><div class="line">      <span class="keyword">throw</span> error;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//it will return an Observable when the Http client fetched from the server.</span></div><div class="line">  <span class="comment">//think of an Observable as a stream of events published by some source. </span></div><div class="line">  get(path: string): Observable&lt;any&gt; &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.get(<span class="string">`<span class="subst">$&#123;this.api_url&#125;</span><span class="subst">$&#123;path&#125;</span>`</span>, &#123; headers: <span class="keyword">this</span>.headers &#125;)</div><div class="line">    .map(<span class="keyword">this</span>.checkForError)</div><div class="line">    .catch(err =&gt; Observable.throw(err))</div><div class="line">    .map(<span class="keyword">this</span>.getJson)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  post(path: string, body): Observable&lt;any&gt; &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.post(</div><div class="line">      <span class="string">`<span class="subst">$&#123;this.api_url&#125;</span><span class="subst">$&#123;path&#125;</span>`</span>,</div><div class="line">      <span class="built_in">JSON</span>.stringify(body),</div><div class="line">      &#123; headers: <span class="keyword">this</span>.headers &#125;</div><div class="line">    )</div><div class="line">    .map(<span class="keyword">this</span>.checkForError)</div><div class="line">    .catch(err =&gt; Observable.throw(err))</div><div class="line">    .map(<span class="keyword">this</span>.getJson)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">delete</span>(path: string): Observable&lt;any&gt; &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.delete(</div><div class="line">      <span class="string">`<span class="subst">$&#123;this.api_url&#125;</span><span class="subst">$&#123;path&#125;</span>`</span>,</div><div class="line">      &#123; headers: <span class="keyword">this</span>.headers &#125;</div><div class="line">    )</div><div class="line">    .map(<span class="keyword">this</span>.checkForError)</div><div class="line">    .catch(err =&gt; Observable.throw(err))</div><div class="line">    .map(<span class="keyword">this</span>.getJson)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><em>In fact, the http.get method returns an Observable of HTTP Responses (Observable<response>) from the RxJS library and map is one of the RxJS operators.</response></em></p>
@@ -384,17 +407,17 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> &#123; ApiService &#125; <span class="keyword">from</span> <span class="string">'./api'</span>;</div><div class="line"><span class="keyword">export</span> &#123; NoteService &#125; <span class="keyword">from</span> <span class="string">'./notes'</span>;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Implement-a-service"><a href="#Implement-a-service" class="headerlink" title="Implement a service"></a><strong>Implement a service</strong></h4>E.g., <code>note.ts</code></li>
+<li><h4 id="implement-a-service"><a href="#Implement-a-service" class="headerlink" title="Implement a service"></a><strong>Implement a service</strong></h4>E.g., <code>note.ts</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ApiService &#125; <span class="keyword">from</span> <span class="string">'./api'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteService</span> </span>&#123;</div><div class="line">  path: string = <span class="string">'/notes'</span>;</div><div class="line">  <span class="keyword">constructor</span>(private apiService: ApiService) &#123;&#125;</div><div class="line"></div><div class="line">  createNote(note) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.apiService.post(<span class="keyword">this</span>.path, note)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getNotes() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.apiService.get(<span class="keyword">this</span>.path)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  completeNote(note) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.apiService.delete(<span class="string">`<span class="subst">$&#123;this.path&#125;</span>/<span class="subst">$&#123;note.id&#125;</span>`</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Apply-a-service"><a href="#Apply-a-service" class="headerlink" title="Apply a service"></a><strong>Apply a service</strong></h4>E.g., <code>notes.ts</code></li>
+<li><h4 id="apply-a-service"><a href="#Apply-a-service" class="headerlink" title="Apply a service"></a><strong>Apply a service</strong></h4>E.g., <code>notes.ts</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NoteService &#125; <span class="keyword">from</span> <span class="string">'../services'</span>;</div><div class="line">...</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Notes</span> </span>&#123;</div><div class="line">    notes = [];</div><div class="line">    <span class="comment">//inject NoteService to constructor</span></div><div class="line">    <span class="keyword">constructor</span>(private noteService: NoteService) &#123;&#125;</div><div class="line">    </div><div class="line">    <span class="comment">//Although at runtime the component requests heroes immediately after   </span></div><div class="line">    <span class="comment">//creation, you don't call the service's get method in the component's </span></div><div class="line">    <span class="comment">//constructor. Instead, call it inside the ngOnInit()</span></div><div class="line">    ngOnInit() &#123; </div><div class="line">      <span class="keyword">this</span>.noteService.getNotes()</div><div class="line">          .subscribe(res =&gt; <span class="keyword">this</span>.notes = res.data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	 <span class="comment">//golden rule: always delegate data access to a supporting service class.</span></div><div class="line">    onCreateNote(note) &#123;</div><div class="line">      <span class="keyword">this</span>.noteService.createNote(note)</div><div class="line">          .subscribe(note =&gt; <span class="keyword">this</span>.notes.push(note));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    onNoteChecked(note) &#123;</div><div class="line">      <span class="keyword">this</span>.noteService.completeNote(note)</div><div class="line">        .subscribe(note =&gt; &#123;</div><div class="line">            <span class="keyword">const</span> i = <span class="keyword">this</span>.notes.findIndex(localNote =&gt; localNote.id === note.id);</div><div class="line">            <span class="keyword">this</span>.notes.splice(i, <span class="number">1</span>);</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><em>This is a best practice. Components are easier to test and debug when their constructors are simple, and all real work (especially calling a remote server) is handled in a separate method.</em></p>
 <p><em>To listen for events in this stream, subscribe to the Observable (Here, we have translated the obserable to json). These subscriptions specify the actions to take when the web request produces a success event (with the data in the event payload) or a fail event (with the error in the payload).</em></p>
 <ul>
-<li><h4 id="Promise-Based"><a href="#Promise-Based" class="headerlink" title="Promise Based"></a><strong>Promise Based</strong></h4></li>
+<li><h4 id="promise-based"><a href="#Promise-Based" class="headerlink" title="Promise Based"></a><strong>Promise Based</strong></h4></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">getHeroes (): <span class="built_in">Promise</span>&lt;Hero[]&gt; &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.http.get(<span class="keyword">this</span>.heroesUrl)</div><div class="line">                  .toPromise()</div><div class="line">                  .then(<span class="keyword">this</span>.extractData)</div><div class="line">                  .catch(<span class="keyword">this</span>.handleError);</div><div class="line">&#125;</div><div class="line">addHero (name: string): <span class="built_in">Promise</span>&lt;Hero&gt; &#123;</div><div class="line">  <span class="keyword">let</span> headers = <span class="keyword">new</span> Headers(&#123; <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> &#125;);</div><div class="line">  <span class="keyword">let</span> options = <span class="keyword">new</span> RequestOptions(&#123; headers: headers &#125;);</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.http.post(<span class="keyword">this</span>.heroesUrl, &#123; name &#125;, options)</div><div class="line">             .toPromise()</div><div class="line">             .then(<span class="keyword">this</span>.extractData)</div><div class="line">             .catch(<span class="keyword">this</span>.handleError);</div><div class="line">&#125;</div><div class="line">private extractData(res: Response) &#123;</div><div class="line">  <span class="keyword">let</span> body = res.json();</div><div class="line">  <span class="keyword">return</span> body.data || &#123; &#125;;</div><div class="line">&#125;</div><div class="line">private handleError (error: Response | any) &#123;</div><div class="line">  <span class="comment">// In a real world app, we might use a remote logging infrastructure</span></div><div class="line">  <span class="keyword">let</span> errMsg: string;</div><div class="line">  <span class="keyword">if</span> (error <span class="keyword">instanceof</span> Response) &#123;</div><div class="line">    <span class="keyword">const</span> body = error.json() || <span class="string">''</span>;</div><div class="line">    <span class="keyword">const</span> err = body.error || <span class="built_in">JSON</span>.stringify(body);</div><div class="line">    errMsg = <span class="string">`<span class="subst">$&#123;error.status&#125;</span> - <span class="subst">$&#123;error.statusText || ''&#125;</span> <span class="subst">$&#123;err&#125;</span>`</span>;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    errMsg = error.message ? error.message : error.toString();</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.error(errMsg);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(errMsg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>We can follow the promise <code>then(this.extractData).catch(this.handleError)</code> pattern as in this example.</p>
@@ -408,7 +431,7 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 <p>The promise-based <code>then</code> returns another promise. You can keep chaining more <code>then</code> and <code>catch</code> calls, getting a new promise each time.<br>The <code>subscribe</code> method returns a <code>Subscription</code>. A <code>Subscription</code> is not another <code>Observable</code>. It’s the end of the line for observables. You can’t call map on it or call subscribe again. The <code>Subscription</code> object has a different purpose, signified by its primary method, <code>unsubscribe</code>.</p>
 </blockquote>
 <ul>
-<li><h4 id="Observalbe-Based"><a href="#Observalbe-Based" class="headerlink" title="Observalbe Based*"></a><strong>Observalbe Based*</strong></h4></li>
+<li><h4 id="observalbe-based"><a href="#Observalbe-Based" class="headerlink" title="Observalbe Based*"></a><strong>Observalbe Based*</strong></h4></li>
 </ul>
 <p><strong>Concept</strong><br><code>Observable</code> in short addresses asynchronous processing and events. Comparing to <code>promise</code>, it can be described as <code>observable</code> = <code>promise</code> + events.</p>
 <p>What is great with <code>observables</code> is that they are <em>lazy</em>. <code>Observables</code> can be canceled and you can apply some operators in them (like <code>map</code>, <code>filter</code>, …). This allows to handle asynchronous things in a very flexible way.</p>
@@ -427,17 +450,17 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 <p>Note that observables are lazy. So the corresponding HTTP request will be only called once when a listener attached on it is using the subscribe method.</p>
 <p>The <code>map</code> method is used to extract the JSON content from the response and use it in the observable processing.</p>
 <ul>
-<li><h3 id="State-Management"><a href="#State-Management" class="headerlink" title="State Management"></a><strong>State Management</strong></h3></li>
-<li><h4 id="Make-a-Store"><a href="#Make-a-Store" class="headerlink" title="Make a Store"></a><strong>Make a Store</strong></h4></li>
+<li><h3 id="state-management"><a href="#State-Management" class="headerlink" title="State Management"></a><strong>State Management</strong></h3></li>
+<li><h4 id="make-a-store"><a href="#Make-a-Store" class="headerlink" title="Make a Store"></a><strong>Make a Store</strong></h4></li>
 </ul>
 <p>e.g., <code>store.ts</code><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; BehaviorSubject &#125; <span class="keyword">from</span> <span class="string">'rxjs/BehaviorSubject'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface Note &#123;</div><div class="line">  color: string,</div><div class="line">  title: string,</div><div class="line">  value: string,</div><div class="line">  id?: string | number,</div><div class="line">  createdAt?: string,</div><div class="line">  updatedAt?: string,</div><div class="line">  userId?: string</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface State &#123;</div><div class="line">  notes: <span class="built_in">Array</span>&lt;Note&gt;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> defaultState : State = &#123;</div><div class="line">  notes: []</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> _store = <span class="keyword">new</span> BehaviorSubject&lt;State&gt;(defaultState);</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Store</span> </span>&#123;</div><div class="line">  private _store = _store;</div><div class="line">  changes = <span class="keyword">this</span>._store.asObservable().distinctUntilChanged()</div><div class="line"></div><div class="line">  setState(state: State) &#123;</div><div class="line">    <span class="keyword">this</span>._store.next(state);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getState(): State &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._store.value;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  purge() &#123;</div><div class="line">    <span class="keyword">this</span>._store.next(defaultState);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><h4 id="Make-a-Store-Helper"><a href="#Make-a-Store-Helper" class="headerlink" title="Make a Store-Helper"></a><strong>Make a Store-Helper</strong></h4></li>
+<li><h4 id="make-a-store-helper"><a href="#Make-a-Store-Helper" class="headerlink" title="Make a Store-Helper"></a><strong>Make a Store-Helper</strong></h4></li>
 </ul>
 <p>e.g., <code>store-helper.ts</code></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'../store'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreHelper</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(private store: Store) &#123;&#125;</div><div class="line"></div><div class="line">  update(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: state &#125;));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  add(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: [state, ...collection] &#125;));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  findAndUpdate(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.map(item =&gt; &#123;</div><div class="line">      <span class="keyword">if</span> (item.id !== state.id) &#123;</div><div class="line">        <span class="keyword">return</span> item;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, item, state)</div><div class="line">    &#125;)&#125;))</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  findAndDelete(prop, id) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.filter(item =&gt; item.id !== id)&#125;));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Implement-a-Store"><a href="#Implement-a-Store" class="headerlink" title="Implement a Store"></a><strong>Implement a Store</strong></h4></li>
+<li><h4 id="implement-a-store"><a href="#Implement-a-Store" class="headerlink" title="Implement a Store"></a><strong>Implement a Store</strong></h4></li>
 </ul>
 <p>In container <code>note.ts</code>, </p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'../store'</span>;</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Notes</span> <span class="title">implements</span> <span class="title">OnDestroy</span></span>&#123;</div><div class="line">      notes = [];</div><div class="line">      <span class="keyword">constructor</span>(</div><div class="line">        private store: Store,</div><div class="line">        private noteService: NoteService</div><div class="line">      )&#123;   </div><div class="line">        <span class="keyword">this</span>.noteService.getNotes().subscribe();</div><div class="line">        </div><div class="line">        <span class="comment">// this.store.changes.pluck('notes')</span></div><div class="line">        <span class="comment">//   .subscribe((notes: any) =&gt;  this.notes = notes);</span></div><div class="line">		 	</div><div class="line">        <span class="keyword">this</span>.store.changes</div><div class="line">        .map(data =&gt; data.notes)</div><div class="line">        .subscribe(notes =&gt; <span class="keyword">this</span>.notes = notes);</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      onCreateNote(note) &#123;</div><div class="line">        <span class="keyword">this</span>.noteService.createNote(note)</div><div class="line">        .subscribe();</div><div class="line">        <span class="comment">// .subscribe(note =&gt; this.notes.push(note));</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      onNoteChecked(note) &#123;</div><div class="line">        <span class="keyword">this</span>.noteService.completeNote(note)</div><div class="line">        .subscribe();</div><div class="line">        <span class="comment">// .subscribe(note =&gt; &#123;</span></div><div class="line">        <span class="comment">//   const i = this.notes.findIndex(localNote =&gt; localNote.id === note.id);</span></div><div class="line">        <span class="comment">//   this.notes.splice(i, 1);</span></div><div class="line">        <span class="comment">// &#125;);</span></div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -650,7 +673,7 @@ The Angular Http client communicates with the server using a familiar HTTP reque
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-2-Notes-Modules"><span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API-Service"><span class="nav-text">API Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-General-Service"><span class="nav-text">Make a General Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implement-a-service"><span class="nav-text">Implement a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apply-a-service"><span class="nav-text">Apply a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-Based"><span class="nav-text">Promise Based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Observalbe-Based"><span class="nav-text">Observalbe Based*</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#State-Management"><span class="nav-text">State Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-Store"><span class="nav-text">Make a Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-a-Store-Helper"><span class="nav-text">Make a Store-Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implement-a-Store"><span class="nav-text">Implement a Store</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-notes-modules"><span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#api-service"><span class="nav-text">API Service</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-general-service"><span class="nav-text">Make a General Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-a-service"><span class="nav-text">Implement a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-a-service"><span class="nav-text">Apply a service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#promise-based"><span class="nav-text">Promise Based</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#observalbe-based"><span class="nav-text">Observalbe Based*</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state-management"><span class="nav-text">State Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-store"><span class="nav-text">Make a Store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-a-store-helper"><span class="nav-text">Make a Store-Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implement-a-store"><span class="nav-text">Implement a Store</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -789,6 +812,135 @@ The Angular Http client communicates with the server using a familiar HTTP reque
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

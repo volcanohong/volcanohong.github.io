@@ -10,3 +10,5 @@ Disallow: /vendors/
 Disallow: /fancybox/
 
 Sitemap: http://volcanohong.github.io/sitemap.xml
+Sitemap: http://volcanohong.github.io/baidusitemap.xml
+

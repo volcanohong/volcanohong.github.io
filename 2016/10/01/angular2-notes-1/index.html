@@ -86,7 +86,7 @@
 
 
 
-<meta name="description" content="Angular 2
+<meta name="description" content="Angular 2 Basic
 
 The heart of angular 2 is containers.
 import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
@@ -94,14 +94,14 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 <meta property="og:title" content="Angular2 Notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/10/01/angular2-notes-1/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Angular 2
+<meta property="og:description" content="Angular 2 Basic
 
 The heart of angular 2 is containers.
 import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
-<meta property="og:updated_time" content="2017-01-05T03:30:48.000Z">
+<meta property="og:updated_time" content="2017-03-12T04:35:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular2 Notes I">
-<meta name="twitter:description" content="Angular 2
+<meta name="twitter:description" content="Angular 2 Basic
 
 The heart of angular 2 is containers.
 import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
@@ -240,9 +240,32 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -340,7 +363,7 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-2"><span class="nav-number">1.</span> <span class="nav-text">Angular 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Syntax"><span class="nav-number">1.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Some-Syntax-Instances"><span class="nav-number">1.2.</span> <span class="nav-text">Some Syntax Instances</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-call-directives"><span class="nav-number">1.2.1.</span> <span class="nav-text">Using * to call directives</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-pass-parameter-to-directives"><span class="nav-number">1.2.2.</span> <span class="nav-text">Using [] to pass parameter to directives</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-specify-action-bindings"><span class="nav-number">1.2.3.</span> <span class="nav-text">Using () to specify action bindings</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-Output"><span class="nav-number">1.3.</span> <span class="nav-text">Input/Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-Routing"><span class="nav-number">1.4.</span> <span class="nav-text">Basic Routing</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-basic"><span class="nav-number">1.</span> <span class="nav-text">Angular 2 Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#syntax"><span class="nav-number">1.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some-syntax-instances"><span class="nav-number">1.2.</span> <span class="nav-text">Some Syntax Instances</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-call-directives"><span class="nav-number">1.2.1.</span> <span class="nav-text">Using * to call directives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-pass-parameter-to-directives"><span class="nav-number">1.2.2.</span> <span class="nav-text">Using [] to pass parameter to directives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-specify-action-bindings"><span class="nav-number">1.2.3.</span> <span class="nav-text">Using () to specify action bindings</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inputoutput"><span class="nav-number">1.3.</span> <span class="nav-text">Input/Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-routing"><span class="nav-number">1.4.</span> <span class="nav-text">Basic Routing</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -349,13 +372,13 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 
       
         <ul>
-<li><h3 id="Angular-2"><a href="#Angular-2" class="headerlink" title="Angular 2"></a><strong>Angular 2</strong></h3></li>
+<li><h2 id="angular-2-basic"><a href="#Angular-2-Basic" class="headerlink" title="Angular 2 Basic"></a><strong>Angular 2 Basic</strong></h2></li>
 </ul>
 <p>The heart of angular 2 is <code>containers</code>.</p>
 <p>import from <code>angular/core</code><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <ul>
-<li><h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a><strong>Syntax</strong></h4></li>
+<li><h3 id="syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a><strong>Syntax</strong></h3></li>
 </ul>
 <ul>
 <li>Annotations<br>The @ is an annotation and it comes from TypeScript</li>
@@ -380,8 +403,8 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 <li>Component Definition Class<br>We define new Components with a class</li>
 </ul>
 <ul>
-<li><h4 id="Some-Syntax-Instances"><a href="#Some-Syntax-Instances" class="headerlink" title="Some Syntax Instances"></a><strong>Some Syntax Instances</strong></h4></li>
-<li><h5 id="Using-to-call-directives"><a href="#Using-to-call-directives" class="headerlink" title="Using * to call directives"></a><strong>Using <code>*</code> to call directives</strong></h5></li>
+<li><h3 id="some-syntax-instances"><a href="#Some-Syntax-Instances" class="headerlink" title="Some Syntax Instances"></a><strong>Some Syntax Instances</strong></h3></li>
+<li><h4 id="using-to-call-directives"><a href="#Using-to-call-directives" class="headerlink" title="Using * to call directives"></a><strong>Using <code>*</code> to call directives</strong></h4></li>
 </ul>
 <ul>
 <li><code>ngIf</code><br>If the expression is evaluated to be a true, the <code>NgIf</code> shows the elements, otherwise it removes the element from DOM.</li>
@@ -394,7 +417,7 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">note-card</span> *<span class="attr">ngFor</span> = <span class="string">"let note of notes; let i = index"</span> /&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Notes</span> </span>&#123;</div><div class="line">    notes = [</div><div class="line">        &#123;title: <span class="string">''</span>, value: <span class="string">''</span>&#125;,</div><div class="line">        &#123;title: <span class="string">''</span>, value: <span class="string">''</span>&#125;,</div><div class="line">        <span class="comment">//...</span></div><div class="line">    ];</div></pre></td></tr></table></figure>
 <ul>
-<li><h5 id="Using-to-pass-parameter-to-directives"><a href="#Using-to-pass-parameter-to-directives" class="headerlink" title="Using [] to pass parameter to directives"></a><strong>Using <code>[]</code> to pass parameter to directives</strong></h5></li>
+<li><h4 id="using-to-pass-parameter-to-directives"><a href="#Using-to-pass-parameter-to-directives" class="headerlink" title="Using [] to pass parameter to directives"></a><strong>Using <code>[]</code> to pass parameter to directives</strong></h4></li>
 </ul>
 <ul>
 <li><code>ngStyle</code></li>
@@ -407,17 +430,17 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 <p>equals to:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span></span></div><div class="line">    <span class="attr">type</span>=<span class="string">"text"</span></div><div class="line">    [<span class="attr">ngModel</span>]=<span class="string">"newNote.title"</span></div><div class="line">    (<span class="attr">ngModelChange</span>) = <span class="string">"newNote.titel = $event"</span></div><div class="line">    <span class="attr">name</span>=<span class="string">"newNoteTitle"</span></div><div class="line">    <span class="attr">...</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
 <ul>
-<li><h5 id="Using-to-specify-action-bindings"><a href="#Using-to-specify-action-bindings" class="headerlink" title="Using () to specify action bindings"></a><strong>Using <code>()</code> to specify action bindings</strong></h5></li>
+<li><h4 id="using-to-specify-action-bindings"><a href="#Using-to-specify-action-bindings" class="headerlink" title="Using () to specify action bindings"></a><strong>Using <code>()</code> to specify action bindings</strong></h4></li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">note-card</span> (<span class="attr">checked</span>)=<span class="string">"onNoteChecked($event, i)"</span> /&gt;</span></div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Input-Output"><a href="#Input-Output" class="headerlink" title="Input/Output"></a><strong>Input/Output</strong></h4></li>
+<li><h3 id="inputoutput"><a href="#Input-Output" class="headerlink" title="Input/Output"></a><strong>Input/Output</strong></h3></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line"><span class="comment">// in template:    </span></div><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon"</span> (click)=<span class="string">"onChecked()"</span>&gt;    </div><div class="line">    </div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteCard</span> </span>&#123;</div><div class="line">    @Input() note = &#123;&#125;;</div><div class="line">    @Output() checked = <span class="keyword">new</span> EventEmitter();  </div><div class="line">    onChecked() &#123;</div><div class="line">        <span class="keyword">this</span>.checked.next(<span class="keyword">this</span>.note);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>$event</code> can be used as Rx parameter, e.g., the <code>color</code> object is passing in.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-3"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color-picker</span> </span></div><div class="line">        (<span class="attr">selectedInput</span>)=<span class="string">"onColorSelected($event)"</span></div><div class="line">        [<span class="attr">colors</span>]=<span class="string">"colors"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">color-picker</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>with function …<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">onColorSelected(color: string) &#123;</div><div class="line">    <span class="keyword">this</span>.newNote.color = color;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <ul>
-<li><h4 id="Basic-Routing"><a href="#Basic-Routing" class="headerlink" title="Basic Routing"></a><strong>Basic Routing</strong></h4></li>
+<li><h3 id="basic-routing"><a href="#Basic-Routing" class="headerlink" title="Basic Routing"></a><strong>Basic Routing</strong></h3></li>
 </ul>
 <p>Three main components configure routing</p>
 <ul>
@@ -637,7 +660,7 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular-2"><span class="nav-text">Angular 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Syntax"><span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Some-Syntax-Instances"><span class="nav-text">Some Syntax Instances</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-call-directives"><span class="nav-text">Using * to call directives</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-pass-parameter-to-directives"><span class="nav-text">Using [] to pass parameter to directives</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-to-specify-action-bindings"><span class="nav-text">Using () to specify action bindings</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-Output"><span class="nav-text">Input/Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-Routing"><span class="nav-text">Basic Routing</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-basic"><span class="nav-text">Angular 2 Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#syntax"><span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some-syntax-instances"><span class="nav-text">Some Syntax Instances</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-call-directives"><span class="nav-text">Using * to call directives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-pass-parameter-to-directives"><span class="nav-text">Using [] to pass parameter to directives</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#using-to-specify-action-bindings"><span class="nav-text">Using () to specify action bindings</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inputoutput"><span class="nav-text">Input/Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-routing"><span class="nav-text">Basic Routing</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -776,6 +799,135 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

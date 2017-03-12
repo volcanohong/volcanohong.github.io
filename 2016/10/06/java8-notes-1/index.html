@@ -231,9 +231,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -331,7 +354,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-util-Optional"><span class="nav-number">1.</span> <span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifPresent-do-something-when-Optional-is-set"><span class="nav-number">1.1.</span> <span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-Optional-values"><span class="nav-number">1.2.</span> <span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-number">1.3.</span> <span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><span class="nav-number">1.4.</span> <span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional"><span class="nav-number">1.5.</span> <span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#javautiloptional"><span class="nav-number">1.</span> <span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifpresent-do-something-when-optional-is-set"><span class="nav-number">1.1.</span> <span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-optional-values"><span class="nav-number">1.2.</span> <span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-number">1.3.</span> <span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orelseorelseget-turning-empty-optionallttgt-to-default-t"><span class="nav-number">1.4.</span> <span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orelsethrow-lazily-throw-exceptions-on-empty-optional"><span class="nav-number">1.5.</span> <span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -340,19 +363,19 @@
 
       
         <ul>
-<li><h4 id="java-util-Optional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<t></t></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
+<li><h4 id="javautiloptional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<t></t></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
 </ul>
 <p><code>Optional</code> instead of plain null is statically checked at compile time and much more informative as it clearly indicates that a given variable may be present or not. Of course it requires some discipline - you should never assign null to any variable any more.<br><a id="more"></a></p>
 <p>There are few ways of creating <code>Optional</code>:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">\\Optional must contain not <span class="keyword">null</span> value and will <span class="keyword">throw</span> an exception <span class="keyword">if</span> <span class="keyword">null</span> is passed. </div><div class="line">opt = Optional.of(notNull);</div><div class="line"></div><div class="line">\\ofNullable() <span class="function">will either return empty or <span class="title">present</span> <span class="params">(set)</span> Optional.</span></div><div class="line">opt = Optional.ofNullable(mayBeNull);</div><div class="line"></div><div class="line">\\empty() always <span class="keyword">return</span> empty Optional, corresponding to <span class="keyword">null</span>. It’s a singleton because Optional&lt;T&gt; is immutable.</div><div class="line">opt = Optional.empty();</div></pre></td></tr></table></figure></p>
 <p>In this case, <code>opt</code> is never null, but may or may not contain some value (present or empty).</p>
 <ul>
-<li><h5 id="ifPresent-do-something-when-Optional-is-set"><a href="#ifPresent-do-something-when-Optional-is-set" class="headerlink" title="ifPresent() - do something when Optional is set"></a><strong>ifPresent()</strong> - <em>do something when Optional is set</em></h5></li>
+<li><h5 id="ifpresent-do-something-when-optional-is-set"><a href="#ifPresent-do-something-when-Optional-is-set" class="headerlink" title="ifPresent() - do something when Optional is set"></a><strong>ifPresent()</strong> - <em>do something when Optional is set</em></h5></li>
 </ul>
 <p>Tedious if statement:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (x != <span class="keyword">null</span>) &#123;</div><div class="line">    print(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>can be replaced with higher-order function <code>ifPresent()</code>:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">opt.ifPresent(x -&gt; print(x));</div><div class="line">opt.ifPresent(<span class="keyword">this</span>::print);</div></pre></td></tr></table></figure></p>
 <p>The latter syntax (method reference) can be used when <code>lambda</code> argument (String x) matches function formal parameters.</p>
 <ul>
-<li><h5 id="filter-reject-filter-out-certain-Optional-values"><a href="#filter-reject-filter-out-certain-Optional-values" class="headerlink" title="filter() - reject (filter out) certain Optional values"></a><strong>filter()</strong> - <em>reject (filter out) certain Optional values</em></h5></li>
+<li><h5 id="filter-reject-filter-out-certain-optional-values"><a href="#filter-reject-filter-out-certain-Optional-values" class="headerlink" title="filter() - reject (filter out) certain Optional values"></a><strong>filter()</strong> - <em>reject (filter out) certain Optional values</em></h5></li>
 </ul>
 <p>Sometimes you want to perform some action not only when a reference is set but also when it meets certain condition:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (x != <span class="keyword">null</span> &amp;&amp; x.contains(<span class="string">"ab"</span>)) &#123;</div><div class="line">    print(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>This can be replaced with <code>Optional.filter()</code> that turns present (set) Optional to empty Optional if underlying value does not meet given predicate. If input Optional was empty, it is returned as-is:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">opt.</div><div class="line">   filter(x -&gt; x.contains(<span class="string">"ab"</span>)).</div><div class="line">   ifPresent(<span class="keyword">this</span>::print);</div><div class="line">```   </div><div class="line">This is equivalent to more imperative:</div><div class="line">```<span class="function">java</span></div><div class="line"><span class="title">if</span><span class="params">(opt.isPresent()</span> &amp;&amp; opt.<span class="title">get</span><span class="params">()</span>.<span class="title">contains</span><span class="params">(<span class="string">"ab"</span>)</span>) &#123;</div><div class="line">    print(opt.get());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -365,13 +388,13 @@
 <p>This becomes tricky. <code>Optional.map()</code> applies given function on a value inside Optional - but only if Optional is present. Otherwise nothing happens and <code>empty()</code> is returned. Remember that the transformation is type-safe - look at generics here:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Optional&lt;String&gt;  opt = <span class="comment">//...</span></div><div class="line">Optional&lt;Integer&gt; len = opt.map(String::length);</div></pre></td></tr></table></figure></p>
 <p>If <code>Optional&lt;String&gt;</code> is present. <code>Optional&lt;Integer&gt;</code> len is present as well, wrapping length of a String. But if <code>opt</code> was empty, <code>map()</code> over it does nothing except changing generic type.</p>
 <ul>
-<li><h5 id="orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><a href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T" class="headerlink" title="orElse()/orElseGet() - turning empty Optional&lt;T&gt; to default T"></a><strong>orElse()/orElseGet()</strong> - <em>turning empty <code>Optional&lt;T&gt;</code> to default <code>T</code></em></h5></li>
+<li><h5 id="orelseorelseget-turning-empty-optionallttgt-to-default-t"><a href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T" class="headerlink" title="orElse()/orElseGet() - turning empty Optional&lt;T&gt; to default T"></a><strong>orElse()/orElseGet()</strong> - <em>turning empty <code>Optional&lt;T&gt;</code> to default <code>T</code></em></h5></li>
 </ul>
 <p>At some point you may wish to unwrap <code>Optional</code> and get a hold of real value inside. But you can’t do this if <code>Optional</code> is empty. Here is a pre-Java 8 way of handling such scenario:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> len = (x != <span class="keyword">null</span>)? x.length() : -<span class="number">1</span>;</div></pre></td></tr></table></figure></p>
 <p>With <code>Optional</code> we can say:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> len = opt.map(String::length).orElse(-<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
 <p>There is also a version that accepts <code>Supplier&lt;T&gt;</code> if computing default value is slow, expensive or has side-effects:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> len = opt.</div><div class="line">    map(String::length).</div><div class="line">    orElseGet(() -&gt; slowDefault());     </div><div class="line"><span class="comment">//orElseGet(this::slowDefault)</span></div></pre></td></tr></table></figure></p>
 <ul>
-<li><h5 id="orElseThrow-lazily-throw-exceptions-on-empty-Optional"><a href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional" class="headerlink" title="orElseThrow() - lazily throw exceptions on empty Optional"></a><strong>orElseThrow()</strong> - <em>lazily throw exceptions on empty <code>Optional</code></em></h5></li>
+<li><h5 id="orelsethrow-lazily-throw-exceptions-on-empty-optional"><a href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional" class="headerlink" title="orElseThrow() - lazily throw exceptions on empty Optional"></a><strong>orElseThrow()</strong> - <em>lazily throw exceptions on empty <code>Optional</code></em></h5></li>
 </ul>
 <p>Often we would like to throw an exception if value is not available:<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">firstChar</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (s != <span class="keyword">null</span> &amp;&amp; !s.isEmpty())</div><div class="line">        <span class="keyword">return</span> s.charAt(<span class="number">0</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>This whole method can be replaced with the following idiom:<br><figure class="highlight"><table><tr><td class="code"><pre><div class="line">opt.</div><div class="line">    filter(s -&gt; !s.isEmpty()).</div><div class="line">    map(s -&gt; s.charAt(0)).</div><div class="line">    orElseThrow(IllegalArgumentException::new);</div><div class="line">```    </div><div class="line">We don’t want to create an instance of exception in advance because creating an exception has _significant cost_.</div><div class="line"></div><div class="line">* ##### **flatMap()** - _mapping over a function that returns `Optional`_</div><div class="line"></div><div class="line">Imagine you have a function that does not accept null but may produce one:</div><div class="line">```java</div><div class="line">public String findSimilar(@NotNull String s) //...</div></pre></td></tr></table></figure></p>
@@ -590,7 +613,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java-util-Optional"><span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifPresent-do-something-when-Optional-is-set"><span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-Optional-values"><span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElse-orElseGet-turning-empty-Optional-lt-T-gt-to-default-T"><span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orElseThrow-lazily-throw-exceptions-on-empty-Optional"><span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#javautiloptional"><span class="nav-text">java.util.Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ifpresent-do-something-when-optional-is-set"><span class="nav-text">ifPresent() - do something when Optional is set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-reject-filter-out-certain-optional-values"><span class="nav-text">filter() - reject (filter out) certain Optional values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-transform-value-if-present"><span class="nav-text">map() - transform value if present</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orelseorelseget-turning-empty-optionallttgt-to-default-t"><span class="nav-text">orElse()/orElseGet() - turning empty Optional<T> to default T</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#orelsethrow-lazily-throw-exceptions-on-empty-optional"><span class="nav-text">orElseThrow() - lazily throw exceptions on empty Optional</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -729,6 +752,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

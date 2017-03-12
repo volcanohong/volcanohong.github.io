@@ -231,9 +231,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -331,7 +354,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-38-check-parameters-for-validity"><span class="nav-number">1.</span> <span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-39-Make-defensive-copies-when-needed"><span class="nav-number">2.</span> <span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-40-Design-method-signatures-carefully"><span class="nav-number">3.</span> <span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-41-Use-overloading-judiciously"><span class="nav-number">4.</span> <span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-42-Use-varargs-judiciously"><span class="nav-number">5.</span> <span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-43-Return-empty-arrays-or-collections-not-nulls"><span class="nav-number">6.</span> <span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-44-Write-doc-comments-for-all-exposed-API-elements"><span class="nav-number">7.</span> <span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#item-38-check-parameters-for-validity"><span class="nav-number">1.</span> <span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-39-make-defensive-copies-when-needed"><span class="nav-number">2.</span> <span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-40-design-method-signatures-carefully"><span class="nav-number">3.</span> <span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-41-use-overloading-judiciously"><span class="nav-number">4.</span> <span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-42-use-varargs-judiciously"><span class="nav-number">5.</span> <span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-43-return-empty-arrays-or-collections-not-nulls"><span class="nav-number">6.</span> <span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-44-write-doc-comments-for-all-exposed-api-elements"><span class="nav-number">7.</span> <span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
         </div>
       
       
@@ -341,7 +364,7 @@
       
         <!--* ### **Chapter 7: Methods**-->
 <ul>
-<li><h4 id="Item-38-check-parameters-for-validity"><a href="#Item-38-check-parameters-for-validity" class="headerlink" title="Item 38: check parameters for validity"></a><strong>Item 38: check parameters for validity</strong></h4><p>  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and object values must be non-null.<br>  You should enforce them with checks at beginning of the method body.</p>
+<li><h4 id="item-38-check-parameters-for-validity"><a href="#Item-38-check-parameters-for-validity" class="headerlink" title="Item 38: check parameters for validity"></a><strong>Item 38: check parameters for validity</strong></h4><p>  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and object values must be non-null.<br>  You should enforce them with checks at beginning of the method body.</p>
   <a id="more"></a>
 <p>  <strong>Notes:</strong></p>
 <ol>
@@ -352,12 +375,12 @@
 <li>Design API to be as general as it is practical to make them.</li>
 </ol>
 </li>
-<li><h4 id="Item-39-Make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39: Make defensive copies when needed"></a><strong>Item 39: Make defensive copies when needed</strong></h4><p>  <strong>Notes:</strong> </p>
+<li><h4 id="item-39-make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39: Make defensive copies when needed"></a><strong>Item 39: Make defensive copies when needed</strong></h4><p>  <strong>Notes:</strong> </p>
 <ol>
 <li>Never trust a user input data</li>
 </ol>
 </li>
-<li><h4 id="Item-40-Design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40: Design method signatures carefully"></a><strong>Item 40: Design method signatures carefully</strong></h4><p>  <strong>Notes:</strong></p>
+<li><h4 id="item-40-design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40: Design method signatures carefully"></a><strong>Item 40: Design method signatures carefully</strong></h4><p>  <strong>Notes:</strong></p>
 <ol>
 <li>Avoid too many functions in a class | interface</li>
 <li>Avoid long parameter list (larger than 4)</li>
@@ -365,15 +388,15 @@
 <li>For control parameters, prefer two-element <code>enum</code> types to <code>boolean</code></li>
 </ol>
 </li>
-<li><h4 id="Item-41-Use-overloading-judiciously"><a href="#Item-41-Use-overloading-judiciously" class="headerlink" title="Item 41: Use overloading judiciously"></a><strong>Item 41: Use overloading judiciously</strong></h4><p>  <strong>Notes:</strong></p>
+<li><h4 id="item-41-use-overloading-judiciously"><a href="#Item-41-Use-overloading-judiciously" class="headerlink" title="Item 41: Use overloading judiciously"></a><strong>Item 41: Use overloading judiciously</strong></h4><p>  <strong>Notes:</strong></p>
 <ol>
 <li><code>overload</code>: polymorphism in compile time; <code>override</code>: polymorphism in run time</li>
 <li>Avoid using different types of a parameter to design overloading methods</li>
 <li>Never export two overloading with the same number of parameters</li>
 </ol>
 </li>
-<li><h4 id="Item-42-Use-varargs-judiciously"><a href="#Item-42-Use-varargs-judiciously" class="headerlink" title="Item 42: Use varargs judiciously"></a><strong>Item 42: Use varargs judiciously</strong></h4></li>
-<li><h4 id="Item-43-Return-empty-arrays-or-collections-not-nulls"><a href="#Item-43-Return-empty-arrays-or-collections-not-nulls" class="headerlink" title="Item 43: Return empty arrays or collections, not nulls"></a><strong>Item 43: Return empty arrays or collections, not nulls</strong></h4><p>  <strong>Notes:</strong></p>
+<li><h4 id="item-42-use-varargs-judiciously"><a href="#Item-42-Use-varargs-judiciously" class="headerlink" title="Item 42: Use varargs judiciously"></a><strong>Item 42: Use varargs judiciously</strong></h4></li>
+<li><h4 id="item-43-return-empty-arrays-or-collections-not-nulls"><a href="#Item-43-Return-empty-arrays-or-collections-not-nulls" class="headerlink" title="Item 43: Return empty arrays or collections, not nulls"></a><strong>Item 43: Return empty arrays or collections, not nulls</strong></h4><p>  <strong>Notes:</strong></p>
 <ol>
 <li>It’s arguable that a null return is preferable to an empty array in case of mitigating system expense.</li>
 <li><p>The right way to return an array of a collection</p>
@@ -384,7 +407,7 @@
 </li>
 </ol>
 </li>
-<li><h4 id="Item-44-Write-doc-comments-for-all-exposed-API-elements"><a href="#Item-44-Write-doc-comments-for-all-exposed-API-elements" class="headerlink" title="Item 44: Write doc comments for all exposed API elements"></a><strong>Item 44: Write doc comments for all exposed API elements</strong></h4><p>  <strong>Notes:</strong></p>
+<li><h4 id="item-44-write-doc-comments-for-all-exposed-api-elements"><a href="#Item-44-Write-doc-comments-for-all-exposed-API-elements" class="headerlink" title="Item 44: Write doc comments for all exposed API elements"></a><strong>Item 44: Write doc comments for all exposed API elements</strong></h4><p>  <strong>Notes:</strong></p>
 <ol>
 <li>@param, @return, @throws</li>
 <li>@throws starts with if statement</li>
@@ -591,7 +614,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-38-check-parameters-for-validity"><span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-39-Make-defensive-copies-when-needed"><span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-40-Design-method-signatures-carefully"><span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-41-Use-overloading-judiciously"><span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-42-Use-varargs-judiciously"><span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-43-Return-empty-arrays-or-collections-not-nulls"><span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-44-Write-doc-comments-for-all-exposed-API-elements"><span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#item-38-check-parameters-for-validity"><span class="nav-text">Item 38: check parameters for validity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-39-make-defensive-copies-when-needed"><span class="nav-text">Item 39: Make defensive copies when needed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-40-design-method-signatures-carefully"><span class="nav-text">Item 40: Design method signatures carefully</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-41-use-overloading-judiciously"><span class="nav-text">Item 41: Use overloading judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-42-use-varargs-judiciously"><span class="nav-text">Item 42: Use varargs judiciously</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-43-return-empty-arrays-or-collections-not-nulls"><span class="nav-text">Item 43: Return empty arrays or collections, not nulls</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#item-44-write-doc-comments-for-all-exposed-api-elements"><span class="nav-text">Item 44: Write doc comments for all exposed API elements</span></a></li></ol></div>
             
           </div>
         </section>
@@ -730,6 +753,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

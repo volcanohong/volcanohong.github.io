@@ -232,9 +232,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -340,12 +363,11 @@
       
         
           <ul>
-<li><h2 id="Java-Cookie"><a href="#Java-Cookie" class="headerlink" title="Java Cookie"></a><strong>Java Cookie</strong></h2></li>
-<li><h3 id="HTTP-Only-and-Secure-Flag"><a href="#HTTP-Only-and-Secure-Flag" class="headerlink" title="HTTP Only and Secure Flag"></a><strong>HTTP Only and Secure Flag</strong></h3></li>
+<li><h2 id="HTTP-Only-and-Secure-Flag"><a href="#HTTP-Only-and-Secure-Flag" class="headerlink" title="HTTP Only and Secure Flag"></a><strong>HTTP Only and Secure Flag</strong></h2></li>
 </ul>
 <p>Set httpOnly and secure flags on session cookie.</p>
 <ul>
-<li><h4 id="JSESSIONID"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a><strong>JSESSIONID</strong></h4></li>
+<li><h3 id="JSESSIONID"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a><strong>JSESSIONID</strong></h3></li>
 </ul>
 <p>For JSESSIONID, we can upgrade web servlet to version 3.0,<br>update <code>web.xml</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">"3.0"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span></div><div class="line"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line"><span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>Then, in <code>web.xml</code>, add <code>&lt;cookie-config&gt;</code> as<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cookie-config</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">http-only</span>&gt;</span>true<span class="tag">&lt;/<span class="name">http-only</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">secure</span>&gt;</span>true<span class="tag">&lt;/<span class="name">secure</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">cookie-config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -472,8 +494,7 @@
       
         
           <ul>
-<li><h2 id="Angular-2-Note"><a href="#Angular-2-Note" class="headerlink" title="Angular 2 Note"></a><strong>Angular 2 Note</strong></h2></li>
-<li><h3 id="Interval-and-Clock-Ticker"><a href="#Interval-and-Clock-Ticker" class="headerlink" title="Interval and Clock Ticker"></a><strong>Interval and Clock Ticker</strong></h3></li>
+<li><h2 id="Interval-and-Clock-Ticker"><a href="#Interval-and-Clock-Ticker" class="headerlink" title="Interval and Clock Ticker"></a><strong>Interval and Clock Ticker</strong></h2></li>
 </ul>
 <p>Use <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9">IntervalObservable</a> in <code>rxjs</code> to implement interval in angular 2. <code>Create(period)</code> is a static method, which creates an Observable that emits sequential numbers every specified interval of time.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; IntervalObservable &#125; from <span class="string">'rxjs/observable/IntervalObservable'</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">    selector: <span class="string">'demo'</span>,</div><div class="line">    templateUrl: <span class="string">'&lt;div&gt;&#123;&#123;time | date:'</span>HH:mm:ss<span class="string">'&#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">implements</span> <span class="title">OnInit</span></span>&#123;</div><div class="line">    time:number = Date.now();</div><div class="line">    ngOnInit() &#123;</div><div class="line">        IntervalObservable.create(<span class="number">1000</span>).subscribe(() =&gt; <span class="keyword">this</span>.time = Date.now());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -600,9 +621,7 @@
       
         
           <ul>
-<li><h2 id="Angular-2-Note-Practice"><a href="#Angular-2-Note-Practice" class="headerlink" title="Angular 2 Note - Practice"></a><strong>Angular 2 Note - Practice</strong></h2></li>
-<li><h3 id="Shadow-DOM"><a href="#Shadow-DOM" class="headerlink" title="Shadow DOM"></a><strong>Shadow DOM</strong></h3><p>In fact, Angular doesn’t use native Shadow DOM by default, it uses an emulation. Most browsers simply don’t support Shadow DOM yet, but we should still be able to use the framework. Even better, we can easily tell Angular to use the native Shadow DOM if we want, <a href="https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html">View Encapsulation in Angular</a>. </p>
-</li>
+<li><h2 id="Shadow-DOM"><a href="#Shadow-DOM" class="headerlink" title="Shadow DOM"></a><strong>Shadow DOM</strong></h2>In fact, Angular doesn’t use native Shadow DOM by default, it uses an emulation. Most browsers simply don’t support Shadow DOM yet, but we should still be able to use the framework. Even better, we can easily tell Angular to use the native Shadow DOM if we want, <a href="https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html">View Encapsulation in Angular</a>. </li>
 </ul>
 <p><em>View Encapsulation Types</em><br>Angular comes with view encapsulation built in, which enables us to use Shadow DOM or even emulate it. There are three view encapsulation types:</p>
 <ul>
@@ -996,12 +1015,9 @@
 
       
         
-          <ul>
-<li><h3 id="Angular-Datatables"><a href="#Angular-Datatables" class="headerlink" title="Angular Datatables"></a><strong>Angular Datatables</strong></h3></li>
-</ul>
-<p>Recently, I am developing Apps by using angular datatables.</p>
+          <p>Recently, I am developing Apps by using angular datatables.</p>
 <p>The followings are some issues or note that I have to record.</p>
-<h4 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h4><p>Selected datatable options…</p>
+<h2 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h2><p>Selected datatable options…</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></div><div class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></div><div class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></div><div class="line">    <span class="comment">// change the options in the page length select list.</span></div><div class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></div><div class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></div><div class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></div><div class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></div><div class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></div><div class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/01/angular-datatable/#more" rel="contents">
@@ -1127,7 +1143,7 @@
         
           
             <ul>
-<li><h3 id="Introduction-of-JHipster-MS"><a href="#Introduction-of-JHipster-MS" class="headerlink" title="Introduction of JHipster MS"></a><strong>Introduction of JHipster MS</strong></h3></li>
+<li><h2 id="introduction-of-jhipster-ms"><a href="#Introduction-of-JHipster-MS" class="headerlink" title="Introduction of JHipster MS"></a><strong>Introduction of JHipster MS</strong></h2></li>
 </ul>
 <ol>
 <li><strong>JHipster Registry</strong></li>
@@ -1263,7 +1279,7 @@
         
           
             <ul>
-<li><h3 id="Integration-of-Google-FCM-Notification"><a href="#Integration-of-Google-FCM-Notification" class="headerlink" title="Integration of Google FCM Notification"></a><strong>Integration of Google FCM Notification</strong></h3></li>
+<li><h3 id="integration-of-google-fcm-notification"><a href="#Integration-of-Google-FCM-Notification" class="headerlink" title="Integration of Google FCM Notification"></a><strong>Integration of Google FCM Notification</strong></h3></li>
 </ul>
 <ol>
 <li><strong>Introduction</strong><br> a. <strong>Key Capability</strong><br> b. <strong>FCM Message Type</strong><br> c. <strong>Implementation Path</strong></li>
@@ -1835,6 +1851,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

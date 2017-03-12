@@ -239,9 +239,32 @@ To use Spring Security with a Single Web Page Application, like the ones generat
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -339,7 +362,7 @@ To use Spring Security with a Single Web Page Application, like the ones generat
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Security-Configuration"><span class="nav-number">1.</span> <span class="nav-text">Security Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JHipster-Security"><span class="nav-number">1.1.</span> <span class="nav-text">JHipster Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Role-Management"><span class="nav-number">1.2.</span> <span class="nav-text">Role Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-Security-Configuration"><span class="nav-number">1.3.</span> <span class="nav-text">Java Security Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-Security-Configuration"><span class="nav-number">1.4.</span> <span class="nav-text">Angular Security Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Features"><span class="nav-number">2.</span> <span class="nav-text">More Features</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OAuth2-Authentication"><span class="nav-number">2.1.</span> <span class="nav-text">OAuth2 Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JWT-authentication"><span class="nav-number">2.2.</span> <span class="nav-text">JWT authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-Session-Authentication"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP Session Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Social-Login"><span class="nav-number">2.4.</span> <span class="nav-text">Social Login</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DB-Management"><span class="nav-number">3.</span> <span class="nav-text">DB Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-DB-Manually"><span class="nav-number">3.1.</span> <span class="nav-text">Update DB Manually</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Load-Data-to-DB"><span class="nav-number">3.2.</span> <span class="nav-text">Load Data to DB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-Default-Data"><span class="nav-number">3.3.</span> <span class="nav-text">Update Default Data</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#security-configuration"><span class="nav-number">1.</span> <span class="nav-text">Security Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jhipster-security"><span class="nav-number">1.1.</span> <span class="nav-text">JHipster Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#role-management"><span class="nav-number">1.2.</span> <span class="nav-text">Role Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-security-configuration"><span class="nav-number">1.3.</span> <span class="nav-text">Java Security Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#angular-security-configuration"><span class="nav-number">1.4.</span> <span class="nav-text">Angular Security Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more-features"><span class="nav-number">2.</span> <span class="nav-text">More Features</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#oauth2-authentication"><span class="nav-number">2.1.</span> <span class="nav-text">OAuth2 Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jwt-authentication"><span class="nav-number">2.2.</span> <span class="nav-text">JWT authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-session-authentication"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP Session Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#social-login"><span class="nav-number">2.4.</span> <span class="nav-text">Social Login</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#db-management"><span class="nav-number">3.</span> <span class="nav-text">DB Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#update-db-manually"><span class="nav-number">3.1.</span> <span class="nav-text">Update DB Manually</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#load-data-to-db"><span class="nav-number">3.2.</span> <span class="nav-text">Load Data to DB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#update-default-data"><span class="nav-number">3.3.</span> <span class="nav-text">Update Default Data</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -348,15 +371,15 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 
       
         <ul>
-<li><h3 id="Security-Configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a><strong>Security Configuration</strong></h3></li>
-<li><h4 id="JHipster-Security"><a href="#JHipster-Security" class="headerlink" title="JHipster Security"></a><strong>JHipster Security</strong></h4><blockquote>
+<li><h3 id="security-configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a><strong>Security Configuration</strong></h3></li>
+<li><h4 id="jhipster-security"><a href="#JHipster-Security" class="headerlink" title="JHipster Security"></a><strong>JHipster Security</strong></h4><blockquote>
 <p>To use Spring Security with a Single Web Page Application, like the ones generated by JHipster, you need Ajax login/logout/error views. We have configured Spring Security in order to use those views correctly, and of course we generate all the JavaScript and HTML code for you.<br>By default, JHipster comes with 4 different users:<br>“system”, who is mainly used by our audit logs, when something is done automatically<br>“anonymousUser”, who is given to anonymous users when they do an action<br>“user”, who is a normal user with “ROLE_USER” authorization. His default password is “user”<br>“admin”, who is an admin user with “ROLE_USER” and “ROLE_ADMIN” authorizations. His default password is “admin”<br>For security reasons, you should change those default passwords.<br>More info are provided here: <a href="https://jhipster.github.io/security/" target="_blank" rel="external">https://jhipster.github.io/security/</a></p>
 </blockquote>
 </li>
 </ul>
 <a id="more"></a>
 <ul>
-<li><h4 id="Role-Management"><a href="#Role-Management" class="headerlink" title="Role Management"></a><strong>Role Management</strong></h4>When adding a new ROLE, consider the following steps,</li>
+<li><h4 id="role-management"><a href="#Role-Management" class="headerlink" title="Role Management"></a><strong>Role Management</strong></h4>When adding a new ROLE, consider the following steps,</li>
 </ul>
 <ol>
 <li>Update role data in DB, In <code>src/main/resources/config/liquibase</code> directory, add new role to <code>authorities.cs</code>.</li>
@@ -364,7 +387,7 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 <li>Change the corresponding security control and your logic.</li>
 </ol>
 <ul>
-<li><h4 id="Java-Security-Configuration"><a href="#Java-Security-Configuration" class="headerlink" title="Java Security Configuration"></a><strong>Java Security Configuration</strong></h4></li>
+<li><h4 id="java-security-configuration"><a href="#Java-Security-Configuration" class="headerlink" title="Java Security Configuration"></a><strong>Java Security Configuration</strong></h4></li>
 </ul>
 <ol>
 <li><p>Project level </p>
@@ -384,14 +407,14 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 </li>
 </ol>
 <ul>
-<li><h4 id="Angular-Security-Configuration"><a href="#Angular-Security-Configuration" class="headerlink" title="Angular Security Configuration"></a><strong>Angular Security Configuration</strong></h4><p>Some recommendation here (need explore more and the differences…) </p>
+<li><h4 id="angular-security-configuration"><a href="#Angular-Security-Configuration" class="headerlink" title="Angular Security Configuration"></a><strong>Angular Security Configuration</strong></h4><p>Some recommendation here (need explore more and the differences…) </p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">has-role</span>=<span class="string">"ROLE_ADMIN"</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">has-authority</span>=<span class="string">"ROLE_ADMIN"</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><h3 id="More-Features"><a href="#More-Features" class="headerlink" title="More Features"></a><strong>More Features</strong></h3></li>
-<li><h4 id="OAuth2-Authentication"><a href="#OAuth2-Authentication" class="headerlink" title="OAuth2 Authentication"></a><strong>OAuth2 Authentication</strong></h4><p>OAuth2 is a stateless security mechanism, so you might prefer it if you want to scale your application across several machines. Spring Security provides an OAuth2 implementation, which we have configured for you.<br>The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.</p>
+<li><h3 id="more-features"><a href="#More-Features" class="headerlink" title="More Features"></a><strong>More Features</strong></h3></li>
+<li><h4 id="oauth2-authentication"><a href="#OAuth2-Authentication" class="headerlink" title="OAuth2 Authentication"></a><strong>OAuth2 Authentication</strong></h4><p>OAuth2 is a stateless security mechanism, so you might prefer it if you want to scale your application across several machines. Spring Security provides an OAuth2 implementation, which we have configured for you.<br>The biggest issue with OAuth2 is that requires to have several database tables in order to store its security tokens. If you are using an SQL database, we provide the necessary Liquibase changlog so that those tables are automatically created for you.</p>
 </li>
-<li><h4 id="JWT-authentication"><a href="#JWT-authentication" class="headerlink" title="JWT authentication"></a><strong>JWT authentication</strong></h4>JSON Web Token (JWT) authentication, like OAuth2, is a stateless security mechanism, so it’s another good option if you want to scale on several different servers.<br>This authentication mechanism doesn’t exist by default with Spring Security, it’s a JHipster-specific integration of the Java JWT project. It is easier to use and implement than OAuth2, as it does not require a persistence mechanism, so it works on all SQL and NoSQL options.<br>This solution uses a secure token that holds the user’s login name and authorities. As the token is signed, it cannot be altered by a user.<br>The secret key should be configured in the application.yml file, as the jhipster.security.authentication.jwt.secret property.</li>
-<li><h4 id="HTTP-Session-Authentication"><a href="#HTTP-Session-Authentication" class="headerlink" title="HTTP Session Authentication"></a><strong>HTTP Session Authentication</strong></h4>This is the “classical” Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.</li>
+<li><h4 id="jwt-authentication"><a href="#JWT-authentication" class="headerlink" title="JWT authentication"></a><strong>JWT authentication</strong></h4>JSON Web Token (JWT) authentication, like OAuth2, is a stateless security mechanism, so it’s another good option if you want to scale on several different servers.<br>This authentication mechanism doesn’t exist by default with Spring Security, it’s a JHipster-specific integration of the Java JWT project. It is easier to use and implement than OAuth2, as it does not require a persistence mechanism, so it works on all SQL and NoSQL options.<br>This solution uses a secure token that holds the user’s login name and authorities. As the token is signed, it cannot be altered by a user.<br>The secret key should be configured in the application.yml file, as the jhipster.security.authentication.jwt.secret property.</li>
+<li><h4 id="http-session-authentication"><a href="#HTTP-Session-Authentication" class="headerlink" title="HTTP Session Authentication"></a><strong>HTTP Session Authentication</strong></h4>This is the “classical” Spring Security authentication mechanism, but we have improved it quite significantly. It uses the HTTP Session, so it is a stateful mechanism: if you plan to scale your application on multiple servers, you need to have a load balancer with sticky sessions so that each user stays on the same server.</li>
 </ul>
 <ul>
 <li><strong>Improved remember-me mechanism</strong><br>We have modified the Spring Security remember-me mechanism so that you have a unique token, that is stored in your database (SQL or NoSQL database, depending on your choice during generation!). We also store more information than the standard implementation, so you have a better understanding of where those tokens come from: IP address, browser, date… And we generate a complete administration screen, so that you can invalidate sessions, for example if you forgot to log out on another computer.</li>
@@ -399,10 +422,10 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 <li><strong>CSRF protection</strong><br>Spring Security and AngularJS both have CSRF protection out-of-the-box, but unfortunately they don’t use the same cookies or HTTP headers! In practice, you have in fact no protection at all for CSRF attacks. Of course, we re-configure both tools so that they correctly work together.</li>
 </ul>
 <ul>
-<li><h4 id="Social-Login"><a href="#Social-Login" class="headerlink" title="Social Login"></a><strong>Social Login</strong></h4><p>JHipster provide “social login”, using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot’s starter modules.</p>
+<li><h4 id="social-login"><a href="#Social-Login" class="headerlink" title="Social Login"></a><strong>Social Login</strong></h4><p>JHipster provide “social login”, using Spring Social, so users can connect to your application using their Google, Facebook or Twitter authentication. This is configured using Sping Boot’s starter modules.</p>
 </li>
-<li><h3 id="DB-Management"><a href="#DB-Management" class="headerlink" title="DB Management"></a><strong>DB Management</strong></h3></li>
-<li><h4 id="Update-DB-Manually"><a href="#Update-DB-Manually" class="headerlink" title="Update DB Manually"></a><strong>Update DB Manually</strong></h4><blockquote>
+<li><h3 id="db-management"><a href="#DB-Management" class="headerlink" title="DB Management"></a><strong>DB Management</strong></h3></li>
+<li><h4 id="update-db-manually"><a href="#Update-DB-Manually" class="headerlink" title="Update DB Manually"></a><strong>Update DB Manually</strong></h4><blockquote>
 <p>Database updates by manually editing the change log</p>
 </blockquote>
 <p>  If you prefer (or need) to do a database update manually, here is the development workflow:</p>
@@ -420,7 +443,7 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.liquibase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>liquibase-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;liquibase.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.javassist<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javassist<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.18.2-GA<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.liquibase.ext<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>liquibase-hibernate4<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;liquibase-hibernate4.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.parent.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--&lt;configuration&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;changeLogFile&gt;src/main/resources/config/liquibase/master.xml&lt;/changeLogFile&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;diffChangeLogFile&gt;src/main/resources/config/liquibase/changelog/$&#123;maven.build.timestamp&#125;_changelog.xml&lt;/diffChangeLogFile&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;driver&gt;org.h2.Driver&lt;/driver&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;url&gt;jdbc:h2:file:./target/h2db/db/xxxisg&lt;/url&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;defaultSchemaName /&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;username&gt;xxxISG&lt;/username&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;password /&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;referenceUrl&gt;hibernate:spring:com.xxx.isg.domain?dialect=org.hibernate.dialect.H2Dialect&amp;amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy&lt;/referenceUrl&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;verbose&gt;true&lt;/verbose&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;logging&gt;debug&lt;/logging&gt;--&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;diffExcludeObjects&gt;oauth_access_token, oauth_approvals, oauth_client_details, oauth_client_token, oauth_code, oauth_refresh_token&lt;/diffExcludeObjects&gt;--&gt;</span></div><div class="line">    <span class="comment">&lt;!--&lt;/configuration&gt;--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">changeLogFile</span>&gt;</span>src/main/resources/config/liquibase/master.xml<span class="tag">&lt;/<span class="name">changeLogFile</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">diffChangeLogFile</span>&gt;</span>src/main/resources/config/liquibase/changelog/$&#123;maven.build.timestamp&#125;_changelog.xml<span class="tag">&lt;/<span class="name">diffChangeLogFile</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">driver</span>&gt;</span>com.microsoft.sqlserver.jdbc.SQLServerDriver<span class="tag">&lt;/<span class="name">driver</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:sqlserver://xxx.xxx.net:1433;databaseName=xxx_iscango<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">defaultSchemaName</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">referenceUrl</span>&gt;</span>hibernate:spring:com.xxx.isg.domain?dialect=org.hibernate.dialect.H2Dialect&amp;amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy<span class="tag">&lt;/<span class="name">referenceUrl</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">verbose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">verbose</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">logging</span>&gt;</span>debug<span class="tag">&lt;/<span class="name">logging</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">diffExcludeObjects</span>&gt;</span>oauth_access_token, oauth_approvals, oauth_client_details, oauth_client_token, oauth_code, oauth_refresh_token<span class="tag">&lt;/<span class="name">diffExcludeObjects</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>And there is no need to change any existing <code>xml</code> files except <code>master.xml</code>. Otherwise, a liquibase checksum validation error will raise.</p>
 <ul>
-<li><h4 id="Load-Data-to-DB"><a href="#Load-Data-to-DB" class="headerlink" title="Load Data to DB"></a><strong>Load Data to DB</strong></h4></li>
+<li><h4 id="load-data-to-db"><a href="#Load-Data-to-DB" class="headerlink" title="Load Data to DB"></a><strong>Load Data to DB</strong></h4></li>
 </ul>
 <ol>
 <li>Create a <code>.csv</code> file with data in <code>src/main/resources/config/liquibase</code> directory.</li>
@@ -434,7 +457,7 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 </li>
 </ol>
 <ul>
-<li><h4 id="Update-Default-Data"><a href="#Update-Default-Data" class="headerlink" title="Update Default Data"></a><strong>Update Default Data</strong></h4>Here taking <code>USER</code> and <code>USER_AUTHORITY</code> table for example. </li>
+<li><h4 id="update-default-data"><a href="#Update-Default-Data" class="headerlink" title="Update Default Data"></a><strong>Update Default Data</strong></h4>Here taking <code>USER</code> and <code>USER_AUTHORITY</code> table for example. </li>
 </ul>
 <ol>
 <li><p>In file <code>users.csv</code>, update all default user data<br>The password should be encrypted.</p>
@@ -645,7 +668,7 @@ To use Spring Security with a Single Web Page Application, like the ones generat
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Security-Configuration"><span class="nav-text">Security Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JHipster-Security"><span class="nav-text">JHipster Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Role-Management"><span class="nav-text">Role Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-Security-Configuration"><span class="nav-text">Java Security Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-Security-Configuration"><span class="nav-text">Angular Security Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Features"><span class="nav-text">More Features</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OAuth2-Authentication"><span class="nav-text">OAuth2 Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JWT-authentication"><span class="nav-text">JWT authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP-Session-Authentication"><span class="nav-text">HTTP Session Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Social-Login"><span class="nav-text">Social Login</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DB-Management"><span class="nav-text">DB Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-DB-Manually"><span class="nav-text">Update DB Manually</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Load-Data-to-DB"><span class="nav-text">Load Data to DB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-Default-Data"><span class="nav-text">Update Default Data</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#security-configuration"><span class="nav-text">Security Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jhipster-security"><span class="nav-text">JHipster Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#role-management"><span class="nav-text">Role Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-security-configuration"><span class="nav-text">Java Security Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#angular-security-configuration"><span class="nav-text">Angular Security Configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more-features"><span class="nav-text">More Features</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#oauth2-authentication"><span class="nav-text">OAuth2 Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jwt-authentication"><span class="nav-text">JWT authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-session-authentication"><span class="nav-text">HTTP Session Authentication</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#social-login"><span class="nav-text">Social Login</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#db-management"><span class="nav-text">DB Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#update-db-manually"><span class="nav-text">Update DB Manually</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#load-data-to-db"><span class="nav-text">Load Data to DB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#update-default-data"><span class="nav-text">Update Default Data</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -784,6 +807,135 @@ To use Spring Security with a Single Web Page Application, like the ones generat
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

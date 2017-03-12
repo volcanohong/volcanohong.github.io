@@ -237,9 +237,32 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -337,7 +360,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setup-Hippo-Project"><span class="nav-number">3.</span> <span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hello-page"><span class="nav-number">3.1.</span> <span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-in-Hippo-A-Hello-Page"><span class="nav-number">4.</span> <span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolve-Links-to-Static-Resources"><span class="nav-number">5.</span> <span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Head-Contributions"><span class="nav-number">6.</span> <span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Pages"><span class="nav-number">7.</span> <span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configure-Banners"><span class="nav-number">8.</span> <span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confiure-Search"><span class="nav-number">9.</span> <span class="nav-text">Confiure Search</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getting-started"><span class="nav-number">2.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setup-hippo-project"><span class="nav-number">3.</span> <span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hello-page"><span class="nav-number">3.1.</span> <span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mvc-in-hippo-a-hello-page"><span class="nav-number">4.</span> <span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolve-links-to-static-resources"><span class="nav-number">5.</span> <span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include-head-contributions"><span class="nav-number">6.</span> <span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include-pages"><span class="nav-number">7.</span> <span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#configure-banners"><span class="nav-number">8.</span> <span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#confiure-search"><span class="nav-number">9.</span> <span class="nav-text">Confiure Search</span></a></li></ol></div>
         </div>
       
       
@@ -346,7 +369,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 
       
         <ul>
-<li><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
+<li><h4 id="introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
 </ul>
 <p>Hippo is a java based Content Management System (CMS) that allows you to create, control, and deliver engaging content to your visitors in every channel. Hippo CMS is an open-source, dual licensed platform.</p>
 <p>Ref: <a href="https://www.onehippo.com" target="_blank" rel="external">onehippo</a></p>
@@ -359,7 +382,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <a id="more"></a>
 <p>With Hippo’s open-source technology which integrates with a wide range of tools and data sources, you can analyse the behaviour of your visitors and optimise the performance of your content in any context, whether it’s web, mobile, social, apps, displays, billboards, or Internet-of-Things devices. It’s also easy to experiment and build new digital properties rapidly with Hippo’s open architecture and easy-to-use interface, bringing businesses the agility and freedom needed for creating the best next personalized digital customer experience.</p>
 <ul>
-<li><h4 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a><strong>Getting Started</strong></h4></li>
+<li><h4 id="getting-started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a><strong>Getting Started</strong></h4></li>
 </ul>
 <p>Learn Hippo: <a href="https://www.onehippo.org/trails/demo-tutorials-and-download.html" target="_blank" rel="external">Demo, Tutorials &amp; downloads</a>.</p>
 <p><em>Step 1</em>: Create the ‘myhippoproject’ from the Hippo maven archetype using the command below.<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mvn archetype:generate \</div><div class="line">-DarchetypeGroupId=org.onehippo.cms7 \</div><div class="line">-DarchetypeArtifactId=hippo-project-archetype \</div><div class="line">-DarchetypeVersion=4.0.0 \</div><div class="line">-DarchetypeRepository=http://maven.onehippo.com/maven2</div></pre></td></tr></table></figure></p>
@@ -379,7 +402,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <p>Setup Application at <code>http://localhost:8080/essentials</code><br>    The setup application provides a Feature Library from which features can be added to your project.<br>    The first time you use the application it will show a setup screen. Read carefully and if needed, change the default parameters before clicking on Get Started.</p>
 <p>Website at <code>http://localhost:8080/site</code><br>    The website will initially be empty. Once you have added some features from the library to the site it will render them using a default <a href="http://getbootstrap.com/" target="_blank" rel="external">bootstrap</a> theme.</p>
 <ul>
-<li><h4 id="Setup-Hippo-Project"><a href="#Setup-Hippo-Project" class="headerlink" title="Setup Hippo Project"></a><strong>Setup Hippo Project</strong></h4></li>
+<li><h4 id="setup-hippo-project"><a href="#Setup-Hippo-Project" class="headerlink" title="Setup Hippo Project"></a><strong>Setup Hippo Project</strong></h4></li>
 </ul>
 <ol>
 <li>Choose templating language<br> Either <code>JSP</code> or <code>FreeMarker</code></li>
@@ -388,7 +411,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <li>You don’t need to rebuild for every single feature you add to the project, it is sufficient to rebuild after you added a batch of features.</li>
 </ol>
 <ul>
-<li><h5 id="Hello-page"><a href="#Hello-page" class="headerlink" title="Hello page"></a><strong>Hello page</strong></h5><ol>
+<li><h5 id="hello-page"><a href="#Hello-page" class="headerlink" title="Hello page"></a><strong>Hello page</strong></h5><ol>
 <li><p>Compile and run the project by using the following Maven commands:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">mvn verify</div><div class="line">mvn –P cargo.run</div></pre></td></tr></table></figure>
 </li>
@@ -407,7 +430,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <li><em>Not convenient</em>: every time making a change to the <code>.jsp</code> file, the project needs to rebuild.</li>
 </ol>
 </li>
-<li><h4 id="MVC-in-Hippo-A-Hello-Page"><a href="#MVC-in-Hippo-A-Hello-Page" class="headerlink" title="MVC in Hippo: A Hello Page"></a><strong>MVC in Hippo: A Hello Page</strong></h4></li>
+<li><h4 id="mvc-in-hippo-a-hello-page"><a href="#MVC-in-Hippo-A-Hello-Page" class="headerlink" title="MVC in Hippo: A Hello Page"></a><strong>MVC in Hippo: A Hello Page</strong></h4></li>
 </ul>
 <ol>
 <li><p>View<br>In <code>http://localhost:8080/cms/</code> -&gt; <code>content</code><br>  a. Create a document type<br>  b. Create a document</p>
@@ -435,7 +458,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/hst:hst/hst:configurations/myhippoproject/hst:sitemap/root</div><div class="line">    - hst:componentconfigurationid = hst:pages/home</div><div class="line">    - hst:relativecontentpath = hello-world</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Resolve-Links-to-Static-Resources"><a href="#Resolve-Links-to-Static-Resources" class="headerlink" title="Resolve Links to Static Resources"></a><strong>Resolve Links to Static Resources</strong></h4></li>
+<li><h4 id="resolve-links-to-static-resources"><a href="#Resolve-Links-to-Static-Resources" class="headerlink" title="Resolve Links to Static Resources"></a><strong>Resolve Links to Static Resources</strong></h4></li>
 </ul>
 <p>The exact URLs of those static resources depend on the context in which the application is deployed. They must be resolved dynamically using &lt;@hst.webfile&gt;.</p>
 <p>E.g., replace:</p>
@@ -446,7 +469,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <p>Note that the path attribute of the &lt;@hst.webfile&gt; tag starts with a slash, where the original href attribute of the &lt; link&gt; element didn’t.</p>
 </blockquote>
 <ul>
-<li><h4 id="Include-Head-Contributions"><a href="#Include-Head-Contributions" class="headerlink" title="Include Head Contributions"></a><strong>Include Head Contributions</strong></h4></li>
+<li><h4 id="include-head-contributions"><a href="#Include-Head-Contributions" class="headerlink" title="Include Head Contributions"></a><strong>Include Head Contributions</strong></h4></li>
 </ul>
 <p>Components further down in the hierarchy may require additional CSS and Javascript files to be loaded. In that case those components will make a head contribution. The top level component’s template must include those contributions.</p>
 <p>Inside the html <head> element, just before the closing </head> tag, insert the following line:<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContributions</span> <span class="attr">categoryIncludes</span>=<span class="string">"htmlHead"</span> <span class="attr">xhtml</span>=<span class="string">true/</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -455,7 +478,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <p>Open the file <code>bootstrap/webfiles/src/main/resources/site/freemarker/hstdefault/essentials-carousel.ftl</code>. This is the template for the out-of-the-box banner carousel.<br>In the template you can see an example of head contributions:<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlBodyEnd"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;@hst.link path="</span>/<span class="attr">js</span>/<span class="attr">jquery-2.1.0.min.js</span>"/&gt;</span><span class="undefined">"&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlBodyEnd"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;@hst.link path="</span>/<span class="attr">js</span>/<span class="attr">bootstrap.min.js</span>"/&gt;</span><span class="undefined">"&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <ul>
-<li><h4 id="Include-Pages"><a href="#Include-Pages" class="headerlink" title="Include Pages"></a><strong>Include Pages</strong></h4></li>
+<li><h4 id="include-pages"><a href="#Include-Pages" class="headerlink" title="Include Pages"></a><strong>Include Pages</strong></h4></li>
 </ul>
 <p>Include other <code>html</code> markup by using code</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"menu"</span>/&gt;</span></div></pre></td></tr></table></figure>
@@ -465,7 +488,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <p>with the corresponding files like and <code>homepage-main.ftl</code> and <code>base-footer.ftl</code>.</p>
 <p>Ref: <a href="https://www.onehippo.org/trails/developer-trail/configure-out-of-the-box-features/base-page-configuration.html" target="_blank" rel="external">Base page configuration</a></p>
 <ul>
-<li><h4 id="Configure-Banners"><a href="#Configure-Banners" class="headerlink" title="Configure Banners"></a><strong>Configure Banners</strong></h4></li>
+<li><h4 id="configure-banners"><a href="#Configure-Banners" class="headerlink" title="Configure Banners"></a><strong>Configure Banners</strong></h4></li>
 </ul>
 <p>In <code>homepage-main.ftl</code>, add a container.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">#include</span> "<span class="attr">..</span>/<span class="attr">include</span>/<span class="attr">imports.ftl</span>"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">@hst.include</span> <span class="attr">ref</span>=<span class="string">"container"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>Then, in <code>http://localhost:8080/cms/</code>, add images in <code>Content/Images</code> -&gt; folder banners.</p>
@@ -478,7 +501,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 <p>A configuration dialog will appear. In the <code>Carousel Item 1</code> field click on the looking glass icon, browse to one of the Banner documents you added and select it. Click <code>Save</code>, then close the configuration dialog. The Banner Carousel now displays the selected banners.</p>
 <p>Click <code>Changes</code>, then <code>Publish</code>. </p>
 <ul>
-<li><h4 id="Confiure-Search"><a href="#Confiure-Search" class="headerlink" title="Confiure Search"></a><strong>Confiure Search</strong></h4></li>
+<li><h4 id="confiure-search"><a href="#Confiure-Search" class="headerlink" title="Confiure Search"></a><strong>Confiure Search</strong></h4></li>
 </ul>
 <p>Test search plugin: <code>http://localhost:8080/site/search?query=news</code>.</p>
 <p>In <code>base-layout.ftl</code>, replace the value of the <form> element’s action attribute with <code>&lt;@hst.link siteMapItemRefId=&quot;search&quot; /&gt;</code>. It should now look like this:<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"searchbox"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&lt;@hst.link siteMapItemRefId="</span><span class="attr">search</span>" /&gt;</span>" method="get"&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"searchbox-inputtext"</span> <span class="attr">id</span>=<span class="string">"searchbox-inputtext"</span> <span class="attr">name</span>=<span class="string">"query"</span></span></div><div class="line">      <span class="attr">placeholder</span>=<span class="string">"Search"</span> /&gt; <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"searchbox-icon"</span> <span class="attr">for</span>=<span class="string">"searchbox-inputtext"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">      <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"searchbox-submit"</span> <span class="attr">value</span>=<span class="string">"Search"</span> /&gt;</div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></form></p>
@@ -687,7 +710,7 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-Started"><span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setup-Hippo-Project"><span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hello-page"><span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC-in-Hippo-A-Hello-Page"><span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolve-Links-to-Static-Resources"><span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Head-Contributions"><span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Include-Pages"><span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configure-Banners"><span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confiure-Search"><span class="nav-text">Confiure Search</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getting-started"><span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setup-hippo-project"><span class="nav-text">Setup Hippo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#hello-page"><span class="nav-text">Hello page</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mvc-in-hippo-a-hello-page"><span class="nav-text">MVC in Hippo: A Hello Page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolve-links-to-static-resources"><span class="nav-text">Resolve Links to Static Resources</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include-head-contributions"><span class="nav-text">Include Head Contributions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include-pages"><span class="nav-text">Include Pages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#configure-banners"><span class="nav-text">Configure Banners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#confiure-search"><span class="nav-text">Confiure Search</span></a></li></ol></div>
             
           </div>
         </section>
@@ -826,6 +849,135 @@ Hippo is a java based Content Management System (CMS) that allows you to create,
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

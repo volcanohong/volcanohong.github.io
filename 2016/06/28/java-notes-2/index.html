@@ -237,9 +237,32 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -337,7 +360,7 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-all-properties-of-an-Object-with-name-value"><span class="nav-number">1.</span> <span class="nav-text">Print all properties of an Object with name/value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compare-two-objects"><span class="nav-number">2.</span> <span class="nav-text">Compare two objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-encoding-of-query-string-parameter"><span class="nav-number">3.</span> <span class="nav-text">URL encoding of query string parameter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Base64-data-encoding-decoding"><span class="nav-number">4.</span> <span class="nav-text">Base64 data encoding | decoding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrambling-a-string-scrambled-email"><span class="nav-number">5.</span> <span class="nav-text">Scrambling a string (scrambled email)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-simple-way-to-swap-values"><span class="nav-number">6.</span> <span class="nav-text">A simple way to swap values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Convert-String-to-List-lt-String-gt"><span class="nav-number">7.</span> <span class="nav-text">Convert String[] to List<String></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-safe-comparator"><span class="nav-number">8.</span> <span class="nav-text">Null-safe comparator</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#print-all-properties-of-an-object-with-namevalue"><span class="nav-number">1.</span> <span class="nav-text">Print all properties of an Object with name/value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compare-two-objects"><span class="nav-number">2.</span> <span class="nav-text">Compare two objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-encoding-of-query-string-parameter"><span class="nav-number">3.</span> <span class="nav-text">URL encoding of query string parameter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#base64-data-encoding-decoding"><span class="nav-number">4.</span> <span class="nav-text">Base64 data encoding | decoding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrambling-a-string-scrambled-email"><span class="nav-number">5.</span> <span class="nav-text">Scrambling a string (scrambled email)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-simple-way-to-swap-values"><span class="nav-number">6.</span> <span class="nav-text">A simple way to swap values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-string-to-listltstringgt"><span class="nav-number">7.</span> <span class="nav-text">Convert String[] to List<String></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null-safe-comparator"><span class="nav-number">8.</span> <span class="nav-text">Null-safe comparator</span></a></li></ol></div>
         </div>
       
       
@@ -346,16 +369,16 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
 
       
         <ul>
-<li><h4 id="Print-all-properties-of-an-Object-with-name-value"><a href="#Print-all-properties-of-an-Object-with-name-value" class="headerlink" title="Print all properties of an Object with name/value"></a><strong>Print all properties of an Object with name/value</strong></h4></li>
+<li><h4 id="print-all-properties-of-an-object-with-namevalue"><a href="#Print-all-properties-of-an-Object-with-name-value" class="headerlink" title="Print all properties of an Object with name/value"></a><strong>Print all properties of an Object with name/value</strong></h4></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printObjectFields</span><span class="params">(Object object)</span> </span>&#123;</div><div class="line">        Field[] fields = object.getClass().getDeclaredFields();</div><div class="line">        StringBuilder msg = <span class="keyword">new</span> StringBuilder();</div><div class="line">        String newLine = System.getProperty(<span class="string">"line.separator"</span>);</div><div class="line"></div><div class="line">        msg.append( object.getClass().getName() );</div><div class="line">        msg.append(newLine);</div><div class="line">        Method method = <span class="keyword">null</span>;</div><div class="line">        String methodName = <span class="string">""</span>;</div><div class="line">        String methodValue = <span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span> ( Field field : fields ) &#123;</div><div class="line">            msg.append(<span class="string">"  "</span>);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                methodName = field.getName();</div><div class="line">                msg.append( methodName );</div><div class="line">                msg.append(<span class="string">": "</span>);</div><div class="line">                <span class="comment">//requires access to private field:</span></div><div class="line">                <span class="comment">//field.setAccessible(true);</span></div><div class="line">                </div><div class="line">                <span class="comment">//run the `get` method to obtain the value</span></div><div class="line">                methodName = <span class="string">"get"</span> + Character.toUpperCase(methodName.charAt(<span class="number">0</span>)) + methodName.substring(<span class="number">1</span>);</div><div class="line">                method = object.getClass().getMethod(methodName);</div><div class="line">                methodValue = String.valueOf(method.invoke(object));</div><div class="line">                msg.append(methodValue);</div><div class="line">            &#125; <span class="keyword">catch</span> (SecurityException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> ( IllegalAccessException e ) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</div><div class="line">            &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</div><div class="line">            &#125;</div><div class="line">            msg.append(newLine);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//print msg</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Compare-two-objects"><a href="#Compare-two-objects" class="headerlink" title="Compare two objects"></a><strong>Compare two objects</strong></h4></li>
+<li><h4 id="compare-two-objects"><a href="#Compare-two-objects" class="headerlink" title="Compare two objects"></a><strong>Compare two objects</strong></h4></li>
 </ul>
 <p>Compare every filed of two objects by using <code>CompareToBuilder</code>…</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">compareBrand</span><span class="params">(Brand oldBrand, Brand newBrand)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CompareToBuilder().append(oldBrand.getBrandId(), newBrand.getBrandId())</div><div class="line">            .append(oldBrand.getBrandName(), newBrand.getBrandName())</div><div class="line">            .toComparison();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="URL-encoding-of-query-string-parameter"><a href="#URL-encoding-of-query-string-parameter" class="headerlink" title="URL encoding of query string parameter"></a><strong>URL encoding of query string parameter</strong></h4></li>
+<li><h4 id="url-encoding-of-query-string-parameter"><a href="#URL-encoding-of-query-string-parameter" class="headerlink" title="URL encoding of query string parameter"></a><strong>URL encoding of query string parameter</strong></h4></li>
 </ul>
 <p>Either using <code>java.net.URLEncoder</code>:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String str = <span class="string">"a=b+c"</span>;</div><div class="line">str = URLEncoder.encode(str, <span class="string">"UTF-8"</span>);</div></pre></td></tr></table></figure>
@@ -364,11 +387,11 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String str = <span class="string">"a=b+c"</span>;</div><div class="line">str = str.replaceAll(<span class="string">"\\+"</span>, <span class="string">"%2B"</span>).replaceAll(<span class="string">"\\="</span>, <span class="string">"%3D"</span>);</div></pre></td></tr></table></figure>
 <p>Useful link: <a href="https://www.talisman.org/~erlkonig/misc/lunatech%5Ewhat-every-webdev-must-know-about-url-encoding/" target="_blank" rel="external">What every web developer must know about URL encoding</a></p>
 <ul>
-<li><h4 id="Base64-data-encoding-decoding"><a href="#Base64-data-encoding-decoding" class="headerlink" title="Base64 data encoding | decoding"></a><strong>Base64 data encoding | decoding</strong></h4></li>
+<li><h4 id="base64-data-encoding-decoding"><a href="#Base64-data-encoding-decoding" class="headerlink" title="Base64 data encoding | decoding"></a><strong>Base64 data encoding | decoding</strong></h4></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Base64;</div><div class="line">String str = <span class="string">"abcde"</span></div><div class="line"><span class="keyword">byte</span>[] bytes = str.getBytes(<span class="string">"UTF-8"</span>);</div><div class="line">String encoded = Base64.getEncoder().encodeToString(bytes);</div><div class="line"><span class="keyword">byte</span>[] decoded = Base64.getDecoder().decode(encoded);</div><div class="line">strDecoded - <span class="keyword">new</span> String(decoded);</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Scrambling-a-string-scrambled-email"><a href="#Scrambling-a-string-scrambled-email" class="headerlink" title="Scrambling a string (scrambled email)"></a><strong>Scrambling a string (scrambled email)</strong></h4></li>
+<li><h4 id="scrambling-a-string-scrambled-email"><a href="#Scrambling-a-string-scrambled-email" class="headerlink" title="Scrambling a string (scrambled email)"></a><strong>Scrambling a string (scrambled email)</strong></h4></li>
 </ul>
 <p>Recently, I need a method to generate a fake email address with existing user email…</p>
 <pre><code>1. Scramble a input string by shuffling all charaters with equal probablities
@@ -377,20 +400,20 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
 </code></pre><p>Here is the code:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">scrambleString</span><span class="params">(Random random, String str)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//convert string to a char array</span></div><div class="line">    <span class="keyword">char</span> charArray[] = str.toCharArray();</div><div class="line">    <span class="comment">//random alpha and num</span></div><div class="line">    String randAlphaNum = RandomStringUtils.randomAlphanumeric(str.length()).toLowerCase();</div><div class="line">    <span class="comment">//random first letter</span></div><div class="line">    <span class="keyword">final</span> String allowedChars = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</div><div class="line">    <span class="keyword">char</span> firstChar = allowedChars.charAt(random.nextInt(allowedChars.length()-<span class="number">1</span>));</div><div class="line">    <span class="comment">// Scramble the letters with equal probabilities</span></div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charArray.length - <span class="number">1</span>; i++ )</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Choose a random num from remaining numbers</span></div><div class="line">        <span class="keyword">int</span> j = random.nextInt(charArray.length - <span class="number">1</span> - i) + i;</div><div class="line">        <span class="comment">// Swap letters</span></div><div class="line">        <span class="keyword">char</span> temp = charArray[i];</div><div class="line">        charArray[i] = charArray[j];</div><div class="line">        charArray[j] = temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> firstChar + <span class="keyword">new</span> String(charArray) + randAlphaNum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="A-simple-way-to-swap-values"><a href="#A-simple-way-to-swap-values" class="headerlink" title="A simple way to swap values"></a><strong>A simple way to swap values</strong></h4></li>
+<li><h4 id="a-simple-way-to-swap-values"><a href="#A-simple-way-to-swap-values" class="headerlink" title="A simple way to swap values"></a><strong>A simple way to swap values</strong></h4></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;    </div><div class="line">  <span class="keyword">return</span> a;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//when usage  </span></div><div class="line">b = swap(a, a=b);</div></pre></td></tr></table></figure>
 <p>This method is a bit tricky. It relies on the fact that <code>a</code> will pass into <code>swap()</code> before <code>b</code> is assigned to <code>a</code>. Then, <code>b</code> is returned and assigned to <code>a</code>.</p>
 <p>This method can be generic and swap any number of objects of the same type:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;    </div><div class="line">  <span class="keyword">return</span> a;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//usage</span></div><div class="line">c = swap(a, a=b, b=c)</div></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="Convert-String-to-List-lt-String-gt"><a href="#Convert-String-to-List-lt-String-gt" class="headerlink" title="Convert String[] to List&lt;String&gt;"></a><strong>Convert <code>String[]</code> to <code>List&lt;String&gt;</code></strong></h4></li>
+<li><h4 id="convert-string-to-listltstringgt"><a href="#Convert-String-to-List-lt-String-gt" class="headerlink" title="Convert String[] to List&lt;String&gt;"></a><strong>Convert <code>String[]</code> to <code>List&lt;String&gt;</code></strong></h4></li>
 </ul>
 <p>In order to use some util method like add(), remove(), contains()…</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List&lt;String&gt; newCurrencies = <span class="keyword">new</span> ArrayList(Arrays.asList(currencies));</div><div class="line">List&lt;String&gt; oldCurrencies = <span class="keyword">new</span> ArrayList();</div></pre></td></tr></table></figure>
 <p>Note: If initializing it in the following way, the size of <code>newCurrencies</code> will be fixed, so it cannot use some of the util methods.<br>E.g. <code>List&lt;String&gt; newCurrencies = Arrays.asList(currencies);</code></p>
 <ul>
-<li><h4 id="Null-safe-comparator"><a href="#Null-safe-comparator" class="headerlink" title="Null-safe comparator"></a><strong>Null-safe comparator</strong></h4></li>
+<li><h4 id="null-safe-comparator"><a href="#Null-safe-comparator" class="headerlink" title="Null-safe comparator"></a><strong>Null-safe comparator</strong></h4></li>
 </ul>
 <p>It’s case-insensitive with assumption of <code>emptyString == null</code>.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">nullSafeStringComparator</span><span class="params">(<span class="keyword">final</span> Object str1, <span class="keyword">final</span> Object str2)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str1 == <span class="keyword">null</span> ^ str2 == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">//particularly, we consider null == emptyString</span></div><div class="line">        <span class="keyword">if</span> (String.valueOf(str1).trim().isEmpty() || String.valueOf(str2).trim().isEmpty())</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> (str1 == <span class="keyword">null</span>) ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (str1 == <span class="keyword">null</span> &amp;&amp; str2 == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="comment">//since neither one is NULL here, toString() works</span></div><div class="line">    <span class="keyword">return</span> str1.toString().compareToIgnoreCase(str2.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -593,7 +616,7 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-all-properties-of-an-Object-with-name-value"><span class="nav-text">Print all properties of an Object with name/value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compare-two-objects"><span class="nav-text">Compare two objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-encoding-of-query-string-parameter"><span class="nav-text">URL encoding of query string parameter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Base64-data-encoding-decoding"><span class="nav-text">Base64 data encoding | decoding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrambling-a-string-scrambled-email"><span class="nav-text">Scrambling a string (scrambled email)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-simple-way-to-swap-values"><span class="nav-text">A simple way to swap values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Convert-String-to-List-lt-String-gt"><span class="nav-text">Convert String[] to List<String></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Null-safe-comparator"><span class="nav-text">Null-safe comparator</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#print-all-properties-of-an-object-with-namevalue"><span class="nav-text">Print all properties of an Object with name/value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compare-two-objects"><span class="nav-text">Compare two objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-encoding-of-query-string-parameter"><span class="nav-text">URL encoding of query string parameter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#base64-data-encoding-decoding"><span class="nav-text">Base64 data encoding | decoding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrambling-a-string-scrambled-email"><span class="nav-text">Scrambling a string (scrambled email)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-simple-way-to-swap-values"><span class="nav-text">A simple way to swap values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convert-string-to-listltstringgt"><span class="nav-text">Convert String[] to List<String></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null-safe-comparator"><span class="nav-text">Null-safe comparator</span></a></li></ol></div>
             
           </div>
         </section>
@@ -732,6 +755,135 @@ public void printObjectFields(Object object) &amp;#123;        Field[] fields = 
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 
