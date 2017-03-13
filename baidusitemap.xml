@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://volcanohong.github.com/2017/03/01/chartjs-notes/</loc>
+    <lastmod>2017-03-13T00:57:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>Chart.js in Angular 2</title>
+        <pubTime>2017-03-01T20:04:50.000Z</pubTime>
+        
+        <tag>angular2</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>html</tag>
+         
+        <tag>coding</tag>
+         
+        <tag>chart</tag>
+         
+         
+           
+             
+              <breadCrumb title="Angular" url="http://volcanohong.github.com/categories/Angular/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://volcanohong.github.com/2016/12/18/jhipster-microservice/</loc>
     <lastmod>2017-03-12T04:36:25.000Z</lastmod>
     <data>
@@ -167,9 +195,9 @@
         <title>Java Cookie</title>
         <pubTime>2017-02-20T22:09:45.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
         <tag>cookie</tag>
          
@@ -217,9 +245,9 @@
         <title>Java QR code</title>
         <pubTime>2016-10-08T04:27:41.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
         <tag>qrcode</tag>
          
@@ -316,13 +344,13 @@
         <title>AngularJS notes I</title>
         <pubTime>2016-11-02T04:37:31.000Z</pubTime>
         
-        <tag>angular</tag>
-         
         <tag>javascript</tag>
          
         <tag>html</tag>
          
         <tag>coding</tag>
+         
+        <tag>angular</tag>
          
          
            
@@ -342,9 +370,9 @@
         <title>Java8 notes I</title>
         <pubTime>2016-10-07T03:22:12.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -488,9 +516,9 @@
         <title>Java coding notes I</title>
         <pubTime>2016-06-27T04:00:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
         <tag>design pattern</tag>
          
@@ -562,9 +590,9 @@
         <title>Java coding notes II</title>
         <pubTime>2016-06-29T04:20:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -664,9 +692,9 @@
         <title>Java SSL debugging</title>
         <pubTime>2016-07-13T23:18:35.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
         <tag>java web</tag>
          
@@ -690,9 +718,9 @@
         <title>Effective java notes</title>
         <pubTime>2016-07-17T04:00:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -786,9 +814,9 @@
         <title>Java coding notes III</title>
         <pubTime>2016-07-05T04:20:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>coding</tag>
+         
+        <tag>java</tag>
          
         <tag>java web</tag>
          
