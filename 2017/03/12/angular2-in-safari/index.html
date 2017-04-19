@@ -87,6 +87,7 @@
 
 
 <meta name="description" content="Non-Chrome browsers raised some errors about the API which is currently used in the Angular2 date and currency pipes.">
+<meta name="keywords" content="angular2,javascript,html,coding,safari">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 Apps Script Error in Safari">
 <meta property="og:url" content="http://volcanohong.github.com/2017/03/12/angular2-in-safari/index.html">
@@ -383,7 +384,7 @@
 <ul>
 <li>S4. Create custom pipe instead of angular2 default one. E.g.,</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Pipe, PipeTransform &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"></div><div class="line">@Pipe(&#123;</div><div class="line">  name: <span class="string">'customdate'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDatePipe</span> <span class="title">implements</span> <span class="title">PipeTransform</span> </span>&#123;</div><div class="line">  transform(value: string, arg: string): string &#123;</div><div class="line">     <span class="keyword">return</span> moment(value).format(arg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Pipe, PipeTransform &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"></div><div class="line">@Pipe(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'customdate'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDatePipe</span> <span class="title">implements</span> <span class="title">PipeTransform</span> </span>&#123;</div><div class="line">  transform(value: string, <span class="attr">arg</span>: string): string &#123;</div><div class="line">     <span class="keyword">return</span> moment(value).format(arg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>And</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; myDate | customdate: 'DD/MM/YYYY' &#125;&#125;</div></pre></td></tr></table></figure>
 <p><strong>Test Results</strong>:</p>
@@ -454,13 +455,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/chartjs-notes/" rel="next" title="Chart.js in Angular 2">
-                <i class="fa fa-chevron-left"></i> Chart.js in Angular 2
+              <a href="/2017/04/10/cors/" rel="next" title="CORS Issue">
+                <i class="fa fa-chevron-left"></i> CORS Issue
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/01/chartjs-notes/" rel="prev" title="Chart.js in Angular 2">
+                Chart.js in Angular 2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -528,7 +533,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -545,7 +550,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

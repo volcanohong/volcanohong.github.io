@@ -86,25 +86,17 @@
 
 
 
-<meta name="description" content="Angular 2 Basic
-
-The heart of angular 2 is containers.
-import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
+<meta name="description" content="Angular 2 Basic  The heart of angular 2 is containers. import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
+<meta name="keywords" content="angular2,javascript,html,coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 Notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/10/01/angular2-notes-1/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Angular 2 Basic
-
-The heart of angular 2 is containers.
-import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
+<meta property="og:description" content="Angular 2 Basic  The heart of angular 2 is containers. import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
 <meta property="og:updated_time" content="2017-03-12T04:35:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular2 Notes I">
-<meta name="twitter:description" content="Angular 2 Basic
-
-The heart of angular 2 is containers.
-import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
+<meta name="twitter:description" content="Angular 2 Basic  The heart of angular 2 is containers. import from angular/coreimport &amp;#123;     Component,     Input,    Output,    EventEmitter &amp;#125; from &apos;@angular/core&apos;;">
 
 
 
@@ -448,9 +440,9 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
 <li><strong>RouterOutlet</strong> is a “placeholder” component that gets expanded to each route’s content</li>
 <li><strong>RouterLink</strong> is used to link to routes</li>
 </ul>
-<p><em>Routes</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Routes &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Main, Notes, About&#125; <span class="keyword">from</span> <span class="string">'../containers'</span>; </div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes: Routes = [</div><div class="line">    <span class="comment">// &#123; path: '', redirectTo: 'home', pathMatch: 'full' &#125;,</span></div><div class="line">    &#123; path: <span class="string">''</span>, component: Main,</div><div class="line">        children: [</div><div class="line">            &#123; path: <span class="string">''</span>, component: Notes&#125;,</div><div class="line">            &#123; path: <span class="string">'about'</span>,  component: About &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p><em>RouterOutlet</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    selector: <span class="string">'main-container'</span>,</div><div class="line">    template: <span class="string">`</span></div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-outlet&gt;&lt;/router-outlet&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    `</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><em> RouterLink</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RouterLink &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span></div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">    selector: <span class="string">'app-bar'</span>,</div><div class="line">    template: <span class="string">`</span></div><div class="line">        &lt;header class="app-bar row middle-xs"&gt;</div><div class="line">        &lt;span [routerLink]="['']" class="logo col-xs-10"&gt;</div><div class="line">            Home</div><div class="line">        &lt;/span&gt;</div><div class="line">        &lt;nav class="col-xs-2"&gt;</div><div class="line">            &lt;div class="row middle-xs between-xs"&gt;</div><div class="line">                &lt;span [routerLink]="['', 'about']"  class="link"&gt;About&lt;/span&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/nav&gt;</div><div class="line">        &lt;/header&gt;</div><div class="line">    `,</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><em>Routes</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Routes &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Main, Notes, About&#125; <span class="keyword">from</span> <span class="string">'../containers'</span>; </div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes: Routes = [</div><div class="line">    <span class="comment">// &#123; path: '', redirectTo: 'home', pathMatch: 'full' &#125;,</span></div><div class="line">    &#123; <span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>: Main,</div><div class="line">        <span class="attr">children</span>: [</div><div class="line">            &#123; <span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>: Notes&#125;,</div><div class="line">            &#123; <span class="attr">path</span>: <span class="string">'about'</span>,  <span class="attr">component</span>: About &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><em>RouterOutlet</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    <span class="attr">selector</span>: <span class="string">'main-container'</span>,</div><div class="line">    <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-outlet&gt;&lt;/router-outlet&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    `</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><em> RouterLink</em><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RouterLink &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span></div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">    <span class="attr">selector</span>: <span class="string">'app-bar'</span>,</div><div class="line">    <span class="attr">template</span>: <span class="string">`</span></div><div class="line">        &lt;header class="app-bar row middle-xs"&gt;</div><div class="line">        &lt;span [routerLink]="['']" class="logo col-xs-10"&gt;</div><div class="line">            Home</div><div class="line">        &lt;/span&gt;</div><div class="line">        &lt;nav class="col-xs-2"&gt;</div><div class="line">            &lt;div class="row middle-xs between-xs"&gt;</div><div class="line">                &lt;span [routerLink]="['', 'about']"  class="link"&gt;About&lt;/span&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/nav&gt;</div><div class="line">        &lt;/header&gt;</div><div class="line">    `,</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <hr>
 <p><strong>Ref:</strong> </p>
 <ol>
@@ -495,16 +487,16 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/12/sql-notes-1/" rel="next" title="SQL notes I">
-                <i class="fa fa-chevron-left"></i> SQL notes I
+              <a href="/2016/10/06/java8-notes-1/" rel="next" title="Java8 notes I">
+                <i class="fa fa-chevron-left"></i> Java8 notes I
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/06/java8-notes-1/" rel="prev" title="Java8 notes I">
-                Java8 notes I <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/12/sql-notes-1/" rel="prev" title="SQL notes I">
+                SQL notes I <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -573,7 +565,7 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -590,7 +582,7 @@ import from angular/coreimport &amp;#123;     Component,     Input,    Output,  
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

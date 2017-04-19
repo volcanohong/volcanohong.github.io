@@ -86,25 +86,17 @@
 
 
 
-<meta name="description" content="Hexo commands
-
-Install Hexo, make sure you have node.js installed
-npm install hexo-cli -g">
+<meta name="description" content="Hexo commands  Install Hexo, make sure you have node.js installed npm install hexo-cli -g">
+<meta name="keywords" content="blog,hexo,theme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/10/hexo-notes-1/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Hexo commands
-
-Install Hexo, make sure you have node.js installed
-npm install hexo-cli -g">
-<meta property="og:updated_time" content="2016-07-18T03:51:38.000Z">
+<meta property="og:description" content="Hexo commands  Install Hexo, make sure you have node.js installed npm install hexo-cli -g">
+<meta property="og:updated_time" content="2017-04-19T18:34:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo notes I">
-<meta name="twitter:description" content="Hexo commands
-
-Install Hexo, make sure you have node.js installed
-npm install hexo-cli -g">
+<meta name="twitter:description" content="Hexo commands  Install Hexo, make sure you have node.js installed npm install hexo-cli -g">
 
 
 
@@ -363,7 +355,7 @@ npm install hexo-cli -g">
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-number">1.</span> <span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-number">2.</span> <span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-number">3.</span> <span class="nav-text">Create post TOC</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-number">1.</span> <span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-number">2.</span> <span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-number">3.</span> <span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-module-version-mismatch"><span class="nav-number">4.</span> <span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
         </div>
       
       
@@ -420,6 +412,16 @@ npm install hexo-cli -g">
 <p>For defaut display TOC, just change the <code>if</code> statement, e.g.,</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> (post.toc == <span class="literal">false</span>) %&#125;</div><div class="line"><span class="comment"># and show list number by default</span></div><div class="line">&#123;% <span class="built_in">set</span> toc = toc(page.content, &#123;<span class="string">"class"</span>: <span class="string">"nav"</span>, list_number: post.toc_num==<span class="literal">false</span>&#125;) %&#125;</div></pre></td></tr></table></figure>
 <p>Then, you don’t have to set <code>front-matter</code> for each post.</p>
+<ul>
+<li><h4 id="error-module-version-mismatch"><a href="#Error-Module-version-mismatch" class="headerlink" title="Error: Module version mismatch"></a><strong>Error: Module version mismatch</strong></h4>It seems there is a mismatch between one of:</li>
+</ul>
+<ol>
+<li>The hexo in node_modules/.bin</li>
+<li>The hexo in /usr/local/bin/hexo</li>
+<li>The globally installed hexo which may well have been the one from 2.</li>
+</ol>
+<p>One solution is:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm uninstall -g hexo-cli</div><div class="line">rm /usr/local/bin/hexo</div><div class="line">rm -rf node_modules</div><div class="line">npm install</div><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
 <hr>
 
       
@@ -456,16 +458,16 @@ npm install hexo-cli -g">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/08/junit-test-notes-1/" rel="next" title="JUnit test notes I">
-                <i class="fa fa-chevron-left"></i> JUnit test notes I
+              <a href="/2016/07/13/java-ssl-debugging/" rel="next" title="Java SSL debugging">
+                <i class="fa fa-chevron-left"></i> Java SSL debugging
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/13/java-ssl-debugging/" rel="prev" title="Java SSL debugging">
-                Java SSL debugging <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/08/junit-test-notes-1/" rel="prev" title="JUnit test notes I">
+                JUnit test notes I <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +536,7 @@ npm install hexo-cli -g">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -551,7 +553,7 @@ npm install hexo-cli -g">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -621,7 +623,7 @@ npm install hexo-cli -g">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-text">Create post TOC</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-module-version-mismatch"><span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
             
           </div>
         </section>

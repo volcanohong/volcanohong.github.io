@@ -87,6 +87,7 @@
 
 
 <meta name="description" content="Notes on Chart.js options such as ticks and tooltips configuration.">
+<meta name="keywords" content="angular2,javascript,html,coding,chart">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chart.js in Angular 2">
 <meta property="og:url" content="http://volcanohong.github.com/2017/03/01/chartjs-notes/index.html">
@@ -384,7 +385,7 @@
 <ul>
 <li><h3 id="beginning-from-zero"><a href="#Beginning-From-Zero" class="headerlink" title="Beginning From Zero"></a><strong>Beginning From Zero</strong></h3></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	yAxes: [&#123;</div><div class="line">	    ticks: &#123;</div><div class="line">	        beginAtZero: <span class="literal">true</span></div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	<span class="attr">yAxes</span>: [&#123;</div><div class="line">	    <span class="attr">ticks</span>: &#123;</div><div class="line">	        <span class="attr">beginAtZero</span>: <span class="literal">true</span></div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="change-scale-label"><a href="#Change-Scale-Label" class="headerlink" title="Change Scale Label"></a><strong>Change Scale Label</strong></h3></li>
 </ul>
@@ -392,17 +393,17 @@
 <blockquote>
 <p>The callback method may be used for advanced tick customization. In the following example, every label of the Y axis would be displayed in scientific notation. If the callback returns null or undefined the associated grid line will be hidden.</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	yAxes: [&#123;</div><div class="line">	    ticks: &#123;</div><div class="line">	        callback: <span class="function"><span class="keyword">function</span> (<span class="params">label, index, labels</span>) </span>&#123;</div><div class="line">                        <span class="keyword">return</span> label / <span class="number">1000</span> + <span class="string">'k'</span>;</div><div class="line">                    &#125;,</div><div class="line">                    scaleLabel: &#123;</div><div class="line">                        display: <span class="literal">true</span>,</div><div class="line">                        labelString: <span class="string">'1k = 1000'</span></div><div class="line">                    &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	<span class="attr">yAxes</span>: [&#123;</div><div class="line">	    <span class="attr">ticks</span>: &#123;</div><div class="line">	        <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span> (<span class="params">label, index, labels</span>) </span>&#123;</div><div class="line">                        <span class="keyword">return</span> label / <span class="number">1000</span> + <span class="string">'k'</span>;</div><div class="line">                    &#125;,</div><div class="line">                    <span class="attr">scaleLabel</span>: &#123;</div><div class="line">                        <span class="attr">display</span>: <span class="literal">true</span>,</div><div class="line">                        <span class="attr">labelString</span>: <span class="string">'1k = 1000'</span></div><div class="line">                    &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><h3 id="two-y-scales"><a href="#Two-y-scales" class="headerlink" title="Two y-scales"></a><strong>Two y-scales</strong></h3></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">    yAxes: [&#123;</div><div class="line">        ticks: &#123;</div><div class="line">        position: <span class="string">"left"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-0"</span></div><div class="line">    &#125;, &#123;</div><div class="line">        ticks: &#123;</div><div class="line">            max: <span class="number">10</span>,</div><div class="line">            min: <span class="number">-50</span>,</div><div class="line">            stepSize: <span class="number">10</span>,</div><div class="line">            display: <span class="literal">false</span></div><div class="line">        &#125;,</div><div class="line">        position: <span class="string">"right"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-1"</span></div><div class="line">    &#125;]</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-<p>with corresponding dataset<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;data: data1, label: <span class="string">'a'</span>, yAxisID: <span class="string">"y-axis-0"</span>&#125;);</div><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;data: data2, label: <span class="string">'b'</span>, yAxisID: <span class="string">"y-axis-1"</span>&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">    <span class="attr">yAxes</span>: [&#123;</div><div class="line">        <span class="attr">ticks</span>: &#123;</div><div class="line">        <span class="attr">position</span>: <span class="string">"left"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-0"</span></div><div class="line">    &#125;, &#123;</div><div class="line">        <span class="attr">ticks</span>: &#123;</div><div class="line">            <span class="attr">max</span>: <span class="number">10</span>,</div><div class="line">            <span class="attr">min</span>: <span class="number">-50</span>,</div><div class="line">            <span class="attr">stepSize</span>: <span class="number">10</span>,</div><div class="line">            <span class="attr">display</span>: <span class="literal">false</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">position</span>: <span class="string">"right"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-1"</span></div><div class="line">    &#125;]</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>with corresponding dataset<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data1, <span class="attr">label</span>: <span class="string">'a'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-0"</span>&#125;);</div><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data2, <span class="attr">label</span>: <span class="string">'b'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-1"</span>&#125;);</div></pre></td></tr></table></figure></p>
 <ul>
 <li><h2 id="tooltips-congiguration"><a href="#Tooltips-Congiguration" class="headerlink" title="Tooltips Congiguration"></a><strong>Tooltips Congiguration</strong></h2></li>
 </ul>
 <p>Sometime we have to apply tooltips in special style in chart.js.<br>For example, in the following code, the 1st and 2nd data sets show tooltips in currency format, while the 3rd data set has tooltip with percentage symbole as sufix.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barChartOptions:any = &#123;</div><div class="line">    tooltips: &#123;</div><div class="line">        callbacks: &#123;</div><div class="line">            label: <span class="function"><span class="keyword">function</span> (<span class="params">tooltipItems, data</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (tooltipItems.datasetIndex == <span class="number">2</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> + tooltipItems.yLabel + <span class="string">'%'</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> +</div><div class="line">                        tooltipItems.yLabel.toFixed(<span class="number">2</span>).replace(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>, <span class="string">'$1,'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barChartOptions:any = &#123;</div><div class="line">    <span class="attr">tooltips</span>: &#123;</div><div class="line">        <span class="attr">callbacks</span>: &#123;</div><div class="line">            <span class="attr">label</span>: <span class="function"><span class="keyword">function</span> (<span class="params">tooltipItems, data</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (tooltipItems.datasetIndex == <span class="number">2</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> + tooltipItems.yLabel + <span class="string">'%'</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> +</div><div class="line">                        tooltipItems.yLabel.toFixed(<span class="number">2</span>).replace(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>, <span class="string">'$1,'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Here, we implemented tooltip <code>label</code> callback function.</p>
 <table>
 <thead>
@@ -473,16 +474,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/20/java-cookie/" rel="next" title="Java Cookie">
-                <i class="fa fa-chevron-left"></i> Java Cookie
+              <a href="/2017/03/12/angular2-in-safari/" rel="next" title="Angular2 Apps Script Error in Safari">
+                <i class="fa fa-chevron-left"></i> Angular2 Apps Script Error in Safari
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/12/angular2-in-safari/" rel="prev" title="Angular2 Apps Script Error in Safari">
-                Angular2 Apps Script Error in Safari <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/20/java-cookie/" rel="prev" title="Java Cookie">
+                Java Cookie <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -551,7 +552,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -568,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

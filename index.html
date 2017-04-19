@@ -292,6 +292,129 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/10/cors/" itemprop="url">
+                  CORS Issue
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-04-10T10:34:02-07:00" content="2017-04-10">
+              2017-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          How to deal with CORS issue?
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/04/10/cors/">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/12/angular2-in-safari/" itemprop="url">
                   Angular2 Apps Script Error in Safari
                 </a>
@@ -875,7 +998,7 @@
 <li>ViewEncapsulation.Emulated - No Shadow DOM but style encapsulation emulation.</li>
 <li>ViewEncapsulation.Native - Native Shadow DOM with all it’s goodness.</li>
 </ul>
-<p>To make that Angular doesn’t use Shadow DOM at all. In case adding some attributes to the style so that the style is not rendered well in the browser.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, OnInit, ViewEncapsulation&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">    selector: <span class="string">'app-period'</span>,</div><div class="line">    templateUrl: <span class="string">'./period.component.html'</span>,</div><div class="line">    encapsulation: ViewEncapsulation.None,</div><div class="line">    styleUrls: [<span class="string">'./period.component.scss'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>To make that Angular doesn’t use Shadow DOM at all. In case adding some attributes to the style so that the style is not rendered well in the browser.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, OnInit, ViewEncapsulation&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">    <span class="attr">selector</span>: <span class="string">'app-period'</span>,</div><div class="line">    <span class="attr">templateUrl</span>: <span class="string">'./period.component.html'</span>,</div><div class="line">    <span class="attr">encapsulation</span>: ViewEncapsulation.None,</div><div class="line">    <span class="attr">styleUrls</span>: [<span class="string">'./period.component.scss'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/29/angular2-notes-4/#more" rel="contents">
               Read more &raquo;
@@ -1138,7 +1261,7 @@
 </ul>
 <p>The Angular <code>Http</code> client communicates with the server using a familiar HTTP request/response protocol. The <code>Http</code> client is one of a family of services in the Angular HTTP library.</p>
 <p>E.g., <code>main.ts</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">import &#123; HttpModule&#125; <span class="keyword">from</span> <span class="string">'@angular/http'</span>;</div><div class="line"><span class="comment">//import &#123; HttpModule, JsonpModule &#125; from '@angular/http';</span></div><div class="line"><span class="keyword">import</span> &#123; App, providers&#125; <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line">...</div><div class="line">@NgModule(&#123;</div><div class="line">    declarations: [</div><div class="line">        App,</div><div class="line">        Main</div><div class="line">        ],</div><div class="line">    providers,</div><div class="line">    imports: [BrowserModule, FormsModule, HttpModule], </div><div class="line">    bootstrap: [App]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">...</div><div class="line">import &#123; HttpModule&#125; <span class="keyword">from</span> <span class="string">'@angular/http'</span>;</div><div class="line"><span class="comment">//import &#123; HttpModule, JsonpModule &#125; from '@angular/http';</span></div><div class="line"><span class="keyword">import</span> &#123; App, providers&#125; <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line">...</div><div class="line">@NgModule(&#123;</div><div class="line">    <span class="attr">declarations</span>: [</div><div class="line">        App,</div><div class="line">        Main</div><div class="line">        ],</div><div class="line">    providers,</div><div class="line">    <span class="attr">imports</span>: [BrowserModule, FormsModule, HttpModule], </div><div class="line">    <span class="attr">bootstrap</span>: [App]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/04/angular2-notes-2/#more" rel="contents">
               Read more &raquo;
@@ -1432,142 +1555,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/10/fcm-notification/" itemprop="url">
-                  Firebase Cloud Messaging Notification
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T12:16:51-08:00" content="2016-12-10">
-              2016-12-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          
-            <ul>
-<li><h3 id="integration-of-google-fcm-notification"><a href="#Integration-of-Google-FCM-Notification" class="headerlink" title="Integration of Google FCM Notification"></a><strong>Integration of Google FCM Notification</strong></h3></li>
-</ul>
-<ol>
-<li><strong>Introduction</strong><br> a. <strong>Key Capability</strong><br> b. <strong>FCM Message Type</strong><br> c. <strong>Implementation Path</strong></li>
-<li><strong>Create FCM Project</strong></li>
-<li><strong>Server Side Implementation</strong><br> a. <strong>Server Coding</strong><br> b. <strong>Server API Test</strong></li>
-</ol>
-
-
-	<div class="row">
-    <embed src="/content/pdf/FirebaseCloudMessagingNotification-181216.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1613,7 +1600,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1630,7 +1617,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

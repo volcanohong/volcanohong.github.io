@@ -86,25 +86,17 @@
 
 
 
-<meta name="description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)
-
-
-Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
+<meta name="description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)   Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
+<meta name="keywords" content="javascript,coding,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript/jQuery notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/08/06/javascripts-notes-1/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)
-
-
-Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
+<meta property="og:description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)   Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
 <meta property="og:updated_time" content="2016-08-23T23:54:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript/jQuery notes I">
-<meta name="twitter:description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)
-
-
-Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
+<meta name="twitter:description" content="HTML DIV overflow and scrollSometimes, the overflow-y:scroll is not working.$(&apos;#div_scroll&apos;).css(&apos;overflow-y&apos;, &apos;auto&apos;)   Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&apos;height&apos;,">
 
 
 
@@ -382,9 +374,9 @@ Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&ap
 </ul>
 <p>Configure datepicker: make sure the right jQuery libs have been included.</p>
 <p>Show calendar image only with a hidden input field.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"dp"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#dp"</span>).datepicker(&#123;</div><div class="line">    buttonImage: <span class="string">'../images/calendar.png'</span>,</div><div class="line">    buttonImageOnly: <span class="literal">true</span>,</div><div class="line">    changeMonth: <span class="literal">true</span>,</div><div class="line">    changeYear: <span class="literal">true</span>,</div><div class="line">    showOn: <span class="string">'both'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#dp"</span>).datepicker(&#123;</div><div class="line">    <span class="attr">buttonImage</span>: <span class="string">'../images/calendar.png'</span>,</div><div class="line">    <span class="attr">buttonImageOnly</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">changeMonth</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">changeYear</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">showOn</span>: <span class="string">'both'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Show both date input and image fields. The datepicker is binding to the input field. Then, when clicking the image, it also trigger the popup of same datepicker.<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"date"</span> &gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"date_img"</span> <span class="attr">src</span>=<span class="string">"../images/calendar.png”&gt;</span></span></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#date"</span>).datepicker(&#123;</div><div class="line">    format: <span class="string">"yyyy-mm-dd"</span>,</div><div class="line">    autoclose: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">"#date_img"</span>).on( <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#date'</span>).datepicker(<span class="string">'show'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$(<span class="string">"#date"</span>).datepicker(&#123;</div><div class="line">    <span class="attr">format</span>: <span class="string">"yyyy-mm-dd"</span>,</div><div class="line">    <span class="attr">autoclose</span>: <span class="literal">true</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">"#date_img"</span>).on( <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#date'</span>).datepicker(<span class="string">'show'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Possible conflict with <code>bootstrap</code>: when it comes with <code>&lt;div class=&quot;input-group date&quot; data-provide=&quot;datepicker&quot;&gt;</code> in HTML, the datepicker does not popup.</p>
 <ul>
 <li><h4 id="get-url-parameters"><a href="#Get-URL-Parameters" class="headerlink" title="Get URL Parameters"></a><strong>Get URL Parameters</strong></h4></li>
@@ -457,16 +449,16 @@ Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&ap
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/03/spring-notes-1/" rel="next" title="Spring notes I">
-                <i class="fa fa-chevron-left"></i> Spring notes I
+              <a href="/2016/08/08/hadoop-notes/" rel="next" title="Hadoop notes I">
+                <i class="fa fa-chevron-left"></i> Hadoop notes I
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/08/hadoop-notes/" rel="prev" title="Hadoop notes I">
-                Hadoop notes I <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/03/spring-notes-1/" rel="prev" title="Spring notes I">
+                Spring notes I <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +527,7 @@ Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&ap
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -552,7 +544,7 @@ Simply because the height property is missing.$(&apos;#div_scroll&apos;).css(&ap
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

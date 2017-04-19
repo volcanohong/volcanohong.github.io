@@ -87,6 +87,7 @@
 
 
 <meta name="description" content="Shadow DOMIn fact, Angular doesn’t use native Shadow DOM by default, it uses an emulation. Most browsers simply don’t support Shadow DOM yet, but we should still be able to use the framework. Even be">
+<meta name="keywords" content="angular2,javascript,html,coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular2 Notes IV">
 <meta property="og:url" content="http://volcanohong.github.com/2017/01/29/angular2-notes-4/index.html">
@@ -371,18 +372,18 @@
 <li>ViewEncapsulation.Emulated - No Shadow DOM but style encapsulation emulation.</li>
 <li>ViewEncapsulation.Native - Native Shadow DOM with all it’s goodness.</li>
 </ul>
-<p>To make that Angular doesn’t use Shadow DOM at all. In case adding some attributes to the style so that the style is not rendered well in the browser.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, OnInit, ViewEncapsulation&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">    selector: <span class="string">'app-period'</span>,</div><div class="line">    templateUrl: <span class="string">'./period.component.html'</span>,</div><div class="line">    encapsulation: ViewEncapsulation.None,</div><div class="line">    styleUrls: [<span class="string">'./period.component.scss'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>To make that Angular doesn’t use Shadow DOM at all. In case adding some attributes to the style so that the style is not rendered well in the browser.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, OnInit, ViewEncapsulation&#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">    <span class="attr">selector</span>: <span class="string">'app-period'</span>,</div><div class="line">    <span class="attr">templateUrl</span>: <span class="string">'./period.component.html'</span>,</div><div class="line">    <span class="attr">encapsulation</span>: ViewEncapsulation.None,</div><div class="line">    <span class="attr">styleUrls</span>: [<span class="string">'./period.component.scss'</span>]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <ul>
 <li><h2 id="bootstrap-datepicker"><a href="#Bootstrap-Datepicker" class="headerlink" title="Bootstrap Datepicker"></a><strong>Bootstrap Datepicker</strong></h2></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;DatePickerModule&#125; <span class="keyword">from</span> <span class="string">'ng2-datepicker'</span>;</div><div class="line"><span class="keyword">import</span> &#123;NKDatetimeModule&#125; <span class="keyword">from</span> <span class="string">'ng2-datetime/ng2-datetime'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'ng2-datetime/src/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'ng2-datetime/src/vendor/bootstrap-timepicker/bootstrap-timepicker.min.js'</span>;</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 no-padding"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">datetime</span> [(<span class="attr">ngModel</span>)]=<span class="string">"fromDate"</span> [<span class="attr">timepicker</span>]=<span class="string">"false"</span> [<span class="attr">datepicker</span>]=<span class="string">"fromDateOptions"</span></span></div><div class="line">              <span class="attr">name</span>=<span class="string">"dpFromDate"</span> <span class="attr">id</span>=<span class="string">"dpFromDate"</span> (<span class="attr">ngModelChange</span>)=<span class="string">"onSelectedDates()"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">datetime</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Example of datepicker options…<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.toDateOptions = &#123;</div><div class="line">            autoclose: <span class="literal">true</span>,</div><div class="line">            assumeNearbyYear: <span class="literal">true</span>,</div><div class="line">            format: <span class="string">'dd-mm-yyyy'</span>,</div><div class="line">            language: <span class="string">'en'</span>,</div><div class="line">            todayBtn: <span class="string">'linked'</span>,</div><div class="line">            todayHighlight: <span class="literal">true</span>,</div><div class="line">            weekStart: <span class="number">1</span>,</div><div class="line">            icon: <span class="string">'fa fa-calendar'</span></div><div class="line">        &#125;;</div></pre></td></tr></table></figure></p>
+<p>Example of datepicker options…<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.toDateOptions = &#123;</div><div class="line">            <span class="attr">autoclose</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">assumeNearbyYear</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">format</span>: <span class="string">'dd-mm-yyyy'</span>,</div><div class="line">            <span class="attr">language</span>: <span class="string">'en'</span>,</div><div class="line">            <span class="attr">todayBtn</span>: <span class="string">'linked'</span>,</div><div class="line">            <span class="attr">todayHighlight</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">weekStart</span>: <span class="number">1</span>,</div><div class="line">            <span class="attr">icon</span>: <span class="string">'fa fa-calendar'</span></div><div class="line">        &#125;;</div></pre></td></tr></table></figure></p>
 <ul>
 <li><h2 id="bootstrap-dropdown-button"><a href="#Bootstrap-Dropdown-Button" class="headerlink" title="Bootstrap Dropdown Button"></a><strong>Bootstrap Dropdown Button</strong></h2></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ButtonsModule, DropdownModule &#125; <span class="keyword">from</span> <span class="string">'ng2-bootstrap'</span>;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">    imports: [</div><div class="line">        <span class="comment">//...</span></div><div class="line">        ButtonsModule.forRoot(),</div><div class="line">        DropdownModule.forRoot(),</div><div class="line">        <span class="comment">//...</span></div><div class="line">    ],</div><div class="line">    providers: ...,</div><div class="line">    declarations: ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ButtonsModule, DropdownModule &#125; <span class="keyword">from</span> <span class="string">'ng2-bootstrap'</span>;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">    <span class="attr">imports</span>: [</div><div class="line">        <span class="comment">//...</span></div><div class="line">        ButtonsModule.forRoot(),</div><div class="line">        DropdownModule.forRoot(),</div><div class="line">        <span class="comment">//...</span></div><div class="line">    ],</div><div class="line">    <span class="attr">providers</span>: ...,</div><div class="line">    <span class="attr">declarations</span>: ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span> <span class="attr">dropdown</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"dropdown-btn-curr"</span> <span class="attr">class</span>=<span class="string">"btn btn-secondary"</span> <span class="attr">dropdownToggle</span>&gt;</span></div><div class="line">        &amp;nbsp; &#123;&#123;currDefault&#125;&#125; &amp;nbsp;</div><div class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-caret-down"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">dropdownMenu</span> <span class="attr">role</span>=<span class="string">"menu"</span> <span class="attr">aria-labelledby</span>=<span class="string">"dropdown-btn-curr"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">"menuitem"</span> *<span class="attr">ngFor</span>=<span class="string">"let curr of currCodeList"</span> &gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">a</span> (<span class="attr">click</span>)=<span class="string">"onCurrencySelected(curr)"</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span>&gt;</span>&#123;&#123;curr&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li><h2 id="simple-cache-implementation"><a href="#Simple-Cache-Implementation" class="headerlink" title="Simple Cache Implementation"></a><strong>Simple Cache Implementation</strong></h2></li>
@@ -442,16 +443,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/28/angular2-notes-3/" rel="next" title="Angular2 Notes III">
-                <i class="fa fa-chevron-left"></i> Angular2 Notes III
+              <a href="/2017/02/09/angular2-notes-5/" rel="next" title="Angular2 Notes V">
+                <i class="fa fa-chevron-left"></i> Angular2 Notes V
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/09/angular2-notes-5/" rel="prev" title="Angular2 Notes V">
-                Angular2 Notes V <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/28/angular2-notes-3/" rel="prev" title="Angular2 Notes III">
+                Angular2 Notes III <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -520,7 +521,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -537,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -86,25 +86,17 @@
 
 
 
-<meta name="description" content="Recently, I am developing Apps by using angular datatables.
-The followings are some issues or note that I have to record.
-Datatable OptionsSelected datatable options…
-vm.dtOptions = DTOptionsBuilder.n">
+<meta name="description" content="Recently, I am developing Apps by using angular datatables. The followings are some issues or note that I have to record. Datatable OptionsSelected datatable options… vm.dtOptions = DTOptionsBuilder.n">
+<meta name="keywords" content="datatable,java,angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Angular Datatable Notes">
 <meta property="og:url" content="http://volcanohong.github.com/2017/01/01/angular-datatable/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Recently, I am developing Apps by using angular datatables.
-The followings are some issues or note that I have to record.
-Datatable OptionsSelected datatable options…
-vm.dtOptions = DTOptionsBuilder.n">
+<meta property="og:description" content="Recently, I am developing Apps by using angular datatables. The followings are some issues or note that I have to record. Datatable OptionsSelected datatable options… vm.dtOptions = DTOptionsBuilder.n">
 <meta property="og:updated_time" content="2017-03-12T04:36:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular Datatable Notes">
-<meta name="twitter:description" content="Recently, I am developing Apps by using angular datatables.
-The followings are some issues or note that I have to record.
-Datatable OptionsSelected datatable options…
-vm.dtOptions = DTOptionsBuilder.n">
+<meta name="twitter:description" content="Recently, I am developing Apps by using angular datatables. The followings are some issues or note that I have to record. Datatable OptionsSelected datatable options… vm.dtOptions = DTOptionsBuilder.n">
 
 
 
@@ -386,11 +378,11 @@ vm.dtOptions = DTOptionsBuilder.n">
 <ul>
 <li><h2 id="missing-buttons-on-data-change"><a href="#Missing-Buttons-on-Data-Change" class="headerlink" title="Missing Buttons on Data Change"></a><strong>Missing Buttons on Data Change</strong></h2></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;%--angular-datatables - v0<span class="number">.5</span><span class="number">.2</span>--%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dataTables/datatables.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.buttons.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//datatable controller </span></div><div class="line">$scope.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">        .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">        .withButtons([</div><div class="line">            &#123;extend: <span class="string">'copy'</span>&#125;,</div><div class="line">            &#123;extend: <span class="string">'csv'</span>&#125;,</div><div class="line">            &#123;</div><div class="line">                extend: <span class="string">'print'</span>,</div><div class="line">                customize: <span class="function"><span class="keyword">function</span> (<span class="params">win</span>) </span>&#123;</div><div class="line">                    $(win.document.body).addClass(<span class="string">'white-bg'</span>);</div><div class="line">                    $(win.document.body).css(<span class="string">'font-size'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line">                    $(win.document.body).find(<span class="string">'table'</span>)</div><div class="line">                        .addClass(<span class="string">'compact'</span>)</div><div class="line">                        .css(<span class="string">'font-size'</span>, <span class="string">'inherit'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        ]);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;%--angular-datatables - v0<span class="number">.5</span><span class="number">.2</span>--%&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../dataTables/datatables.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"../dataTables/angular-datatables.buttons.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//datatable controller </span></div><div class="line">$scope.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">        .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">        .withButtons([</div><div class="line">            &#123;<span class="attr">extend</span>: <span class="string">'copy'</span>&#125;,</div><div class="line">            &#123;<span class="attr">extend</span>: <span class="string">'csv'</span>&#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">extend</span>: <span class="string">'print'</span>,</div><div class="line">                <span class="attr">customize</span>: <span class="function"><span class="keyword">function</span> (<span class="params">win</span>) </span>&#123;</div><div class="line">                    $(win.document.body).addClass(<span class="string">'white-bg'</span>);</div><div class="line">                    $(win.document.body).css(<span class="string">'font-size'</span>, <span class="string">'10px'</span>);</div><div class="line"></div><div class="line">                    $(win.document.body).find(<span class="string">'table'</span>)</div><div class="line">                        .addClass(<span class="string">'compact'</span>)</div><div class="line">                        .css(<span class="string">'font-size'</span>, <span class="string">'inherit'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        ]);</div></pre></td></tr></table></figure>
 <p>When the data is changed, the buttons such as ‘Copy’, ‘Print’ and ‘CSV’ from datatable-buttons plugin disappear.</p>
 <p><strong>Cause:</strong> It seems the datatable dose not redraw the options like button plugin after data change. </p>
 <p><strong>Solution:</strong><br>We can manually add button-options by using angular-datatable <a href="https://datatables.net/reference/option/drawCallback" target="_blank" rel="external">drawCallback function</a>, where the function is called every time DataTables performs a draw.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> buttonsOpt = [</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-copy"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'copy'</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            text: <span class="string">'&lt;i class="fa fa-file-text-o"&gt;&lt;/i&gt;'</span>,</div><div class="line">            extend: <span class="string">'csv'</span></div><div class="line">        &#125;</div><div class="line">    ];</div><div class="line"></div><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withButtons(buttonsOpt.slice());</div><div class="line"></div><div class="line">vm.dtOptions.drawCallback = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> api = $(<span class="keyword">this</span>).DataTable();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> $.fn.dataTable.Buttons(api, &#123;</div><div class="line">            buttons: buttonsOpt.slice()</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        $(<span class="keyword">this</span>).parent().find(<span class="string">'.dt-buttons'</span>).replaceWith(api.buttons().container());</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> buttonsOpt = [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">text</span>: <span class="string">'&lt;i class="fa fa-copy"&gt;&lt;/i&gt;'</span>,</div><div class="line">            <span class="attr">extend</span>: <span class="string">'copy'</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">text</span>: <span class="string">'&lt;i class="fa fa-file-text-o"&gt;&lt;/i&gt;'</span>,</div><div class="line">            <span class="attr">extend</span>: <span class="string">'csv'</span></div><div class="line">        &#125;</div><div class="line">    ];</div><div class="line"></div><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withButtons(buttonsOpt.slice());</div><div class="line"></div><div class="line">vm.dtOptions.drawCallback = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> api = $(<span class="keyword">this</span>).DataTable();</div><div class="line"></div><div class="line">        <span class="keyword">new</span> $.fn.dataTable.Buttons(api, &#123;</div><div class="line">            <span class="attr">buttons</span>: buttonsOpt.slice()</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        $(<span class="keyword">this</span>).parent().find(<span class="string">'.dt-buttons'</span>).replaceWith(api.buttons().container());</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
 <p><strong>Ref:</strong></p>
 <ol>
 <li><a href="https://datatables.net/" target="_blank" rel="external">datatables</a></li>
@@ -430,16 +422,16 @@ vm.dtOptions = DTOptionsBuilder.n">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/18/jhipster-microservice/" rel="next" title="Jhipster MicroService">
-                <i class="fa fa-chevron-left"></i> Jhipster MicroService
+              <a href="/2017/01/04/angular2-notes-2/" rel="next" title="Angular2 Notes II">
+                <i class="fa fa-chevron-left"></i> Angular2 Notes II
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/04/angular2-notes-2/" rel="prev" title="Angular2 Notes II">
-                Angular2 Notes II <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/18/jhipster-microservice/" rel="prev" title="Jhipster MicroService">
+                Jhipster MicroService <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -508,7 +500,7 @@ vm.dtOptions = DTOptionsBuilder.n">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -525,7 +517,7 @@ vm.dtOptions = DTOptionsBuilder.n">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
