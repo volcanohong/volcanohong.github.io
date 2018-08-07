@@ -292,6 +292,132 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/01/angular-datatable/" itemprop="url">
+                  Angular Datatable Notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-01T10:50:00-08:00" content="2017-01-01">
+              2017-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <p>Recently, I am developing Apps by using angular datatables.</p>
+<p>The followings are some issues or note that I have to record.</p>
+<h2 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h2><p>Selected datatable options…</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></div><div class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></div><div class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></div><div class="line">    <span class="comment">// change the options in the page length select list.</span></div><div class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></div><div class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></div><div class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></div><div class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></div><div class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></div><div class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/01/angular-datatable/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/18/jhipster-microservice/" itemprop="url">
                   Jhipster MicroService
                 </a>
@@ -1457,149 +1583,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/01/machine-learning-notes/" itemprop="url">
-                  Machine learning notes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-01T21:00:00-07:00" content="2016-09-01">
-              2016-09-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Big-data/" itemprop="url" rel="index">
-                    <span itemprop="name">Big data</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="What-is-machine-learning"><a href="#What-is-machine-learning" class="headerlink" title="What is machine learning?"></a><strong>What is machine learning?</strong></h4></li>
-</ul>
-<ul>
-<li>Core Task<ul>
-<li>Finds patterns in data</li>
-<li>Use those patterns to predict future</li>
-</ul>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_offering.png" alt="Example Machine Learning Offerings"></p>
-<ul>
-<li>What is learning?<ul>
-<li>Identifying patterns</li>
-<li>Recognizing those patterns when you see them again</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Machine can find a pattern in existing data, then create and use a model that recognize those patterns in new data</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/01/machine-learning-notes/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1645,7 +1628,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1662,7 +1645,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

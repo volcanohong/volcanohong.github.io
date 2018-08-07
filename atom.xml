@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2018-08-07T17:56:23.000Z</updated>
+  <updated>2018-08-07T20:08:52.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring-boot notes I</title>
+    <link href="http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/"/>
+    <id>http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/</id>
+    <published>2018-08-02T19:49:46.000Z</published>
+    <updated>2018-08-07T20:08:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="developer-tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a><strong>Developer Tools</strong></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
+<p>Maven configuration, in pom.xml,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;dependencies&gt;</div><div class="line">	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</div><div class="line">		&lt;optional&gt;true&lt;/optional&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+<h3 id="automatic-restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a><strong>Automatic Restart</strong></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
+<p><strong>Triggering a restart</strong></p>
+<p>As DevTools monitors classpath resources, the only way to trigger a restart is to update the classpath. The way in which you cause the classpath to be updated depends on the IDE that you are using. In <code>Eclipse</code>, saving a modified file causes the classpath to be updated and triggers a restart. In <code>IntelliJ IDEA</code>, building the project (Build -&gt; Build Project) has the same effect.</p>
+<p><strong>Logging changes in condition evaluation</strong></p>
+<p>By default, each time your application restarts, a report showing the condition evaluation delta is logged. The report shows the changes to your application’s auto-configuration as you make changes such as adding or removing beans and setting configuration properties.</p>
+<p>To disable the logging of the report, set the following property:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">**Excluding Resources**</div><div class="line">Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in `/META-INF/maven`, `/META-INF/resources`, `/resources`, or `/templates` does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only `/static` and `/public` you would set the following property:</div><div class="line"></div><div class="line">```spring.devtools.restart.exclude=static/**,public/**</div></pre></td></tr></table></figure>
+<h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has the main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
+<p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="external">Spring-boot Developer Tools</a> for more details.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Spring-boot developer tools
+    
+    </summary>
+    
+      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="spring" scheme="http://volcanohong.github.com/tags/spring/"/>
+    
+      <category term="spring-boot" scheme="http://volcanohong.github.com/tags/spring-boot/"/>
+    
+  </entry>
   
   <entry>
     <title>CORS Issue Cont.</title>
@@ -1579,126 +1617,6 @@
       <category term="sql server" scheme="http://volcanohong.github.com/tags/sql-server/"/>
     
       <category term="sql" scheme="http://volcanohong.github.com/tags/sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine learning notes</title>
-    <link href="http://volcanohong.github.com/2016/09/01/machine-learning-notes/"/>
-    <id>http://volcanohong.github.com/2016/09/01/machine-learning-notes/</id>
-    <published>2016-09-02T04:00:00.000Z</published>
-    <updated>2016-09-07T21:07:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li><h4 id="what-is-machine-learning"><a href="#What-is-machine-learning" class="headerlink" title="What is machine learning?"></a><strong>What is machine learning?</strong></h4></li>
-</ul>
-<ul>
-<li>Core Task<ul>
-<li>Finds patterns in data</li>
-<li>Use those patterns to predict future</li>
-</ul>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_offering.png" alt="Example Machine Learning Offerings"></p>
-<ul>
-<li>What is learning?<ul>
-<li>Identifying patterns</li>
-<li>Recognizing those patterns when you see them again</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Machine can find a pattern in existing data, then create and use a model that recognize those patterns in new data</p>
-</blockquote>
-<a id="more"></a> 
-<p><img src="/content/images/2016/ml_nutshell.png" alt="Inside Machine Learning"></p>
-<ul>
-<li><p>A Data Scientist needs to master</p>
-<ul>
-<li>statistics</li>
-<li>machine learning software</li>
-<li>some problem domain (application fields)</li>
-</ul>
-</li>
-<li><p>Languages</p>
-<ul>
-<li>R</li>
-<li>Python</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><h4 id="steps-of-sovling-a-problem"><a href="#Steps-of-Sovling-a-Problem" class="headerlink" title="Steps of Sovling a Problem"></a><strong>Steps of Sovling a Problem</strong></h4></li>
-</ul>
-<ul>
-<li>Ask a question first? such as…<ul>
-<li>How to keep a player to play longer?</li>
-<li>How to get a player to play instantly?</li>
-</ul>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_1st_step.png" alt="1st Step of Machine Learning"></p>
-<ul>
-<li><p>Whether or not having lots of right data?</p>
-</li>
-<li><p>Pattern, Model and Application?</p>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_process.png" alt="Machine Learning Process"></p>
-<ul>
-<li>Need knowledge:<ul>
-<li>Training data: the prepared data used to create a model</li>
-<li><em>Supervised learning</em>: the value you want to predict is in the training data, data is labelled, the target value is part of training data.<br>(and <em>unsupervised learning</em>)</li>
-<li>Classifying machine learning problems and algorithms<ul>
-<li>Supervised: Regression, Classification,</li>
-<li>Unsupervised: Clustering Algorithms: Decision tree, Neural network, Bayesian, K-means</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/content/images/2016/ml_entire_process.png" alt="Repeating Machine Learning Process"></p>
-<ol>
-<li>Training a model</li>
-<li>Testing a model</li>
-<li>Using a model</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;What-is-machine-learning&quot;&gt;&lt;a href=&quot;#What-is-machine-learning&quot; class=&quot;headerlink&quot; title=&quot;What is machine learning?&quot;&gt;&lt;/a&gt;&lt;strong&gt;What is machine learning?&lt;/strong&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Core Task&lt;ul&gt;
-&lt;li&gt;Finds patterns in data&lt;/li&gt;
-&lt;li&gt;Use those patterns to predict future&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/content/images/2016/ml_offering.png&quot; alt=&quot;Example Machine Learning Offerings&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;What is learning?&lt;ul&gt;
-&lt;li&gt;Identifying patterns&lt;/li&gt;
-&lt;li&gt;Recognizing those patterns when you see them again&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Machine can find a pattern in existing data, then create and use a model that recognize those patterns in new data&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Big data" scheme="http://volcanohong.github.com/categories/Big-data/"/>
-    
-    
-      <category term="big data" scheme="http://volcanohong.github.com/tags/big-data/"/>
-    
-      <category term="AI" scheme="http://volcanohong.github.com/tags/AI/"/>
-    
-      <category term="machine learning" scheme="http://volcanohong.github.com/tags/machine-learning/"/>
     
   </entry>
   

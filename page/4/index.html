@@ -292,6 +292,137 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/14/linux-notes-1/" itemprop="url">
+                  Linux notes I
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T15:00:00-07:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index">
+                    <span itemprop="name">Blog</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          
+            <ul>
+<li><h4 id="commands"><a href="#Commands" class="headerlink" title="Commands"></a><strong>Commands</strong></h4></li>
+<li><h5 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h5></li>
+</ul>
+<p><code>grep</code> is a useful command to search text in a file.</p>
+<p><em>Format</em>:<br><code>grep [–bcEFilnqsvx] [–e pattern] ... [–f patternfile] ... [pattern] [file ...]</code></p>
+<p><code>grep</code> with multiple strings:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">/logs/xxx | grep <span class="_">-e</span> <span class="string">'error'</span> <span class="_">-e</span> <span class="string">'falure'</span></div></pre></td></tr></table></figure></p>
+<p><code>grep</code> with highlight color:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">egrep --color=auto -i <span class="string">'(error|fatal|warn|drop)'</span> /logs/xxx</div></pre></td></tr></table></figure></p>
+<p>Change <code>grep</code> display color: following will set background to red and foreground to white:<br><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> GREP_OPTIONS=<span class="string">'--color=auto'</span></div><div class="line"><span class="built_in">export</span> GREP_COLOR=<span class="string">'1;37;41'</span></div></pre></td></tr></table></figure></p>
+<p>Useful links:<br><a href="http://linuxcommand.org/writing_shell_scripts.php" target="_blank" rel="external">Writing shell scripts</a><br><a href="https://www.ibm.com/support/knowledgecenter/SSLTBW_1.13.0/com.ibm.zos.r13.bpxa500/grep.htm" target="_blank" rel="external">Search a file for a specified pattern</a></p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/13/java-ssl-debugging/" itemprop="url">
                   Java SSL debugging
                 </a>
@@ -1138,7 +1269,7 @@ Rather than
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1155,7 +1286,7 @@ Rather than
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hi, volcanohong" />
+  <meta name="keywords" content="java,spring,spring-boot," />
 
 
 
@@ -86,15 +86,17 @@
 
 
 
-<meta name="description" content="Good things are coming, just KEEP GOING...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Volcanohong's Learning Notes">
-<meta property="og:url" content="http://volcanohong.github.com/tags/design-pattern/index.html">
+<meta name="description" content="Spring-boot developer tools">
+<meta name="keywords" content="java,spring,spring-boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="Good things are coming, just KEEP GOING...">
+<meta property="og:description" content="Spring-boot developer tools">
+<meta property="og:updated_time" content="2018-08-07T20:08:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Volcanohong's Learning Notes">
-<meta name="twitter:description" content="Good things are coming, just KEEP GOING...">
+<meta name="twitter:title" content="spring-boot notes I">
+<meta name="twitter:description" content="Spring-boot developer tools">
 
 
 
@@ -115,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/tags/design-pattern/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/"/>
 
-  <title> Tag: design pattern | Volcanohong's Learning Notes </title>
+  <title> spring-boot notes I | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -147,7 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,46 +270,169 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        design pattern
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                spring-boot notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-08-02T12:49:46-07:00" content="2018-08-02">
+              2018-08-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#developer-tools"><span class="nav-number">1.</span> <span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#automatic-restart"><span class="nav-number">1.1.</span> <span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-number">1.2.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></div>
+        </div>
+      
+      
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="developer-tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a><strong>Developer Tools</strong></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
+<p>Maven configuration, in pom.xml,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;dependencies&gt;</div><div class="line">	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</div><div class="line">		&lt;optional&gt;true&lt;/optional&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+<h3 id="automatic-restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a><strong>Automatic Restart</strong></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
+<p><strong>Triggering a restart</strong></p>
+<p>As DevTools monitors classpath resources, the only way to trigger a restart is to update the classpath. The way in which you cause the classpath to be updated depends on the IDE that you are using. In <code>Eclipse</code>, saving a modified file causes the classpath to be updated and triggers a restart. In <code>IntelliJ IDEA</code>, building the project (Build -&gt; Build Project) has the same effect.</p>
+<p><strong>Logging changes in condition evaluation</strong></p>
+<p>By default, each time your application restarts, a report showing the condition evaluation delta is logged. The report shows the changes to your application’s auto-configuration as you make changes such as adding or removing beans and setting configuration properties.</p>
+<p>To disable the logging of the report, set the following property:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">**Excluding Resources**</div><div class="line">Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in `/META-INF/maven`, `/META-INF/resources`, `/resources`, or `/templates` does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only `/static` and `/public` you would set the following property:</div><div class="line"></div><div class="line">```spring.devtools.restart.exclude=static/**,public/**</div></pre></td></tr></table></figure>
+<h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has the main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
+<p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="external">Spring-boot Developer Tools</a> for more details.</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/06/26/java-notes-1/" itemprop="url">
-              
-                <span itemprop="name">Java coding notes I</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-26T21:00:00-07:00"
-              content="2016-06-26" >
-          06-26
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/spring/" rel="tag">#spring</a>
+          
+            <a href="/tags/spring-boot/" rel="tag">#spring-boot</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/01/cors-cont/" rel="prev" title="CORS Issue Cont.">
+                CORS Issue Cont. <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -315,6 +440,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -334,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -426,6 +564,17 @@
            
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#developer-tools"><span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#automatic-restart"><span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-text">Note</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -538,6 +687,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

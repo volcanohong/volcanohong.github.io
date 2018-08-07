@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/</loc>
+    
+    <lastmod>2018-08-07T20:08:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://volcanohong.github.com/2018/04/01/cors-cont/</loc>
     
     <lastmod>2018-08-07T17:56:23.000Z</lastmod>
