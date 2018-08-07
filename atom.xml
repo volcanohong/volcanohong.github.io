@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2017-04-19T18:40:11.000Z</updated>
+  <updated>2018-08-07T17:44:21.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -16,11 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CORS Issue Cont.</title>
+    <link href="http://volcanohong.github.com/2018/08/01/cors-cont/"/>
+    <id>http://volcanohong.github.com/2018/08/01/cors-cont/</id>
+    <published>2018-08-01T17:35:02.000Z</published>
+    <updated>2018-08-07T17:44:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><h2 id="cors-solution-cont"><a href="#CORS-Solution-Cont" class="headerlink" title="CORS Solution Cont."></a><strong>CORS Solution Cont.</strong></h2></li>
+</ul>
+<p>In spring-boot project configuration,</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"app.corsSites"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsSiteConfiguration</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getAllowSites</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> allowSites;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    List&lt;String&gt; allowSites = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">corsConfigurer</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurerAdapter() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</div><div class="line">                CorsRegistration corsRegistration = registry.addMapping(<span class="string">"/**"</span>)</div><div class="line">                        <span class="comment">//config in yml file</span></div><div class="line">                        .allowedOrigins(<span class="string">"http://10.0.0.1:8081"</span>) <span class="comment">//demo</span></div><div class="line">                        .allowedMethods(<span class="string">"GET"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>, <span class="string">"DELETE"</span>)</div><div class="line">                        .allowCredentials(<span class="keyword">false</span>)</div><div class="line">                        .maxAge(<span class="number">3600</span>);</div><div class="line">                <span class="keyword">if</span> (allowSites == <span class="keyword">null</span> || allowSites.size() == <span class="number">0</span>) &#123;</div><div class="line">                    corsRegistration.allowedOrigins(<span class="string">"*"</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    allowSites.forEach(site -&gt; corsRegistration.allowedOrigins(site));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In <code>yml</code> file,</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><div class="line"><span class="attr">app:</span></div><div class="line"><span class="attr">  cors-sites:</span></div><div class="line"><span class="attr">    allow-sites:</span></div><div class="line"><span class="bullet">      -</span> <span class="string">"*"</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      A late solution for CORS issue in spring-boot?
+    
+    </summary>
+    
+      <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="angular2" scheme="http://volcanohong.github.com/tags/angular2/"/>
+    
+      <category term="spring" scheme="http://volcanohong.github.com/tags/spring/"/>
+    
+      <category term="spring-boot" scheme="http://volcanohong.github.com/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CORS Issue</title>
     <link href="http://volcanohong.github.com/2017/04/10/cors/"/>
     <id>http://volcanohong.github.com/2017/04/10/cors/</id>
     <published>2017-04-10T17:34:02.000Z</published>
-    <updated>2017-04-19T18:40:11.000Z</updated>
+    <updated>2018-08-07T17:38:49.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><h2 id="cors-in-my-case"><a href="#CORS-in-My-Case" class="headerlink" title="CORS in My Case"></a><strong>CORS in My Case</strong></h2></li>
@@ -76,11 +111,11 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="angular2" scheme="http://volcanohong.github.com/tags/angular2/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
     
-      <category term="sping" scheme="http://volcanohong.github.com/tags/sping/"/>
+      <category term="angular2" scheme="http://volcanohong.github.com/tags/angular2/"/>
+    
+      <category term="spring" scheme="http://volcanohong.github.com/tags/spring/"/>
     
   </entry>
   
@@ -325,9 +360,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
       <category term="cookie" scheme="http://volcanohong.github.com/tags/cookie/"/>
     
@@ -1189,13 +1224,13 @@
       <category term="Javascript" scheme="http://volcanohong.github.com/categories/Javascript/"/>
     
     
+      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
+    
       <category term="javascript" scheme="http://volcanohong.github.com/tags/javascript/"/>
     
       <category term="html" scheme="http://volcanohong.github.com/tags/html/"/>
     
       <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
-      <category term="angular" scheme="http://volcanohong.github.com/tags/angular/"/>
     
   </entry>
   
@@ -1240,9 +1275,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
       <category term="qrcode" scheme="http://volcanohong.github.com/tags/qrcode/"/>
     
@@ -1322,9 +1357,9 @@
       <category term="Java" scheme="http://volcanohong.github.com/categories/Java/"/>
     
     
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
       <category term="java" scheme="http://volcanohong.github.com/tags/java/"/>
+    
+      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
     
   </entry>
   
@@ -1664,47 +1699,6 @@
       <category term="AI" scheme="http://volcanohong.github.com/tags/AI/"/>
     
       <category term="machine learning" scheme="http://volcanohong.github.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hippo notes 2</title>
-    <link href="http://volcanohong.github.com/2016/08/24/hippo-notes-2/"/>
-    <id>http://volcanohong.github.com/2016/08/24/hippo-notes-2/</id>
-    <published>2016-08-25T04:00:00.000Z</published>
-    <updated>2016-08-24T04:15:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a>
-<ul>
-<li><h4 id="carousel-parameters"><a href="#Carousel-Parameters" class="headerlink" title="Carousel Parameters"></a><strong>Carousel Parameters</strong></h4></li>
-</ul>
-<p>Problem: In Hippo banner carousel setting, changing parameter <code>height</code> has no effect. </p>
-<p>Solution: This is because missing configuration of CSS with parameter <code>height</code> in <code>essentials-carousel.ftl</code>.</p>
-<p>The following code is a good example to show that using object from java bean to dynamically configure the CSS in script.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;#-- @ftlvariable name=&quot;cparam&quot; type=&quot;org.onehippo.cms7.essentials.components.info.EssentialsCarouselComponentInfo&quot; --&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">@hst.headContribution</span> <span class="attr">category</span>=<span class="string">"htmlHead"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">#--</span> <span class="attr">Carousel</span> <span class="attr">base</span> <span class="attr">class</span> <span class="attr">--</span>&gt;</span></div><div class="line">        .swiper-wrapper &#123;</div><div class="line">            max-height: $&#123;cparam.carouselHeight&#125;px;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">@hst.headContribution</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;carousel-parameters&quot;&gt;&lt;a href=&quot;#Carousel-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Carousel Parameters&quot;&gt;&lt;/a&gt;&lt;s
-    
-    </summary>
-    
-      <category term="Hippo" scheme="http://volcanohong.github.com/categories/Hippo/"/>
-    
-    
-      <category term="javascript" scheme="http://volcanohong.github.com/tags/javascript/"/>
-    
-      <category term="coding" scheme="http://volcanohong.github.com/tags/coding/"/>
-    
-      <category term="hippo" scheme="http://volcanohong.github.com/tags/hippo/"/>
-    
-      <category term="freemarker" scheme="http://volcanohong.github.com/tags/freemarker/"/>
-    
-      <category term="cms" scheme="http://volcanohong.github.com/tags/cms/"/>
     
   </entry>
   

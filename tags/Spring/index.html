@@ -89,7 +89,7 @@
 <meta name="description" content="Good things are coming, just KEEP GOING...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Volcanohong's Learning Notes">
-<meta property="og:url" content="http://volcanohong.github.com/tags/spring/index.html">
+<meta property="og:url" content="http://volcanohong.github.com/tags/Spring/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
 <meta property="og:description" content="Good things are coming, just KEEP GOING...">
 <meta name="twitter:card" content="summary">
@@ -115,9 +115,9 @@
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/tags/spring/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/tags/Spring/"/>
 
-  <title> Tag: spring | Volcanohong's Learning Notes </title>
+  <title> Tag: Spring | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -271,7 +271,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        spring
+        Spring
         <small>Tag</small>
       </h2>
     </div>
@@ -284,9 +284,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/08/03/spring-notes-1/" itemprop="url">
+            <a class="post-title-link" href="/2016/08/12/spring-mvc-notes/" itemprop="url">
               
-                <span itemprop="name">Spring notes I</span>
+                <span itemprop="name">Spring MVC notes I</span>
               
             </a>
         
@@ -294,9 +294,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-03T21:50:04-07:00"
-              content="2016-08-03" >
-          08-03
+              datetime="2016-08-12T17:53:18-07:00"
+              content="2016-08-12" >
+          08-12
         </time>
       </div>
 
@@ -346,7 +346,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -441,7 +441,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -698,4 +698,53 @@
 
 </body>
 </html>
-html>
+ss=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
