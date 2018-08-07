@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://volcanohong.github.com/"/>
-  <updated>2018-08-07T20:08:52.000Z</updated>
+  <updated>2018-08-07T20:12:46.000Z</updated>
   <id>http://volcanohong.github.com/</id>
   
   <author>
@@ -16,23 +16,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>spring-boot notes I</title>
+    <title>Spring-boot Notes I</title>
     <link href="http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/"/>
     <id>http://volcanohong.github.com/2018/08/02/spring-boot-notes-1/</id>
     <published>2018-08-02T19:49:46.000Z</published>
-    <updated>2018-08-07T20:08:52.000Z</updated>
+    <updated>2018-08-07T20:12:46.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="developer-tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a><strong>Developer Tools</strong></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
 <p>Maven configuration, in pom.xml,</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;dependencies&gt;</div><div class="line">	&lt;dependency&gt;</div><div class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">		&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</div><div class="line">		&lt;optional&gt;true&lt;/optional&gt;</div><div class="line">	&lt;/dependency&gt;</div><div class="line">&lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="automatic-restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a><strong>Automatic Restart</strong></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
 <p><strong>Triggering a restart</strong></p>
 <p>As DevTools monitors classpath resources, the only way to trigger a restart is to update the classpath. The way in which you cause the classpath to be updated depends on the IDE that you are using. In <code>Eclipse</code>, saving a modified file causes the classpath to be updated and triggers a restart. In <code>IntelliJ IDEA</code>, building the project (Build -&gt; Build Project) has the same effect.</p>
 <p><strong>Logging changes in condition evaluation</strong></p>
 <p>By default, each time your application restarts, a report showing the condition evaluation delta is logged. The report shows the changes to your application’s auto-configuration as you make changes such as adding or removing beans and setting configuration properties.</p>
 <p>To disable the logging of the report, set the following property:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">**Excluding Resources**</div><div class="line">Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in `/META-INF/maven`, `/META-INF/resources`, `/resources`, or `/templates` does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only `/static` and `/public` you would set the following property:</div><div class="line"></div><div class="line">```spring.devtools.restart.exclude=static/**,public/**</div></pre></td></tr></table></figure>
-<h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has the main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">spring.devtools.restart.log-condition-evaluation-delta=<span class="keyword">false</span></div></pre></td></tr></table></figure>
+<p><strong>Excluding Resources</strong></p>
+<p>Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in <code>/META-INF/maven</code>, <code>/META-INF/resources</code>, <code>/resources</code>, or <code>/templates</code> does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only <code>/static</code> and <code>/public</code> you would set the following property:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">spring.devtools.restart.exclude=<span class="keyword">static</span><span class="comment">/**,public/**</span></div></pre></td></tr></table></figure>
+<h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
 <p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="external">Spring-boot Developer Tools</a> for more details.</p>
 ]]></content>
     
