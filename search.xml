@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[CORS Issue Cont.]]></title>
-      <url>%2F2018%2F08%2F01%2Fcors-cont%2F</url>
+      <url>%2F2018%2F04%2F01%2Fcors-cont%2F</url>
       <content type="text"><![CDATA[CORS Solution Cont. In spring-boot project configuration, @Configuration@ConfigurationProperties(prefix = "app.corsSites")public class CorsSiteConfiguration &#123; public List&lt;String&gt; getAllowSites() &#123; return allowSites; &#125; List&lt;String&gt; allowSites = new ArrayList&lt;String&gt;(); @Bean public WebMvcConfigurer corsConfigurer() &#123; return new WebMvcConfigurerAdapter() &#123; @Override public void addCorsMappings(CorsRegistry registry) &#123; CorsRegistration corsRegistration = registry.addMapping("/**") //config in yml file .allowedOrigins("http://10.0.0.1:8081") //demo .allowedMethods("GET", "POST", "PUT", "DELETE") .allowCredentials(false) .maxAge(3600); if (allowSites == null || allowSites.size() == 0) &#123; corsRegistration.allowedOrigins("*"); &#125; else &#123; allowSites.forEach(site -&gt; corsRegistration.allowedOrigins(site)); &#125; &#125; &#125;; &#125;&#125; In yml file, app: cors-sites: allow-sites: - "*"]]></content>
     </entry>
 

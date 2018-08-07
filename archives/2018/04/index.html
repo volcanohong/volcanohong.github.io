@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,angular2,spring,spring-boot," />
+  <meta name="keywords" content="Hi, volcanohong" />
 
 
 
@@ -86,17 +86,15 @@
 
 
 
-<meta name="description" content="A late solution for CORS issue in spring-boot?">
-<meta name="keywords" content="java,angular2,spring,spring-boot">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CORS Issue Cont.">
-<meta property="og:url" content="http://volcanohong.github.com/2018/08/01/cors-cont/index.html">
+<meta name="description" content="Good things are coming, just KEEP GOING...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Volcanohong's Learning Notes">
+<meta property="og:url" content="http://volcanohong.github.com/archives/2018/04/index.html">
 <meta property="og:site_name" content="Volcanohong's Learning Notes">
-<meta property="og:description" content="A late solution for CORS issue in spring-boot?">
-<meta property="og:updated_time" content="2018-08-07T17:44:21.000Z">
+<meta property="og:description" content="Good things are coming, just KEEP GOING...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CORS Issue Cont.">
-<meta name="twitter:description" content="A late solution for CORS issue in spring-boot?">
+<meta name="twitter:title" content="Volcanohong's Learning Notes">
+<meta name="twitter:description" content="Good things are coming, just KEEP GOING...">
 
 
 
@@ -117,9 +115,9 @@
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/2018/08/01/cors-cont/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/archives/2018/04/"/>
 
-  <title> CORS Issue Cont. | Volcanohong's Learning Notes </title>
+  <title> Archive | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -149,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-right  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,166 +268,65 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+       
+      
+      OK! 36 posts in total. Keep on posting.
+    </span>
+
     
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                CORS Issue Cont.
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-08-01T10:35:02-07:00" content="2018-08-01">
-              2018-08-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
       
       
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cors-solution-cont"><span class="nav-number">1.</span> <span class="nav-text">CORS Solution Cont.</span></a></li></ol></div>
+      
+
+      
+        
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
         </div>
       
       
-      
-      
 
       
-        <ul>
-<li><h2 id="cors-solution-cont"><a href="#CORS-Solution-Cont" class="headerlink" title="CORS Solution Cont."></a><strong>CORS Solution Cont.</strong></h2></li>
-</ul>
-<p>In spring-boot project configuration,</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"app.corsSites"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsSiteConfiguration</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getAllowSites</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> allowSites;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    List&lt;String&gt; allowSites = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">corsConfigurer</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurerAdapter() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</div><div class="line">                CorsRegistration corsRegistration = registry.addMapping(<span class="string">"/**"</span>)</div><div class="line">                        <span class="comment">//config in yml file</span></div><div class="line">                        .allowedOrigins(<span class="string">"http://10.0.0.1:8081"</span>) <span class="comment">//demo</span></div><div class="line">                        .allowedMethods(<span class="string">"GET"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>, <span class="string">"DELETE"</span>)</div><div class="line">                        .allowCredentials(<span class="keyword">false</span>)</div><div class="line">                        .maxAge(<span class="number">3600</span>);</div><div class="line">                <span class="keyword">if</span> (allowSites == <span class="keyword">null</span> || allowSites.size() == <span class="number">0</span>) &#123;</div><div class="line">                    corsRegistration.allowedOrigins(<span class="string">"*"</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    allowSites.forEach(site -&gt; corsRegistration.allowedOrigins(site));</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>In <code>yml</code> file,</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><div class="line"><span class="attr">app:</span></div><div class="line"><span class="attr">  cors-sites:</span></div><div class="line"><span class="attr">    allow-sites:</span></div><div class="line"><span class="bullet">      -</span> <span class="string">"*"</span></div></pre></td></tr></table></figure>
 
-      
-    </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    <div>
-      
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2018/04/01/cors-cont/" itemprop="url">
+              
+                <span itemprop="name">CORS Issue Cont.</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-04-01T10:35:02-07:00"
+              content="2018-04-01" >
+          04-01
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag">#java</a>
-          
-            <a href="/tags/angular2/" rel="tag">#angular2</a>
-          
-            <a href="/tags/spring/" rel="tag">#spring</a>
-          
-            <a href="/tags/spring-boot/" rel="tag">#spring-boot</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/10/cors/" rel="prev" title="CORS Issue">
-                CORS Issue <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+
 
 
           </div>
@@ -437,10 +334,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -460,17 +353,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -561,17 +445,6 @@
            
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cors-solution-cont"><span class="nav-text">CORS Solution Cont.</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -684,9 +557,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
