@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Java Pagination]]></title>
-    <url>%2F2018%2F08%2F03%2Fjava-pagination%2F</url>
-    <content type="text"><![CDATA[Spring Data Pagination @Query(value = "SELECT\n" + " t.* FROM schema.TABLE t\n" + " WHERE t.DATETIME &gt;= ?1 AND t.DATETIME &lt; ?2\n" + " ORDER BY ?#&#123;#pageable&#125;", countQuery = "SELECT\n" + " COUNT(*) FROM schema.TABLE t\n" + " WHERE t.DATETIME &gt;= ?1 AND t.DATETIME &lt; ?2", nativeQuery = true)Page&lt;Entity&gt; getEntityPageable(String startDate, String endDate, Pageable pageable);Page&lt;Entity&gt; findByDatetimeAfterAndDatetimeBefore(Timestamp startDate, Timestamp endDate, Pageable pageable);]]></content>
+    <title><![CDATA[Java Concurrency Notes I]]></title>
+    <url>%2F2018%2F08%2F04%2Fjava-concurrency%2F</url>
+    <content type="text"><![CDATA[Synchronized static volatile Boolean running = false;public static void launchTask() &#123; synchronized(running) &#123; if(running) return; running = true; &#125; //do something... running = false;&#125; Synchronized method synchronized void incrementSync() &#123; count = count + 1;&#125; Synchronized block void incrementSync() &#123; synchronized (this) &#123; count = count + 1; &#125;&#125; Internally Java uses a so called monitor also known as monitor lock or intrinsic lock in order to manage synchronization. This monitor is bound to an object, e.g. when using synchronized methods each method share the same monitor of the corresponding object. All implicit monitors implement the reentrant characteristics. Reentrant means that locks are bound to the current thread. A thread can safely acquire the same lock multiple times without running into deadlocks (e.g. a synchronized method calls another synchronized method on the same object). Lock private static boolean running = false; private static Lock execLock = new ReentrantLock(); public void launchExpensiveTask() &#123; if (running) return; // fast exit without sync if (!execLock.tryLock()) return; // quit if lock is not free try &#123; running = true; runExpensiveTask(); &#125; finally &#123; running = false; execLock.unlock(); &#125;&#125; ReentrantLock ReadWriteLock StampedLock Semaphore In addition to locks the Concurrency API also supports counting semaphores. Whereas locks usually grant exclusive access to variables or resources, a semaphore is capable of maintaining whole sets of permits. This is useful in different scenarios where you have to limit the amount concurrent access to certain parts of your application. private Semaphore semaphore = new Semaphore(1);public void launchExpensiveTask() &#123; if (semaphore.tryAcquire()) &#123; try &#123; runExpensiveTask(); &#125; finally &#123; semaphore.release(); &#125; &#125;&#125; Synchronized allows only one thread of execution to access the resource at the same time. Semaphore allows up to n (you get to choose n) threads of execution to access the resource at the same time. Queue private final int CPU_COUNT = 4;private BlockingQueue&lt;Runnable&gt; lightTaskQueue = new LinkedBlockingDeque&lt;Runnable&gt;();private ThreadPoolExecutor lightExecutor = new ThreadPoolExecutor(CPU_COUNT, CPU_COUNT, 60L, TimeUnit.SECONDS, lightTaskQueue);private BlockingQueue&lt;Runnable&gt; heavyTaskQueue = new LinkedBlockingDeque&lt;Runnable&gt;();private ThreadPoolExecutor heavyExecutor = new ThreadPoolExecutor(1, 1, 60L, TimeUnit.SECONDS, heavyTaskQueue); Read more]]></content>
       <categories>
         <category>Java</category>
       </categories>
       <tags>
         <tag>java</tag>
         <tag>spring</tag>
-        <tag>spring-boot</tag>
-        <tag>spring-data</tag>
       </tags>
   </entry>
   <entry>
@@ -24,6 +22,20 @@
       <tags>
         <tag>sql</tag>
         <tag>store procedure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java Pagination]]></title>
+    <url>%2F2018%2F08%2F03%2Fjava-pagination%2F</url>
+    <content type="text"><![CDATA[Spring Data Pagination @Query(value = "SELECT\n" + " t.* FROM schema.TABLE t\n" + " WHERE t.DATETIME &gt;= ?1 AND t.DATETIME &lt; ?2\n" + " ORDER BY ?#&#123;#pageable&#125;", countQuery = "SELECT\n" + " COUNT(*) FROM schema.TABLE t\n" + " WHERE t.DATETIME &gt;= ?1 AND t.DATETIME &lt; ?2", nativeQuery = true)Page&lt;Entity&gt; getEntityPageable(String startDate, String endDate, Pageable pageable);Page&lt;Entity&gt; findByDatetimeAfterAndDatetimeBefore(Timestamp startDate, Timestamp endDate, Pageable pageable);]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>spring-boot</tag>
+        <tag>spring-data</tag>
       </tags>
   </entry>
   <entry>
@@ -403,9 +415,9 @@
       </categories>
       <tags>
         <tag>shell</tag>
-        <tag>command</tag>
         <tag>database</tag>
         <tag>mysql</tag>
+        <tag>command</tag>
       </tags>
   </entry>
   <entry>
@@ -443,9 +455,9 @@
         <category>Blog</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>shell</tag>
         <tag>command</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>

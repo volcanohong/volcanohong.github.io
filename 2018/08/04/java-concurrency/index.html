@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hi, volcanohong" />
+  <meta name="keywords" content="java,spring," />
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="Good things are coming, just KEEP GOING...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Volcanohong&#39;s Learning Notes">
-<meta property="og:url" content="http://volcanohong.github.com/categories/Unit-Test/index.html">
+<meta name="description" content="Deal with concurrency in a Java way">
+<meta name="keywords" content="java,spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Concurrency Notes I">
+<meta property="og:url" content="http://volcanohong.github.com/2018/08/04/java-concurrency/index.html">
 <meta property="og:site_name" content="Volcanohong&#39;s Learning Notes">
-<meta property="og:description" content="Good things are coming, just KEEP GOING...">
+<meta property="og:description" content="Deal with concurrency in a Java way">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-08T21:38:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Volcanohong&#39;s Learning Notes">
-<meta name="twitter:description" content="Good things are coming, just KEEP GOING...">
+<meta name="twitter:title" content="Java Concurrency Notes I">
+<meta name="twitter:description" content="Deal with concurrency in a Java way">
 
 
 
@@ -116,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="http://volcanohong.github.com/categories/Unit-Test/"/>
+  <link rel="canonical" href="http://volcanohong.github.com/2018/08/04/java-concurrency/"/>
 
-  <title> Category: Unit Test | Volcanohong's Learning Notes </title>
+  <title> Java Concurrency Notes I | Volcanohong's Learning Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -148,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,47 +271,185 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Unit Test
-        <small>Category</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java Concurrency Notes I
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-08-04T14:12:48-07:00" content="2018-08-04">
+              2018-08-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Lock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Semaphore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Queue</span></a></li></ol></div>
+        </div>
+      
+      
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <ul>
+<li><h3><span id="synchronized"><strong>Synchronized</strong></span></h3></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">volatile</span> Boolean running = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">launchTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(running) &#123;</span><br><span class="line">        <span class="keyword">if</span>(running) <span class="keyword">return</span>;</span><br><span class="line">        running = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//do something...</span></span><br><span class="line">    running = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Synchronized method</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">incrementSync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    count = count + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Synchronized block</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">incrementSync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        count = count + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Internally Java uses a so called monitor also known as monitor lock or intrinsic lock in order to manage synchronization. This monitor is bound to an object, e.g. when using synchronized methods each method share the same monitor of the corresponding object.</p>
+<p>All implicit monitors implement the reentrant characteristics. Reentrant means that locks are bound to the current thread. A thread can safely acquire the same lock multiple times without running into deadlocks (e.g. a synchronized method calls another synchronized method on the same object).</p>
+<ul>
+<li><h3><span id="lock"><strong>Lock</strong></span></h3></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> running = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Lock execLock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">launchExpensiveTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (running) <span class="keyword">return</span>; <span class="comment">// fast exit without sync</span></span><br><span class="line">    <span class="keyword">if</span> (!execLock.tryLock()) <span class="keyword">return</span>; <span class="comment">// quit if lock is not free</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        running = <span class="keyword">true</span>;</span><br><span class="line">        runExpensiveTask();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        running = <span class="keyword">false</span>;</span><br><span class="line">        execLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>ReentrantLock</li>
+<li>ReadWriteLock</li>
+<li>StampedLock</li>
+</ol>
+<ul>
+<li><h3><span id="semaphore"><strong>Semaphore</strong></span></h3></li>
+</ul>
+<p>In addition to locks the Concurrency API also supports counting semaphores. Whereas locks usually grant exclusive access to variables or resources, a semaphore is capable of maintaining whole sets of permits. This is useful in different scenarios where you have to limit the amount concurrent access to certain parts of your application.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Semaphore semaphore = <span class="keyword">new</span> Semaphore(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">launchExpensiveTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (semaphore.tryAcquire()) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">           runExpensiveTask();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           semaphore.release();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Synchronized</code> allows only one thread of execution to access the resource at the same time. <code>Semaphore</code> allows up to n (you get to choose n) threads of execution to access the resource at the same time.</p>
+<ul>
+<li><h3><span id="queue"><strong>Queue</strong></span></h3></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> CPU_COUNT = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">private</span> BlockingQueue&lt;Runnable&gt; lightTaskQueue = <span class="keyword">new</span> LinkedBlockingDeque&lt;Runnable&gt;();</span><br><span class="line"><span class="keyword">private</span> ThreadPoolExecutor lightExecutor = <span class="keyword">new</span> ThreadPoolExecutor(CPU_COUNT, CPU_COUNT, <span class="number">60L</span>, TimeUnit.SECONDS, lightTaskQueue);</span><br><span class="line"><span class="keyword">private</span> BlockingQueue&lt;Runnable&gt; heavyTaskQueue = <span class="keyword">new</span> LinkedBlockingDeque&lt;Runnable&gt;();</span><br><span class="line"><span class="keyword">private</span> ThreadPoolExecutor heavyExecutor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">1</span>, <span class="number">1</span>, <span class="number">60L</span>, TimeUnit.SECONDS, heavyTaskQueue);</span><br></pre></td></tr></table></figure>
+<p><strong>Read <a href="https://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/" target="_blank" rel="noopener">more</a></strong></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/08/junit-test-notes-1/" itemprop="url">
-              
-                <span itemprop="name">JUnit test notes I</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-08T22:00:00-07:00"
-              content="2016-07-08" >
-          07-08
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/spring/" rel="tag">#spring</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/sql-pagination/" rel="next" title="SQL Pagination">
+                <i class="fa fa-chevron-left"></i> SQL Pagination
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </section>
 
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -317,6 +457,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -336,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -428,6 +581,17 @@
            
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Lock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Semaphore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Queue</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -540,6 +704,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
