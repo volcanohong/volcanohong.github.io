@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="coding,java," />
+  <meta name="keywords" content="java,coding," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="Item 38: check parameters for validity  Most methods and constructors have some restrictions on what values may be passed into their parameters. For example, index values must be non-negative and ob">
-<meta name="keywords" content="coding,java">
+<meta name="keywords" content="java,coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective java notes">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/16/effective-java-notes/index.html">
@@ -379,10 +379,10 @@
 <ol>
 <li>It’s arguable that a null return is preferable to an empty array in case of mitigating system expense.</li>
 <li><p>The right way to return an array of a collection</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">  <span class="comment">// The right way to return an array of a collection</span></div><div class="line">  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Cheese&gt; cheeseInStock = ...;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Cheese[] EMPTY_CHEESE_ARRAY = <span class="keyword">new</span> Cheese[<span class="number">0</span>];</div><div class="line">  <span class="keyword">public</span> Cheese[] getCheese() &#123;</div><div class="line">      <span class="keyword">return</span> cheesesInStock.toArray(EMPTY_CHEESE_ARRAY);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="comment">// The right way to return an array of a collection</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Cheese&gt; cheeseInStock = ...;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Cheese[] EMPTY_CHEESE_ARRAY = <span class="keyword">new</span> Cheese[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">public</span> Cheese[] getCheese() &#123;</span><br><span class="line">      <span class="keyword">return</span> cheesesInStock.toArray(EMPTY_CHEESE_ARRAY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>The right way to return a copy of a collection</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// The right way to return a copy of a collection</span></div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Cheese&gt; <span class="title">getCheeseList</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">if</span> (cheesesInStock.isEmpty())</div><div class="line">    <span class="keyword">return</span> Collections.emptyList(); <span class="comment">// Always returns same list</span></div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;Cheese&gt;(cheesesInStock);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// The right way to return a copy of a collection</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Cheese&gt; <span class="title">getCheeseList</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (cheesesInStock.isEmpty())</span><br><span class="line">    <span class="keyword">return</span> Collections.emptyList(); <span class="comment">// Always returns same list</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;Cheese&gt;(cheesesInStock);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -417,9 +417,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/coding/" rel="tag">#coding</a>
-          
             <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
           
         </div>
       
@@ -506,7 +506,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -514,7 +514,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -523,7 +523,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

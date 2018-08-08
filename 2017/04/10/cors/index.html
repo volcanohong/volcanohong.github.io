@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular2,java,spring," />
+  <meta name="keywords" content="java,angular2,spring," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="How to deal with CORS issue?">
-<meta name="keywords" content="angular2,java,spring">
+<meta name="keywords" content="java,angular2,spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS Issue">
 <meta property="og:url" content="http://volcanohong.github.com/2017/04/10/cors/index.html">
@@ -345,45 +345,59 @@
 <li><h2 id="cors-in-my-case"><a href="#CORS-in-My-Case" class="headerlink" title="CORS in My Case"></a><strong>CORS in My Case</strong></h2></li>
 </ul>
 <p>With an angular 2 app in front-end which calls APIs provided by a RESTful webservice in backend, at beginning, I have CORS issue when calling HTTP GET method. I simply solved it by adding <code>@CrossOrigin</code> annotaion to REST controller, e.g.,</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@CrossOrigin</span>(origins = <span class="string">"http://localhost:3000"</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span>(origins = <span class="string">"http://localhost:3000"</span>)</span><br></pre></td></tr></table></figure>
 <p>Later, when the app calls HTTP POST or PUT, it gets same CORS error with response code 403 and return <code>invalid CORS request</code>.</p>
 <p>The differences here are POST, PUT method send OPTION request first, and then, send POST or PUT request again. This procedure works fine in local dev enviroment without CORS error. However, when I deployed the app to server, it dosen’t work like that any more, I notice that only POST or PUT request sent instead of sending OPTION request first.</p>
 <p><strong>Some explanation here…</strong></p>
 <blockquote>
 <p>In fact, there is nothing to do in Angular2 regarding cross domain requests. CORS is something natively supported by browsers. This link could help you to understand how it works:</p>
-<p><a href="http://restlet.com/blog/2015/12/15/understanding-and-using-cors/" target="_blank" rel="external">http://restlet.com/blog/2015/12/15/understanding-and-using-cors/</a><br><a href="http://restlet.com/blog/2016/09/27/how-to-fix-cors-problems/" target="_blank" rel="external">http://restlet.com/blog/2016/09/27/how-to-fix-cors-problems/</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://restlet.com/blog/2015/12/15/understanding-and-using-cors/" target="_blank" rel="noopener">http://restlet.com/blog/2015/12/15/understanding-and-using-cors/</a><br><a href="http://restlet.com/blog/2016/09/27/how-to-fix-cors-problems/" target="_blank" rel="noopener">http://restlet.com/blog/2016/09/27/how-to-fix-cors-problems/</a></p>
+</blockquote>
+<blockquote>
 <p>To be short, in the case of cross domain request, the browser automatically adds an Origin header in the request. There are two cases:</p>
+</blockquote>
+<blockquote>
 <p>Simple requests. This use case applies if we use HTTP GET, HEAD and POST methods. In the case of POST methods, only content types with the following values are supported: text/plain, application/x-www-form-urlencoded and multipart/form-data.</p>
+</blockquote>
+<blockquote>
 <p>Preflighted requests. When the “simple requests” use case doesn’t apply, a first request (with the HTTP OPTIONS method) is made to check what can be done in the context of cross-domain requests.</p>
+</blockquote>
+<blockquote>
 <p>So in fact most of work must be done on the server side to return the CORS headers. The main one is the Access-Control-Allow-Origin one.</p>
 </blockquote>
 <p>Regarding Angular2, simply use the Http object like any other requests (same domain for example):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.http.get(<span class="string">'https://angular2.apispark.net/v1/companies/'</span>)</div><div class="line">           .map(<span class="function"><span class="params">res</span> =&gt;</span> res.json()).subscribe(</div><div class="line">  ...</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.http.get(<span class="string">'https://angular2.apispark.net/v1/companies/'</span>)</span><br><span class="line">           .map(<span class="function"><span class="params">res</span> =&gt;</span> res.json()).subscribe(</span><br><span class="line">  ...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p><strong>According to MDN</strong></p>
 <blockquote>
 <p>Preflighted requests</p>
+</blockquote>
+<blockquote>
 <p>Unlike simple requests (discussed above), “preflighted” requests first send an HTTP OPTIONS request header to the resource on the other domain, in order to determine whether the actual request is safe to send. Cross-site requests are preflighted like this since they may have implications to user data. In particular, a request is preflighted if:</p>
+</blockquote>
+<blockquote>
 <p>It uses methods other than GET or POST. Also, if POST is used to send request data with a Content-Type other than application/x-www-form-urlencoded, multipart/form-data, or text/plain, e.g. if the POST request sends an XML payload to the server using application/xml or text/xml, then the request is preflighted.<br>It sets custom headers in the request (e.g. the request uses a header such as X-PINGOTHER)</p>
 </blockquote>
-<p><strong>Method works in my case</strong><br>Apply intercepter and add http response headers.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiInterceptor</span> <span class="keyword">extends</span> <span class="title">HandlerInterceptorAdapter</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line">            <span class="keyword">throws</span> Exception &#123;</div><div class="line">            <span class="keyword">if</span> (<span class="string">"OPTIONS"</span>.equalsIgnoreCase(request.getMethod())) &#123;</div><div class="line">                response.setStatus(HttpServletResponse.SC_OK);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, request.getHeader(<span class="string">"Origin"</span>));</div><div class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>, <span class="string">"true"</span>);</div><div class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"GET, POST, PUT, DELETE"</span>);</div><div class="line">                response.setHeader(<span class="string">"Access-Control-Max-Age"</span>, <span class="string">"3600"</span>);</div><div class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type, Accept"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>Or simply use spring annotation<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@CrossOrigin</span>(origins = <span class="string">"*"</span>)</div></pre></td></tr></table></figure></p>
+<p><strong>Method works in my case</strong><br>Apply intercepter and add http response headers.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiInterceptor</span> <span class="keyword">extends</span> <span class="title">HandlerInterceptorAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"OPTIONS"</span>.equalsIgnoreCase(request.getMethod())) &#123;</span><br><span class="line">                response.setStatus(HttpServletResponse.SC_OK);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, request.getHeader(<span class="string">"Origin"</span>));</span><br><span class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>, <span class="string">"true"</span>);</span><br><span class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"GET, POST, PUT, DELETE"</span>);</span><br><span class="line">                response.setHeader(<span class="string">"Access-Control-Max-Age"</span>, <span class="string">"3600"</span>);</span><br><span class="line">                response.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type, Accept"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Or simply use spring annotation<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span>(origins = <span class="string">"*"</span>)</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><h2 id="other-methods"><a href="#Other-Methods" class="headerlink" title="Other Methods"></a><strong>Other Methods</strong></h2></li>
 </ul>
 <p>I also tried following methods without any luck.</p>
 <ol>
-<li>Apply JAVA configuration e.g.,<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Bean</span></div><div class="line">   <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">corsConfigurer</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurerAdapter() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</div><div class="line">               registry.addMapping(<span class="string">"/**"</span>)</div><div class="line">                       .allowedOrigins(<span class="string">"http://localhost:3000"</span>)</div><div class="line">                       .allowedMethods(<span class="string">"GET"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>, <span class="string">"DELETE"</span>)</div><div class="line">                       .allowCredentials(<span class="keyword">false</span>).maxAge(<span class="number">3600</span>);</div><div class="line">           &#125;</div><div class="line">       &#125;;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<li>Apply JAVA configuration e.g.,<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">corsConfigurer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurerAdapter() &#123;</span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">               registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                       .allowedOrigins(<span class="string">"http://localhost:3000"</span>)</span><br><span class="line">                       .allowedMethods(<span class="string">"GET"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>, <span class="string">"DELETE"</span>)</span><br><span class="line">                       .allowCredentials(<span class="keyword">false</span>).maxAge(<span class="number">3600</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>But enabling CORS for the whole application doesn’t work for me.</p>
-<ol>
+<ol start="2">
 <li>Enable CORS filter in Tomcat</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CorsFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.catalina.filters.CorsFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>cors.exposed.headers<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Access-Control-Allow-Origin,Access-Control-Allow-Credentials<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div></pre></td></tr></table></figure>
-<ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CorsFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.catalina.filters.CorsFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>cors.exposed.headers<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Access-Control-Allow-Origin,Access-Control-Allow-Credentials<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
 <li>Add headers at front-end</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">private headers:Headers = <span class="keyword">new</span> Headers(&#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</div><div class="line">        <span class="string">'Access-Control-Allow-Origin'</span> : <span class="string">'*'</span>, <span class="comment">// Required for CORS support to work</span></div><div class="line">        <span class="string">'Access-Control-Allow-Credentials'</span> : <span class="literal">true</span>, <span class="comment">// Required for cookies, authorization headers with HTTPS</span></div><div class="line">        Accept: <span class="string">'application/json'</span></div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">get(url:string, <span class="attr">path</span>:string):Observable&lt;any&gt; &#123;</div><div class="line">        <span class="keyword">this</span>.validateSession();</div><div class="line">        url = url == <span class="string">''</span> ? <span class="keyword">this</span>.api_url : url;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.http.get(</div><div class="line">            <span class="string">`<span class="subst">$&#123;url&#125;</span><span class="subst">$&#123;path&#125;</span>`</span>, &#123;</div><div class="line">                <span class="attr">headers</span>: <span class="keyword">this</span>.headers, <span class="attr">search</span>: <span class="keyword">this</span>.urlParams</div><div class="line">            &#125;)</div><div class="line">            .map(<span class="keyword">this</span>.getJson)</div><div class="line">            .catch(<span class="keyword">this</span>.handleError);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">private headers:Headers = <span class="keyword">new</span> Headers(&#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'Access-Control-Allow-Origin'</span> : <span class="string">'*'</span>, <span class="comment">// Required for CORS support to work</span></span><br><span class="line">        <span class="string">'Access-Control-Allow-Credentials'</span> : <span class="literal">true</span>, <span class="comment">// Required for cookies, authorization headers with HTTPS</span></span><br><span class="line">        Accept: <span class="string">'application/json'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">get(url:string, <span class="attr">path</span>:string):Observable&lt;any&gt; &#123;</span><br><span class="line">        <span class="keyword">this</span>.validateSession();</span><br><span class="line">        url = url == <span class="string">''</span> ? <span class="keyword">this</span>.api_url : url;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.http.get(</span><br><span class="line">            <span class="string">`<span class="subst">$&#123;url&#125;</span><span class="subst">$&#123;path&#125;</span>`</span>, &#123;</span><br><span class="line">                headers: <span class="keyword">this</span>.headers, <span class="attr">search</span>: <span class="keyword">this</span>.urlParams</span><br><span class="line">            &#125;)</span><br><span class="line">            .map(<span class="keyword">this</span>.getJson)</span><br><span class="line">            .catch(<span class="keyword">this</span>.handleError);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,9 +420,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/angular2/" rel="tag">#angular2</a>
-          
             <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/angular2/" rel="tag">#angular2</a>
           
             <a href="/tags/spring/" rel="tag">#spring</a>
           
@@ -427,7 +441,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/01/cors-cont/" rel="prev" title="CORS Issue Cont.">
+              <a href="/2018/08/01/cors-cont/" rel="prev" title="CORS Issue Cont.">
                 CORS Issue Cont. <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -497,7 +511,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -505,7 +519,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -514,7 +528,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Volcanohong&#39;s Learning Notes">
 <meta property="og:description" content="Spring-boot developer tools">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-07T20:12:46.000Z">
+<meta property="og:updated_time" content="2018-08-08T02:35:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-boot Notes I">
 <meta name="twitter:description" content="Spring-boot developer tools">
@@ -295,8 +295,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -343,19 +343,19 @@
       
         <h2 id="developer-tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a><strong>Developer Tools</strong></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
 <p>Maven configuration, in pom.xml,</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="automatic-restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a><strong>Automatic Restart</strong></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
 <p><strong>Triggering a restart</strong></p>
 <p>As DevTools monitors classpath resources, the only way to trigger a restart is to update the classpath. The way in which you cause the classpath to be updated depends on the IDE that you are using. In <code>Eclipse</code>, saving a modified file causes the classpath to be updated and triggers a restart. In <code>IntelliJ IDEA</code>, building the project (Build -&gt; Build Project) has the same effect.</p>
 <p><strong>Logging changes in condition evaluation</strong></p>
 <p>By default, each time your application restarts, a report showing the condition evaluation delta is logged. The report shows the changes to your application’s auto-configuration as you make changes such as adding or removing beans and setting configuration properties.</p>
 <p>To disable the logging of the report, set the following property:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">spring.devtools.restart.log-condition-evaluation-delta=<span class="keyword">false</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spring.devtools.restart.log-condition-evaluation-delta=<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
 <p><strong>Excluding Resources</strong></p>
 <p>Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in <code>/META-INF/maven</code>, <code>/META-INF/resources</code>, <code>/resources</code>, or <code>/templates</code> does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only <code>/static</code> and <code>/public</code> you would set the following property:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">spring.devtools.restart.exclude=<span class="keyword">static</span><span class="comment">/**,public/**</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spring.devtools.restart.exclude=<span class="keyword">static</span><span class="comment">/**,public/**</span></span><br></pre></td></tr></table></figure>
 <h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
-<p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="external">Spring-boot Developer Tools</a> for more details.</p>
+<p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="noopener">Spring-boot Developer Tools</a> for more details.</p>
 
       
     </div>
@@ -391,13 +391,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/01/cors-cont/" rel="next" title="CORS Issue Cont.">
+              <a href="/2018/08/01/cors-cont/" rel="next" title="CORS Issue Cont.">
                 <i class="fa fa-chevron-left"></i> CORS Issue Cont.
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/03/sql-pagination/" rel="prev" title="SQL Pagination">
+                SQL Pagination <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -473,7 +477,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -482,7 +486,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="coding,java,java web,debug," />
+  <meta name="keywords" content="java,coding,java web,debug," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="SSL: ValidatorException  Exception Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid cert">
-<meta name="keywords" content="coding,java,java web,debug">
+<meta name="keywords" content="java,coding,java web,debug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java SSL debugging">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/13/java-ssl-debugging/index.html">
@@ -360,14 +360,14 @@
 </ul>
 <p>After the CA import, it man still have error like <code>handshake_failure</code>.</p>
 <p>Read the detailed log by using <code>-Djavax.net.debug=all</code></p>
-<p><em>Exception Message</em>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Cipher Suites: […Long list of ciphers…]</div><div class="line">Compression Methods:  &#123; 0 &#125;</div><div class="line">Extension elliptic_curves, curve names: &#123;…&#125;</div><div class="line">Extension ec_point_formats, formats: [uncompressed]</div><div class="line">Extension server_name, server_name: [host_name: HOST]</div><div class="line">***</div><div class="line">main, WRITE: TLSv1 Handshake, length = 168</div><div class="line">main, READ: TLSv1 Alert, length = 2</div><div class="line">main, RECV TLSv1 ALERT:  fatal, handshake_failure</div><div class="line">main, called closeSocket()</div><div class="line">main, handling exception: javax.net.ssl.SSLHandshakeException: </div><div class="line">Received fatal alert: handshake_failure</div></pre></td></tr></table></figure></p>
+<p><em>Exception Message</em>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cipher Suites: […Long list of ciphers…]</span><br><span class="line">Compression Methods:  &#123; 0 &#125;</span><br><span class="line">Extension elliptic_curves, curve names: &#123;…&#125;</span><br><span class="line">Extension ec_point_formats, formats: [uncompressed]</span><br><span class="line">Extension server_name, server_name: [host_name: HOST]</span><br><span class="line">***</span><br><span class="line">main, WRITE: TLSv1 Handshake, length = 168</span><br><span class="line">main, READ: TLSv1 Alert, length = 2</span><br><span class="line">main, RECV TLSv1 ALERT:  fatal, handshake_failure</span><br><span class="line">main, called closeSocket()</span><br><span class="line">main, handling exception: javax.net.ssl.SSLHandshakeException: </span><br><span class="line">Received fatal alert: handshake_failure</span><br></pre></td></tr></table></figure></p>
 <p>One possible reason is the JRE Library lacks of supported algorithm. (The server side is using some high security encryption algorithms) .</p>
 <p><strong>Solution</strong><br>This problem can be solved by updating the JRE Library with adding stronger algorithms: <code>JCE Unlimited Strength</code>.</p>
 <blockquote>
 <p>In a high security environment, one way of strengthening algorithms in the JDK is through the JCE Unlimited Strength policy files. In this particular case, replacing those policy files allows it to use the stronger variants of existing algorithms and connect successfully.</p>
 </blockquote>
-<p><code>JCE Unlimited Strength</code> downloads: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="external">JDK 8</a>, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="external">JDK 7</a>, or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="external">JDK 6</a>.</p>
-<p><em>Installation</em>: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to <java_home>/lib/security </java_home></p>
+<p><code>JCE Unlimited Strength</code> downloads: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">JDK 8</a>, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">JDK 7</a>, or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="noopener">JDK 6</a>.</p>
+<p><em>Installation</em>: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to &lt;JAVA_HOME&gt;/lib/security </p>
 <p><strong>NOTES:</strong></p>
 <ol>
 <li><p>Some cases might be related to <code>TLS protocols</code>, e.g., JDK 8 using TLSv1.2 by default, while JDK 7 has TLSv1 by default. To make the <code>TLS protocols</code> being compliant with each other, try debugging in java with command <code>-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2</code>.</p>
@@ -375,10 +375,10 @@
 <li><p>Someone mentioned that using <code>http:</code> instead of <code>https:</code>. It certainly works without errors, but that is not the reasonable solution.</p>
 </li>
 <li><p>Some cases may refer to <code>server name indication</code> (SNI). If the server requires SNI, trying to setup a connection without SNI will fail. All modern browsers support SNI, but not all SSL stacks in programming languages support SNI or use it by default.<br>To avoid SNI: <code>-Djsse.enableSNIExtension=false</code>,<br>To check SNI with a server,</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="comment"># without SNI</span></div><div class="line">$ openssl s_client -connect www.google.com:443</div><div class="line">CONNECTED(00000003)</div><div class="line">140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:</div><div class="line">....</div><div class="line">New, (NONE), Cipher is (NONE)</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># without SNI</span></span><br><span class="line">$ openssl s_client -connect www.google.com:443</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:</span><br><span class="line">....</span><br><span class="line">New, (NONE), Cipher is (NONE)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>Ref. links:<br><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html" target="_blank" rel="external">Debugging SSL/TLS Connections from docs.Oracle</a><br><a href="https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https" target="_blank" rel="external">Diagnosing TLS, SSL, and HTTPS from blog.Oracle</a><br><a href="http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception" target="_blank" rel="external">Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow</a><br><a href="http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0" target="_blank" rel="external">SSL handshake alert: unrecognized_name error from stackOverflow</a></p>
+<p>Ref. links:<br><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html" target="_blank" rel="noopener">Debugging SSL/TLS Connections from docs.Oracle</a><br><a href="https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https" target="_blank" rel="noopener">Diagnosing TLS, SSL, and HTTPS from blog.Oracle</a><br><a href="http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception" target="_blank" rel="noopener">Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow</a><br><a href="http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0" target="_blank" rel="noopener">SSL handshake alert: unrecognized_name error from stackOverflow</a></p>
 <hr>
 
       
@@ -402,9 +402,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/coding/" rel="tag">#coding</a>
-          
             <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
           
             <a href="/tags/java-web/" rel="tag">#java web</a>
           
@@ -495,7 +495,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -503,7 +503,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -512,7 +512,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

@@ -270,6 +270,269 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/28/angular2-notes-3/" itemprop="url">
+                  Angular2 Notes III
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-28T16:14:33-08:00" content="2017-01-28">
+              2017-01-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="Angular-2-Notes-Modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
+<li><h3 id="State-Management"><a href="#State-Management" class="headerlink" title="State Management"></a><strong>State Management</strong></h3></li>
+</ul>
+<ul>
+<li><p><em>The Problem With Concurrency</em></p>
+<p>  Building components which communicate with each other is a typical task involving state. We frequently have to keep up to date with different Angular components interacting with the same state: when more than one component accesses and modifies that state we call it <code>shared mutable state</code>.</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/28/angular2-notes-3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/04/angular2-notes-2/" itemprop="url">
+                  Angular2 Notes II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-04T19:25:27-08:00" content="2017-01-04">
+              2017-01-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+      
+      
+        <div id="toc" class="post-toc">
+          
+          <strong class=""></strong>
+          <div class="post-toc-content"></div>
+        </div>
+      
+      
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="Angular-2-Notes-Modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
+<li><h3 id="API-Service"><a href="#API-Service" class="headerlink" title="API Service"></a><strong>API Service</strong></h3></li>
+</ul>
+<ul>
+<li>First, configure the application to use server communication facilities.</li>
+</ul>
+<p>The Angular <code>Http</code> client communicates with the server using a familiar HTTP request/response protocol. The <code>Http</code> client is one of a family of services in the Angular HTTP library.</p>
+<p>E.g., <code>main.ts</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> &#123; HttpModule&#125; <span class="keyword">from</span> <span class="string">'@angular/http'</span>;</span><br><span class="line"><span class="comment">//import &#123; HttpModule, JsonpModule &#125; from '@angular/http';</span></span><br><span class="line"><span class="keyword">import</span> &#123; App, providers&#125; <span class="keyword">from</span> <span class="string">'./app'</span>;</span><br><span class="line">...</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    declarations: [</span><br><span class="line">        App,</span><br><span class="line">        Main</span><br><span class="line">        ],</span><br><span class="line">    providers,</span><br><span class="line">    imports: [BrowserModule, FormsModule, HttpModule], </span><br><span class="line">    bootstrap: [App]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/04/angular2-notes-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/01/angular-datatable/" itemprop="url">
                   Angular Datatable Notes
                 </a>
@@ -343,7 +606,7 @@
           <p>Recently, I am developing Apps by using angular datatables.</p>
 <p>The followings are some issues or note that I have to record.</p>
 <h2 id="Datatable-Options"><a href="#Datatable-Options" class="headerlink" title="Datatable Options"></a><strong>Datatable Options</strong></h2><p>Selected datatable options…</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</div><div class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</div><div class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></div><div class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></div><div class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></div><div class="line">    <span class="comment">// change the options in the page length select list.</span></div><div class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></div><div class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></div><div class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></div><div class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></div><div class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></div><div class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></div><div class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.dtOptions = DTOptionsBuilder.newOptions()</span><br><span class="line">    .withDOM(<span class="string">'&lt;"html5buttons"B&gt;lTfgitp'</span>)</span><br><span class="line">    .withOption(<span class="string">'deferRender'</span>, <span class="literal">true</span>) <span class="comment">// deferred rendering for additional speed of initialisation</span></span><br><span class="line">    .withOption(<span class="string">'deferLoading'</span>, <span class="literal">true</span>) <span class="comment">// delay the loading of server-side data until second draw</span></span><br><span class="line">    .withOption(<span class="string">'processing'</span>, <span class="literal">true</span>) <span class="comment">// add processing indicator</span></span><br><span class="line">    <span class="comment">// change the options in the page length select list.</span></span><br><span class="line">    .withOption(<span class="string">'lengthMenu'</span>, [[<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">-1</span>], [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="string">'ALL'</span>]])</span><br><span class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//could affect search function</span></span><br><span class="line">    <span class="comment">// .withOption('scrollX', '600px') // add horizontal scroll</span></span><br><span class="line">    <span class="comment">// .withOption('scrollY', '500px') // add vertical scroll </span></span><br><span class="line">    <span class="comment">// .withOption('scrollCollapse', true) // table collapse on less data</span></span><br><span class="line">    <span class="comment">// .withOption('paging', false) // disable pagination</span></span><br><span class="line">    <span class="comment">// .withOption('searchCols', [null, null, null, &#123; "search": ''&#125;]) // define an initial search for individual columns.</span></span><br><span class="line">    .withOption(<span class="string">'aoColumnDefs'</span>, [&#123;<span class="string">"bVisible"</span>: <span class="literal">false</span>, <span class="string">"aTargets"</span>: [<span class="number">3</span>, <span class="number">4</span>]&#125;]) <span class="comment">//enable or disable the display of this column</span></span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/01/angular-datatable/#more" rel="contents">
               Read more &raquo;
@@ -741,7 +1004,7 @@
           <ul>
 <li><h3 id="Security-Configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a><strong>Security Configuration</strong></h3></li>
 <li><h4 id="JHipster-Security"><a href="#JHipster-Security" class="headerlink" title="JHipster Security"></a><strong>JHipster Security</strong></h4><blockquote>
-<p>To use Spring Security with a Single Web Page Application, like the ones generated by JHipster, you need Ajax login/logout/error views. We have configured Spring Security in order to use those views correctly, and of course we generate all the JavaScript and HTML code for you.<br>By default, JHipster comes with 4 different users:<br>“system”, who is mainly used by our audit logs, when something is done automatically<br>“anonymousUser”, who is given to anonymous users when they do an action<br>“user”, who is a normal user with “ROLE_USER” authorization. His default password is “user”<br>“admin”, who is an admin user with “ROLE_USER” and “ROLE_ADMIN” authorizations. His default password is “admin”<br>For security reasons, you should change those default passwords.<br>More info are provided here: <a href="https://jhipster.github.io/security/">https://jhipster.github.io/security/</a></p>
+<p>To use Spring Security with a Single Web Page Application, like the ones generated by JHipster, you need Ajax login/logout/error views. We have configured Spring Security in order to use those views correctly, and of course we generate all the JavaScript and HTML code for you.<br>By default, JHipster comes with 4 different users:<br>“system”, who is mainly used by our audit logs, when something is done automatically<br>“anonymousUser”, who is given to anonymous users when they do an action<br>“user”, who is a normal user with “ROLE_USER” authorization. His default password is “user”<br>“admin”, who is an admin user with “ROLE_USER” and “ROLE_ADMIN” authorizations. His default password is “admin”<br>For security reasons, you should change those default passwords.<br>More info are provided here: <a href="https://jhipster.github.io/security/" target="_blank" rel="noopener">https://jhipster.github.io/security/</a></p>
 </blockquote>
 </li>
 </ul>
@@ -874,20 +1137,20 @@
 <p>Start with installing <code>Yeoman</code> and <code>Bower</code></p>
 <p><code>npm install -g yo</code></p>
 <blockquote>
-<p><a href="http://yeoman.io/">YEOMAN</a>, the web’s scaffording tool for webapps. Yeoman helps you to kickstart new projects, prescribing best practices and tools to help you stay productive.</p>
+<p><a href="http://yeoman.io/" target="_blank" rel="noopener">YEOMAN</a>, the web’s scaffording tool for webapps. Yeoman helps you to kickstart new projects, prescribing best practices and tools to help you stay productive.</p>
 </blockquote>
 <p><code>npm install -g bower</code></p>
 <blockquote>
-<p><a href="https://bower.io/">BOWER</a>, a package manager for the web. Web sites are made of lots of things — frameworks, libraries, assets, and utilities. Bower manages all these things for you. Bower keeps track of these packages in a manifest file, <code>bower.json</code>.</p>
+<p><a href="https://bower.io/" target="_blank" rel="noopener">BOWER</a>, a package manager for the web. Web sites are made of lots of things — frameworks, libraries, assets, and utilities. Bower manages all these things for you. Bower keeps track of these packages in a manifest file, <code>bower.json</code>.</p>
 </blockquote>
 <p>Then, install <code>Grunt</code> and <code>jHipster</code></p>
 <p><code>npm install -g grunt-cli</code></p>
 <blockquote>
-<p><a href="http://gruntjs.com/">GRUNT</a>, the javascript task runner. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
+<p><a href="http://gruntjs.com/" target="_blank" rel="noopener">GRUNT</a>, the javascript task runner. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.</p>
 </blockquote>
 <p><code>npm install -g generator-jhipster</code></p>
 <blockquote>
-<p><a href="https://jhipster.github.io/">JHipster</a> is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + AngularJS projects!</p>
+<p><a href="https://jhipster.github.io/" target="_blank" rel="noopener">JHipster</a> is a fully Open Source, widely used application generator. Easily create high-quality Spring Boot + AngularJS projects!</p>
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/11/jhipster-notes/#more" rel="contents">
@@ -1015,9 +1278,9 @@
 <li><h4 id="Error-digest-already-in-progress-when-calling-scope-apply"><a href="#Error-digest-already-in-progress-when-calling-scope-apply" class="headerlink" title="Error: $digest already in progress when calling $scope.$apply()"></a><strong>Error: <code>$digest</code> already in progress when calling <code>$scope.$apply()</code></strong></h4></li>
 </ul>
 <p>Raise error when calling <code>$scope.$apply()</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Problem is fixed by calling <code>$timeout</code> instead.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="comment">//code here will run afterwards</span></div><div class="line">   vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//code here will run afterwards</span></span><br><span class="line">   vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/01/angularjs-notes-1/#more" rel="contents">
               Read more &raquo;
@@ -1267,271 +1530,11 @@
       
         
           <ul>
-<li><h4 id="java-util-Optional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<T></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
+<li><h4 id="java-util-Optional"><a href="#java-util-Optional" class="headerlink" title="java.util.Optional"></a><strong>java.util.Optional<t></t></strong></h4>Imagine <code>Optional</code> as a container that may or may not contain some value. Just like all references in Java can point to some object or be null, <code>Option</code> may enclose some (non-null!) reference or be empty.</li>
 </ul>
 <p><code>Optional</code> instead of plain null is statically checked at compile time and much more informative as it clearly indicates that a given variable may be present or not. Of course it requires some discipline - you should never assign null to any variable any more.<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/06/java8-notes-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/01/angular2-notes-1/" itemprop="url">
-                  Angular2 Notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-01T10:39:45-07:00" content="2016-10-01">
-              2016-10-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h2 id="Angular-2-Basic"><a href="#Angular-2-Basic" class="headerlink" title="Angular 2 Basic"></a><strong>Angular 2 Basic</strong></h2></li>
-</ul>
-<p>The heart of angular 2 is <code>containers</code>.</p>
-<p>import from <code>angular/core</code><br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; </div><div class="line">    Component, </div><div class="line">    Input,</div><div class="line">    Output,</div><div class="line">    EventEmitter &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/01/angular2-notes-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/12/sql-notes-1/" itemprop="url">
-                  SQL notes I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-12T21:00:00-07:00" content="2016-09-12">
-              2016-09-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index">
-                    <span itemprop="name">Database</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-      
-      
-        <div id="toc" class="post-toc">
-          
-          <strong class=""></strong>
-          <div class="post-toc-content"></div>
-        </div>
-      
-      
-      
-      
-
-      
-        
-          <ul>
-<li><h4 id="Design-a-table-with-a-primary-key-of-varchar-or-int"><a href="#Design-a-table-with-a-primary-key-of-varchar-or-int" class="headerlink" title="Design a table with a primary key of varchar or int?"></a><strong>Design a table with a primary key of varchar or int?</strong></h4></li>
-</ul>
-<ul>
-<li>In gereral, <code>VARCHAR</code> or <code>INT</code> has no big differency in query. What matter is the access pattern.</li>
-</ul>
-<p><strong>Narrowness:</strong><br>On absolute terms, a wider key will always be worse than a narrow key. The type carries no importance, is the width of the key that matters. When compared with INT though, few types can beat INT in narrowness, so INT usually wins that argument just by the fact that it is only 4 bytes wide.</p>
-<p>More on this aspect:<br>In most cases, The Primary Key (PK) is defined as INT NOT NULL IDENTITY(1,1) field in each table.<br>On one side, with an IDENTITY field, the database handles all the details of making sure it’s really unique, and the INT datatype is just 4 bytes, and fixed, so it’s easier and more suited to be used for the primary (and clustering) key in the table.<br>On the other side, using a VARCHAR(10) or (20) just uses up too much space - 10 or 20 bytes instead of 4.</p>
-<ul>
-<li>Another fact is when choosing the PK usually one also selects the clustered key. Those two are often confused. By default, SQL server chooses PK as one of clustering indexes.</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/12/sql-notes-1/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1606,7 +1609,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1614,7 +1617,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -1623,7 +1626,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

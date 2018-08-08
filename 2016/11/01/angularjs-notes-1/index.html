@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,html,coding,angular," />
+  <meta name="keywords" content="angular,javascript,html,coding," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="Error: $digest already in progress when calling $scope.$apply()  Raise error when calling $scope.$apply() $scope.$apply(function () &amp;#123;    vm.error = &apos;ERROR&apos;;&amp;#125;); Problem is fixed by calling $">
-<meta name="keywords" content="javascript,html,coding,angular">
+<meta name="keywords" content="angular,javascript,html,coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJS notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/11/01/angularjs-notes-1/index.html">
@@ -345,9 +345,9 @@
 <li><h4 id="error-digest-already-in-progress-when-calling-scopeapply"><a href="#Error-digest-already-in-progress-when-calling-scope-apply" class="headerlink" title="Error: $digest already in progress when calling $scope.$apply()"></a><strong>Error: <code>$digest</code> already in progress when calling <code>$scope.$apply()</code></strong></h4></li>
 </ul>
 <p>Raise error when calling <code>$scope.$apply()</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Problem is fixed by calling <code>$timeout</code> instead.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="comment">//code here will run afterwards</span></div><div class="line">   vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//code here will run afterwards</span></span><br><span class="line">   vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><strong>Comments:</strong></p>
 <p>Simply using <code>$timeout</code> is not the best nor the right solution. Also, make sure that if you are concerned by performances or scalability.</p>
@@ -360,7 +360,7 @@
 <p><strong><code>$scope.$evalAsync(callback)</code></strong> has been introduced with angularjs 1.2, and will probably solve most of your troubles. Please refer to the last paragraph to learn more about it.<br>if you get the <code>$digest</code> already in progress error, then your architecture is wrong: either you don’t need to redigest your scope, or you should not be in charge of that (see below).</p>
 <p><strong>How to structure your code</strong></p>
 <p>When you get that error, you’re trying to digest your scope while it’s already in progress: since you don’t know the state of your scope at that point, you’re not in charge of dealing with its digestion.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">editModel</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $scope.someVar = someVal;</div><div class="line">    <span class="comment">/* Do not apply your scope here since we don't know if that function is called synchronously from Angular or from an asynchronous code */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Processed by Angular, for instance called by a ng-click directive</span></div><div class="line">$scope.applyModelSynchronously = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// No need to digest</span></div><div class="line">    editModel();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Any kind of asynchronous code, for instance a server request</span></div><div class="line">callServer(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">/* That code is not watched nor digested by Angular, thus we can safely $apply it */</span></div><div class="line">    $scope.$apply(editModel);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">editModel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $scope.someVar = someVal;</span><br><span class="line">    <span class="comment">/* Do not apply your scope here since we don't know if that function is called synchronously from Angular or from an asynchronous code */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Processed by Angular, for instance called by a ng-click directive</span></span><br><span class="line">$scope.applyModelSynchronously = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// No need to digest</span></span><br><span class="line">    editModel();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Any kind of asynchronous code, for instance a server request</span></span><br><span class="line">callServer(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* That code is not watched nor digested by Angular, thus we can safely $apply it */</span></span><br><span class="line">    $scope.$apply(editModel);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>And if you know what you’re doing and working on an isolated small directive while part of a big Angular application, you could prefer <code>$digest</code> instead over <code>$apply</code> to save performances.</p>
 <p><strong>Update since Angularjs 1.2</strong></p>
 <p>A new, powerful method has been added to any <code>$scope: $evalAsync</code>. Basically, it will execute its callback within the current digest cycle if one is occurring, otherwise a new digest cycle will start executing the callback.</p>
@@ -369,7 +369,7 @@
 <hr>
 <p><strong>Ref</strong></p>
 <ol>
-<li><a href="https://angular.io/docs" target="_blank" rel="external">angular docs.</a></li>
+<li><a href="https://angular.io/docs" target="_blank" rel="noopener">angular docs.</a></li>
 </ol>
 
       
@@ -393,13 +393,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/angular/" rel="tag">#angular</a>
+          
             <a href="/tags/javascript/" rel="tag">#javascript</a>
           
             <a href="/tags/html/" rel="tag">#html</a>
           
             <a href="/tags/coding/" rel="tag">#coding</a>
-          
-            <a href="/tags/angular/" rel="tag">#angular</a>
           
         </div>
       
@@ -486,7 +486,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -494,7 +494,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -503,7 +503,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
