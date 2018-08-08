@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://volcanohong.github.com/about/index.html</loc>
+    
+    <lastmod>2018-08-08T03:50:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://volcanohong.github.com/2018/08/01/cors-cont/</loc>
     
     <lastmod>2018-08-08T02:35:36.000Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://volcanohong.github.com/2016/10/07/java-qr-code/</loc>
     
     <lastmod>2017-01-01T18:49:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://volcanohong.github.com/about/index.html</loc>
-    
-    <lastmod>2016-12-18T21:00:58.000Z</lastmod>
     
   </url>
   

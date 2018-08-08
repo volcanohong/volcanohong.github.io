@@ -352,19 +352,19 @@
 <li>S1. Update the Safari from 9.x to 10.x</li>
 <li>S2. Import international libs from polyfill, e.g.,</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>S3. Install the internationalization package:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install intl@1.1.0 --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install intl@1.1.0 --save</div></pre></td></tr></table></figure>
 <p>Then add the following lines to your index.html:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/intl/dist/Intl.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/intl/locale-data/jsonp/en.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/intl/dist/Intl.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"node_modules/intl/locale-data/jsonp/en.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>S4. Create custom pipe instead of angular2 default one. E.g.,</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Pipe, PipeTransform &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</span><br><span class="line"></span><br><span class="line">@Pipe(&#123;</span><br><span class="line">  name: <span class="string">'customdate'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDatePipe</span> <span class="title">implements</span> <span class="title">PipeTransform</span> </span>&#123;</span><br><span class="line">  transform(value: string, <span class="attr">arg</span>: string): string &#123;</span><br><span class="line">     <span class="keyword">return</span> moment(value).format(arg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Pipe, PipeTransform &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> moment <span class="keyword">from</span> <span class="string">'moment'</span>;</div><div class="line"></div><div class="line">@Pipe(&#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'customdate'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomDatePipe</span> <span class="title">implements</span> <span class="title">PipeTransform</span> </span>&#123;</div><div class="line">  transform(value: string, <span class="attr">arg</span>: string): string &#123;</div><div class="line">     <span class="keyword">return</span> moment(value).format(arg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>And</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; myDate | customdate: 'DD/MM/YYYY' &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; myDate | customdate: 'DD/MM/YYYY' &#125;&#125;</div></pre></td></tr></table></figure>
 <p><strong>Test Results</strong>:</p>
 <ul>
 <li>S1 works since I updated the Safari to 10.x. </li>
@@ -374,25 +374,25 @@
 <blockquote>
 <p>Just a note, the cdn.polyfill script mentioned above works well for the devices and user agents that the polyfill service supports, however it defaults to not providing the polyfill to ‘unrecognised’ user agents.</p>
 </blockquote>
-<p>The following update to the script should be made so that the polyfill still loads for unrecognised browers:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.polyfill.io/v2/polyfill.js?features=Intl.~locale.en&amp;unknown=polyfill"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>The following update to the script should be made so that the polyfill still loads for unrecognised browers:<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.polyfill.io/v2/polyfill.js?features=Intl.~locale.en&amp;unknown=polyfill"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p><em>Also tried following methods, but no luck for me.</em></p>
 <ul>
-<li>put intl to package.json.:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123; &quot;angular2&quot;: &quot;2.0.0-beta.7&quot;, &quot;intl&quot;: &quot;1.1.0&quot;,...&#125;</span><br></pre></td></tr></table></figure>
+<li>put intl to package.json.:<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&quot;dependencies&quot;: &#123; &quot;angular2&quot;: &quot;2.0.0-beta.7&quot;, &quot;intl&quot;: &quot;1.1.0&quot;,...&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Run<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>Added to <code>index.html</code>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script src=&quot;node_modules/intl/dist/Intl.min.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">&lt;script src=&quot;node_modules/intl/locale-data/jsonp/en.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Run<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>Added to <code>index.html</code>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;script src=&quot;node_modules/intl/dist/Intl.min.js&quot;&gt;&lt;/script&gt; </div><div class="line">&lt;script src=&quot;node_modules/intl/locale-data/jsonp/en.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>Or</p>
 <ul>
-<li>After npm installed intl and then added the following to polyfill.js<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'intl/index'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'intl/locale-data/jsonp/en.js'</span>;</span><br></pre></td></tr></table></figure>
+<li>After npm installed intl and then added the following to polyfill.js<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'intl/index'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'intl/locale-data/jsonp/en.js'</span>;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>Related Links:</p>
 <ol>
-<li><a href="https://github.com/angular/angular/issues/3917" target="_blank" rel="noopener">DatePipe needs review and potentially breaking changes</a></li>
-<li><a href="https://github.com/angular/angular/issues/4445" target="_blank" rel="noopener">Date pipe throws Reference error in Safari</a></li>
-<li><a href="https://github.com/driftyco/ionic-conference-app/issues/42" target="_blank" rel="noopener">DateForm Pipe has issues in Safari with internationalization</a></li>
-<li><a href="https://github.com/angular/angular/issues/3333" target="_blank" rel="noopener">https://github.com/angular/angular/issues/3333</a></li>
+<li><a href="https://github.com/angular/angular/issues/3917" target="_blank" rel="external">DatePipe needs review and potentially breaking changes</a></li>
+<li><a href="https://github.com/angular/angular/issues/4445" target="_blank" rel="external">Date pipe throws Reference error in Safari</a></li>
+<li><a href="https://github.com/driftyco/ionic-conference-app/issues/42" target="_blank" rel="external">DateForm Pipe has issues in Safari with internationalization</a></li>
+<li><a href="https://github.com/angular/angular/issues/3333" target="_blank" rel="external">https://github.com/angular/angular/issues/3333</a></li>
 </ol>
 
       
@@ -528,7 +528,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
