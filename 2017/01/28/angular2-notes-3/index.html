@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-notes-modules"><span class="nav-number">1.</span> <span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#state-management"><span class="nav-number">1.1.</span> <span class="nav-text">State Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#authentication-management"><span class="nav-number">1.2.</span> <span class="nav-text">Authentication Management</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">State Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Authentication Management</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -342,8 +365,8 @@
 
       
         <ul>
-<li><h2 id="angular-2-notes-modules"><a href="#Angular-2-Notes-Modules" class="headerlink" title="Angular 2 Notes - Modules"></a><strong>Angular 2 Notes - Modules</strong></h2></li>
-<li><h3 id="state-management"><a href="#State-Management" class="headerlink" title="State Management"></a><strong>State Management</strong></h3></li>
+<li><h2><span id="angular-2-notes-modules"><strong>Angular 2 Notes - Modules</strong></span></h2></li>
+<li><h3><span id="state-management"><strong>State Management</strong></span></h3></li>
 </ul>
 <ul>
 <li><p><em>The Problem With Concurrency</em></p>
@@ -354,14 +377,14 @@
 <ul>
 <li><em>keeping the state consistent</em></li>
 </ul>
-<p>Create a store to manage the state. E.g., the state of Note can be accessed from the store.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; BehaviorSubject &#125; <span class="keyword">from</span> <span class="string">'rxjs/BehaviorSubject'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface Note &#123;</div><div class="line">  <span class="attr">color</span>: string,</div><div class="line">  <span class="attr">title</span>: string,</div><div class="line">  <span class="attr">value</span>: string,</div><div class="line">  id?: string | number,</div><div class="line">  createdAt?: string,</div><div class="line">  updatedAt?: string,</div><div class="line">  userId?: string</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> interface State &#123;</div><div class="line">  <span class="attr">notes</span>: <span class="built_in">Array</span>&lt;Note&gt;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> defaultState : State = &#123;</div><div class="line">  <span class="attr">notes</span>: []</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> _store = <span class="keyword">new</span> BehaviorSubject&lt;State&gt;(defaultState);</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Store</span> </span>&#123;</div><div class="line">  private _store = _store;</div><div class="line">  changes = <span class="keyword">this</span>._store.asObservable().distinctUntilChanged()</div><div class="line"></div><div class="line">  setState(state: State) &#123;</div><div class="line">    <span class="keyword">this</span>._store.next(state);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getState(): State &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._store.value;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  purge() &#123;</div><div class="line">    <span class="keyword">this</span>._store.next(defaultState);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Apply a <code>store-helper</code> service to keep state…<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'../store'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreHelper</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(private store: Store) &#123;&#125;</div><div class="line"></div><div class="line">  update(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: state &#125;));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  add(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: [state, ...collection] &#125;));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  findAndUpdate(prop, state) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">if</span> (item.id !== state.id) &#123;</div><div class="line">        <span class="keyword">return</span> item;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, item, state)</div><div class="line">    &#125;)&#125;))</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  findAndDelete(prop, id) &#123;</div><div class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</div><div class="line">    <span class="keyword">const</span> collection = currentState[prop];</div><div class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.id !== id)&#125;));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">Apply the store...</div><div class="line"></div><div class="line">`<span class="string">``</span>js</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Notes</span> </span>&#123;      </div><div class="line">      notes = [];</div><div class="line"></div><div class="line">      <span class="keyword">constructor</span>(</div><div class="line">        private store: Store,</div><div class="line">        private noteService: NoteService</div><div class="line">      ) </div><div class="line">      &#123;   </div><div class="line">        <span class="keyword">this</span>.noteService.getNotes().subscribe();</div><div class="line">        </div><div class="line">        <span class="comment">// this.store.changes.pluck('notes')</span></div><div class="line">        <span class="comment">//   .subscribe((notes: any) =&gt;  this.notes = notes);</span></div><div class="line"></div><div class="line">        <span class="keyword">this</span>.store.changes</div><div class="line">        .map(<span class="function"><span class="params">data</span> =&gt;</span> data.notes)</div><div class="line">        .subscribe(<span class="function"><span class="params">notes</span> =&gt;</span> <span class="keyword">this</span>.notes = notes);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      onCreateNote(note) &#123;</div><div class="line">        <span class="keyword">this</span>.noteService.createNote(note)</div><div class="line">        .subscribe();</div><div class="line">        <span class="comment">// .subscribe(note =&gt; this.notes.push(note));</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      onNoteChecked(note) &#123;</div><div class="line">        <span class="keyword">this</span>.noteService.completeNote(note)</div><div class="line">        .subscribe();</div><div class="line">        <span class="comment">// .subscribe(note =&gt; &#123;</span></div><div class="line">        <span class="comment">//   const i = this.notes.findIndex(localNote =&gt; localNote.id === note.id);</span></div><div class="line">        <span class="comment">//   this.notes.splice(i, 1);</span></div><div class="line">        <span class="comment">// &#125;);</span></div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Create a store to manage the state. E.g., the state of Note can be accessed from the store.<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BehaviorSubject &#125; <span class="keyword">from</span> <span class="string">'rxjs/BehaviorSubject'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface Note &#123;</span><br><span class="line">  color: string,</span><br><span class="line">  title: string,</span><br><span class="line">  value: string,</span><br><span class="line">  id?: string | number,</span><br><span class="line">  createdAt?: string,</span><br><span class="line">  updatedAt?: string,</span><br><span class="line">  userId?: string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface State &#123;</span><br><span class="line">  notes: <span class="built_in">Array</span>&lt;Note&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> defaultState : State = &#123;</span><br><span class="line">  notes: []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> _store = <span class="keyword">new</span> BehaviorSubject&lt;State&gt;(defaultState);</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Store</span> </span>&#123;</span><br><span class="line">  private _store = _store;</span><br><span class="line">  changes = <span class="keyword">this</span>._store.asObservable().distinctUntilChanged()</span><br><span class="line"></span><br><span class="line">  setState(state: State) &#123;</span><br><span class="line">    <span class="keyword">this</span>._store.next(state);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getState(): State &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._store.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  purge() &#123;</span><br><span class="line">    <span class="keyword">this</span>._store.next(defaultState);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Apply a <code>store-helper</code> service to keep state…<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Store &#125; <span class="keyword">from</span> <span class="string">'../store'</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreHelper</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(private store: Store) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  update(prop, state) &#123;</span><br><span class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</span><br><span class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: state &#125;));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add(prop, state) &#123;</span><br><span class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</span><br><span class="line">    <span class="keyword">const</span> collection = currentState[prop];</span><br><span class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123; [prop]: [state, ...collection] &#125;));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAndUpdate(prop, state) &#123;</span><br><span class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</span><br><span class="line">    <span class="keyword">const</span> collection = currentState[prop];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.id !== state.id) &#123;</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, item, state)</span><br><span class="line">    &#125;)&#125;))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  findAndDelete(prop, id) &#123;</span><br><span class="line">    <span class="keyword">const</span> currentState = <span class="keyword">this</span>.store.getState();</span><br><span class="line">    <span class="keyword">const</span> collection = currentState[prop];</span><br><span class="line">    <span class="keyword">this</span>.store.setState(<span class="built_in">Object</span>.assign(&#123;&#125;, currentState, &#123;[prop]: collection.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.id !== id)&#125;));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Apply the store...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Notes</span> </span>&#123;      </span><br><span class="line">      notes = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">constructor</span>(</span><br><span class="line">        private store: Store,</span><br><span class="line">        private noteService: NoteService</span><br><span class="line">      ) </span><br><span class="line">      &#123;   </span><br><span class="line">        <span class="keyword">this</span>.noteService.getNotes().subscribe();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// this.store.changes.pluck('notes')</span></span><br><span class="line">        <span class="comment">//   .subscribe((notes: any) =&gt;  this.notes = notes);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.store.changes</span><br><span class="line">        .map(<span class="function"><span class="params">data</span> =&gt;</span> data.notes)</span><br><span class="line">        .subscribe(<span class="function"><span class="params">notes</span> =&gt;</span> <span class="keyword">this</span>.notes = notes);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      onCreateNote(note) &#123;</span><br><span class="line">        <span class="keyword">this</span>.noteService.createNote(note)</span><br><span class="line">        .subscribe();</span><br><span class="line">        <span class="comment">// .subscribe(note =&gt; this.notes.push(note));</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      onNoteChecked(note) &#123;</span><br><span class="line">        <span class="keyword">this</span>.noteService.completeNote(note)</span><br><span class="line">        .subscribe();</span><br><span class="line">        <span class="comment">// .subscribe(note =&gt; &#123;</span></span><br><span class="line">        <span class="comment">//   const i = this.notes.findIndex(localNote =&gt; localNote.id === note.id);</span></span><br><span class="line">        <span class="comment">//   this.notes.splice(i, 1);</span></span><br><span class="line">        <span class="comment">// &#125;);</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><h3 id="authentication-management"><a href="#Authentication-Management" class="headerlink" title="Authentication Management"></a><strong>Authentication Management</strong></h3></li>
+<li><h3><span id="authentication-management"><strong>Authentication Management</strong></span></h3></li>
 </ul>
-<p>Create authentication service, <code>auth.ts</code>…<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;CanActivate, Router&#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</div><div class="line"></div><div class="line">@Injectable()</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthService</span> <span class="title">implements</span> <span class="title">CanActivate</span> </span>&#123;</div><div class="line">  JWT_KEY: string = <span class="string">'retain_token'</span>;</div><div class="line">  JWT: string = <span class="string">''</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(private router: Router) &#123;&#125;</div><div class="line"></div><div class="line">  isAuthorized(): boolean &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Boolean</span>(<span class="keyword">this</span>.JWT);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  canActivate(): boolean &#123;</div><div class="line">    <span class="keyword">const</span> canActivate = <span class="keyword">this</span>.isAuthorized();</div><div class="line">    <span class="keyword">this</span>.onCanActivate(canActivate);</div><div class="line">    <span class="keyword">return</span> canActivate;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onCanActivate(canActivate: boolean) &#123;</div><div class="line">    <span class="keyword">if</span> (!canActivate) &#123;</div><div class="line">      <span class="keyword">this</span>.router.navigate([<span class="string">''</span>, <span class="string">'auth'</span>]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Add auth control in <code>routes.ts</code>.<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; RouterModule &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</div><div class="line"><span class="keyword">import</span> &#123; ModuleWithProviders &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Main, Notes, About, Auth &#125; <span class="keyword">from</span> <span class="string">'./containers'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AuthService &#125; <span class="keyword">from</span> <span class="string">'./services'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes: ModuleWithProviders = RouterModule.forRoot([</div><div class="line">  &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">component</span>: Main,</div><div class="line">    <span class="attr">canActivate</span>: [ AuthService ],</div><div class="line">    <span class="attr">children</span>: [</div><div class="line">      &#123; <span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>: Notes &#125;,</div><div class="line">      &#123; <span class="attr">path</span>: <span class="string">'about'</span>, <span class="attr">component</span>: About &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'auth'</span>, <span class="attr">component</span>: Auth&#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'**'</span>, <span class="attr">redirectTo</span>: <span class="string">''</span> &#125;</div><div class="line">]);</div></pre></td></tr></table></figure></p>
-<p>Auth page for example…<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line">@Component(&#123;</div><div class="line">  <span class="attr">selector</span>: <span class="string">'auth-container'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="string">`     &lt;div class="auth-container"&gt;</span></div><div class="line">      &lt;h1&gt;Auth&lt;/h1&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  `</div><div class="line">&#125;) </div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Auth</span> </span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>Create authentication service, <code>auth.ts</code>…<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CanActivate, Router&#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/Rx'</span>;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthService</span> <span class="title">implements</span> <span class="title">CanActivate</span> </span>&#123;</span><br><span class="line">  JWT_KEY: string = <span class="string">'retain_token'</span>;</span><br><span class="line">  JWT: string = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(private router: Router) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  isAuthorized(): boolean &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Boolean</span>(<span class="keyword">this</span>.JWT);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  canActivate(): boolean &#123;</span><br><span class="line">    <span class="keyword">const</span> canActivate = <span class="keyword">this</span>.isAuthorized();</span><br><span class="line">    <span class="keyword">this</span>.onCanActivate(canActivate);</span><br><span class="line">    <span class="keyword">return</span> canActivate;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onCanActivate(canActivate: boolean) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!canActivate) &#123;</span><br><span class="line">      <span class="keyword">this</span>.router.navigate([<span class="string">''</span>, <span class="string">'auth'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Add auth control in <code>routes.ts</code>.<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; RouterModule &#125; <span class="keyword">from</span> <span class="string">'@angular/router'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ModuleWithProviders &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Main, Notes, About, Auth &#125; <span class="keyword">from</span> <span class="string">'./containers'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; AuthService &#125; <span class="keyword">from</span> <span class="string">'./services'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> routes: ModuleWithProviders = RouterModule.forRoot([</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">''</span>,</span><br><span class="line">    component: Main,</span><br><span class="line">    canActivate: [ AuthService ],</span><br><span class="line">    children: [</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>: Notes &#125;,</span><br><span class="line">      &#123; <span class="attr">path</span>: <span class="string">'about'</span>, <span class="attr">component</span>: About &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">'auth'</span>, <span class="attr">component</span>: Auth&#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">'**'</span>, <span class="attr">redirectTo</span>: <span class="string">''</span> &#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure></p>
+<p>Auth page for example…<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: <span class="string">'auth-container'</span>,</span><br><span class="line">  template: <span class="string">`     &lt;div class="auth-container"&gt;</span></span><br><span class="line"><span class="string">      &lt;h1&gt;Auth&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;) </span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Auth</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
 
       
@@ -495,7 +518,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -565,7 +588,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular-2-notes-modules"><span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#state-management"><span class="nav-text">State Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#authentication-management"><span class="nav-text">Authentication Management</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Angular 2 Notes - Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">State Management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Authentication Management</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -704,6 +727,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

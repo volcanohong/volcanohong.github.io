@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticks-congiguration"><span class="nav-number">2.</span> <span class="nav-text">Ticks Congiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beginning-from-zero"><span class="nav-number">2.1.</span> <span class="nav-text">Beginning From Zero</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#change-scale-label"><span class="nav-number">2.2.</span> <span class="nav-text">Change Scale Label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-y-scales"><span class="nav-number">2.3.</span> <span class="nav-text">Two y-scales</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tooltips-congiguration"><span class="nav-number">3.</span> <span class="nav-text">Tooltips Congiguration</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Ticks Congiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Beginning From Zero</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Change Scale Label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Two y-scales</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Tooltips Congiguration</span></a></li></ol></div>
         </div>
       
       
@@ -343,45 +366,45 @@
       
         <a id="more"></a>
 <ul>
-<li><h2 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a><strong>Installation</strong></h2></li>
+<li><h2><span id="installation"><strong>Installation</strong></span></h2></li>
 </ul>
 <p>You can install ng2-charts using npm</p>
 <p><code>npm install ng2-charts --save</code></p>
-<p>You need to install and include <code>Chart.js</code> library in application via html or webpack bundler (more options can be found in official chart.js <a href="http://www.chartjs.org/docs/" target="_blank" rel="external">Documentation</a>)<br>E.g., </p>
+<p>You need to install and include <code>Chart.js</code> library in application via html or webpack bundler (more options can be found in official chart.js <a href="http://www.chartjs.org/docs/" target="_blank" rel="noopener">Documentation</a>)<br>E.g., </p>
 <p><code>npm install chart.js --save</code></p>
 <p>Important: Embedding Chart.js in application is mandatory!</p>
 <p><code>&lt;script src=&quot;node_modules/chart.js/src/chart.js&quot;&gt;&lt;/script&gt;</code></p>
 <p>Or</p>
 <p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js&quot;&gt;&lt;/script&gt;</code> </p>
-<p>Demo and API details of ng2-charts can be found here: <a href="http://valor-software.github.io/ng2-charts/" target="_blank" rel="external">Demo</a> and <a href="https://github.com/valor-software/ng2-charts/tree/master/demo" target="_blank" rel="external">Source code</a>.</p>
+<p>Demo and API details of ng2-charts can be found here: <a href="http://valor-software.github.io/ng2-charts/" target="_blank" rel="noopener">Demo</a> and <a href="https://github.com/valor-software/ng2-charts/tree/master/demo" target="_blank" rel="noopener">Source code</a>.</p>
 <ul>
-<li><h2 id="ticks-congiguration"><a href="#Ticks-Congiguration" class="headerlink" title="Ticks Congiguration"></a><strong>Ticks Congiguration</strong></h2></li>
+<li><h2><span id="ticks-congiguration"><strong>Ticks Congiguration</strong></span></h2></li>
 </ul>
 <blockquote>
 <p>The tick configuration is nested under the scale configuration in the ticks key. It defines options for the tick marks that are generated by the axis.</p>
 </blockquote>
 <ul>
-<li><h3 id="beginning-from-zero"><a href="#Beginning-From-Zero" class="headerlink" title="Beginning From Zero"></a><strong>Beginning From Zero</strong></h3></li>
+<li><h3><span id="beginning-from-zero"><strong>Beginning From Zero</strong></span></h3></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	<span class="attr">yAxes</span>: [&#123;</div><div class="line">	    <span class="attr">ticks</span>: &#123;</div><div class="line">	        <span class="attr">beginAtZero</span>: <span class="literal">true</span></div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">scales: &#123;</span><br><span class="line">	yAxes: [&#123;</span><br><span class="line">	    ticks: &#123;</span><br><span class="line">	        beginAtZero: <span class="literal">true</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;]    </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h3 id="change-scale-label"><a href="#Change-Scale-Label" class="headerlink" title="Change Scale Label"></a><strong>Change Scale Label</strong></h3></li>
+<li><h3><span id="change-scale-label"><strong>Change Scale Label</strong></span></h3></li>
 </ul>
 <p>Creating Custom Tick Formats</p>
 <blockquote>
 <p>The callback method may be used for advanced tick customization. In the following example, every label of the Y axis would be displayed in scientific notation. If the callback returns null or undefined the associated grid line will be hidden.</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">	<span class="attr">yAxes</span>: [&#123;</div><div class="line">	    <span class="attr">ticks</span>: &#123;</div><div class="line">	        <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span> (<span class="params">label, index, labels</span>) </span>&#123;</div><div class="line">                        <span class="keyword">return</span> label / <span class="number">1000</span> + <span class="string">'k'</span>;</div><div class="line">                    &#125;,</div><div class="line">                    <span class="attr">scaleLabel</span>: &#123;</div><div class="line">                        <span class="attr">display</span>: <span class="literal">true</span>,</div><div class="line">                        <span class="attr">labelString</span>: <span class="string">'1k = 1000'</span></div><div class="line">                    &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;]    </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">scales: &#123;</span><br><span class="line">	yAxes: [&#123;</span><br><span class="line">	    ticks: &#123;</span><br><span class="line">	        callback: <span class="function"><span class="keyword">function</span> (<span class="params">label, index, labels</span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> label / <span class="number">1000</span> + <span class="string">'k'</span>;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    scaleLabel: &#123;</span><br><span class="line">                        display: <span class="literal">true</span>,</span><br><span class="line">                        labelString: <span class="string">'1k = 1000'</span></span><br><span class="line">                    &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;]    </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h3 id="two-y-scales"><a href="#Two-y-scales" class="headerlink" title="Two y-scales"></a><strong>Two y-scales</strong></h3></li>
+<li><h3><span id="two-y-scales"><strong>Two y-scales</strong></span></h3></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scales: &#123;</div><div class="line">    <span class="attr">yAxes</span>: [&#123;</div><div class="line">        <span class="attr">ticks</span>: &#123;</div><div class="line">        <span class="attr">position</span>: <span class="string">"left"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-0"</span></div><div class="line">    &#125;, &#123;</div><div class="line">        <span class="attr">ticks</span>: &#123;</div><div class="line">            <span class="attr">max</span>: <span class="number">10</span>,</div><div class="line">            <span class="attr">min</span>: <span class="number">-50</span>,</div><div class="line">            <span class="attr">stepSize</span>: <span class="number">10</span>,</div><div class="line">            <span class="attr">display</span>: <span class="literal">false</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">position</span>: <span class="string">"right"</span>,</div><div class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-1"</span></div><div class="line">    &#125;]</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-<p>with corresponding dataset<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data1, <span class="attr">label</span>: <span class="string">'a'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-0"</span>&#125;);</div><div class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data2, <span class="attr">label</span>: <span class="string">'b'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-1"</span>&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">scales: &#123;</span><br><span class="line">    yAxes: [&#123;</span><br><span class="line">        ticks: &#123;</span><br><span class="line">        position: <span class="string">"left"</span>,</span><br><span class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-0"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        ticks: &#123;</span><br><span class="line">            max: <span class="number">10</span>,</span><br><span class="line">            min: <span class="number">-50</span>,</span><br><span class="line">            stepSize: <span class="number">10</span>,</span><br><span class="line">            display: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        position: <span class="string">"right"</span>,</span><br><span class="line">        <span class="string">"id"</span>: <span class="string">"y-axis-1"</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>with corresponding dataset<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data1, <span class="attr">label</span>: <span class="string">'a'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-0"</span>&#125;);</span><br><span class="line"><span class="keyword">this</span>.barChartData.push(&#123;<span class="attr">data</span>: data2, <span class="attr">label</span>: <span class="string">'b'</span>, <span class="attr">yAxisID</span>: <span class="string">"y-axis-1"</span>&#125;);</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><h2 id="tooltips-congiguration"><a href="#Tooltips-Congiguration" class="headerlink" title="Tooltips Congiguration"></a><strong>Tooltips Congiguration</strong></h2></li>
+<li><h2><span id="tooltips-congiguration"><strong>Tooltips Congiguration</strong></span></h2></li>
 </ul>
 <p>Sometime we have to apply tooltips in special style in chart.js.<br>For example, in the following code, the 1st and 2nd data sets show tooltips in currency format, while the 3rd data set has tooltip with percentage symbole as sufix.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">barChartOptions:any = &#123;</div><div class="line">    <span class="attr">tooltips</span>: &#123;</div><div class="line">        <span class="attr">callbacks</span>: &#123;</div><div class="line">            <span class="attr">label</span>: <span class="function"><span class="keyword">function</span> (<span class="params">tooltipItems, data</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (tooltipItems.datasetIndex == <span class="number">2</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> + tooltipItems.yLabel + <span class="string">'%'</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> +</div><div class="line">                        tooltipItems.yLabel.toFixed(<span class="number">2</span>).replace(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>, <span class="string">'$1,'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">barChartOptions:any = &#123;</span><br><span class="line">    tooltips: &#123;</span><br><span class="line">        callbacks: &#123;</span><br><span class="line">            label: <span class="function"><span class="keyword">function</span> (<span class="params">tooltipItems, data</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (tooltipItems.datasetIndex == <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> + tooltipItems.yLabel + <span class="string">'%'</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> data.datasets[tooltipItems.datasetIndex].label + <span class="string">': '</span> +</span><br><span class="line">                        tooltipItems.yLabel.toFixed(<span class="number">2</span>).replace(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>, <span class="string">'$1,'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Here, we implemented tooltip <code>label</code> callback function.</p>
 <table>
 <thead>
@@ -404,14 +427,14 @@
 </blockquote>
 <p><strong>Tooltip Item Interface</strong></p>
 <p>The tooltip items passed to the tooltip callbacks implement the following interface.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// X Value of the tooltip as a string</span></div><div class="line">    xLabel: <span class="built_in">String</span>,</div><div class="line"></div><div class="line">    <span class="comment">// Y value of the tooltip as a string</span></div><div class="line">    yLabel: <span class="built_in">String</span>,</div><div class="line"></div><div class="line">    <span class="comment">// Index of the dataset the item comes from</span></div><div class="line">    datasetIndex: <span class="built_in">Number</span>,</div><div class="line"></div><div class="line">    <span class="comment">// Index of this data item in the dataset</span></div><div class="line">    index: <span class="built_in">Number</span>,</div><div class="line"></div><div class="line">    <span class="comment">// X position of matching point</span></div><div class="line">    x: <span class="built_in">Number</span>,</div><div class="line"></div><div class="line">    <span class="comment">// Y position of matching point</span></div><div class="line">    y: <span class="built_in">Number</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// X Value of the tooltip as a string</span></span><br><span class="line">    xLabel: <span class="built_in">String</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Y value of the tooltip as a string</span></span><br><span class="line">    yLabel: <span class="built_in">String</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Index of the dataset the item comes from</span></span><br><span class="line">    datasetIndex: <span class="built_in">Number</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Index of this data item in the dataset</span></span><br><span class="line">    index: <span class="built_in">Number</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// X position of matching point</span></span><br><span class="line">    x: <span class="built_in">Number</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Y position of matching point</span></span><br><span class="line">    y: <span class="built_in">Number</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>Ref</strong></p>
 <ol>
-<li><a href="http://valor-software.com/ng2-charts/" target="_blank" rel="external">Chart.js</a> </li>
-<li><a href="http://www.chartjs.org/docs/" target="_blank" rel="external">Documentation</a></li>
-<li><a href="http://valor-software.github.io/ng2-charts/" target="_blank" rel="external">Demo</a></li>
-<li><a href="https://github.com/valor-software/ng2-charts/tree/master/demo" target="_blank" rel="external">Source code</a></li>
+<li><a href="http://valor-software.com/ng2-charts/" target="_blank" rel="noopener">Chart.js</a> </li>
+<li><a href="http://www.chartjs.org/docs/" target="_blank" rel="noopener">Documentation</a></li>
+<li><a href="http://valor-software.github.io/ng2-charts/" target="_blank" rel="noopener">Demo</a></li>
+<li><a href="https://github.com/valor-software/ng2-charts/tree/master/demo" target="_blank" rel="noopener">Source code</a></li>
 </ol>
 
       
@@ -547,7 +570,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -617,7 +640,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#installation"><span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticks-congiguration"><span class="nav-text">Ticks Congiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beginning-from-zero"><span class="nav-text">Beginning From Zero</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#change-scale-label"><span class="nav-text">Change Scale Label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#two-y-scales"><span class="nav-text">Two y-scales</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tooltips-congiguration"><span class="nav-text">Tooltips Congiguration</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Ticks Congiguration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Beginning From Zero</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Change Scale Label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Two y-scales</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Tooltips Congiguration</span></a></li></ol></div>
             
           </div>
         </section>
@@ -756,6 +779,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

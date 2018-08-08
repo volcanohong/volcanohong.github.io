@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="coding,java,java web," />
+  <meta name="keywords" content="java,coding,java web," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="Sending HTTP post request  In case of sending HTTP post request to a URL with parameters such as submitting a HTML form and expecting to receive some response.">
-<meta name="keywords" content="coding,java,java web">
+<meta name="keywords" content="java,coding,java web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java coding notes III">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/04/java-notes-3/index.html">
@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#sending-http-post-request"><span class="nav-number">1.</span> <span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scaling-bigdecimal"><span class="nav-number">2.</span> <span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
         </div>
       
       
@@ -342,17 +365,17 @@
 
       
         <ul>
-<li><h4 id="sending-http-post-request"><a href="#Sending-HTTP-post-request" class="headerlink" title="Sending HTTP post request"></a><strong>Sending HTTP post request</strong></h4></li>
+<li><h4><span id="sending-http-post-request"><strong>Sending HTTP post request</strong></span></h4></li>
 </ul>
-<p>In case of sending HTTP post request to a <code>URL</code> with parameters such as submitting a HTML form and expecting to receive some response.<br><a id="more"></a><br><a href="https://hc.apache.org/httpcomponents-client-ga/quickstart.html" target="_blank" rel="external">More details: Apache HTTP Client</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.apache.http.client.*;</div><div class="line"> </div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpException;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.HttpStatus;</span></div><div class="line"><span class="comment">//import org.apache.commons.httpclient.methods.PostMethod;</span></div><div class="line"></div><div class="line">CloseableHttpClient httpClient = HttpClients.createDefault();</div><div class="line">HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"https://someUrl"</span>);</div><div class="line">List&lt;NameValuePair&gt; paraList = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para1"</span>, para1));</div><div class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para2"</span>, para2));</div><div class="line"></div><div class="line">httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(paraList, <span class="string">"UTF-8"</span>));</div><div class="line">CloseableHttpResponse httpResponse = httpClient.execute(httpPost);</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    System.out.println(httpResponse.getStatusLine());</div><div class="line">    HttpEntity httpEntity = httpResponse.getEntity();</div><div class="line">    <span class="keyword">if</span> (httpEntity!= <span class="keyword">null</span>) &#123;</div><div class="line">        InputStream instream = httpEntity.getContent();</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (HttpException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...	</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    httpResponse.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In case of sending HTTP post request to a <code>URL</code> with parameters such as submitting a HTML form and expecting to receive some response.<br><a id="more"></a><br><a href="https://hc.apache.org/httpcomponents-client-ga/quickstart.html" target="_blank" rel="noopener">More details: Apache HTTP Client</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.http.client.*;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//import org.apache.commons.httpclient.HttpException;</span></span><br><span class="line"><span class="comment">//import org.apache.commons.httpclient.HttpStatus;</span></span><br><span class="line"><span class="comment">//import org.apache.commons.httpclient.methods.PostMethod;</span></span><br><span class="line"></span><br><span class="line">CloseableHttpClient httpClient = HttpClients.createDefault();</span><br><span class="line">HttpPost httpPost = <span class="keyword">new</span> HttpPost(<span class="string">"https://someUrl"</span>);</span><br><span class="line">List&lt;NameValuePair&gt; paraList = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</span><br><span class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para1"</span>, para1));</span><br><span class="line">paraList.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"para2"</span>, para2));</span><br><span class="line"></span><br><span class="line">httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(paraList, <span class="string">"UTF-8"</span>));</span><br><span class="line">CloseableHttpResponse httpResponse = httpClient.execute(httpPost);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    System.out.println(httpResponse.getStatusLine());</span><br><span class="line">    HttpEntity httpEntity = httpResponse.getEntity();</span><br><span class="line">    <span class="keyword">if</span> (httpEntity!= <span class="keyword">null</span>) &#123;</span><br><span class="line">        InputStream instream = httpEntity.getContent();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (HttpException e) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    <span class="comment">//...	</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    httpResponse.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Another method or an old way …</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    URL url = <span class="keyword">new</span> URL(<span class="string">"https://someUrl"</span>);</div><div class="line">    <span class="comment">//open connection</span></div><div class="line">    HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">    <span class="comment">//set connection output | input to true</span></div><div class="line">    connection.setDoOutput(<span class="keyword">true</span>);</div><div class="line">    connection.setDoInput(<span class="keyword">true</span>);</div><div class="line">    <span class="comment">//instead of a GET, using method="POST"</span></div><div class="line">    connection.setRequestMethod(<span class="string">"POST"</span>);</div><div class="line">    <span class="comment">//an OutputStreamWriter for output stream by getOutputStream which writes to the connection.</span></div><div class="line">    OutputStreamWriter writer = <span class="keyword">new</span> OutputStreamWriter(connection.getOutputStream());</div><div class="line">    <span class="comment">//write data</span></div><div class="line">    String para = URLEncoder.encode(apiKey, <span class="string">"UTF-8"</span>);</div><div class="line">    writer.write(<span class="string">"para="</span> + para);</div><div class="line">    writer.flush();</div><div class="line">    <span class="comment">//read from connection.getInputStream</span></div><div class="line">    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream())); </div><div class="line">    String readLine; </div><div class="line">    <span class="keyword">while</span> ((readLine = reader.readLine()) != <span class="keyword">null</span>) &#123; </div><div class="line">        <span class="comment">//process readLine... </span></div><div class="line">    &#125; </div><div class="line">    writer.close();</div><div class="line">    reader.close(); </div><div class="line">    <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</div><div class="line">        <span class="comment">//connection is good</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//HTTP error code.</span></div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.net.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    URL url = <span class="keyword">new</span> URL(<span class="string">"https://someUrl"</span>);</span><br><span class="line">    <span class="comment">//open connection</span></span><br><span class="line">    HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span><br><span class="line">    <span class="comment">//set connection output | input to true</span></span><br><span class="line">    connection.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">    connection.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//instead of a GET, using method="POST"</span></span><br><span class="line">    connection.setRequestMethod(<span class="string">"POST"</span>);</span><br><span class="line">    <span class="comment">//an OutputStreamWriter for output stream by getOutputStream which writes to the connection.</span></span><br><span class="line">    OutputStreamWriter writer = <span class="keyword">new</span> OutputStreamWriter(connection.getOutputStream());</span><br><span class="line">    <span class="comment">//write data</span></span><br><span class="line">    String para = URLEncoder.encode(apiKey, <span class="string">"UTF-8"</span>);</span><br><span class="line">    writer.write(<span class="string">"para="</span> + para);</span><br><span class="line">    writer.flush();</span><br><span class="line">    <span class="comment">//read from connection.getInputStream</span></span><br><span class="line">    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(connection.getInputStream())); </span><br><span class="line">    String readLine; </span><br><span class="line">    <span class="keyword">while</span> ((readLine = reader.readLine()) != <span class="keyword">null</span>) &#123; </span><br><span class="line">        <span class="comment">//process readLine... </span></span><br><span class="line">    &#125; </span><br><span class="line">    writer.close();</span><br><span class="line">    reader.close(); </span><br><span class="line">    <span class="keyword">if</span> (connection.getResponseCode() == HttpURLConnection.HTTP_OK) &#123;</span><br><span class="line">        <span class="comment">//connection is good</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//HTTP error code.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="scaling-bigdecimal"><a href="#Scaling-BigDecimal" class="headerlink" title="Scaling BigDecimal"></a><strong>Scaling BigDecimal</strong></h4></li>
+<li><h4><span id="scaling-bigdecimal"><strong>Scaling BigDecimal</strong></span></h4></li>
 </ul>
 <p>Some methods for scaling a BigDecimal number.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.math.*</div><div class="line"></div><div class="line">BigDecimal amount = <span class="keyword">new</span> BigDecimal(<span class="number">98.7654</span>);</div><div class="line"></div><div class="line"><span class="comment">//option A: output 9876</span></div><div class="line">BigDecimal amount1 = amount.scaleByPowerOfTen(<span class="number">2</span>).setScale(<span class="number">0</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount1));</div><div class="line"></div><div class="line"><span class="comment">//option B: output 9876.54</span></div><div class="line">BigDecimal amount2 = amount.movePointRight(<span class="number">2</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount2));</div><div class="line"></div><div class="line"><span class="comment">//option C: output 9876.5400</span></div><div class="line">BigDecimal amount3 = amount.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">100</span>)).setScale(<span class="number">4</span>, RoundingMode.HALF_UP);</div><div class="line">System.out.println(String.valueOf(amount3));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.3       </span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).round(<span class="keyword">new</span> MathContext(<span class="number">3</span>, RoundingMode.HALF_UP))));</div><div class="line"></div><div class="line"><span class="comment">//output: 12.35</span></div><div class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP)));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*</span><br><span class="line"></span><br><span class="line">BigDecimal amount = <span class="keyword">new</span> BigDecimal(<span class="number">98.7654</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//option A: output 9876</span></span><br><span class="line">BigDecimal amount1 = amount.scaleByPowerOfTen(<span class="number">2</span>).setScale(<span class="number">0</span>, RoundingMode.HALF_UP);</span><br><span class="line">System.out.println(String.valueOf(amount1));</span><br><span class="line"></span><br><span class="line"><span class="comment">//option B: output 9876.54</span></span><br><span class="line">BigDecimal amount2 = amount.movePointRight(<span class="number">2</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP);</span><br><span class="line">System.out.println(String.valueOf(amount2));</span><br><span class="line"></span><br><span class="line"><span class="comment">//option C: output 9876.5400</span></span><br><span class="line">BigDecimal amount3 = amount.multiply(<span class="keyword">new</span> BigDecimal(<span class="number">100</span>)).setScale(<span class="number">4</span>, RoundingMode.HALF_UP);</span><br><span class="line">System.out.println(String.valueOf(amount3));</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 12.3       </span></span><br><span class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).round(<span class="keyword">new</span> MathContext(<span class="number">3</span>, RoundingMode.HALF_UP))));</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 12.35</span></span><br><span class="line">System.out.println(String.valueOf(<span class="keyword">new</span> BigDecimal(<span class="string">"12.3456"</span>).setScale(<span class="number">2</span>, RoundingMode.HALF_UP)));</span><br></pre></td></tr></table></figure>
 <hr>
 
       
@@ -376,9 +399,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/coding/" rel="tag">#coding</a>
-          
             <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
           
             <a href="/tags/java-web/" rel="tag">#java web</a>
           
@@ -484,7 +507,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -554,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#sending-http-post-request"><span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scaling-bigdecimal"><span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Sending HTTP post request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Scaling BigDecimal</span></a></li></ol></div>
             
           </div>
         </section>
@@ -693,6 +716,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

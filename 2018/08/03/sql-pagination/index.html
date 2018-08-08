@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pagination-in-store-procedure"><span class="nav-number">1.</span> <span class="nav-text">Pagination in Store Procedure</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Pagination in Store Procedure</span></a></li></ol></div>
         </div>
       
       
@@ -342,7 +365,7 @@
 
       
         <ul>
-<li><h2 id="pagination-in-store-procedure"><a href="#Pagination-in-Store-Procedure" class="headerlink" title="Pagination in Store Procedure"></a>Pagination in Store Procedure</h2></li>
+<li><h2><span id="pagination-in-store-procedure">Pagination in Store Procedure</span></h2></li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> [<span class="keyword">schema</span>].[usp_GetTransactionPageable]</span><br><span class="line">  (</span><br><span class="line">    @<span class="keyword">id</span> <span class="built_in">INT</span>,</span><br><span class="line">    @startDate DATETIME,</span><br><span class="line">    @endDate DATETIME,</span><br><span class="line">    @pageNum <span class="built_in">INT</span>,</span><br><span class="line">    @pageSize <span class="built_in">INT</span></span><br><span class="line">  )</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line">  <span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">DECLARE</span> @idLocal <span class="built_in">INT</span></span><br><span class="line">    <span class="keyword">DECLARE</span> @startDateLocal DATETIME</span><br><span class="line">    <span class="keyword">DECLARE</span> @endDateLocal DATETIME</span><br><span class="line">    <span class="keyword">SET</span> @idLocal = @<span class="keyword">id</span></span><br><span class="line">    <span class="keyword">SET</span> @startDateLocal = @startDate</span><br><span class="line">    <span class="keyword">SET</span> @endDateLocal = <span class="keyword">DATEADD</span>(DD, <span class="number">1</span>, @endDate)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">      t.* <span class="keyword">FROM</span> schema.TABLE t</span><br><span class="line">    <span class="keyword">WHERE</span> t.ID = @idLocal</span><br><span class="line">          <span class="keyword">AND</span> t.DATETIME &gt;= @startDateLocal <span class="keyword">AND</span> t.DATETIME &lt; @endDateLocal</span><br><span class="line">    <span class="keyword">ORDER</span> <span class="keyword">BY</span> t.DATETIME <span class="keyword">DESC</span></span><br><span class="line">      <span class="keyword">OFFSET</span> (@pageNum - <span class="number">1</span>) * @pageSize <span class="keyword">ROWS</span></span><br><span class="line">      <span class="keyword">FETCH</span> <span class="keyword">NEXT</span> @pageSize <span class="keyword">ROWS</span> <span class="keyword">ONLY</span></span><br><span class="line">  <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
       
@@ -377,13 +400,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/03/java-pagination/" rel="next" title="Java Pagination">
-                <i class="fa fa-chevron-left"></i> Java Pagination
+              <a href="/2018/08/02/spring-boot-notes-1/" rel="next" title="Spring-boot Notes I">
+                <i class="fa fa-chevron-left"></i> Spring-boot Notes I
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/03/java-pagination/" rel="prev" title="Java Pagination">
+                Java Pagination <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -468,7 +495,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -538,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pagination-in-store-procedure"><span class="nav-text">Pagination in Store Procedure</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Pagination in Store Procedure</span></a></li></ol></div>
             
           </div>
         </section>
@@ -677,6 +704,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

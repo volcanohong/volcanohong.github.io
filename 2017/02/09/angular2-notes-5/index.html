@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#interval-and-clock-ticker"><span class="nav-number">1.</span> <span class="nav-text">Interval and Clock Ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ngonchanges-not-detect-changes-in-object"><span class="nav-number">1.1.</span> <span class="nav-text">ngOnChanges Not Detect Changes in Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-pipe-parameters"><span class="nav-number">2.</span> <span class="nav-text">Number Pipe Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matrix-url"><span class="nav-number">3.</span> <span class="nav-text">Matrix URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canactivate-return-observable"><span class="nav-number">4.</span> <span class="nav-text">canActivate Return Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#detect-route-changes"><span class="nav-number">5.</span> <span class="nav-text">Detect Route Changes</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Interval and Clock Ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">ngOnChanges Not Detect Changes in Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Number Pipe Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Matrix URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">canActivate Return Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Detect Route Changes</span></a></li></ol></div>
         </div>
       
       
@@ -342,13 +365,13 @@
 
       
         <ul>
-<li><h2 id="interval-and-clock-ticker"><a href="#Interval-and-Clock-Ticker" class="headerlink" title="Interval and Clock Ticker"></a><strong>Interval and Clock Ticker</strong></h2></li>
+<li><h2><span id="interval-and-clock-ticker"><strong>Interval and Clock Ticker</strong></span></h2></li>
 </ul>
-<p>Use <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9" target="_blank" rel="external">IntervalObservable</a> in <code>rxjs</code> to implement interval in angular 2. <code>Create(period)</code> is a static method, which creates an Observable that emits sequential numbers every specified interval of time.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; IntervalObservable &#125; from <span class="string">'rxjs/observable/IntervalObservable'</span>;</div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">    selector: <span class="string">'demo'</span>,</div><div class="line">    templateUrl: <span class="string">'&lt;div&gt;&#123;&#123;time | date:'</span>HH:mm:ss<span class="string">'&#125;&#125;&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">implements</span> <span class="title">OnInit</span></span>&#123;</div><div class="line">    time:number = Date.now();</div><div class="line">    ngOnInit() &#123;</div><div class="line">        IntervalObservable.create(<span class="number">1000</span>).subscribe(() =&gt; <span class="keyword">this</span>.time = Date.now());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Use <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9" target="_blank" rel="noopener">IntervalObservable</a> in <code>rxjs</code> to implement interval in angular 2. <code>Create(period)</code> is a static method, which creates an Observable that emits sequential numbers every specified interval of time.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; IntervalObservable &#125; from <span class="string">'rxjs/observable/IntervalObservable'</span>;</span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">    selector: <span class="string">'demo'</span>,</span><br><span class="line">    templateUrl: <span class="string">'&lt;div&gt;&#123;&#123;time | date:'</span>HH:mm:ss<span class="string">'&#125;&#125;&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line">export <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">implements</span> <span class="title">OnInit</span></span>&#123;</span><br><span class="line">    time:number = Date.now();</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        IntervalObservable.create(<span class="number">1000</span>).subscribe(() =&gt; <span class="keyword">this</span>.time = Date.now());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
-<li><h3 id="ngonchanges-not-detect-changes-in-object"><a href="#ngOnChanges-Not-Detect-Changes-in-Object" class="headerlink" title="ngOnChanges Not Detect Changes in Object"></a><strong><code>ngOnChanges</code> Not Detect Changes in Object</strong></h3></li>
+<li><h3><span id="ngonchanges-not-detect-changes-in-object"><strong><code>ngOnChanges</code> Not Detect Changes in Object</strong></span></h3></li>
 </ul>
 <p>During change detection, when Angular checks components’ input properties for change, it uses (essentially) === for dirty checking. For arrays, this means the array references (only) are dirty checked. Since the <code>rawLapsData</code> array reference isn’t changing, <code>ngOnChanges()</code> will not be fired.</p>
 <p>Two possible solutions:</p>
@@ -357,9 +380,9 @@
 <li>Assign a new array to <code>rawLapsData</code> whenever you make any changes to the array contents. Then <code>ngOnChanges()</code> will be called because the array (reference) will appear as a change.</li>
 </ol>
 <ul>
-<li><h2 id="number-pipe-parameters"><a href="#Number-Pipe-Parameters" class="headerlink" title="Number Pipe Parameters"></a><strong>Number Pipe Parameters</strong></h2></li>
+<li><h2><span id="number-pipe-parameters"><strong>Number Pipe Parameters</strong></span></h2></li>
 </ul>
-<p>For example,<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;&#123; tmpNumber | number : '1.2-2' &#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>For example,<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; tmpNumber | number : '1.2-2' &#125;&#125;</span><br></pre></td></tr></table></figure></p>
 <p>The parameter has this syntax:</p>
 <p><code>{minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}</code></p>
 <p>So the example of ‘1.2-2’ means:</p>
@@ -369,12 +392,12 @@
 <li>No more than 2 digits.</li>
 </ol>
 <ul>
-<li><h2 id="matrix-url"><a href="#Matrix-URL" class="headerlink" title="Matrix URL"></a><strong>Matrix URL</strong></h2></li>
+<li><h2><span id="matrix-url"><strong>Matrix URL</strong></span></h2></li>
 </ul>
 <p>Matrix parameters are tied to a path segment, while query parameters are tied to the URL. They have different semantics.</p>
 <p>Maybe it’s hard to tell because you always see it at the end of the URL, but this is also matrix paramters<br><code>localhost:3000/heroes;id=15;foo=foo/bar/baz</code></p>
 <p>The parameters are tied to heroes. When you access the route.url, you will see this</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.route.url.subscribe((url: UrlSegment[]) =&gt; &#123;</div><div class="line">  let heroes = url[<span class="number">0</span>];</div><div class="line">  let heroesMatrix = heroes.parameters();</div><div class="line">  <span class="comment">// heroes should contain id=5, foo=foo</span></div><div class="line">  let bar = url[<span class="number">1</span>].path;</div><div class="line">  let baz = url[<span class="number">2</span>].path;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.route.url.subscribe((url: UrlSegment[]) =&gt; &#123;</span><br><span class="line">  let heroes = url[<span class="number">0</span>];</span><br><span class="line">  let heroesMatrix = heroes.parameters();</span><br><span class="line">  <span class="comment">// heroes should contain id=5, foo=foo</span></span><br><span class="line">  let bar = url[<span class="number">1</span>].path;</span><br><span class="line">  let baz = url[<span class="number">2</span>].path;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Is the matrix url notation the “default” to creating urls with parameters or is better to use the “old” notation with ?</p>
 <p>No, both could be used, and how to use (create) them is completely different</p>
 <p>matrix parameters are tied to each path, by passing an object after the path in the array</p>
@@ -384,10 +407,10 @@
 <p><code>router.navigate([&#39;/foo&#39;], { queryParams: { bar: 1, baz: 2 }});</code></p>
 <p>Here you get <code>/foo?bar=1&amp;baz=2</code></p>
 <p>See also:</p>
-<p><a href="http://stackoverflow.com/q/401981/2587435" target="_blank" rel="external">When to use query parameters versus matrix parameters?</a></p>
-<p><a href="http://stackoverflow.com/q/2048121/2587435" target="_blank" rel="external">URL matrix parameters vs. request parameters</a></p>
+<p><a href="http://stackoverflow.com/q/401981/2587435" target="_blank" rel="noopener">When to use query parameters versus matrix parameters?</a></p>
+<p><a href="http://stackoverflow.com/q/2048121/2587435" target="_blank" rel="noopener">URL matrix parameters vs. request parameters</a></p>
 <ul>
-<li><h2 id="canactivate-return-observable"><a href="#canActivate-Return-Observable" class="headerlink" title="canActivate Return Observable"></a><strong><code>canActivate</code> Return Observable<boolean></boolean></strong></h2></li>
+<li><h2><span id="canactivate-return-observable"><strong><code>canActivate</code> Return Observable<boolean></boolean></strong></span></h2></li>
 </ul>
 <p>Note:</p>
 <ol>
@@ -397,22 +420,22 @@
 <li>Passing parameters via router.navigate(), and the passed params are matrix URL pattern rather than query params.<br>Have to pass the matrix URL parameters to the redirected error page, so that the error page knows what is the link that user wants to access causing an error. </li>
 <li>Hope to replace <code>window.location.href</code>in the future, it is not written in angular way.</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable&lt;<span class="keyword">boolean</span>&gt; &#123;</div><div class="line">        <span class="keyword">this</span>.path = state.url;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.roleResourceService.checkStaffRoleResource(<span class="keyword">this</span>.path)</div><div class="line">            .map(isActivate =&gt; &#123;</div><div class="line">                <span class="keyword">if</span>(!isActivate) &#123;</div><div class="line">                    <span class="keyword">this</span>.onCanActivate(isActivate);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> isActivate;</div><div class="line">            &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    onCanActivate(canActivate:<span class="keyword">boolean</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (!canActivate) &#123;</div><div class="line">            <span class="keyword">this</span>.router.navigate([<span class="string">''</span>, <span class="string">'error-role'</span>, &#123;path: <span class="keyword">this</span>.path&#125;]);</div><div class="line">            <span class="keyword">this</span>.roleResourceService.clearCache();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">canActivate(route:ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable&lt;<span class="keyword">boolean</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">this</span>.path = state.url;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.roleResourceService.checkStaffRoleResource(<span class="keyword">this</span>.path)</span><br><span class="line">            .map(isActivate =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(!isActivate) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.onCanActivate(isActivate);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> isActivate;</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    onCanActivate(canActivate:<span class="keyword">boolean</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!canActivate) &#123;</span><br><span class="line">            <span class="keyword">this</span>.router.navigate([<span class="string">''</span>, <span class="string">'error-role'</span>, &#123;path: <span class="keyword">this</span>.path&#125;]);</span><br><span class="line">            <span class="keyword">this</span>.roleResourceService.clearCache();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h2 id="detect-route-changes"><a href="#Detect-Route-Changes" class="headerlink" title="Detect Route Changes"></a><strong>Detect Route Changes</strong></h2></li>
+<li><h2><span id="detect-route-changes"><strong>Detect Route Changes</strong></span></h2></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized &#125; from <span class="string">'@angular/router'</span>;</div><div class="line"></div><div class="line">constructor(router:Router) &#123;</div><div class="line">  router.events.forEach((event) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(event <span class="keyword">instanceof</span> NavigationStart) &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// NavigationEnd</span></div><div class="line">    <span class="comment">// NavigationCancel</span></div><div class="line">    <span class="comment">// NavigationError</span></div><div class="line">    <span class="comment">// RoutesRecognized</span></div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized &#125; from <span class="string">'@angular/router'</span>;</span><br><span class="line"></span><br><span class="line">constructor(router:Router) &#123;</span><br><span class="line">  router.events.forEach((event) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(event <span class="keyword">instanceof</span> NavigationStart) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// NavigationEnd</span></span><br><span class="line">    <span class="comment">// NavigationCancel</span></span><br><span class="line">    <span class="comment">// NavigationError</span></span><br><span class="line">    <span class="comment">// RoutesRecognized</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>You can also filter by the given event:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/filter'</span>;</div><div class="line"></div><div class="line">constructor(router:Router) &#123;</div><div class="line">  router.events</div><div class="line">    .filter(event =&gt; event <span class="keyword">instanceof</span> NavigationStart)</div><div class="line">    .subscribe((event:NavigationStart) =&gt; &#123;</div><div class="line">      <span class="comment">// You only receive NavigationStart events</span></div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="https://github.com/angular/angular/issues/11268#issuecomment-244601977" target="_blank" rel="external">Using pairwise operator</a> to get the previous and current event also is an nice idea. </p>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line">import 'rxjs/add/operator/pairwise';</div><div class="line">import &#123;Router&#125; from '@angular/router;</div><div class="line"></div><div class="line">export class AppComponent &#123;</div><div class="line">    constructor(private router: Router) &#123;</div><div class="line">        this.router.events.pairwise().subscribe((e) =&gt; &#123;</div><div class="line">            console.log(e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/filter'</span>;</span><br><span class="line"></span><br><span class="line">constructor(router:Router) &#123;</span><br><span class="line">  router.events</span><br><span class="line">    .filter(event =&gt; event <span class="keyword">instanceof</span> NavigationStart)</span><br><span class="line">    .subscribe((event:NavigationStart) =&gt; &#123;</span><br><span class="line">      <span class="comment">// You only receive NavigationStart events</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/angular/angular/issues/11268#issuecomment-244601977" target="_blank" rel="noopener">Using pairwise operator</a> to get the previous and current event also is an nice idea. </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'rxjs/add/operator/pairwise'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Router&#125; from <span class="string">'@angular/router;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export class AppComponent &#123;</span></span><br><span class="line"><span class="string">    constructor(private router: Router) &#123;</span></span><br><span class="line"><span class="string">        this.router.events.pairwise().subscribe((e) =&gt; &#123;</span></span><br><span class="line"><span class="string">            console.log(e);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>Ref</strong>:</p>
 <ol>
-<li>Rxjs <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9" target="_blank" rel="external">IntervalObservable</a></li>
-<li><a href="http://stackoverflow.com/q/401981/2587435" target="_blank" rel="external">When to use query parameters versus matrix parameters?</a></li>
-<li><a href="http://stackoverflow.com/q/2048121/2587435" target="_blank" rel="external">URL matrix parameters vs. request parameters</a></li>
-<li><a href="https://github.com/angular/angular/issues/11268#issuecomment-244601977" target="_blank" rel="external">Using pairwise operator</a></li>
+<li>Rxjs <a href="http://reactivex.io/rxjs/file/es6/observable/IntervalObservable.js.html#lineNumber9" target="_blank" rel="noopener">IntervalObservable</a></li>
+<li><a href="http://stackoverflow.com/q/401981/2587435" target="_blank" rel="noopener">When to use query parameters versus matrix parameters?</a></li>
+<li><a href="http://stackoverflow.com/q/2048121/2587435" target="_blank" rel="noopener">URL matrix parameters vs. request parameters</a></li>
+<li><a href="https://github.com/angular/angular/issues/11268#issuecomment-244601977" target="_blank" rel="noopener">Using pairwise operator</a></li>
 </ol>
 
       
@@ -546,7 +569,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -616,7 +639,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#interval-and-clock-ticker"><span class="nav-text">Interval and Clock Ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ngonchanges-not-detect-changes-in-object"><span class="nav-text">ngOnChanges Not Detect Changes in Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#number-pipe-parameters"><span class="nav-text">Number Pipe Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matrix-url"><span class="nav-text">Matrix URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canactivate-return-observable"><span class="nav-text">canActivate Return Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#detect-route-changes"><span class="nav-text">Detect Route Changes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Interval and Clock Ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">ngOnChanges Not Detect Changes in Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Number Pipe Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Matrix URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">canActivate Return Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Detect Route Changes</span></a></li></ol></div>
             
           </div>
         </section>
@@ -755,6 +778,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

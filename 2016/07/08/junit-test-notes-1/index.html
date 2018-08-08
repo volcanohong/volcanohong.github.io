@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#test-method-with-parameter-mocked-object"><span class="nav-number">1.</span> <span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debug-method-should-have-no-parameters"><span class="nav-number">2.</span> <span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
         </div>
       
       
@@ -342,26 +365,26 @@
 
       
         <ul>
-<li><h4 id="test-method-with-parameter-mocked-object"><a href="#Test-method-with-parameter-Mocked-object" class="headerlink" title="Test method with parameter: @Mocked object"></a><strong>Test method with parameter: @Mocked object</strong></h4></li>
+<li><h4><span id="test-method-with-parameter-mocked-object"><strong>Test method with parameter: @Mocked object</strong></span></h4></li>
 </ul>
 <p>Learn how to recording expectations…, which needs further justification.  </p>
 <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test_targetMethod</span><span class="params">(@Mocked <span class="keyword">final</span> SomeObj someObj)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="keyword">new</span> Expectations() &#123;&#123;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> A = <span class="number">5</span>;</div><div class="line">        someObj.getStringList((Integer) any);</div><div class="line">        result = <span class="keyword">new</span> mockit.Delegate() &#123;</div><div class="line">            <span class="function">ArrayList&lt;String&gt; <span class="title">getStirngList</span><span class="params">(<span class="keyword">int</span> para)</span> </span>&#123;   </div><div class="line">                List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; ++i)&#123;</div><div class="line">                    strList.add(String.valueOf(A * i));</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> strList;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;&#125;;</div><div class="line">    </div><div class="line">    List&lt;String&gt; result = someClass.targetMethod();</div><div class="line">    assertNotNull(result);</div><div class="line">    assertEquals(<span class="number">3</span>, result.size());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>REMARK 1</strong>:<br>a) Define <code>@Morked</code> object as a member in class level<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Mocked</span> </div><div class="line"><span class="keyword">private</span> Object httpServiceImpl; <span class="comment">//as a class member</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test_targetMethod</span><span class="params">(@Mocked <span class="keyword">final</span> SomeObj someObj)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Expectations() &#123;&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> A = <span class="number">5</span>;</span><br><span class="line">        someObj.getStringList((Integer) any);</span><br><span class="line">        result = <span class="keyword">new</span> mockit.Delegate() &#123;</span><br><span class="line">            <span class="function">ArrayList&lt;String&gt; <span class="title">getStirngList</span><span class="params">(<span class="keyword">int</span> para)</span> </span>&#123;   </span><br><span class="line">                List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">3</span>; ++i)&#123;</span><br><span class="line">                    strList.add(String.valueOf(A * i));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> strList;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">    </span><br><span class="line">    List&lt;String&gt; result = someClass.targetMethod();</span><br><span class="line">    assertNotNull(result);</span><br><span class="line">    assertEquals(<span class="number">3</span>, result.size());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>REMARK 1</strong>:<br>a) Define <code>@Morked</code> object as a member in class level<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Mocked</span> </span><br><span class="line"><span class="keyword">private</span> Object httpServiceImpl; <span class="comment">//as a class member</span></span><br></pre></td></tr></table></figure></p>
 <p>Then, if we have <code>result</code> in the <code>httpServiceImpl</code>, it turns out that <code>result</code> is NULL.</p>
-<p>b) Define as a parameter in method<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testProcessDeposit_success</span><span class="params">(@Mocked <span class="keyword">final</span> HttpServiceImpl httpServiceImpl)</span></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>b) Define as a parameter in method<br>For example:<br>    <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testProcessDeposit_success</span><span class="params">(@Mocked <span class="keyword">final</span> HttpServiceImpl httpServiceImpl)</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Then, <code>results</code> in <code>httpServiceImpl</code> has real value.</p>
-<p><strong>REMARK 2</strong>:<br>a) In case of <code>NonStrictExpectations</code>. When calling the method, the order does not matter.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> NonStrictExpectations()&#123;&#123;</div><div class="line">    execute1();</div><div class="line">    execute2();</div><div class="line">&#125;&#125;;</div></pre></td></tr></table></figure></p>
-<p>b) In case of <code>Expectations</code>, the test must follow the order of steps exactly.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Expectations() &#123;&#123;</div><div class="line">     <span class="comment">//Step 1;</span></div><div class="line">     executeFirst();</div><div class="line"></div><div class="line">     <span class="comment">//Step 2;</span></div><div class="line">     executeSecond();</div><div class="line">&#125;&#125;;</div></pre></td></tr></table></figure></p>
+<p><strong>REMARK 2</strong>:<br>a) In case of <code>NonStrictExpectations</code>. When calling the method, the order does not matter.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> NonStrictExpectations()&#123;&#123;</span><br><span class="line">    execute1();</span><br><span class="line">    execute2();</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>b) In case of <code>Expectations</code>, the test must follow the order of steps exactly.<br>    <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Expectations() &#123;&#123;</span><br><span class="line">     <span class="comment">//Step 1;</span></span><br><span class="line">     executeFirst();</span><br><span class="line"></span><br><span class="line">     <span class="comment">//Step 2;</span></span><br><span class="line">     executeSecond();</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>The test will fail if the <code>executeSecond()</code> is called before <code>executeFirst()</code>.    </p>
 <ul>
-<li><h4 id="debug-method-should-have-no-parameters"><a href="#Debug-“method-should-have-no-parameters”" class="headerlink" title="Debug: “method should have no parameters”"></a><strong>Debug: “method should have no parameters”</strong></h4></li>
+<li><h4><span id="debug-method-should-have-no-parameters"><strong>Debug: “method should have no parameters”</strong></span></h4></li>
 </ul>
 <p>Using Junit 4.8, Jmockit 1.8, Jmock 1.1 for unit test and facing the error: <code>java.lang.Exception: Method testMethod should have no parameters</code> when having test method as:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(@Mocked <span class="keyword">final</span> Object obj)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Commonly, <code>@Test</code> method is not allowed to have parameters. But it’s not the case with Jmockit: “<a href="http://jmockit.org/gettingStarted.html#record" target="_blank" rel="external">Jmockit getting started: recording expectations</a>“. </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMethod</span><span class="params">(@Mocked <span class="keyword">final</span> Object obj)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Commonly, <code>@Test</code> method is not allowed to have parameters. But it’s not the case with Jmockit: “<a href="http://jmockit.org/gettingStarted.html#record" target="_blank" rel="noopener">Jmockit getting started: recording expectations</a>“. </p>
 <p>Finally, the problem is solved by reordering the library in module config file for ItelliJ. In <code>.iml</code> file, the order of the the JMockit jar must appear before JUnit. For example,</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmockit:1.8"</span> level=<span class="string">"project"</span> /&gt;</div><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmock:1.1.0"</span> level=<span class="string">"project"</span> /&gt;</div><div class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: junit:4.8.1"</span> level=<span class="string">"project"</span> /&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmockit:1.8"</span> level=<span class="string">"project"</span> /&gt;</span><br><span class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: jmock:1.1.0"</span> level=<span class="string">"project"</span> /&gt;</span><br><span class="line">&lt;orderEntry type=<span class="string">"library"</span> name=<span class="string">"Maven: junit:4.8.1"</span> level=<span class="string">"project"</span> /&gt;</span><br></pre></td></tr></table></figure>
 <hr>
 <!--
 <a href="/index.html”&gt;Main Page</a>–&gt;
@@ -497,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -567,7 +590,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#test-method-with-parameter-mocked-object"><span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debug-method-should-have-no-parameters"><span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Test method with parameter: @Mocked object</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Debug: “method should have no parameters”</span></a></li></ol></div>
             
           </div>
         </section>
@@ -706,6 +729,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

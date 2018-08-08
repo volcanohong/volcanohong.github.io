@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,html,coding,angular," />
+  <meta name="keywords" content="angular,javascript,html,coding," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="Error: $digest already in progress when calling $scope.$apply()  Raise error when calling $scope.$apply() $scope.$apply(function () &amp;#123;    vm.error = &apos;ERROR&apos;;&amp;#125;); Problem is fixed by calling $">
-<meta name="keywords" content="javascript,html,coding,angular">
+<meta name="keywords" content="angular,javascript,html,coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJS notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/11/01/angularjs-notes-1/index.html">
@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#error-digest-already-in-progress-when-calling-scopeapply"><span class="nav-number">1.</span> <span class="nav-text">Error: $digest already in progress when calling $scope.$apply()</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Error: $digest already in progress when calling $scope.$apply()</span></a></li></ol></div>
         </div>
       
       
@@ -342,12 +365,12 @@
 
       
         <ul>
-<li><h4 id="error-digest-already-in-progress-when-calling-scopeapply"><a href="#Error-digest-already-in-progress-when-calling-scope-apply" class="headerlink" title="Error: $digest already in progress when calling $scope.$apply()"></a><strong>Error: <code>$digest</code> already in progress when calling <code>$scope.$apply()</code></strong></h4></li>
+<li><h4><span id="error-digest-already-in-progress-when-calling-scopeapply"><strong>Error: <code>$digest</code> already in progress when calling <code>$scope.$apply()</code></strong></span></h4></li>
 </ul>
 <p>Raise error when calling <code>$scope.$apply()</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$scope.$apply(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Problem is fixed by calling <code>$timeout</code> instead.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="comment">//code here will run afterwards</span></div><div class="line">   vm.error = <span class="string">'ERROR'</span>;</div><div class="line">&#125;, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//code here will run afterwards</span></span><br><span class="line">   vm.error = <span class="string">'ERROR'</span>;</span><br><span class="line">&#125;, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><strong>Comments:</strong></p>
 <p>Simply using <code>$timeout</code> is not the best nor the right solution. Also, make sure that if you are concerned by performances or scalability.</p>
@@ -360,7 +383,7 @@
 <p><strong><code>$scope.$evalAsync(callback)</code></strong> has been introduced with angularjs 1.2, and will probably solve most of your troubles. Please refer to the last paragraph to learn more about it.<br>if you get the <code>$digest</code> already in progress error, then your architecture is wrong: either you don’t need to redigest your scope, or you should not be in charge of that (see below).</p>
 <p><strong>How to structure your code</strong></p>
 <p>When you get that error, you’re trying to digest your scope while it’s already in progress: since you don’t know the state of your scope at that point, you’re not in charge of dealing with its digestion.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">editModel</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $scope.someVar = someVal;</div><div class="line">    <span class="comment">/* Do not apply your scope here since we don't know if that function is called synchronously from Angular or from an asynchronous code */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Processed by Angular, for instance called by a ng-click directive</span></div><div class="line">$scope.applyModelSynchronously = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// No need to digest</span></div><div class="line">    editModel();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Any kind of asynchronous code, for instance a server request</span></div><div class="line">callServer(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">/* That code is not watched nor digested by Angular, thus we can safely $apply it */</span></div><div class="line">    $scope.$apply(editModel);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">editModel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $scope.someVar = someVal;</span><br><span class="line">    <span class="comment">/* Do not apply your scope here since we don't know if that function is called synchronously from Angular or from an asynchronous code */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Processed by Angular, for instance called by a ng-click directive</span></span><br><span class="line">$scope.applyModelSynchronously = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// No need to digest</span></span><br><span class="line">    editModel();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Any kind of asynchronous code, for instance a server request</span></span><br><span class="line">callServer(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* That code is not watched nor digested by Angular, thus we can safely $apply it */</span></span><br><span class="line">    $scope.$apply(editModel);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>And if you know what you’re doing and working on an isolated small directive while part of a big Angular application, you could prefer <code>$digest</code> instead over <code>$apply</code> to save performances.</p>
 <p><strong>Update since Angularjs 1.2</strong></p>
 <p>A new, powerful method has been added to any <code>$scope: $evalAsync</code>. Basically, it will execute its callback within the current digest cycle if one is occurring, otherwise a new digest cycle will start executing the callback.</p>
@@ -369,7 +392,7 @@
 <hr>
 <p><strong>Ref</strong></p>
 <ol>
-<li><a href="https://angular.io/docs" target="_blank" rel="external">angular docs.</a></li>
+<li><a href="https://angular.io/docs" target="_blank" rel="noopener">angular docs.</a></li>
 </ol>
 
       
@@ -393,13 +416,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/angular/" rel="tag">#angular</a>
+          
             <a href="/tags/javascript/" rel="tag">#javascript</a>
           
             <a href="/tags/html/" rel="tag">#html</a>
           
             <a href="/tags/coding/" rel="tag">#coding</a>
-          
-            <a href="/tags/angular/" rel="tag">#angular</a>
           
         </div>
       
@@ -503,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -573,7 +596,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#error-digest-already-in-progress-when-calling-scopeapply"><span class="nav-text">Error: $digest already in progress when calling $scope.$apply()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Error: $digest already in progress when calling $scope.$apply()</span></a></li></ol></div>
             
           </div>
         </section>
@@ -712,6 +735,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

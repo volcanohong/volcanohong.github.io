@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,unit test,MVC,spring," />
+  <meta name="keywords" content="java,spring,unit test,MVC," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="Introduction  Inversion of Control (IoC): The core of the Spring framework is based on the principle of IoC. IoC is a technique that externalizes the creation and management of component dependencies">
-<meta name="keywords" content="java,unit test,MVC,spring">
+<meta name="keywords" content="java,spring,unit test,MVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Notes I">
 <meta property="og:url" content="http://volcanohong.github.com/2016/08/03/spring-notes-1/index.html">
@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-basics"><span class="nav-number">2.</span> <span class="nav-text">Spring Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#applicationcontextxml"><span class="nav-number">2.1.</span> <span class="nav-text">applicationContext.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#beans"><span class="nav-number">2.2.</span> <span class="nav-text">Beans</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setter-injection"><span class="nav-number">2.3.</span> <span class="nav-text">Setter Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#constructor-injection"><span class="nav-number">2.4.</span> <span class="nav-text">Constructor Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#autowiring"><span class="nav-number">2.5.</span> <span class="nav-text">Autowiring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#set-injection"><span class="nav-number">2.6.</span> <span class="nav-text">Set Injection</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-annotation"><span class="nav-number">3.</span> <span class="nav-text">Spring Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#stereotype-annotation"><span class="nav-number">3.1.</span> <span class="nav-text">Stereotype Annotation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-configuration"><span class="nav-number">4.</span> <span class="nav-text">Java Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-boot"><span class="nav-number">5.</span> <span class="nav-text">Spring Boot</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Spring Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">applicationContext.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Beans</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Setter Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Constructor Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.5.</span> <span class="nav-text">Autowiring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.6.</span> <span class="nav-text">Set Injection</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Spring Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">Stereotype Annotation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Java Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Spring Boot</span></a></li></ol></div>
         </div>
       
       
@@ -342,16 +365,16 @@
 
       
         <ul>
-<li><h4 id="introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h4></li>
+<li><h4><span id="introduction"><strong>Introduction</strong></span></h4></li>
 </ul>
 <p><strong>Inversion of Control (IoC)</strong>: The core of the Spring framework is based on the principle of IoC. IoC is a technique that externalizes the creation and management of component dependencies. </p>
 <p>A alternative descriptive name is <strong>Dependency Injection (DI)</strong>. Such behavior takes place at runtime, in which an instance of class A is provided to class B by some external process if B depends on A to perform some processing.  </p>
 <p><strong>Aspect Oriented Programing (AOP)</strong>: AOP provids another way of thinking about program structure. The key unit of modularity in OOP is the class, whereas in AOP the unit of modularity is the aspect. Aspects enable the modularization of concerns such as transaction management, log management, and input field validation that cut across multiple types and objects. </p>
-<p>The best document: <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/" target="_blank" rel="external">Spring Framework Documents</a></p>
+<p>The best document: <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/" target="_blank" rel="noopener">Spring Framework Documents</a></p>
 <a id="more"></a>
 <ul>
-<li><h4 id="spring-basics"><a href="#Spring-Basics" class="headerlink" title="Spring Basics"></a><strong>Spring Basics</strong></h4></li>
-<li><h5 id="applicationcontextxml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml"></a><strong><code>applicationContext.xml</code></strong></h5></li>
+<li><h4><span id="spring-basics"><strong>Spring Basics</strong></span></h4></li>
+<li><h5><span id="applicationcontextxml"><strong><code>applicationContext.xml</code></strong></span></h5></li>
 </ul>
 <ul>
 <li>It’s a IOC container like <code>BeanFactory</code> with more extensions</li>
@@ -363,11 +386,11 @@
 <li>It can be used as a simple Registry</li>
 <li>There are namespaces that aid in configuration and validation</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ApplicationContext appContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="keyword">new</span> String[]&#123;“applicationContext.xml”&#125;);</div><div class="line"></div><div class="line">Object obj = appContext.getBean(<span class="string">"Object"</span>, Object.class)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ApplicationContext appContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="keyword">new</span> String[]&#123;“applicationContext.xml”&#125;);</span><br><span class="line"></span><br><span class="line">Object obj = appContext.getBean(<span class="string">"Object"</span>, Object.class)</span><br></pre></td></tr></table></figure>
 <p>Import multiple configuration files</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-dao.xml”/</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-service.xml”/</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-action.xml”/</span>&gt;</span>  </div><div class="line">       ...  </div><div class="line">       <span class="tag">&lt;<span class="name">bean</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>  </div><div class="line">       ... </div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-dao.xml”/</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-service.xml”/</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">”spring-action.xml”/</span>&gt;</span>  </span><br><span class="line">       ...  </span><br><span class="line">       <span class="tag">&lt;<span class="name">bean</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>  </span><br><span class="line">       ... </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><h5 id="beans"><a href="#Beans" class="headerlink" title="Beans"></a><strong>Beans</strong></h5></li>
+<li><h5><span id="beans"><strong>Beans</strong></span></h5></li>
 </ul>
 <ul>
 <li>Essentially classes</li>
@@ -405,16 +428,16 @@
 </li>
 </ul>
 <ul>
-<li><h5 id="setter-injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a><strong>Setter Injection</strong></h5></li>
+<li><h5><span id="setter-injection"><strong>Setter Injection</strong></span></h5></li>
 </ul>
-<p>The class should provide corresponding setters and getters. Setter injection is more common.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop1"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop2"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span>  </div><div class="line">       ... </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>The class should provide corresponding setters and getters. Setter injection is more common.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop1"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop2"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span>  </span><br><span class="line">       ... </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><h5 id="constructor-injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a><strong>Constructor Injection</strong></h5></li>
+<li><h5><span id="constructor-injection"><strong>Constructor Injection</strong></span></h5></li>
 </ul>
-<p>The class should provide appropriate class constructor. Constructor injection guarantees the contract.<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </div><div class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span>para1<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span> </div><div class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span>para2<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span> </div><div class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span></div><div class="line">       ... </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>The class should provide appropriate class constructor. Constructor injection guarantees the contract.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span>para1<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span>&gt;</span>para2<span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">ref</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">       ... </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><code>Index</code> field indicates the arguments’ indexes.</p>
 <ul>
-<li><h5 id="autowiring"><a href="#Autowiring" class="headerlink" title="Autowiring"></a><strong>Autowiring</strong></h5></li>
+<li><h5><span id="autowiring"><strong>Autowiring</strong></span></h5></li>
 </ul>
 <ul>
 <li>Spring can automatically wire beans together</li>
@@ -431,28 +454,28 @@
 </ul>
 </li>
 </ul>
-<p>For example,<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!--need appropriate constructor--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"constructor"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!--need default constructor and setter--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"byType"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!--looking for the type of setter's parameter--&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!--need default constructor and setter--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span> </div><div class="line"><span class="comment">&lt;!--looking for setter's name--&gt;</span></div></pre></td></tr></table></figure>
+<p>For example,<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--need appropriate constructor--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"constructor"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--need default constructor and setter--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"byType"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--looking for the type of setter's parameter--&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--need default constructor and setter--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--looking for setter's name--&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><h5 id="set-injection"><a href="#Set-Injection" class="headerlink" title="Set Injection"></a><strong>Set Injection</strong></h5></li>
+<li><h5><span id="set-injection"><strong>Set Injection</strong></span></h5></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--set or list--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>value1<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>value2<span class="tag">&lt;/<span class="name">value</span>&gt;</span>              </div><div class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--map--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">map</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"k1"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"k2"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>              </div><div class="line">    <span class="tag">&lt;/<span class="name">map</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </div><div class="line">    <span class="comment">&lt;!--properties--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">props</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"k1"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"k2"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>              </div><div class="line">    <span class="tag">&lt;/<span class="name">props</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--set or list--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>value1<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>value2<span class="tag">&lt;/<span class="name">value</span>&gt;</span>              </span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--map--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"k1"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"k2"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>              </span><br><span class="line">    <span class="tag">&lt;/<span class="name">map</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"..."</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--properties--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">props</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"k1"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"k2"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>              </span><br><span class="line">    <span class="tag">&lt;/<span class="name">props</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="spring-annotation"><a href="#Spring-Annotation" class="headerlink" title="Spring Annotation"></a><strong>Spring Annotation</strong></h4></li>
+<li><h4><span id="spring-annotation"><strong>Spring Annotation</strong></span></h4></li>
 </ul>
 <ul>
 <li>Part of the context namespace</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">xmlns:context="http://www.springframework.org/schema/context"</div><div class="line"></div><div class="line">xsi:schemaLocation="http://www.springframework.org/schema/context</div><div class="line">http://www.springframework.org/schema/context/spring-context-2.5.xsd"</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">xmlns:context="http://www.springframework.org/schema/context"</span><br><span class="line"></span><br><span class="line">xsi:schemaLocation="http://www.springframework.org/schema/context</span><br><span class="line">http://www.springframework.org/schema/context/spring-context-2.5.xsd"</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Two elements have to be configured </li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>&gt;</span>  </div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.projectname"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.projectname"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><h5 id="stereotype-annotation"><a href="#Stereotype-Annotation" class="headerlink" title="Stereotype Annotation"></a><strong>Stereotype Annotation</strong></h5></li>
+<li><h5><span id="stereotype-annotation"><strong>Stereotype Annotation</strong></span></h5></li>
 </ul>
 <ul>
 <li>@Component<ul>
@@ -477,7 +500,7 @@
 <li><p><strong>Autowired</strong></p>
 <ul>
 <li><p>member variables </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> CustomerRepository customerRepository;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> CustomerRepository customerRepository;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>uses reflection to set it</p>
 </blockquote>
@@ -493,15 +516,15 @@
 </li>
 </ul>
 <ul>
-<li><h4 id="java-configuration"><a href="#Java-Configuration" class="headerlink" title="Java Configuration"></a><strong>Java Configuration</strong></h4></li>
+<li><h4><span id="java-configuration"><strong>Java Configuration</strong></span></h4></li>
 </ul>
 <ul>
 <li>No XML</li>
 <li>@Configuration is a class level annotation</li>
 <li>@Bean is a method level annotation</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span></span>&#123;</div><div class="line">    <span class="meta">@Bean</span>(name = <span class="string">"customerService"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> CustomerService <span class="title">getCustomerService</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CustomerServiceImpl();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ApplicationContext appContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(AppConfig.class);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span></span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"customerService"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> CustomerService <span class="title">getCustomerService</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CustomerServiceImpl();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ApplicationContext appContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(AppConfig.class);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>Autowired</p>
 <ul>
@@ -538,7 +561,7 @@
 </li>
 </ul>
 <ul>
-<li><h4 id="spring-boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a><strong>Spring Boot</strong></h4></li>
+<li><h4><span id="spring-boot"><strong>Spring Boot</strong></span></h4></li>
 </ul>
 <p>Spring boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”. Most Spring Boot applications need very little Spring configuration.</p>
 <p>Features:</p>
@@ -551,13 +574,13 @@
 <li>Absolutely no code generation and no requirement for XML configuration</li>
 </ol>
 <p>Configuration of spring boot in <code>pom.xml</code> </p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Spring Boot : parent dependency --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Spring Boot : parent dependency --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Create a controller</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@EnableAutoConfiguration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthController</span> </span>&#123;</div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a / b;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//// create a main funtion to run here</span></div><div class="line">    <span class="comment">//public static void main(String[] args) throws Exception &#123;</span></div><div class="line">    <span class="comment">//    SpringApplication.run(DoSthController.class, args);</span></div><div class="line">    <span class="comment">//&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//// create a main funtion to run here</span></span><br><span class="line">    <span class="comment">//public static void main(String[] args) throws Exception &#123;</span></span><br><span class="line">    <span class="comment">//    SpringApplication.run(DoSthController.class, args);</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Or create an seperate spring application</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthApplication</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication.run(DoSthApplication.class, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DoSthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Create a unit test</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthControllerTest</span> </span>&#123;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDivide_success</span><span class="params">()</span> </span>&#123;</div><div class="line">        assertEquals(<span class="number">1</span>, <span class="keyword">new</span> DoSthController().divide(<span class="number">5</span>, <span class="number">5</span>));</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span>(expected = Exception.class)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDivide_fail</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        DoSthController doSth = <span class="keyword">new</span> DoSthController();</div><div class="line">        doSth.divide(<span class="number">5</span>, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoSthControllerTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDivide_success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">1</span>, <span class="keyword">new</span> DoSthController().divide(<span class="number">5</span>, <span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span>(expected = Exception.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDivide_fail</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        DoSthController doSth = <span class="keyword">new</span> DoSthController();</span><br><span class="line">        doSth.divide(<span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Start <code>Tomcat</code>, then right-click and run <code>DoSthApplication</code>, or just run the test class and the test methods.</p>
 <hr>
 
@@ -584,11 +607,11 @@
           
             <a href="/tags/java/" rel="tag">#java</a>
           
+            <a href="/tags/spring/" rel="tag">#spring</a>
+          
             <a href="/tags/unit-test/" rel="tag">#unit test</a>
           
             <a href="/tags/MVC/" rel="tag">#MVC</a>
-          
-            <a href="/tags/spring/" rel="tag">#spring</a>
           
         </div>
       
@@ -692,7 +715,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -762,7 +785,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-basics"><span class="nav-text">Spring Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#applicationcontextxml"><span class="nav-text">applicationContext.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#beans"><span class="nav-text">Beans</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setter-injection"><span class="nav-text">Setter Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#constructor-injection"><span class="nav-text">Constructor Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#autowiring"><span class="nav-text">Autowiring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#set-injection"><span class="nav-text">Set Injection</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-annotation"><span class="nav-text">Spring Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#stereotype-annotation"><span class="nav-text">Stereotype Annotation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-configuration"><span class="nav-text">Java Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring-boot"><span class="nav-text">Spring Boot</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">applicationContext.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Beans</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Setter Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Constructor Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Autowiring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Set Injection</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">Stereotype Annotation</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Java Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Boot</span></a></li></ol></div>
             
           </div>
         </section>
@@ -901,6 +924,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

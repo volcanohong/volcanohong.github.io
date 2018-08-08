@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-number">1.</span> <span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-number">2.</span> <span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-number">3.</span> <span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-module-version-mismatch"><span class="nav-number">4.</span> <span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
         </div>
       
       
@@ -342,56 +365,56 @@
 
       
         <ul>
-<li><h4 id="hexo-commands"><a href="#Hexo-commands" class="headerlink" title="Hexo commands"></a><strong>Hexo commands</strong></h4></li>
+<li><h4><span id="hexo-commands"><strong>Hexo commands</strong></span></h4></li>
 </ul>
-<p>Install Hexo, make sure you have <a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a> installed</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>Install Hexo, make sure you have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a> installed</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>Create hexo folder (your site folder)</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo init &lt;folder-name&gt;</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo init &lt;folder-name&gt;</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>Once initialised, the site folder structure looks like:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── <span class="built_in">source</span></div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 <p>New post: If no <code>layout</code> is provided, Hexo will use the default_layout from <code>_config.yml</code>. If the <code>title</code> contains spaces, surround it with quotation marks. The new post file appears in <code>/source/_posts</code>.</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>Start server: by default <code>http://localhost:4000/</code></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>Clean cache file <code>db.json</code> </p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 <p>Watch file changes in debug mode</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo s --debug</span><br></pre></td></tr></table></figure>
 <p>Generate static file</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
 <p>Before deployment, in <code>_config.yml</code> file</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repo: https://github.com/xxx...</div><div class="line">  branch: [master]</div><div class="line">  message: <span class="string">"Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/xxx...</span><br><span class="line">  branch: [master]</span><br><span class="line">  message: <span class="string">"Site updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span></span><br></pre></td></tr></table></figure>
 <p>Deploy the website</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>If <code>ERROR</code> shows like <code>Deployer not found: github</code>, it needs to change the deploy type to <code>git</code>.</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>Commands shortcut</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo g == hexo generate</div><div class="line">hexo d == hexo deploy</div><div class="line">hexo s == hexo server</div><div class="line">hexo n == hexo new</div><div class="line"><span class="comment"># e.g. commands combination</span></div><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo g == hexo generate</span><br><span class="line">hexo d == hexo deploy</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo n == hexo new</span><br><span class="line"><span class="comment"># e.g. commands combination</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 <p>Create draft and publish it</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hexo new draft &lt;title&gt;</div><div class="line">hexo publish draft &lt;title&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo new draft &lt;title&gt;</span><br><span class="line">hexo publish draft &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>Drafts are not displayed by default. You can add the <code>--draft</code> option when running Hexo or enable the <code>render_drafts</code> setting in <code>_config.yml</code> to render drafts.</p>
-<p>Ref: <a href="https://hexo.io/" target="_blank" rel="external">Hexo getting started</a></p>
+<p>Ref: <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo getting started</a></p>
 <hr>
 <ul>
-<li><h4 id="hexo-themes"><a href="#Hexo-themes" class="headerlink" title="Hexo themes"></a><strong>Hexo themes</strong></h4></li>
+<li><h4><span id="hexo-themes"><strong>Hexo themes</strong></span></h4></li>
 </ul>
-<p><strong>1. NexT</strong><br>Install <code>NexT</code> theme<br>    <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p><strong>1. NexT</strong><br>Install <code>NexT</code> theme<br>    <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
 <p>Folow the setup instructions in <code>/theme/next/_config.yml</code></p>
-<p><strong>2. Bootstrap</strong><br>Another theme, <a href="https://www.cgmartin.com/2016/01/05/bootstrap-blog-hexo-theme/" target="_blank" rel="external">Bootstrap</a>, with good layout and available functions.</p>
-<p><strong>3. Pacman</strong><br>A bueatiful theme, <a href="https://github.com/A-limon/pacman" target="_blank" rel="external">Pacman</a>.  </p>
+<p><strong>2. Bootstrap</strong><br>Another theme, <a href="https://www.cgmartin.com/2016/01/05/bootstrap-blog-hexo-theme/" target="_blank" rel="noopener">Bootstrap</a>, with good layout and available functions.</p>
+<p><strong>3. Pacman</strong><br>A bueatiful theme, <a href="https://github.com/A-limon/pacman" target="_blank" rel="noopener">Pacman</a>.  </p>
 <ul>
-<li><h4 id="create-post-toc"><a href="#Create-post-TOC" class="headerlink" title="Create post TOC"></a><strong>Create post TOC</strong></h4></li>
+<li><h4><span id="create-post-toc"><strong>Create post TOC</strong></span></h4></li>
 </ul>
 <p>It might be a different based on the theme, but the logic behind is similar. Taking the <code>NexT</code> theme for instance, in <code>/theme/next/layout/_macro</code>, find the file <code>post.swig</code>, which configures the post content display.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line">&#123;% if post.toc %&#125;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"toc"</span> <span class="attr">class</span>=<span class="string">"post-toc"</span>&gt;</span></div><div class="line">        &#123;% set toc = toc(page.content, &#123;"class": "nav", list_number: post.toc_num&#125;) %&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span>Table of Contents<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-toc-content"</span>&gt;</span>&#123;&#123; toc &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% if post.toc %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"toc"</span> <span class="attr">class</span>=<span class="string">"post-toc"</span>&gt;</span></span><br><span class="line">        &#123;% set toc = toc(page.content, &#123;"class": "nav", list_number: post.toc_num&#125;) %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span>Table of Contents<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-toc-content"</span>&gt;</span>&#123;&#123; toc &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <p>There are two controls there, so in the post <code>front-matter</code>, one can add <code>toc: true</code> for display TOC and <code>toc_num: true</code> for showing list numbers.</p>
 <p>For defaut display TOC, just change the <code>if</code> statement, e.g.,</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">&#123;% <span class="keyword">if</span> (post.toc == <span class="literal">false</span>) %&#125;</div><div class="line"><span class="comment"># and show list number by default</span></div><div class="line">&#123;% <span class="built_in">set</span> toc = toc(page.content, &#123;<span class="string">"class"</span>: <span class="string">"nav"</span>, list_number: post.toc_num==<span class="literal">false</span>&#125;) %&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> (post.toc == <span class="literal">false</span>) %&#125;</span><br><span class="line"><span class="comment"># and show list number by default</span></span><br><span class="line">&#123;% <span class="built_in">set</span> toc = toc(page.content, &#123;<span class="string">"class"</span>: <span class="string">"nav"</span>, list_number: post.toc_num==<span class="literal">false</span>&#125;) %&#125;</span><br></pre></td></tr></table></figure>
 <p>Then, you don’t have to set <code>front-matter</code> for each post.</p>
 <ul>
-<li><h4 id="error-module-version-mismatch"><a href="#Error-Module-version-mismatch" class="headerlink" title="Error: Module version mismatch"></a><strong>Error: Module version mismatch</strong></h4>It seems there is a mismatch between one of:</li>
+<li><h4><span id="error-module-version-mismatch"><strong>Error: Module version mismatch</strong></span></h4>It seems there is a mismatch between one of:</li>
 </ul>
 <ol>
 <li>The hexo in node_modules/.bin</li>
@@ -399,7 +422,7 @@
 <li>The globally installed hexo which may well have been the one from 2.</li>
 </ol>
 <p>One solution is:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm uninstall -g hexo-cli</div><div class="line">rm /usr/local/bin/hexo</div><div class="line">rm -rf node_modules</div><div class="line">npm install</div><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall -g hexo-cli</span><br><span class="line">rm /usr/local/bin/hexo</span><br><span class="line">rm -rf node_modules</span><br><span class="line">npm install</span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <hr>
 
       
@@ -531,7 +554,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -601,7 +624,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-commands"><span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-themes"><span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-post-toc"><span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error-module-version-mismatch"><span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Hexo commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Hexo themes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Create post TOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">Error: Module version mismatch</span></a></li></ol></div>
             
           </div>
         </section>
@@ -740,6 +763,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

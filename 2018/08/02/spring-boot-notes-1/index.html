@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#developer-tools"><span class="nav-number">1.</span> <span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#automatic-restart"><span class="nav-number">1.1.</span> <span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-number">1.2.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></div>
         </div>
       
       
@@ -341,10 +364,10 @@
       
 
       
-        <h2 id="developer-tools"><a href="#Developer-Tools" class="headerlink" title="Developer Tools"></a><strong>Developer Tools</strong></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
+        <h2><span id="developer-tools"><strong>Developer Tools</strong></span></h2><p>Spring Boot includes an additional set of tools that can make the application development experience a little more pleasant. The <code>spring-boot-devtools</code> module can be included in any project to provide additional development-time features. </p>
 <p>Maven configuration, in pom.xml,</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="automatic-restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a><strong>Automatic Restart</strong></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
+<h3><span id="automatic-restart"><strong>Automatic Restart</strong></span></h3><p>Applications that use spring-boot-devtools automatically restart whenever files on the classpath change. Note that certain resources, such as static assets and view templates, do not need to restart the application.</p>
 <p><strong>Triggering a restart</strong></p>
 <p>As DevTools monitors classpath resources, the only way to trigger a restart is to update the classpath. The way in which you cause the classpath to be updated depends on the IDE that you are using. In <code>Eclipse</code>, saving a modified file causes the classpath to be updated and triggers a restart. In <code>IntelliJ IDEA</code>, building the project (Build -&gt; Build Project) has the same effect.</p>
 <p><strong>Logging changes in condition evaluation</strong></p>
@@ -354,7 +377,7 @@
 <p><strong>Excluding Resources</strong></p>
 <p>Certain resources do not necessarily need to trigger a restart when they are changed. For example, Thymeleaf templates can be edited in-place. By default, changing resources in <code>/META-INF/maven</code>, <code>/META-INF/resources</code>, <code>/resources</code>, or <code>/templates</code> does not trigger a restart but does trigger a live reload. If you want to customize these exclusions, you can use the spring.devtools.restart.exclude property. For example, to exclude only <code>/static</code> and <code>/public</code> you would set the following property:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spring.devtools.restart.exclude=<span class="keyword">static</span><span class="comment">/**,public/**</span></span><br></pre></td></tr></table></figure>
-<h3 id="note"><a href="#Note" class="headerlink" title="Note"></a><strong>Note</strong></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
+<h3><span id="note"><strong>Note</strong></span></h3><p>Found something interesting that needs to figure it out later. When a project consists of a few modules, e.g., module B depends on module A, where B has main() function. Build a project (Auto-start) only has good effects on changes in module B, while not always applies to module A. Just a remark here.</p>
 <p>Refer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank" rel="noopener">Spring-boot Developer Tools</a> for more details.</p>
 
       
@@ -399,8 +422,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/03/java-pagination/" rel="prev" title="Java Pagination">
-                Java Pagination <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/03/sql-pagination/" rel="prev" title="SQL Pagination">
+                SQL Pagination <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -486,7 +509,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -556,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#developer-tools"><span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#automatic-restart"><span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-text">Note</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Developer Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Automatic Restart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Note</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -695,6 +718,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 

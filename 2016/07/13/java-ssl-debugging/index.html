@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="coding,java,java web,debug," />
+  <meta name="keywords" content="java,coding,java web,debug," />
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="SSL: ValidatorException  Exception Message: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid cert">
-<meta name="keywords" content="coding,java,java web,debug">
+<meta name="keywords" content="java,coding,java web,debug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java SSL debugging">
 <meta property="og:url" content="http://volcanohong.github.com/2016/07/13/java-ssl-debugging/index.html">
@@ -233,9 +233,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,7 +356,7 @@
         <div id="toc" class="post-toc">
           
           <strong class=""></strong>
-          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ssl-validatorexception"><span class="nav-number">1.</span> <span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssl-handshakeexception"><span class="nav-number">2.</span> <span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
+          <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
         </div>
       
       
@@ -342,7 +365,7 @@
 
       
         <ul>
-<li><h4 id="ssl-validatorexception"><a href="#SSL-ValidatorException" class="headerlink" title="SSL: ValidatorException"></a><strong>SSL: ValidatorException</strong></h4></li>
+<li><h4><span id="ssl-validatorexception"><strong>SSL: ValidatorException</strong></span></h4></li>
 </ul>
 <p><em>Exception Message</em>: <code>sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</code></p>
 <a id="more"></a>
@@ -356,18 +379,18 @@
 <li>Update the <code>cacerts</code> file of your java. Normally, it is located in (Mac) <code>/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/security</code> or<br>(Linux) <code>/home/omega/java/jre/lib/security</code></li>
 </ol>
 <ul>
-<li><h4 id="ssl-handshakeexception"><a href="#SSL-HandshakeException" class="headerlink" title="SSL: HandshakeException"></a><strong>SSL: HandshakeException</strong></h4></li>
+<li><h4><span id="ssl-handshakeexception"><strong>SSL: HandshakeException</strong></span></h4></li>
 </ul>
 <p>After the CA import, it man still have error like <code>handshake_failure</code>.</p>
 <p>Read the detailed log by using <code>-Djavax.net.debug=all</code></p>
-<p><em>Exception Message</em>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Cipher Suites: […Long list of ciphers…]</div><div class="line">Compression Methods:  &#123; 0 &#125;</div><div class="line">Extension elliptic_curves, curve names: &#123;…&#125;</div><div class="line">Extension ec_point_formats, formats: [uncompressed]</div><div class="line">Extension server_name, server_name: [host_name: HOST]</div><div class="line">***</div><div class="line">main, WRITE: TLSv1 Handshake, length = 168</div><div class="line">main, READ: TLSv1 Alert, length = 2</div><div class="line">main, RECV TLSv1 ALERT:  fatal, handshake_failure</div><div class="line">main, called closeSocket()</div><div class="line">main, handling exception: javax.net.ssl.SSLHandshakeException: </div><div class="line">Received fatal alert: handshake_failure</div></pre></td></tr></table></figure></p>
+<p><em>Exception Message</em>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cipher Suites: […Long list of ciphers…]</span><br><span class="line">Compression Methods:  &#123; 0 &#125;</span><br><span class="line">Extension elliptic_curves, curve names: &#123;…&#125;</span><br><span class="line">Extension ec_point_formats, formats: [uncompressed]</span><br><span class="line">Extension server_name, server_name: [host_name: HOST]</span><br><span class="line">***</span><br><span class="line">main, WRITE: TLSv1 Handshake, length = 168</span><br><span class="line">main, READ: TLSv1 Alert, length = 2</span><br><span class="line">main, RECV TLSv1 ALERT:  fatal, handshake_failure</span><br><span class="line">main, called closeSocket()</span><br><span class="line">main, handling exception: javax.net.ssl.SSLHandshakeException: </span><br><span class="line">Received fatal alert: handshake_failure</span><br></pre></td></tr></table></figure></p>
 <p>One possible reason is the JRE Library lacks of supported algorithm. (The server side is using some high security encryption algorithms) .</p>
 <p><strong>Solution</strong><br>This problem can be solved by updating the JRE Library with adding stronger algorithms: <code>JCE Unlimited Strength</code>.</p>
 <blockquote>
 <p>In a high security environment, one way of strengthening algorithms in the JDK is through the JCE Unlimited Strength policy files. In this particular case, replacing those policy files allows it to use the stronger variants of existing algorithms and connect successfully.</p>
 </blockquote>
-<p><code>JCE Unlimited Strength</code> downloads: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="external">JDK 8</a>, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="external">JDK 7</a>, or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="external">JDK 6</a>.</p>
-<p><em>Installation</em>: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to <java_home>/lib/security </java_home></p>
+<p><code>JCE Unlimited Strength</code> downloads: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">JDK 8</a>, <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">JDK 7</a>, or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html" target="_blank" rel="noopener">JDK 6</a>.</p>
+<p><em>Installation</em>: unzip the dowload file and copy local_policy.jar and US-export_policy.jar to &lt;JAVA_HOME&gt;/lib/security </p>
 <p><strong>NOTES:</strong></p>
 <ol>
 <li><p>Some cases might be related to <code>TLS protocols</code>, e.g., JDK 8 using TLSv1.2 by default, while JDK 7 has TLSv1 by default. To make the <code>TLS protocols</code> being compliant with each other, try debugging in java with command <code>-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2</code>.</p>
@@ -375,10 +398,10 @@
 <li><p>Someone mentioned that using <code>http:</code> instead of <code>https:</code>. It certainly works without errors, but that is not the reasonable solution.</p>
 </li>
 <li><p>Some cases may refer to <code>server name indication</code> (SNI). If the server requires SNI, trying to setup a connection without SNI will fail. All modern browsers support SNI, but not all SSL stacks in programming languages support SNI or use it by default.<br>To avoid SNI: <code>-Djsse.enableSNIExtension=false</code>,<br>To check SNI with a server,</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="comment"># without SNI</span></div><div class="line">$ openssl s_client -connect www.google.com:443</div><div class="line">CONNECTED(00000003)</div><div class="line">140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:</div><div class="line">....</div><div class="line">New, (NONE), Cipher is (NONE)</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># without SNI</span></span><br><span class="line">$ openssl s_client -connect www.google.com:443</span><br><span class="line">CONNECTED(00000003)</span><br><span class="line">140612985652896:error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure:s23_clnt.c:770:</span><br><span class="line">....</span><br><span class="line">New, (NONE), Cipher is (NONE)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>Ref. links:<br><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html" target="_blank" rel="external">Debugging SSL/TLS Connections from docs.Oracle</a><br><a href="https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https" target="_blank" rel="external">Diagnosing TLS, SSL, and HTTPS from blog.Oracle</a><br><a href="http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception" target="_blank" rel="external">Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow</a><br><a href="http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0" target="_blank" rel="external">SSL handshake alert: unrecognized_name error from stackOverflow</a></p>
+<p>Ref. links:<br><a href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/ReadDebug.html" target="_blank" rel="noopener">Debugging SSL/TLS Connections from docs.Oracle</a><br><a href="https://blogs.oracle.com/java-platform-group/entry/diagnosing_tls_ssl_and_https" target="_blank" rel="noopener">Diagnosing TLS, SSL, and HTTPS from blog.Oracle</a><br><a href="http://stackoverflow.com/questions/6353849/received-fatal-alert-handshake-failure-through-sslhandshakeexception" target="_blank" rel="noopener">Received fatal alert: handshake_failure through SSLHandshakeException from stackOverfLow</a><br><a href="http://stackoverflow.com/questions/7615645/ssl-handshake-alert-unrecognized-name-error-since-upgrade-to-java-1-7-0" target="_blank" rel="noopener">SSL handshake alert: unrecognized_name error from stackOverflow</a></p>
 <hr>
 
       
@@ -402,9 +425,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/coding/" rel="tag">#coding</a>
-          
             <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/coding/" rel="tag">#coding</a>
           
             <a href="/tags/java-web/" rel="tag">#java web</a>
           
@@ -512,7 +535,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -582,7 +605,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ssl-validatorexception"><span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssl-handshakeexception"><span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">SSL: ValidatorException</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">SSL: HandshakeException</span></a></li></ol></div>
             
           </div>
         </section>
@@ -721,6 +744,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 
